@@ -1,0 +1,23 @@
+{
+  "name": "static-quickstart",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "git@github.com:jonheslop/static-quickstart.git",
+  "author": "Jon Heslop <jon@jonheslop.com>",
+  "license": "MIT",
+  "scripts": {
+    "css": "postcss css/style.pcss -o css/style.min.css -w",
+    "dev": "browser-sync start --server --files '*.html, css/*.css'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-easing-gradients": "^3.0.1",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.1.2",
+    "tachyons": "^4.11.1"
+  }
+}
