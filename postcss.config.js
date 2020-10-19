@@ -1,17 +1,21 @@
-const cssnext = require('postcss-cssnext');
+const cssnext = require("postcss-cssnext");
+const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('postcss-nested'),
-    require('postcss-easing-gradients'),
+    require("postcss-import"),
+    require("postcss-nested"),
+    require("postcss-easing-gradients"),
     cssnext({
       features: {
         customProperties: {
-          preserve: true
-        }
-      }
+          preserve: true,
+        },
+      },
     }),
-    require('cssnano')
-  ]
+    // purgecss({
+    //   content: ["./**/*.html"],
+    // }),
+    require("cssnano"),
+  ],
 };

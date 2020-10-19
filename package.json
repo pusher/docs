@@ -1,8 +1,8 @@
 {
-  "name": "static-quickstart",
+  "name": "pusher-docs",
   "version": "1.0.0",
   "main": "index.html",
-  "repository": "git@github.com:jonheslop/static-quickstart.git",
+  "repository": "git@github.com:pusher/docs.git",
   "author": "Jon Heslop <jon@jonheslop.com>",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,7 @@
     "dev": "browser-sync start --server --files '*.html, css/*.css'"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "postcss": "^7.0.17",
