@@ -7,16 +7,16 @@
 {% block container %}
   <div class="flex-grow-1">
     {% include "partials/home-nav.njk" %}
-    <section class="relative mw8 mt6 center">
-      <header class="mt6 mt7-l mb5">
-        <h1 class="f1 fw5 ma0 lh-title">Documention</h1>
+    <section class="pa5 mw8 mt6 center">
+      <header class="mt6-l mt7-l mb5">
+        <h1 class="f2 f1-ns fw5 ma0 lh-title">Documention</h1>
       </header>
-      <div class="f4 measure">
+      <div class="f5 f4-ns measure">
         {{ super() }}
       </div>
       
-      <div class="g2x gg3 mv6">
-        <div class="pa5 br2 ba b--smoke-light flex flex-column justify-between items-start">
+      <div class="g2x-ns gg3 mv6">
+        <div class="pa5 br2 ba b--smoke-light flex flex-column justify-between items-start mb5 mb0-ns">
           {{ channelsLogo("2.5rem") }}
           <p class="measure f5 mb5">{{ "Build realtime features in your web and mobile apps with our hosted pub/sub messaging API." | widont | safe }}</p>
           <ul class="list ma0 pa0 w-100">
