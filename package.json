@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "browser-sync": "browser-sync start --server --files '*.html, css/*.css'",
-    "dev": "npm run eleventy --serve & postcss css/style.pcss --o _tmp/style.min.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss css/style.pcss --o _site/style.css"
+    "dev": "eleventy --serve & postcss css/style.pcss --o _tmp/style.min.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss css/style.pcss --o _site/style.min.css"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
