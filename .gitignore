@@ -3,3 +3,5 @@ node_modules/
 yarn-error.log
 
 css/*.min.css
+_site/
+_tmp/
