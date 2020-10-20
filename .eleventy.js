@@ -33,7 +33,7 @@ module.exports = (eleventyConfig) => {
   const markdownItAnchor = require("markdown-it-anchor");
   const opts = {
     permalink: true,
-    permalinkClass: "link anchor",
+    permalinkClass: "link bn",
     permalinkSymbol: "∞",
     permalinkBefore: true,
   };
