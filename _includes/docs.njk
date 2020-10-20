@@ -1,0 +1,22 @@
+{% extends "./base.njk" %}
+
+{% block header %}
+  {% include "nav.njk" %}
+{% endblock %}
+
+{% block container %}
+
+  <section class="flex flex-wrap flex-nowrap-ns items-start justify-around relative mw10 mt6">
+    <article class="measure-wide nested-links nested-code mh5 basis-60-ns">
+
+      {{ super() }}
+
+    </article>
+    {% if content | toc %}
+      <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-links nested-copy-seperator nested-code basis-40-ns">
+        {{ content | toc | replace("∞", "") | safe }}
+      </aside>
+    {% endif %}
+  </section>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/style.min.css" rel="stylesheet" />
+    <title>{{ title }}</title>
+    <meta
+      name="description"
+      content="{{ description }}"
+    />
+  </head>
+  <body class="relative {{ bodyClasses }}">
+
+    {% block header %}
+    {% endblock %}
+
+    <div class="flex-grow-1 flex flex-column justify-between">
+      {% block container %}
+        {{ content | safe }}
+      {% endblock %}
+    
+      {% include "footer.njk" %}
+    </div>
+  </body>
+</html>

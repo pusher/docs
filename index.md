@@ -1,9 +1,7 @@
 ---
 title: Pusher Docs
 description: Some words about what this website is to help people find it with search engines.
-layout: layout.njk
+layout: home.njk
 ---
 
-# Hello
-
-Pusher Channels provides realtime communication between servers, apps and devices. Channels is used for [realtime charts](http://localhost:8080/docs/channels/getting_started/javascript-realtime-chart), realtime user lists, realtime maps, multiplayer gaming, and many other kinds of UI updates.
+Welcome to Pusher. Hosted APIs that are flexible, scalable, and easy to integrate. Get familiar with our products by getting started or exploring our API documentation.

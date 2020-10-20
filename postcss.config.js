@@ -13,9 +13,13 @@ module.exports = {
         },
       },
     }),
-    purgecss({
-      content: ["_site/**/*.html"],
-    }),
-    ...(process.env.NODE_ENV === "production" ? [require("cssnano")] : []),
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          purgecss({
+            content: ["_site/**/*.html"],
+          }),
+          require("cssnano"),
+        ]
+      : []),
   ],
 };

@@ -1,0 +1,50 @@
+{% from "channels-logo.njk" import channelsLogo %}
+{% from "beams-logo.njk" import beamsLogo %}
+
+<header class="bb bb-0-l br-l b--smoke-light pa5 relative">
+  <div class="sticky top-2">
+    <h1 class="ma0">
+      <a class="link eggplant f4 flex items-end" href="/">
+        {% include "pusher-logo.njk" %}
+        Docs
+      </a>
+    </h1>
+
+    <nav class="mt5 dn db-l">
+      {% set navPages = collections.all | eleventyNavigation(product) %}
+      {% macro renderNavListItem(entry) -%}
+      <li class="mb1 {{ 'fw6' if entry.url == page.url }}">
+        <a class="link eggplant hover-dragonfruit {{ 'ttu fw6' if level == 0 }}" href="{{ entry.url | url }}">
+          {{ entry.title }}
+        </a>
+      {%- if entry.children.length -%}
+        <ul class="list ma0 mt1 pa0 pl3">
+          {%- for child in entry.children %}
+            {{ renderNavListItem(child, 1) }}
+          {% endfor -%}
+        </ul>
+      {%- endif -%}
+      </li>
+      {%- endmacro %}
+
+      <ul class="list ma0 pa0">
+        <li class="ttu fw6 f4">
+          <a href="/channels" class="link eggplant hover-dragonfruit">
+            {{ channelsLogo() }}
+          </a>
+        </li>
+        {% if product == 'Channels' %}
+          {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}{%- endfor -%}
+        {% endif %}
+        <li class="ttu fw6 f4 mt5">
+          <a href="/beams" class="link eggplant hover-dragonfruit">
+            {{ beamsLogo() }}
+          </a>
+        </li>
+        {% if product == 'Beams' %}
+          {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}{%- endfor -%}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
