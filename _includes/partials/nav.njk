@@ -1,11 +1,11 @@
-{% from "channels-logo.njk" import channelsLogo %}
-{% from "beams-logo.njk" import beamsLogo %}
+{% from "partials/channels-logo.njk" import channelsLogo %}
+{% from "partials/beams-logo.njk" import beamsLogo %}
 
 <header class="bb bb-0-l br-l b--smoke-light pa5 relative">
   <div class="sticky top-2">
     <h1 class="ma0">
       <a class="link eggplant f4 flex items-end" href="/">
-        {% include "pusher-logo.njk" %}
+        {% include "partials/pusher-logo.njk" %}
         Docs
       </a>
     </h1>
@@ -28,7 +28,7 @@
       {%- endmacro %}
 
       <ul class="list ma0 pa0">
-        <li class="ttu fw6 f4">
+        <li class="mb3">
           <a href="/channels" class="link eggplant hover-dragonfruit">
             {{ channelsLogo() }}
           </a>
@@ -36,7 +36,7 @@
         {% if product == 'Channels' %}
           {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}{%- endfor -%}
         {% endif %}
-        <li class="ttu fw6 f4 mt5">
+        <li class="mt5 mb3">
           <a href="/beams" class="link eggplant hover-dragonfruit">
             {{ beamsLogo() }}
           </a>
