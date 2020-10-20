@@ -36,13 +36,13 @@
 
           <ul class="list ma0 pa0">
             <li class="ttu fw6 f4">
-              <a href="/channels" class="link">Channels</a>
+              <a href="/channels" class="link eggplant hover-dragonfruit">Channels</a>
             </li>
             {% if product == 'Channels' %}
               {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}{%- endfor -%}
             {% endif %}
             <li class="ttu fw6 f4 mt5">
-              <a href="/beams" class="link">Beams</a>
+              <a href="/beams" class="link eggplant hover-dragonfruit">Beams</a>
             </li>
             {% if product == 'Beams' %}
               {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}{%- endfor -%}
