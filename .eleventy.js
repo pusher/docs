@@ -43,11 +43,11 @@ module.exports = (eleventyConfig) => {
   };
 
   markdownIt.renderer.rules.image = (tokens) => {
-    const src = tokens[0].attrs[tokens[0].attrIndex("src")][1].replace('.', '');
+    const src = tokens[0].attrs[tokens[0].attrIndex("src")][1].replace(".", "");
     const width = tokens[0].attrs[tokens[0].attrIndex("width")][1];
     const height = tokens[0].attrs[tokens[0].attrIndex("height")][1];
     const alt =
-      tokens[0].attrs[tokens[0].attrIndex("alt")][1] || tokens[0].content;
+      tokens[0].attrs[tokens[0].attrIndex("alt")][1] || tokens[0].children[0].content;
     return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
