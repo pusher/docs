@@ -1,3 +1,5 @@
+@import "./modules/syntax-highlighting.pcss";
+
 /*! TACHYONS v4.9.0 | http://tachyons.io */
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -63,7 +65,7 @@ dfn {
   font-style: italic;
 }
 mark {
-  background-color: #ff0;
+  background-color: rgba(255, 255, 0, 0.333);
   color: #000;
 }
 small {
@@ -7912,7 +7914,52 @@ button:focus {
   border-radius: var(--border-radius-2);
   word-break: break-all;
   overflow-x: auto;
+  counter-reset: lineNumber;
+  scrollbar-color: var(--smoke-dark) var(--snow-light);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--snow-light);
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: var(--white);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--smoke-dark);
+    border-radius: var(--border-radius-pill);
+  }
 }
+.nested-code code[class*="language-"],
+.nested-code pre[class*="language-"] {
+  color: var(--eggplant);
+  padding: 0;
+}
+.nested-code pre[class*="language-"] {
+  padding: var(--spacing-medium) var(--spacing-small);
+  overflow: auto;
+}
+.nested-code :not(pre) > code[class*="language-"] {
+  padding: var(--spacing-extra-extra-small);
+}
+
+.nested-code code .highlight-line:before {
+  -webkit-user-select: none;
+  border-right: 1px solid var(--smoke-dark);
+  color: var(--silver);
+  content: counter(lineNumber);
+  counter-increment: lineNumber;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  margin-right: var(--spacing-small);
+  padding-right: var(--spacing-extra-small);
+  text-align: right;
+  width: var(--width-1);
+}
+
 .nested-headlines h1,
 .nested-headlines h2,
 .nested-headlines h3,
@@ -7922,51 +7969,27 @@ button:focus {
   font-weight: 500;
 }
 .nested-headlines h1 {
-  font-size: 2.375rem;
-  font-weight: 500;
-  line-height: 1.421052632;
-  margin: 6rem 0 1.5rem;
-}
-@media screen and (min-width: 62.5em) {
-  .nested-headlines h1 {
-    font-size: 3.625rem;
-    font-size: var(--font-size-1);
-    line-height: 1.275862069;
-  }
-}
-.nested-headlines h2 {
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.375;
-  margin: 5rem 0 1rem;
-}
-@media screen and (min-width: 62.5em) {
-  .nested-headlines h2 {
-    font-size: 2.875rem;
-    font-size: var(--font-size-2);
-    line-height: 1.304347826;
-  }
-}
-.nested-headlines h3 {
   font-size: 1.625rem;
   font-weight: 500;
   line-height: 1.461538462;
   margin: 4rem 0 1rem;
 }
 @media screen and (min-width: 62.5em) {
-  .nested-headlines h3 {
+  .nested-headlines h1 {
     font-size: 2.125rem;
     font-size: var(--font-size-3);
     line-height: 1.411764706;
   }
 }
-.nested-headlines h4 {
+.nested-headlines h2 {
   font-size: 1.25rem;
   font-size: var(--font-size-4);
   font-weight: 500;
   line-height: 1.7;
-  margin: 2rem 0 1rem;
+  margin: 3rem 0 1rem;
 }
+.nested-headlines h3,
+.nested-headlines h4,
 .nested-headlines h5,
 .nested-headlines h6 {
   font-size: 1rem;
@@ -10013,5 +10036,15 @@ body {
 
   .basis-60-ns {
     flex-basis: 60%;
+  }
+}
+
+.side-nav {
+  box-shadow: rgba(207, 211, 230, 0.5) 0 2px 4px;
+}
+
+@media screen and (min-width: 62.5em) {
+  .side-nav {
+    box-shadow: rgba(207, 211, 230, 0.5) 2px 0 4px;
   }
 }
