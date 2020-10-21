@@ -7937,6 +7937,7 @@ button:focus {
 .nested-code code[class*="language-"],
 .nested-code pre[class*="language-"] {
   color: var(--eggplant);
+  margin: 0;
   padding: 0;
 }
 .nested-code pre[class*="language-"] {
@@ -10047,5 +10048,36 @@ body {
 @media screen and (min-width: 62.5em) {
   .side-nav {
     box-shadow: rgba(207, 211, 230, 0.5) 2px 0 4px;
+  }
+}
+
+.tabbed-snippets pre:not(:first-of-type):not(.db) {
+  display: none;
+}
+
+.tabbed-snippets button {
+  border-bottom: 3px solid var(--transparent);
+}
+.tabbed-snippets button[aria-selected="true"] {
+  border-bottom-color: var(--dragonfruit);
+}
+
+.scrollbar--light {
+  scrollbar-color: var(--smoke-dark) var(--snow-light);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--snow-light);
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: var(--snow-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--smoke-dark);
+    border-radius: var(--border-radius-pill);
   }
 }

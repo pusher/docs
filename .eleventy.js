@@ -1,7 +1,7 @@
 const fs = require("fs");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-toc");
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("./_tmp/style.min.css");
@@ -48,7 +48,8 @@ module.exports = (eleventyConfig) => {
     const width = tokens[0].attrs[tokens[0].attrIndex("width")][1];
     const height = tokens[0].attrs[tokens[0].attrIndex("height")][1];
     const alt =
-      tokens[0].attrs[tokens[0].attrIndex("alt")][1] || tokens[0].children[0].content;
+      tokens[0].attrs[tokens[0].attrIndex("alt")][1] ||
+      tokens[0].children[0].content;
     return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
@@ -56,7 +57,7 @@ module.exports = (eleventyConfig) => {
 
   markdownIt
     .use(markdownItAnchor, opts)
-    .use(require('markdown-it-imsize'), { autofill: true })
+    .use(require("markdown-it-imsize"), { autofill: true });
 
   eleventyConfig.setLibrary("md", markdownIt);
 
@@ -77,9 +78,34 @@ module.exports = (eleventyConfig) => {
     ghostMode: false,
   });
 
+  eleventyConfig.addPairedShortcode("snippets", function (content, languages) {
+    const languageMap = {
+      rb: "Ruby",
+      js: "Node",
+      php: "PHP",
+      go: "Go",
+      py: "Python",
+      c: ".NET",
+      java: "Java",
+      bash: "Pusher&nbsp;CLI",
+    };
+    return `<div class="bg-snow-light br2 tabbed-snippets">
+      <nav class="ph3 bb b--smoke overflow-auto scrollbar--light">
+        <ul class="flex">
+      ${languages
+        .map(
+          (language) =>
+            `<li class="mh1"><button class="bn bg-snow-light sans-serif fw6 pt3 pb2 ph2 dragonfruit pointer pa0" data-snippet="language-${language}">${languageMap[language]}</button></li>`
+        )
+        .join("\n")}
+      </ul>
+    </nav>
+    ${content}</div>`;
+  });
+
   return {
-    templateFormats: ["md", "html", "njk", "liquid"],
-    markdownTemplateEngine: "liquid",
+    templateFormats: ["md", "html", "njk", "mjs"],
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
     passthroughFileCopy: true,

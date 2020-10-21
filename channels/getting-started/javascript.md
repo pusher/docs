@@ -48,6 +48,8 @@ Every published event has an "event name". The event you will publish will have 
 
 In the examples below we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below a server library deals with the server communication.
 
+{% snippets ['rb', 'js', 'php', 'c', 'go', 'py', 'java', 'bash'] %}
+
 ```rb
 # First, run 'gem install pusher'
 
@@ -81,6 +83,97 @@ var pusher = new Pusher({
 
 pusher.trigger("my-channel", "my-event", { message: "hello world" });
 ```
+
+```php
+// First, run 'composer require pusher/pusher-php-server'
+
+require __DIR__ . '/vendor/autoload.php';
+
+$pusher = new Pusher\Pusher("APP_KEY", "APP_SECRET", "APP_ID", array('cluster' => 'APP_CLUSTER'));
+
+$pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
+
+```
+
+```c
+// First, run 'Install-Package PusherServer'
+
+using PusherServer;
+using System.Web.Mvc;
+using System.Net;
+using Your.Config;
+
+public class HelloWorldController : Controller {
+  [httpPost]
+  public async Task<ActionResult> HelloWorld() {
+    var options = new PusherOptions();
+    options.Cluster = 'APP_CLUSTER';
+
+    var pusher = new Pusher('APP_ID', 'APP_KEY', 'APP_SECRET', options);
+    var result = await pusher.TriggerAsync("my-channel", "my-event", new { message = "hello world" });
+    return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+  }
+}
+```
+
+```py
+# First, run 'pip install pusher'
+
+import pusher
+
+pusher_client = pusher.Pusher(
+  app_id=u'APP_ID',
+  key=u'APP_KEY',
+  secret=u'APP_SECRET',
+  cluster=u'APP_CLUSTER'
+)
+
+pusher_client.trigger(u'my-channel', u'my-event', {u'message': u'hello world'})
+```
+
+```go
+// First, run 'go get github.com/pusher/pusher-http-go'
+
+package main
+
+import "github.com/pusher/pusher-http-go"
+
+func main(){
+
+  pusherClient := pusher.Client{
+    AppId: "APP_ID",
+    Key: "APP_KEY",
+    Secret: "APP_SECRET",
+    Cluster: "APP_CLUSTER",
+  }
+
+  data := map[string]string{"message": "hello world"}
+  pusherClient.Trigger("my-channel", "my-event", data)
+}
+```
+
+```java
+/*
+  First, add this Maven dependency:
+
+  <dependency>
+    <groupId>com.pusher</groupId>
+    <artifactId>pusher-http-java</artifactId>
+    <version>1.0.0</version>
+  </dependency>
+*/
+
+Pusher pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET");
+pusher.setCluster("APP_CLUSTER");
+
+pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "Hello World"));
+```
+
+```bash
+$ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "my-event" --message "hello world"
+```
+
+{% endsnippets %}
 
 If there isn’t an example in a language that you are familiar with then have a look on our server libraries page to see if anyone has created one in your language.
 
