@@ -15,7 +15,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC, {
     ul: true,
-    wrapperClass: "nested-list-reset",
+    wrapperClass: "toc-list",
   });
 
   eleventyConfig.addFilter("widont", (string) => {
