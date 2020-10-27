@@ -12,7 +12,7 @@ After following this guide you will have published an event to your web app usin
 
 ## Get your free API keys
 
-(Create an account)[https://dashboard.pusher.com/accounts/sign_up], then create a Channels app. Go to the "Keys" page for that app, and make a note of your `app_id`, `key`, `secret` and `cluster`.
+[Create an account](https://dashboard.pusher.com/accounts/sign_up), then create a Channels app. Go to the "Keys" page for that app, and make a note of your `app_id`, `key`, `secret` and `cluster`.
 
 ## Include the Channels Client
 
