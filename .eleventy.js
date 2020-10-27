@@ -105,6 +105,8 @@ module.exports = (eleventyConfig) => {
     ${content}</div>`;
   });
 
+  eleventyConfig.setUseGitIgnore(false);
+
   return {
     templateFormats: ["md", "html", "njk", "mjs"],
     markdownTemplateEngine: "njk",
