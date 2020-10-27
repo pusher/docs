@@ -7,11 +7,11 @@
   "license": "MIT",
   "scripts": {
     "browser-sync": "browser-sync start --server --files '*.html, css/*.css'",
-    "dev": "eleventy --serve & postcss css/style.pcss -o _tmp/style.min.css -w",
+    "dev": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose & eleventy --serve",
     "build": "NODE_ENV=production postcss css/style.pcss -o _site/style.min.css & ELEVENTY_PRODUCTION=true eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
     "@fullhuman/postcss-purgecss": "^3.0.0",
