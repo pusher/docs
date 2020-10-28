@@ -1,7 +1,7 @@
 {% from "partials/channels-logo.njk" import channelsLogo %}
 {% from "partials/beams-logo.njk" import beamsLogo %}
 
-<header class="side-nav pa5 relative">
+<header class="side-nav pa5 relative flex-shrink-0">
   <div class="sticky top-2">
     <h1 class="ma0">
       <a class="link eggplant f4 flex items-end" href="/">
@@ -12,13 +12,18 @@
 
     <nav class="mt5 dn db-l">
       {% set navPages = collections.all | eleventyNavigation(product) %}
-      {% macro renderNavListItem(entry) -%}
-      <li class="mb1 {{ 'fw6' if entry.url == page.url }}">
-        <a class="link eggplant hover-dragonfruit {{ 'ttu fw6' if level == 0 }}" href="{{ entry.url | url }}">
+      {% macro renderNavListItem(entry, level) -%}
+      <li class="{{ 'mt5' if level == 0 }} {{ 'bg-snow-light br1 br--bottom' if (entry.url == page.url and level != 0) }}">
+        <a class="db pv1 ph3 link eggplant br1 {{ 'bg-eggplant white focus-black' if (entry.url == page.url and level != 0) else 'hover-dragonfruit hover-bg-snow-light' }} {{ 'ttu fw7' if level == 0 }}" href="{{ entry.url | url }}">
           {{ entry.title }}
         </a>
+        {% if entry.url == page.url and level != 0 %}
+          {% if content | toc and hideTOC != true %}
+            {{ content | toc | replace("∞", "") | safe }}
+          {% endif %}
+        {% endif %}
       {%- if entry.children.length -%}
-        <ul class="list ma0 mt1 pa0 pl3">
+        <ul class="list ma0 pa0">
           {%- for child in entry.children %}
             {{ renderNavListItem(child, 1) }}
           {% endfor -%}

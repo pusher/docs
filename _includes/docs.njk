@@ -6,22 +6,14 @@
 
 {% block container %}
   <section class="flex flex-wrap flex-nowrap-ns items-start justify-around relative mw10 mt6">
-    <article class="f7 lh-copy nested-img nested-links nested-list-reset nested-code nested-headlines nested-copy-letter-spacing nested-measure-wide
-    mh5 mh6-l basis-60-ns">
+    <article class="f7 lh-copy nested-img nested-links nested-code nested-headlines nested-copy-letter-spacing nested-measure-wide
+    nested-text-margin mh5 mh6-l basis-60-ns">
 
       {{ super() }}
 
     </article>
-    {% if content | toc and hideTOC != true %}
-      <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-copy-seperator nested-code basis-40-ns">
-        <header class="mb4 lh-title bb b--smoke">
-          <h4 class="f4 fw5 ma0">Contents</h4>
-        </header>
-        {{ content | toc | replace("∞", "") | safe }}
-      </aside>
-    {% else %}
-      <aside class="mh5 basis-40-ns"></aside>
-    {% endif %}
+    <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-copy-seperator nested-code basis-40-ns">
+    </aside>
   </section>
 
 {% endblock %}

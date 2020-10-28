@@ -14,6 +14,7 @@ module.exports = (eleventyConfig) => {
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC, {
+    tags: ["h2", "h3"],
     ul: true,
     wrapperClass: "toc-list",
   });
@@ -37,6 +38,7 @@ module.exports = (eleventyConfig) => {
   });
   const markdownItAnchor = require("markdown-it-anchor");
   const opts = {
+    level: [2, 3, 4, 5],
     permalink: true,
     permalinkClass: "link bn",
     permalinkSymbol: "∞",

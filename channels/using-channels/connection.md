@@ -2,7 +2,7 @@
 title: Connection — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: Channels
+  parent: Using Channels
   key: Connection
 ---
 
@@ -12,13 +12,254 @@ The Channels connection is the fundamental means of communication with the servi
 
 ## Connecting to Channels
 
-| State            | Note                                                                                                                                                                                                                                                                                    |
-| :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **initialized**  | Initial state. No event is emitted in this state.                                                                                                                                                                                                                                       |
-| **connecting**   | All dependencies have been loaded and Channels is trying to connect. The connection will also enter this state when it is trying to reconnect after a connection failure.                                                                                                               |
-| **connected**    | The connection to Channels is open and authenticated with your app.                                                                                                                                                                                                                     |
-| **unavailable**  | The connection is temporarily unavailable. In most cases this means that there is no internet connection. It could also mean that Channels is down, or some intermediary is blocking the connection. In this state, pusher-js will automatically retry the connection every 15 seconds. |
-| **failed**       | Channels is not supported by the browser. This implies that WebSockets are not natively available and an HTTP-based transport could not be found.                                                                                                                                       |
-| **disconnected** | The Channels connection was previously connected and has now intentionally been closed.                                                                                                                                                                                                 |
+When you create a new `Pusher` object you are automatically connected to Channels.
 
-more words
+```js
+var pusher = new Pusher("APP_KEY", options);
+```
+
+- `applicationKey` (String) - The application key is a string which is globally unique to your application. It can be found in the API Access section of your application within the Channels user dashboard.
+- `options` (Object) _optional_ - See Channels `options` parameter below.
+
+### Channels 'options' parameter
+
+The `options` parameter on the `Pusher` constructor is an optional parameter used to apply configuration on a newly created `Pusher` instance.
+
+```js
+{
+  cluster: 'APP_CLUSTER',
+  forceTLS: true,
+  auth: {
+    params: {
+      param1: 'value1',
+      param2: 'value2'
+    },
+    headers: {
+      header1: 'value1',
+      header2: 'value2'
+    }
+  }
+}
+```
+
+The options are:
+
+#### forceTLS (Boolean)
+
+It’s possible to define if the connection should be made over TLS. For more information see Encrypting connections
+
+#### authEndpoint (String)
+
+Endpoint on your server that will return the authentication signature needed for private and presence channels. Defaults to `'/pusher/auth'`.
+
+For more information see authenticating users.
+
+> If authentication fails a `subscription_error` event is triggered on the channel. For more information see handling authentication problems.
+
+#### authTransport (String)
+
+Defines how the authentication endpoint, defined using `authEndpoint`, will be called. There are two options available:
+
+- **ajax** - The **default** option where an `XMLHttpRequest` object will be used to make a request. The parameters will be passed as `POST` parameters.
+- **jsonp** - The authentication endpoint will be called by a `<script>` tag being dynamically created pointing to the endpoint defined by `authEndpoint`. This can be used when the authentication endpoint is on a different domain to the web application. The endpoint will therefore be requested as a `GET` and parameters passed in the query string.
+
+For more information see the Channel authentication transport section of the authenticating users docs.
+
+#### auth (Object)
+
+> This feature was introduced in **version 1.12** of the Channels JavaScript library.
+
+The auth option lets you send additional information with the authentication request. See authenticating users.
+
+When creating a `Pusher` instance the `options` parameter can have an `auth` property set as follows:
+
+```js
+var pusher = new Pusher("app_key", {
+  auth: {
+    params: {
+      CSRFToken: "some_csrf_token",
+    },
+  },
+});
+```
+
+#### auth.params (Object)
+
+Additional parameters to be sent when the channel authentication endpoint is called. When using ajax authentication the parameters are passed as additional `POST` parameters. When using jsonp authentication the parameters are passed as `GET` parameters. This can be useful with web application frameworks that guard against [CSRF (Cross-site request forgery)](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+#### auth.headers (Object)
+
+**Only applied when using ajax authentication**
+
+Provides the ability to pass additional HTTP Headers to the channel authentication endpoint when authenticating a channel. This can be useful with some web application frameworks that guard against CSRF [CSRF (Cross-site request forgery)](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+```js
+var pusher = new Pusher("app_key", {
+  auth: {
+    headers: {
+      "X-CSRF-Token": "some_csrf_token",
+    },
+  },
+});
+```
+
+#### cluster (String)
+
+The identifier of the cluster your application was created in. When not supplied, will connect to the `mt1` (`us-east-1`) cluster.
+
+```js
+// will connect to the 'eu' cluster
+var pusher = new Pusher("app_key", { cluster: "eu" });
+```
+
+This parameter is mandatory when the app is created in a any cluster except `mt1` (`us-east-1`). Read more about configuring clusters.
+
+#### disableStats (Boolean)
+
+Disables stats collection, so that connection metrics are not submitted to Pusher’s servers.
+
+#### enabledTransports (Array)
+
+Specifies which transports should be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
+
+#### disabledTransports (Array)
+
+Specifies which transports must not be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
+
+#### wsHost, wsPort, wssPort, httpHost, httpPort, httpsPort
+
+These can be changed to point to alternative Channels URLs (used internally for our staging server).
+
+#### ignoreNullOrigin (Boolean)
+
+Ignores null origin checks for HTTP fallbacks. Use with care, it should be disabled only if necessary (i.e. PhoneGap).
+
+#### activityTimeout (Integer)
+
+After this time (in milliseconds) without any messages received from the server, a ping message will be sent to check if the connection is still working. Default value is supplied by the server, low values will result in unnecessary traffic.
+
+#### pongTimeout (Integer)
+
+After sending a ping message to the server, the client waits `pongTimeout` milliseconds for a response before assuming the connection is dead and closing it. Default value is supplied by the server.
+
+### TLS connections
+
+A Channels client can be configured to only connect over TLS connections. An application that uses TLS should use this option to ensure connection traffic is encrypted. It is also possible to force connections to use TLS by enabling the **Force TLS** setting within an application's dashboard settings.
+
+The option to force TLS is available on all plans.
+
+```js
+var pusher = new Pusher("app_key", { forceTLS: true });
+```
+
+### Detecting Connection Limits
+
+> Connection limits are currently only strictly enforced on Sandbox plans. In practical terms this means that when you hit your connection limits and you’re on a Sandbox plan then you will be limited immediately. If you’re on a paid plan then we will not hard limit you until you’ve reached 120% of your plan’s connection limits. You will receive an email if your account exceeds your connection limit. If you are on a Sandbox plan and want to avoid connection limits upgrade your account. For more information on plan limits see pricing.
+
+When connection limits are reached additional connections over the limit will be rejected. You can capture the rejection by binding to the `error` event on the `pusher.connection` object.
+
+```js
+var pusher = new Pusher("app_key");
+pusher.connection.bind("error", function (err) {
+  if (err.error.data.code === 4004) {
+    log(">>> detected limit error");
+  }
+});
+```
+
+## Disconnecting from Channels
+
+It is also possible to disconnect from Channels.
+
+```js
+pusher.disconnect();
+```
+
+> Connections automatically close when a user navigates to another web page or closes their web browser so there is no need to do this manually.
+
+## Connection States
+
+When working with our Channels client library, you can monitor the state of the connection so that you can notify users about expected behaviour.
+
+> This document refers to version 1.9.0 of our library and above. Previous versions used the following events which have now been removed: `pusher:connection_established` and `pusher:connection_failed`.
+
+There are multiple ways to use the connection state API:
+
+- Bind to individual state change events
+- Bind to all state change events
+- Query the state directly
+
+Additionally, the reconnect mechanism is now more transparent. This means that you can display messages that tell the user when the service might be connected.
+
+### Available states
+
+You can access the current state as `pusher.connection.state` and bind to a state change using `pusher.connection.bind('connected', function() {...})`
+
+| State          | Note                                                                                                                                                                                                                                                                                    |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `initialized`  | Initial state. No event is emitted in this state.                                                                                                                                                                                                                                       |
+| `connecting`   | All dependencies have been loaded and Channels is trying to connect. The connection will also enter this state when it is trying to reconnect after a connection failure.                                                                                                               |
+| `connected`    | The connection to Channels is open and authenticated with your app.                                                                                                                                                                                                                     |
+| `unavailable`  | The connection is temporarily unavailable. In most cases this means that there is no internet connection. It could also mean that Channels is down, or some intermediary is blocking the connection. In this state, pusher-js will automatically retry the connection every 15 seconds. |
+| `failed`       | Channels is not supported by the browser. This implies that WebSockets are not natively available and an HTTP-based transport could not be found.                                                                                                                                       |
+| `disconnected` | The Channels connection was previously connected and has now intentionally been closed.                                                                                                                                                                                                 |
+
+#### Example state changes
+
+Given a supported browser and functioning internet connection, the following states are expected:
+
+`initialized -> connecting -> connected`
+
+Temporary failure of the Channels connection will cause
+
+`connected -> connecting -> connected`
+
+If an internet connection disappears
+
+`connected -> connecting -> unavailable (after ~ 30s)`
+
+When the internet connection becomes available again
+
+`unavailable -> connected`
+
+In the case that Channels is not supported:
+
+`initialized -> failed`
+
+#### Binding to connection events
+
+Each Channels instance now has a `connection` object which manages the current state of the Channels connection and allows binding to state changes:
+
+```js
+var pusher = new Pusher("_APP_KEY");
+
+pusher.connection.bind("connected", function () {
+  $("div#status").text("Realtime is go!");
+});
+```
+
+You can also bind to the `error` event, which is emitted whenever a connection error occurs:
+
+```js
+pusher.connection.bind("error", function (error) {
+  console.error("connection error", error);
+  $("div#status").text("Error!");
+});
+```
+
+#### Binding to all state changes
+
+There’s an extra `state_change` utility event that fires for all state changes:
+
+```js
+pusher.connection.bind("state_change", function (states) {
+  // states = {previous: 'oldState', current: 'newState'}
+  $("div#status").text("Channels current state is " + states.current);
+});
+```
+
+### Querying the connection state
+
+```js
+const state = pusher.connection.state;
+```
