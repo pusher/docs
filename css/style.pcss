@@ -10081,6 +10081,32 @@ body {
     border-radius: var(--border-radius-pill);
   }
 }
+
+table {
+  border: 1px solid var(--smoke);
+  border-radius: var(--border-radius-2);
+  border-spacing: 0;
+}
+
+thead {
+  background: var(--snow-light);
+}
+
+th,
+td {
+  padding: var(--spacing-small);
+  border-bottom: 1px solid var(--smoke);
+}
+
+th + th,
+td + td {
+  border-left: 1px solid var(--smoke);
+}
+
+td {
+  vertical-align: top;
+}
+
 .nested-measure-wide p {
   max-width: var(--measure-wide);
 }
