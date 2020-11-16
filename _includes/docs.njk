@@ -12,8 +12,17 @@
       {{ super() }}
 
     </article>
-    <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-copy-seperator nested-code basis-40-ns">
-    </aside>
+    {% if not hideTOC %}
+      <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-copy-seperator nested-code basis-40-ns">
+        <header class="mb4 lh-title bb b--smoke">
+          <h4 class="f4 fw5 ma0">Contents</h4>
+        </header>
+        {{ content | toc | replace("∞", "") | safe }}
+      </aside>
+    {% else %}
+      <aside class="measure mt6 mt7-l top-2 mh5 basis-40-ns">
+      </aside>
+    {% endif %}
   </section>
 
 {% endblock %}
