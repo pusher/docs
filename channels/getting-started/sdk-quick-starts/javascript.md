@@ -2,7 +2,7 @@
 title: JavaScript quick start — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: Getting started
+  parent: SDK quick starts
   key: JavaScript quick start
 ---
 
