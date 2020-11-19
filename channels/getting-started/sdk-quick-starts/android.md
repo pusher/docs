@@ -203,3 +203,9 @@ $ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "m
 ```
 
 {% endsnippets %}
+
+If there isn’t an example in a language that you are familiar with then have a look on our server libraries page to see if anyone has created one in your language.
+
+## Where next?
+
+Find out about all the cool stuff you can do with [channels](/docs/channels/using_channels/channels). Learn how to [exclude event recipients](/docs/channels/server_api/excluding-event-recipients) when publishing events.
