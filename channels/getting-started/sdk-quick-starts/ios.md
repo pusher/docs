@@ -4,6 +4,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: SDK quick starts
   key: iOS quick start
+  order: 2
 ---
 
 # iOS quick start

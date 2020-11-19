@@ -4,6 +4,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: SDK quick starts
   key: Android quick start
+  order: 3
 ---
 
 # Android quick start

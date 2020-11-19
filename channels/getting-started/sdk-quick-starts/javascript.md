@@ -4,6 +4,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: SDK quick starts
   key: JavaScript quick start
+  order: 1
 ---
 
 # JavaScript quick start
