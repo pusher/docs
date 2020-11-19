@@ -52,7 +52,6 @@ In the examples below we trigger an event named `my-event` to Channels on a chan
 
 ```rb
 # First, run 'gem install pusher'
-
 require 'pusher'
 
 pusher = Pusher::Client.new(
@@ -62,11 +61,7 @@ pusher = Pusher::Client.new(
   cluster: 'APP_CLUSTER'
 )
 
-class HelloWorldController < ApplicationController
-  def hello_world
-    pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
-  end
-end
+pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
 ```
 
 ```js
