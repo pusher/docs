@@ -16,11 +16,13 @@
       <a class="db pv1 ph3 link eggplant br1 {{ 'bg-eggplant white focus-black' if (entry.url == page.url and level != 0) else 'hover-dragonfruit hover-bg-snow-light' }} {{ 'ttu fw7' if level == 0 }}" href="{{ entry.url | url }}">
         {{ entry.title }} {{ 'drop' if dropdown }}
       </a>
+      {#
       {% if entry.url == page.url and level != 0 %}
         {% if content | toc and hideTOC != true %}
           {{ content | toc | replace("∞", "") | safe }}
         {% endif %}
       {% endif %}
+      #}
     {%- if entry.children.length -%}
       <ul class="list ma0 pa0 {{ 'pl3' if level == 1 }}">
         {%- for child in entry.children %}
