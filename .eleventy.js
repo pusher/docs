@@ -90,6 +90,8 @@ module.exports = (eleventyConfig) => {
       c: ".NET",
       java: "Java",
       bash: "Pusher&nbsp;CLI",
+      swift: "Swift",
+      objc: "Objective-C",
     };
     return `<div class="bg-snow-light br2 tabbed-snippets">
       <nav class="ph3 bb b--smoke overflow-auto scrollbar--light">
