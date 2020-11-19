@@ -1,0 +1,27 @@
+{% from "partials/channels-logo.njk" import channelsLogo %}
+{% from "partials/beams-logo.njk" import beamsLogo %}
+
+{% set bodyClasses = "flex flex-column flex-row-l min-vh-100" %}
+{% extends "base.njk" %}
+
+{% block container %}
+  <div class="flex-grow-1">
+    {% include "partials/home-nav.njk" %}
+    <section class="flex flex-wrap flex-nowrap-ns items-start justify-around relative mw10 mt6">
+      <article class="f7 lh-copy nested-img nested-links nested-code nested-headlines nested-copy-letter-spacing nested-measure-wide
+      nested-text-margin mh5 mh6-l basis-60-ns">
+
+        {{ super() }}
+
+      </article>
+
+      <aside class="sticky measure mt6 mt7-l top-2 bg-snow-light ba b--smoke-light mh5 pa4 br2 nested-copy-seperator nested-code basis-40-ns">
+        <header class="mb4 lh-title bb b--smoke">
+          <h4 class="f4 fw5 ma0">Contents</h4>
+        </header>
+        {{ content | toc | replace("∞", "") | safe }}
+      </aside>
+
+    </section>
+  </div>
+{% endblock %}
