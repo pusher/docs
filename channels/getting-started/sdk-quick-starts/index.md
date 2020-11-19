@@ -4,5 +4,5 @@ layout: channels.njk
 eleventyNavigation:
   parent: Getting started
   key: SDK quick starts
-  url: /channels/getting-started/sdk-quick-starts/javascript/#
+  url: /channels/getting-started/sdk-quick-starts/javascript/?ref=sdk-quick-starts
 ---
