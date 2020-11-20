@@ -1,0 +1,27 @@
+/*
+
+  TABLES
+  Docs: http://tachyons.io/docs/elements/tables/
+
+*/
+
+.collapse {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.striped--snow:nth-child(odd) {
+  background-color: var(--snow);
+}
+
+.striped--smoke:nth-child(odd) {
+  background-color: var(--smoke);
+}
+
+.striped--silver:nth-child(odd) {
+  background-color: var(--silver);
+}
+
+.striped--snow-light:nth-child(odd) {
+  background-color: var(--snow-light);
+}

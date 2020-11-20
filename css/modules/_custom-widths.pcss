@@ -1,0 +1,33 @@
+.width--12 {
+  width: 12rem;
+}
+
+@media (--breakpoint-not-small) {
+  .width--12-ns {
+    width: 12rem;
+  }
+}
+
+@media (--breakpoint-medium) {
+  .width--12-m {
+    width: 12rem;
+  }
+}
+
+@media (--breakpoint-large) {
+  .width--12-l {
+    width: 12rem;
+  }
+}
+
+/* Constrain container width to window width minus the menu.
+   This is useful for pages such as getting started where long
+   code snippet lines push beyond window width. */
+@media (--breakpoint-large) {
+  .apps-max-width {
+    max-width: calc(100vw - 18rem);
+  }
+  .container-max-width {
+    max-width: calc(100vw - 32rem);
+  }
+}

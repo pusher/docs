@@ -1,0 +1,26 @@
+#menu {
+  &.open {
+    display: block;
+    position: fixed;
+    z-index: 4;
+    top: var(--spacing-extra-small);
+    right: var(--spacing-extra-small);
+    left: var(--spacing-extra-small);
+
+    @media (--breakpoint-large) {
+      display: none;
+    }
+  }
+}
+
+.menu-current-product:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--spacing-extra-extra-small);
+  background-color: var(--silver);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}

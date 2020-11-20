@@ -1,0 +1,30 @@
+/* Generate Tachyons like class names for all my custom colours */
+@each $color in black, steel, slate, silver, smoke-light, smoke, smoke-dark,
+  snow-light, snow, snow-dark, eggplant, channels, chatkit, beams,
+  dragonfruit-wash, dragonfruit-light, dragonfruit, dragonfruit-dark,
+  starflower-wash, starflower-light, starflower, starflower-dark, kale-wash,
+  kale-light, kale, kale-dark, pumpkin-wash, pumpkin-light, pumpkin,
+  pumpkin-dark, radish-wash, radish-light, radish, radish-dark, white,
+  transparent, black-light, black-dark, smoke-translucent
+{
+  .$(color),
+  .hover-$(color):hover,
+  .focus-$(color):focus,
+  .active-$(color):active {
+    color: var(--$(color));
+  }
+
+  .bg-$(color),
+  .hover-bg-$(color):hover,
+  .focus-bg-$(color):focus,
+  .active-bg-$(color):active {
+    background-color: var(--$(color));
+  }
+
+  .b--$(color),
+  .hover-b--$(color):hover,
+  .focus-b--$(color):focus,
+  .active-b--$(color):active {
+    border-color: var(--$(color));
+  }
+}

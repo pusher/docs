@@ -1,0 +1,29 @@
+/*
+
+   LINKS
+   Docs: http://tachyons.io/docs/elements/links/
+
+*/
+
+.link {
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+}
+
+.link:link,
+.link:visited {
+  transition: color 0.15s ease-in;
+}
+.link:hover {
+  transition: color 0.15s ease-in;
+}
+.link:focus {
+  transition: color 0.15s ease-in;
+  background-color: var(--starflower-wash);
+  outline: 2px solid var(--starflower-light);
+}
+.link:active {
+  transition: color 0.15s ease-in;
+  background-color: var(--starflower-light);
+  outline: 2px solid var(--starflower-light);
+}

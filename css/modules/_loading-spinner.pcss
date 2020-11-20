@@ -1,0 +1,25 @@
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    border-width: 0.1875rem;
+    border-style: solid;
+    border-color: var(--snow-dark) var(--snow-dark) var(--snow-dark) transparent;
+    animation: spin 1s linear infinite;
+
+    &--small {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+    &--white {
+        border-color: var(--white) var(--white) var(--white) transparent;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}

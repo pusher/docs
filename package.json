@@ -21,9 +21,13 @@
     "markdown-it-imsize": "^2.0.1",
     "postcss": "^8.1.2",
     "postcss-cli": "^8.1.0",
-    "postcss-cssnext": "^3.1.0",
+    "postcss-colour-functions": "^1.5.2",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-each": "^0.10.0",
     "postcss-easing-gradients": "^3.0.1",
+    "postcss-flexbugs-fixes": "^5.0.1",
     "postcss-import": "^12.0.1",
-    "postcss-nested": "^5.0.1"
+    "postcss-nested": "^5.0.1",
+    "postcss-preset-env": "^6.7.0"
   }
 }

@@ -1,0 +1,37 @@
+.rotate-on-hover {
+    transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-toggle-wrap {
+    &:focus .dropdown,
+    &:focus-within .dropdown,
+    &:hover .dropdown {
+        display: block;
+    }
+
+    &:focus .rotate-on-hover,
+    &:focus-within .rotate-on-hover,
+    &:hover .rotate-on-hover {
+        transform: rotate(180deg);
+    }
+}
+
+.dropdown {
+    width: 350px;
+    transform: translateX(-50%);
+    left: 50%;
+
+    ul:before {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -0.5rem;
+        display: block;
+        content: " ";
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-bottom: 0.5rem solid var(--white);
+    }
+}
