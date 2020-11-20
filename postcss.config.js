@@ -18,6 +18,9 @@ module.exports = {
       ? [
           purgecss({
             content: ["**/*.njk", "**/*.mjs"],
+            safelist: {
+              standard: /^toc-list/,
+            },
           }),
           require("cssnano"),
         ]
