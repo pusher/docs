@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose & eleventy --serve",
-    "build": "NODE_ENV=production postcss css/style.pcss -o _site/style.min.css & ELEVENTY_PRODUCTION=true eleventy"
+    "build": "NODE_ENV=production postcss css/style.pcss -o _site/style.min.css & wait-on _site/style.min.css & ELEVENTY_PRODUCTION=true eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -28,6 +28,7 @@
     "postcss-flexbugs-fixes": "^5.0.1",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^5.0.1",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "wait-on": "^5.2.0"
   }
 }
