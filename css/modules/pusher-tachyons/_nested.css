@@ -106,7 +106,7 @@
 }
 
 .nested-headlines h2 {
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-4);
   font-weight: 500;
   line-height: 1.7;
   margin: 3rem 0 1rem;
