@@ -110,6 +110,11 @@
   font-weight: 500;
   line-height: 1.7;
   margin: 3rem 0 1rem;
+
+  @media (--breakpoint-large) {
+    font-size: var(--font-size-3);
+    line-height: 1.304347826;
+  }
 }
 
 .nested-headlines h3 {
