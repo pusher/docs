@@ -24,3 +24,15 @@
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+
+#docs-menu {
+  &.open {
+    display: block;
+    position: absolute;
+    z-index: 4;
+
+    @media (--breakpoint-large) {
+      display: none;
+    }
+  }
+}
