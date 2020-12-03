@@ -72,6 +72,7 @@
   border-radius: var(--border-radius-1);
   color: var(--dragonfruit-light);
   padding: var(--spacing-extra-extra-small);
+  font-size: var(--font-size-6);
 }
 
 .nested-code pre {
@@ -109,11 +110,6 @@
   font-weight: 500;
   line-height: 1.7;
   margin: 3rem 0 1rem;
-
-  @media (--breakpoint-large) {
-    font-size: var(--font-size-2);
-    line-height: 1.304347826;
-  }
 }
 
 .nested-headlines h3 {
@@ -121,11 +117,6 @@
   font-weight: 500;
   line-height: 1.7;
   margin: 3rem 0 1rem;
-
-  @media (--breakpoint-large) {
-    font-size: var(--font-size-3);
-    line-height: 1.411764706;
-  }
 }
 
 .nested-headlines h4,
