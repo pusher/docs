@@ -3,6 +3,13 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// widont is a function that takes a string and replaces the space between the last two words with a non breaking space. This stops typographic widows forming
+const widont = (string) => {
+  return string.split(" ").length > 2
+    ? string.replace(/\s([^\s<]+)\s*$/, "\u00A0$1")
+    : string;
+};
+
 module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("./_tmp/style.min.css");
   eleventyConfig.addPassthroughCopy({
@@ -19,11 +26,7 @@ module.exports = (eleventyConfig) => {
     wrapperClass: "toc-list",
   });
 
-  eleventyConfig.addFilter("widont", (string) => {
-    return string.split(" ").length > 2
-      ? string.replace(/\s([^\s<]+)\s*$/, "&nbsp;$1")
-      : string;
-  });
+  eleventyConfig.addFilter("widont", widont);
 
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
@@ -56,6 +59,26 @@ module.exports = (eleventyConfig) => {
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
   };
+
+  markdownIt.core.ruler.push("widont", (state) => {
+    const tokens = state.tokens;
+
+    tokens
+      .filter((token) => token.type === "heading_open")
+      .forEach((token) => {
+        const textToWidont = tokens[tokens.indexOf(token) + 1].children.filter(
+          (token) => token.type === "text"
+        );
+
+        // Aggregate the next token children text.
+        const title = textToWidont.reduce((acc, t) => acc + t.content, "");
+
+        // Replace content with widont applied text
+        textToWidont.forEach((token) => {
+          token.content = widont(title);
+        });
+      });
+  });
 
   markdownIt
     .use(markdownItAnchor, opts)
