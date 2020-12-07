@@ -22,20 +22,20 @@
 @import "./modules/_toc-list.pcss";
 @import "./modules/_variables.pcss";
 
-.basis-40 {
-  flex-basis: 40%;
+.basis-30 {
+  flex-basis: 30%;
 }
 
-.basis-60 {
-  flex-basis: 60%;
+.basis-70 {
+  flex-basis: 70%;
 }
-@media screen and (min-width: 40em) {
-  .basis-40-ns {
-    flex-basis: 40%;
+@media (--breakpoint-large) {
+  .basis-30-l {
+    flex-basis: 30%;
   }
 
-  .basis-60-ns {
-    flex-basis: 60%;
+  .basis-70-l {
+    flex-basis: 70%;
   }
 }
 
@@ -43,7 +43,7 @@
   box-shadow: rgba(207, 211, 230, 0.5) 0 2px 4px;
 }
 
-@media screen and (min-width: 62.5em) {
+@media (--breakpoint-large) {
   .side-nav {
     box-shadow: rgba(207, 211, 230, 0.5) 2px 0 4px;
     width: 18rem;

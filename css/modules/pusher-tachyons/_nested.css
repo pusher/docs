@@ -127,3 +127,14 @@
   line-height: 1.75;
   margin: 3rem 0 1rem;
 }
+
+.nested-measure-wide p,
+.nested-measure-wide ul,
+.nested-measure-wide ol,
+.nested-measure-wide blockquote {
+  max-width: 34rem;
+}
+
+.nested-measure-wide {
+  width: 100%;
+}
