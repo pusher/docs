@@ -2,7 +2,7 @@
 title: Android quick start — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: SDK quick starts
+  parent: Sdk quick starts
   key: Android quick start
   order: 3
 ---

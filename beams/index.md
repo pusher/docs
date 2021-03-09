@@ -1,10 +1,11 @@
 ---
-title: Beams — Pusher Docs
-description: Some words about what this website is to help people find it with search engines.
+title: Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation:
+hideTOC: true
+eleventyNavigation: 
+  parent: Docs
   key: Beams
-  order: 2
+  order: 1
 ---
 
 # Beams overview

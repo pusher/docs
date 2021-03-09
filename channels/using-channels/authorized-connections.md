@@ -2,8 +2,9 @@
 title: Authorized connections — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: Using Channels
+  parent: Using channels
   key: Authorized connections
+  order: 3
 ---
 
 # Authorized connections

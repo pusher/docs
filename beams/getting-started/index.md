@@ -5,6 +5,8 @@ eleventyNavigation:
   parent: Beams
   key: Beams getting started
   title: Getting started
+  order: 1
+permalink: false
 ---
 
 # Getting started

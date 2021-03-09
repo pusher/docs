@@ -1,8 +1,10 @@
 ---
-title: SDK quick starts — Channels — Pusher Docs
+title: Sdk quick starts - Docs - Pusher Docs
 layout: channels.njk
-eleventyNavigation:
+eleventyNavigation: 
   parent: Getting started
-  key: SDK quick starts
-  url: /channels/getting-started/sdk-quick-starts/javascript/?ref=sdk-quick-starts
+  key: Sdk quick starts
+  title: SDK quick starts
+  order: 1
+permalink: false
 ---

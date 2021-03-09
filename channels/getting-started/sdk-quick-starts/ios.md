@@ -2,7 +2,7 @@
 title: iOS quick start — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: SDK quick starts
+  parent: Sdk quick starts
   key: iOS quick start
   order: 2
 ---
