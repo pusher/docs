@@ -1,41 +1,41 @@
 ---
 title: Clusters - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Miscellaneous
   key: Clusters
   order: 1
 ---
+
 # Cluster Configuration
- 
-A "cluster" represents the physical location of the servers that handle requests from your Channels app. For example, the Channels cluster `mt1` is in Northern Virginia in the United States. When you create a Channels app, you can choose which cluster it exists in. You might choose this to achieve lower latency or to comply with data protection regulations. 
- 
+
+A "cluster" represents the physical location of the servers that handle requests from your Channels app. For example, the Channels cluster `mt1` is in Northern Virginia in the United States. When you create a Channels app, you can choose which cluster it exists in. You might choose this to achieve lower latency or to comply with data protection regulations.
+
 # What clusters exist?
- 
+
 Channels has the following public clusters:
-  *  `mt1` in N. Virginia  *  `us2` in Ohio  *  `us3` in Oregon  *  `eu` in Ireland  *  `ap1` in Singapore  *  `ap2` in Mumbai  *  `ap3` in Tokyo  *  `ap4` in Sydney   
-If you require other locations, we can create dedicated Channels clusters in custom locations on request: [talk to us](https://pusher.com/contact). 
- 
+
+- `mt1` in N. Virginia _ `us2` in Ohio _ `us3` in Oregon _ `eu` in Ireland _ `ap1` in Singapore _ `ap2` in Mumbai _ `ap3` in Tokyo \* `ap4` in Sydney  
+  If you require other locations, we can create dedicated Channels clusters in custom locations on request: [talk to us](https://pusher.com/contact).
+
 # How should I choose a cluster?
-  *  **To achieve lower network latency.**   *  Depending on your use case, having your Channels app hosted close to its customers or your servers may help improve the latency when sending and receiving messages.  *  We recommend that you test on multiple clusters and pick the one that works best for your app.   *  **To comply with data protection regulations.**   *  European data protection regulations specify that personal user data should not leave the EU borders.  *  For this use-case, Channels offers a cluster in `eu-west-1`, an AWS datacenter located in Ireland.    
+
+- **To achieve lower network latency.** _ Depending on your use case, having your Channels app hosted close to its customers or your servers may help improve the latency when sending and receiving messages. _ We recommend that you test on multiple clusters and pick the one that works best for your app. _ **To comply with data protection regulations.** _ European data protection regulations specify that personal user data should not leave the EU borders. \* For this use-case, Channels offers a cluster in `eu-west-1`, an AWS datacenter located in Ireland.
+
 # How do you configure the cluster option?
- 
-Where it says `APP_CLUSTER` you'll need to insert the relevant cluster shortcode (e.g. `mt1` ). 
 
+Where it says `APP_CLUSTER` you'll need to insert the relevant cluster shortcode (e.g. `mt1` ).
 
-    
 ## On the client-side:
 
-
-    
 {% snippets ['js', 'swift', 'objc', 'objc', 'java', 'js', 'c'] %}
-      
+
 ```js
 var pusher = new Pusher("APP_KEY", {
-            cluster: "APP_CLUSTER"
-          });
+  cluster: "APP_CLUSTER",
+});
 ```
-      
+
 ```swift
 let options = PusherClientOptions(
               host: .cluster("eu")
@@ -44,7 +44,7 @@ let options = PusherClientOptions(
           let pusher = Pusher(key: "YOUR_APP_KEY", options: options)
           pusher.connect()
 ```
-      
+
 ```objc
 OCAuthMethod *authMethod = [[OCAuthMethod alloc] initWithAuthEndpoint:@"https://your.authendpoint/pusher/auth"];
           OCPusherHost *host = [[OCPusherHost alloc] initWithCluster:@"eu"];
@@ -59,7 +59,7 @@ OCAuthMethod *authMethod = [[OCAuthMethod alloc] initWithAuthEndpoint:@"https://
           self.pusher = [[Pusher alloc] initWithAppKey:@"YOUR_APP_KEY" options:options];
           [self.pusher connect];
 ```
-      
+
 ```objc
 #import <Pusher/Pusher.h>
 
@@ -67,7 +67,7 @@ OCAuthMethod *authMethod = [[OCAuthMethod alloc] initWithAuthEndpoint:@"https://
 
           [self.pusher connect];
 ```
-      
+
 ```java
 import com.pusher.client.Pusher;
 
@@ -78,15 +78,15 @@ import com.pusher.client.Pusher;
 
           pusher.connect();
 ```
-      
+
 ```js
 window.Echo = new Echo({
-            broadcaster: 'pusher',
-            key: 'APP_KEY',
-            cluster: 'APP_CLUSTER'
-          });
+  broadcaster: "pusher",
+  key: "APP_KEY",
+  cluster: "APP_CLUSTER",
+});
 ```
-      
+
 ```c
 using PusherClient;
 
@@ -104,16 +104,13 @@ using PusherClient;
             }
           }
 ```
-    
+
 {% endsnippets %}
 
-
-    
 ## On the server-side:
 
-    
 {% snippets ['rb', 'php', 'php', 'js', 'c', 'py', 'go', 'java'] %}
-      
+
 ```rb
 require 'pusher'
 
@@ -124,7 +121,7 @@ require 'pusher'
         cluster: 'APP_CLUSTER'
       );
 ```
-      
+
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -132,7 +129,7 @@ require __DIR__ . '/vendor/autoload.php';
         'cluster' => 'APP_CLUSTER'
       ));
 ```
-      
+
 ```php
 // In config/broadcasting.php
 
@@ -140,18 +137,18 @@ require __DIR__ . '/vendor/autoload.php';
             'cluster' => 'APP_CLUSTER'
           ],
 ```
-      
+
 ```js
 const Pusher = require("pusher");
 
-      const pusher = new Pusher({
-        appId: "APP_ID",
-        key: "APP_KEY",
-        secret: "APP_SECRET",
-        cluster: "APP_CLUSTER"
-      });
+const pusher = new Pusher({
+  appId: "APP_ID",
+  key: "APP_KEY",
+  secret: "APP_SECRET",
+  cluster: "APP_CLUSTER",
+});
 ```
-      
+
 ```c
 using PusherServer;
       using System.Web.Mvc;
@@ -167,7 +164,7 @@ using PusherServer;
         }
       }
 ```
-      
+
 ```py
 import pusher
 
@@ -178,7 +175,7 @@ import pusher
         cluster=u'APP_CLUSTER'
       )
 ```
-      
+
 ```go
 package main
 
@@ -193,29 +190,23 @@ package main
         }
       }
 ```
-      
+
 ```java
 Pusher pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET");
 
       pusher.setCluster("APP_CLUSTER");
 ```
-    
+
 {% endsnippets %}
 
-    
 # Details
 
-    
-      *  Setting the `cluster` option will change the `host` parameter of the Channels library you are using. This happens only when the `host` option is not set, in which case, `cluster` is ignored. 
-      *  For client libraries, the default host is `ws.pusherapp.com` (and `sockjs.pusherapp.com` for fallback transports). With `cluster` set, the host becomes `ws-cluster.pusher.com` (and `sockjs-cluster.pusher.com` respectively). 
-      *  For server libraries, the default host is `api.pusherapp.com`. With `cluster` set, the host becomes `api-cluster.pusher.com`. 
-    
+      *  Setting the `cluster` option will change the `host` parameter of the Channels library you are using. This happens only when the `host` option is not set, in which case, `cluster` is ignored.
+      *  For client libraries, the default host is `ws.pusherapp.com` (and `sockjs.pusherapp.com` for fallback transports). With `cluster` set, the host becomes `ws-cluster.pusher.com` (and `sockjs-cluster.pusher.com` respectively).
+      *  For server libraries, the default host is `api.pusherapp.com`. With `cluster` set, the host becomes `api-cluster.pusher.com`.
 
-    
 # How to debug it?
 
-    
-      *  First make sure your app is created in the intended cluster and that all the Channels libraries you are using in your project are configured correctly. 
-      *  Make sure your app makes requests to the correct endpoints. On the server-side, use a traffic sniffing tool like [tcpdump](http://www.tcpdump.org/). On the client-side, open your browser's developer tools and inspect the network requests. 
-      *  [ Contact support ](https://support.pusher.com/hc/en-us/requests/new) 
-    
+      *  First make sure your app is created in the intended cluster and that all the Channels libraries you are using in your project are configured correctly.
+      *  Make sure your app makes requests to the correct endpoints. On the server-side, use a traffic sniffing tool like [tcpdump](http://www.tcpdump.org/). On the client-side, open your browser's developer tools and inspect the network requests.
+      *  [ Contact support ](https://support.pusher.com/hc/en-us/requests/new)

@@ -1,7 +1,7 @@
 ---
 title: Channels libraries - Docs - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Channels
   key: Channels libraries
   order: 4

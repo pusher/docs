@@ -1,22 +1,22 @@
 ---
 title: Overview - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Server api
   key: Overview
   order: 1
 ---
-# Server API overview
- 
-The Server API Overview provides information on how to perform specific actions using our [ Server libraries ](/docs/channels/channels_libraries/libraries) . 
- 
-Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used 
- 
-The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below. 
 
-    
+# Server API overview
+
+The Server API Overview provides information on how to perform specific actions using our [ Server libraries ](/docs/channels/channels_libraries/libraries) .
+
+Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used
+
+The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below.
+
 {% snippets ['rb', 'rb', 'php', 'php', 'js', 'c', 'py', 'go', 'java', 'bash'] %}
-      
+
 ```rb
 # First, run 'gem install pusher'
 
@@ -35,7 +35,7 @@ The reference-style guide and examples may contain information for different lan
             end
           end
 ```
-      
+
 ```rb
 # First, run 'gem install pusher'
 
@@ -50,7 +50,7 @@ The reference-style guide and examples may contain information for different lan
 
         pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
 ```
-      
+
 ```php
 // First, run 'composer require pusher/pusher-php-server'
 
@@ -60,7 +60,7 @@ The reference-style guide and examples may contain information for different lan
 
         $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
 ```
-      
+
 ```php
 // First, run 'composer require pusher/pusher-php-server'
 
@@ -72,12 +72,12 @@ The reference-style guide and examples may contain information for different lan
 
           // Third, define events in your code like this
           <?php
-          
+
           use Illuminate\Queue\SerializesModels;
           use Illuminate\Foundation\Events\Dispatchable;
           use Illuminate\Broadcasting\InteractsWithSockets;
           use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-          
+
           class MyEvent implements ShouldBroadcast
           {
             use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -98,25 +98,25 @@ The reference-style guide and examples may contain information for different lan
           // Fourth, publish events like this
           event(new MyEvent('hello world'));
 ```
-      
+
 ```js
 // First, run 'npm install pusher'
 
-        const Pusher = require("pusher");
+const Pusher = require("pusher");
 
-        const pusher = new Pusher({
-          appId: "APP_ID",
-          key: "APP_KEY",
-          secret: "APP_SECRET",
-          cluster: "APP_CLUSTER",
-          useTLS: true
-        });
+const pusher = new Pusher({
+  appId: "APP_ID",
+  key: "APP_KEY",
+  secret: "APP_SECRET",
+  cluster: "APP_CLUSTER",
+  useTLS: true,
+});
 
-        pusher.trigger("my-channel", "my-event", {
-          message: "hello world"
-        });
+pusher.trigger("my-channel", "my-event", {
+  message: "hello world",
+});
 ```
-      
+
 ```c
 // First, run 'Install-Package PusherServer'
 
@@ -137,7 +137,7 @@ The reference-style guide and examples may contain information for different lan
           }
         }
 ```
-      
+
 ```py
 # First, run 'pip install pusher'
 
@@ -152,7 +152,7 @@ The reference-style guide and examples may contain information for different lan
 
         pusher_client.trigger(u'my-channel', u'my-event', {u'message': u'hello world'})
 ```
-      
+
 ```go
 package main
 
@@ -171,7 +171,7 @@ package main
           pusherClient.Trigger("my-channel", "my-event", data)
         }
 ```
-      
+
 ```java
 /*
         First, add this Maven dependency:
@@ -188,26 +188,22 @@ package main
 
         pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "Hello World"));
 ```
-      
+
 ```bash
 pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "my-event" --message "hello world"
 ```
-    
+
 {% endsnippets %}
 
-    
-> Note! If you created your app in a different cluster to the default `us-east-1`, you **must** configure the `cluster` option as well. [See how](/docs/channels/miscellaneous/clusters). 
+> Note! If you created your app in a different cluster to the default `us-east-1`, you **must** configure the `cluster` option as well. [See how](/docs/channels/miscellaneous/clusters).
 
-    
 # The Guide
 
-    
-      *  [ Interacting with our HTTP API ](/docs/channels/server_api/http-api)  <Item indent> [ Publishing events ](/docs/channels/server_api/http-api#publishing-events) 
+      *  [ Interacting with our HTTP API ](/docs/channels/server_api/http-api)  <Item indent> [ Publishing events ](/docs/channels/server_api/http-api#publishing-events)
           <Item indent>
             [ Querying application state ](/docs/channels/server_api/http-api#querying-application-state)
           </Item>
-        
+
       </Item>
-      *  [ Receiving webhooks ](/docs/channels/server_api/webhooks) 
-      *  [ Authenticating users ](/docs/channels/server_api/authenticating-users) 
-    
+      *  [ Receiving webhooks ](/docs/channels/server_api/webhooks)
+      *  [ Authenticating users ](/docs/channels/server_api/authenticating-users)

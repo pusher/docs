@@ -1,95 +1,100 @@
 ---
 title: Excluding event recipients - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Server api
   key: Excluding event recipients
   order: 5
 ---
+
 # Excluding event recipients
- 
-In some situations, you want to stop the client that broadcasts an event from receiving it. The method for doing this is described here. 
- 
+
+In some situations, you want to stop the client that broadcasts an event from receiving it. The method for doing this is described here.
+
 # Problem
- 
-The most common way to push data into Channels is via an AJAX call to your own server which then triggers an appropriate event using the Channels HTTP API, or via one of our [ server libraries ](/docs/channels/channels_libraries/libraries) . This event is then distributed to all connected clients. If the client that made the AJAX call is also subscribed to that channel it will also receive the event. In some cases this can be unexpected and can results in things such as duplicate entries within the UI. 
- 
+
+The most common way to push data into Channels is via an AJAX call to your own server which then triggers an appropriate event using the Channels HTTP API, or via one of our [ server libraries ](/docs/channels/channels_libraries/libraries) . This event is then distributed to all connected clients. If the client that made the AJAX call is also subscribed to that channel it will also receive the event. In some cases this can be unexpected and can results in things such as duplicate entries within the UI.
+
 # Solution
- 
-Each pusher connection is assigned a unique `socket_id` which can be accessed via 
- 
+
+Each pusher connection is assigned a unique `socket_id` which can be accessed via
+
 ```js
-pusher.socket_id // JS versions < 1.9.0 pusher.connection.socket_id // JS versions >= 1.9.0
+pusher.socket_id; // JS versions < 1.9.0 pusher.connection.socket_id // JS versions >= 1.9.0
 ```
- 
-The `socket_id` is set once the client has connected to Channels. The following code extract shows how to access the `socket_id` once the client has connected by binding to the `connected` `state_change` event. For more information on connection states see the [ connection states documentation ](/docs/channels/using_channels/connection#connection-states) . 
- 
+
+The `socket_id` is set once the client has connected to Channels. The following code extract shows how to access the `socket_id` once the client has connected by binding to the `connected` `state_change` event. For more information on connection states see the [ connection states documentation ](/docs/channels/using_channels/connection#connection-states) .
+
 ```js
-var pusher = new Pusher('APP_KEY'); var socketId = null; pusher.connection.bind('connected', function() { socketId = pusher.connection.socket_id; });
+var pusher = new Pusher("APP_KEY");
+var socketId = null;
+pusher.connection.bind("connected", function () {
+  socketId = pusher.connection.socket_id;
+});
 ```
- 
-Once the `socket_id` has been accessed it can be used when triggering an event on the server by passing it to the server. The following examples shows how this can be done and uses the <a href="http://api.jquery.com/jQuery.ajax/"> jQuery <inlinecode>ajax</inlinecode> </a> function. 
- 
+
+Once the `socket_id` has been accessed it can be used when triggering an event on the server by passing it to the server. The following examples shows how this can be done and uses the <a href="http://api.jquery.com/jQuery.ajax/"> jQuery <inlinecode>ajax</inlinecode> </a> function.
+
 ```js
 var pusher = new Pusher('APP_KEY'); var socketId = null; pusher.connection.bind('connected', function() { socketId = pusher.connection.socket_id; jQuery.ajax({ url: "/trigger_event", type: "post", data: { id: 'some_id', updated_value: 'some_value', socket_id: socketId // pass socket_id parameter to be used by server } }); });
 ```
- 
-When you trigger an event from the server passing a `socket_id`, the Channels connection (client) with that `socket_id` will be excluded from receiving the event. 
- 
-The `socket_id` parameter is an optional parameter when triggering events via the API. For example: 
- 
+
+When you trigger an event from the server passing a `socket_id`, the Channels connection (client) with that `socket_id` will be excluded from receiving the event.
+
+The `socket_id` parameter is an optional parameter when triggering events via the API. For example:
+
 {% snippets ['rb', 'php', 'c', 'php', 'js', 'go'] %}
-  
+
 ```rb
 def update @obj = Obj.find(params[:id]) @obj.update_attributes!(params[:updated_value]) pusher.trigger("my-channel", "my-event", @obj, { socket_id: params[:socket_id] }) render json: @obj end
 ```
-  
+
 ```php
 pusher = new Pusher(APP_KEY, APP_SECRET, APP_ID); $update_info = update_object($_POST['id'], $_POST['updated_value']); $pusher->trigger('my-channel', 'my-event', $update_info, array('socket_id' => $_POST['socket_id']));
 ```
-  
+
 ```c
 using PusherServer; public class MyController : Controller { public ActionResult Trigger(string socket_id) { var pusher = new Pusher(APP_ID, APP_KEY, APP_SECRET); var result = pusher.Trigger( "my-channel", "my-event", new { message = "hello world" }, new TriggerOptions() { SocketId = socket_id } ); return new HttpStatusCodeResult(200); } }
 ```
-  
+
 ```php
 broadcast(new MyEvent($update))->toOthers();
 ```
- 
-See the [ official Laravel docs ](https://laravel.com/docs/master/broadcasting#broadcasting-events) for more information. 
 
-      
-      
-        
+See the [ official Laravel docs ](https://laravel.com/docs/master/broadcasting#broadcasting-events) for more information.
+
 ```js
 const express = require("express");
-            const Pusher = require("pusher");
+const Pusher = require("pusher");
 
-            const app = express.createServer(express.logger());
-            app.use(express.bodyParser());
+const app = express.createServer(express.logger());
+app.use(express.bodyParser());
 
-            const pusher = new Pusher({
-              appId: APP_ID,
-              key: APP_KEY,
-              secret: APP_SECRET,
-              useTLS: true,
-            });
+const pusher = new Pusher({
+  appId: APP_ID,
+  key: APP_KEY,
+  secret: APP_SECRET,
+  useTLS: true,
+});
 
-            app.post("/trigger", function (req, res) {
-              const socketId = req.body.socket_id;
-              pusher.trigger("my-channel", "my-event", {
-                message: "hello world"
-              }, {
-                socket_id: socketId
-              });
-            });
+app.post("/trigger", function (req, res) {
+  const socketId = req.body.socket_id;
+  pusher.trigger(
+    "my-channel",
+    "my-event",
+    {
+      message: "hello world",
+    },
+    {
+      socket_id: socketId,
+    }
+  );
+});
 
-            const port = process.env.PORT || 5000;
-            app.listen(port);
+const port = process.env.PORT || 5000;
+app.listen(port);
 ```
-      
-      
-        
+
 ```go
 pusherClient := pusher.Client{
               AppID: "APP_ID",
@@ -101,7 +106,5 @@ pusherClient := pusher.Client{
             params := pusher.TriggerParams{SocketID: &socketID}
             pusherClient.TriggerWithParams("my-channel", "my-event", data, params)
 ```
-      
-    
-{% endsnippets %}
 
+{% endsnippets %}

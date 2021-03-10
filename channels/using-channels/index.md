@@ -1,7 +1,7 @@
 ---
 title: Using channels - Docs - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Channels
   key: Using channels
   order: 2

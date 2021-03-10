@@ -1,23 +1,27 @@
 ---
 title: Libraries - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Channels libraries
   key: Api libraries
   order: 1
   title: API libraries
 ---
+
 # Channels API libraries
- 
-Sending and receiving messages using the Channels API requires libraries. In this section you'll find libraries for a variety of platforms. 
- 
+
+Sending and receiving messages using the Channels API requires libraries. In this section you'll find libraries for a variety of platforms.
+
 Channels libraries are divided into 2 categories:
-  *  <Label>Client</Label> libraries predominantly consume messages using a [ WebSocket interface ](/docs/channels/library_auth_reference/pusher-websockets-protocol) . Think of them as ** *subscribers* ** , although it's possible to publish messages using [ Client Events ](/docs/channels/using_channels/events#triggering-client-events) .  *  <Label background="#ffae00">Server</Label> libraries publish messages, request information using [ our HTTP API ](/docs/channels/library_auth_reference/rest-api) , [ authenticate ](/docs/channels/server_api/authenticating-users) channel subscriptions, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as ** *publishers* ** , although it's possible to subscribe to messages using [ Client Event Webhooks ](/docs/channels/server_api/webhooks#client-events) .   
+
+- <Label>Client</Label> libraries predominantly consume messages using a [ WebSocket interface ](/docs/channels/library_auth_reference/pusher-websockets-protocol) . Think of them as ** _subscribers_ ** , although it's possible to publish messages using [ Client Events ](/docs/channels/using_channels/events#triggering-client-events) . * <Label background="#ffae00">Server</Label> libraries publish messages, request information using [ our HTTP API ](/docs/channels/library_auth_reference/rest-api) , [ authenticate ](/docs/channels/server_api/authenticating-users) channel subscriptions, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as \*\* *publishers\* \*\* , although it's possible to subscribe to messages using [ Client Event Webhooks ](/docs/channels/server_api/webhooks#client-events) .
+
 # Official libraries
- 
+
 The following libraries are updated and supported by Pusher.
- 
+
 ## Client libraries
+
  <Table> <thead> <tr> <th>Library</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="client-android" markdown="1"> Android (uses [Java library](#java)) </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-websocket-android) </p> </td> <td> <p markdown="1"> [ pusher/pusher-websocket-android ](https://github.com/pusher/pusher-websocket-android) </p> </td> </tr> <tr> <td> <p id="client-android" markdown="1"> AngularJS (uses [ JavaScript library ](/docs/channels/channels_libraries/libraries#javascript) ) </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-angular) </p> </td> <td> <p markdown="1"> [ pusher/pusher-angular ](https://github.com/pusher/pusher-angular) </p> </td> </tr> <tr> <td> <p id="client-ios" markdown="1"> iOS: Swift and Objective-C </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-websocket-swift) </p> </td> <td> <p markdown="1"> [ pusher/pusher-websocket-swift ](https://github.com/pusher/pusher-websocket-swift) </p> </td> </tr> <tr> <td> <p id="client-objc" markdown="1"> iOS: Objective-C </p> </td> <td> <p markdown="1"> Pusher <br /> [Luke Redpath](http://lukeredpath.co.uk/) </p> </td> <td> <p markdown="1"> [Docs](/docs/channels/getting_started/ios) </p> </td> <td> <p markdown="1"> [ pusher/libPusher ](https://github.com/pusher/libPusher) </p> </td> </tr> <tr> <td> <p id="client-java" markdown="1"> Java </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-websocket-java#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-websocket-java ](https://github.com/pusher/pusher-websocket-java) </p> </td> </tr> <tr> <td> <p id="client-javascript" markdown="1"> JavaScript </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](/docs/channels/getting_started/javascript) </p> </td> <td> <p markdown="1"> [ pusher/pusher-js ](https://github.com/pusher/pusher-js) </p> </td> </tr> <tr> <td> <p id="pusher-websocket-dotnet" markdown="1"> .NET </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-websocket-dotnet) </p> </td> <td> <p markdown="1"> [ pusher/pusher-websocket-dotnet ](https://github.com/pusher/pusher-websocket-dotnet) </p> </td> </tr> <tr> <td> <p id="pusher-websocket-unity" markdown="1"> Unity </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-websocket-unity) </p> </td> <td> <p markdown="1"> [ pusher/pusher-websocket-unity ](https://github.com/pusher/pusher-websocket-unity) </p> </td> </tr> </tbody> </Table> 
 ## Official server libraries
  <Table> <thead> <tr> <th>Library</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="server-go" markdown="1"> Go </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](http://godoc.org/github.com/pusher/pusher-http-go) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-go ](https://github.com/pusher/pusher-http-go) </p> </td> </tr> <tr> <td> <p id="server-java" markdown="1"> Java </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-java#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-java ](https://github.com/pusher/pusher-http-java) </p> </td> </tr> <tr> <td> <p id="server-net" markdown="1"> .NET </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-dotnet#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-dotnet ](https://github.com/pusher/pusher-http-dotnet) </p> </td> </tr> <tr> <td> <p id="server-nodejs" markdown="1"> Node.js </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-node#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-node ](https://github.com/pusher/pusher-http-node) </p> </td> </tr> <tr> <td> <p id="server-php" markdown="1"> PHP </p> </td> <td> <p>Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-php#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-php ](https://github.com/pusher/pusher-http-php) </p> </td> </tr> <tr> <td> <p id="server-python" markdown="1"> Python </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-python#installation) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-python ](http://github.com/pusher/pusher-http-python) </p> </td> </tr> <tr> <td> <p id="server-ruby" markdown="1"> Ruby </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [ Docs ](https://github.com/pusher/pusher-http-ruby#installation--configuration) </p> </td> <td> <p markdown="1"> [ pusher/pusher-http-ruby ](https://github.com/pusher/pusher-http-ruby) </p> </td> </tr> </tbody> </Table> 
@@ -97,5 +101,4 @@ For an open source example application built on pusher-websocket-java, see [ the
  
 ## Don't see your platform?
  
-We'd love to see client and server libraries for other languages. Make sure to [let us know](https://pusher.com/support) if you come up with anything so we can highlight it here. 
-
+We'd love to see client and server libraries for other languages. Make sure to [let us know](https://pusher.com/support) if you come up with anything so we can highlight it here.

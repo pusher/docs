@@ -1,7 +1,7 @@
 ---
 title: Server api - Docs - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Channels
   key: Server api
   order: 3

@@ -1,25 +1,27 @@
 ---
 title: Rest api - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Library auth reference
   key: Rest api
   title: HTTP API reference
   order: 2
 ---
+
 # HTTP API Reference
- 
-This document lists all API methods, and details the authentication mechanism. Unless you're writing a library you may wish to consult the [server API overview](/docs/channels/server_api/overview) instead. 
- 
+
+This document lists all API methods, and details the authentication mechanism. Unless you're writing a library you may wish to consult the [server API overview](/docs/channels/server_api/overview) instead.
+
 # General
- 
-The API is hosted at [ http://api-CLUSTER.pusher.com ](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (for instance, mt1). The API may be accessed via HTTP or HTTPS. 
- 
-All requests MUST be authenticated, as described [below](#generating-authentication-signatures). 
- 
-Parameters MUST be submitted in the query string for GET requests. For POST requests, parameters MAY be submitted in the query string, but SHOULD be submitted in the POST body as a JSON hash (while setting `Content-Type:application/json` ). 
- 
-HTTP status codes are used to indicate the success or otherwise of requests. The following status are common: 
+
+The API is hosted at [ http://api-CLUSTER.pusher.com ](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (for instance, mt1). The API may be accessed via HTTP or HTTPS.
+
+All requests MUST be authenticated, as described [below](#generating-authentication-signatures).
+
+Parameters MUST be submitted in the query string for GET requests. For POST requests, parameters MAY be submitted in the query string, but SHOULD be submitted in the POST body as a JSON hash (while setting `Content-Type:application/json` ).
+
+HTTP status codes are used to indicate the success or otherwise of requests. The following status are common:
+
  <Table> <thead> <tr> <th>Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>200</td> <td> Successful request. Body will contain a JSON hash of response data </td> </tr> <tr> <td>400</td> <td>Error: details in response body</td> </tr> <tr> <td>401</td> <td> Authentication error: response body will contain an explanation </td> </tr> <tr> <td>403</td> <td>Forbidden: app disabled or over message quota</td> </tr> </tbody> </Table> 
 Other status codes are documented under the appropriate APIs.
  
@@ -221,7 +223,6 @@ POST /apps/3/events?auth_key=278d425bdf160c739803&auth_timestamp=1353088179&auth
  
 Or using curl:
 
-    
 ```bash
 curl -H "Content-Type: application/json" -d '{"name":"foo","channels":["project-3"],"data":"{\\"some\\":\\"data\\"}"}' "http://api.pusherapp.com/apps/3/events?auth_key=278d425bdf160c739803&auth_timestamp=1353088179&auth_version=1.0&body_md5=ec365a775a4cd0599faeb73354201b6f&auth_signature=da454824c97ba181a32ccc17a72625ba02771f50b50e1e7430e47a1f3f457e6c"
     {}
@@ -229,7 +230,7 @@ curl -H "Content-Type: application/json" -d '{"name":"foo","channels":["project-
 
     If you're having difficulty generating the correct signature in your library
     please take a look at this example in Ruby.
-    
+
 ```rb
 require 'digest/md5'
 require 'hmac-sha2'
@@ -288,4 +289,3 @@ puts
 #
 # Curl: curl -H "Content-Type: application/json" -d '{"name":"foo","channels":["project-3"],"data":"{\\"some\\":\\"data\\"}"}' "http://api.pusherapp.com/apps/3/events?auth_key=278d425bdf160c739803&auth_timestamp=1353088179&auth_version=1.0&body_md5=ec365a775a4cd0599faeb73354201b6f&auth_signature=da454824c97ba181a32ccc17a72625ba02771f50b50e1e7430e47a1f3f457e6c"
 ```
-

@@ -1,147 +1,150 @@
 ---
 title: Pusher websockets protocol - Channels - Pusher Docs
 layout: channels.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Library auth reference
   key: Pusher websockets protocol
   title: Pusher Channels Protocol
   order: 3
 ---
+
 # Pusher Channels Protocol
- 
-Describes the JSON based protocol used by clients to communicate with Pusher Channels, mainly over a WebSocket connection. 
- 
-Changes to this protocol are handled by incrementing an integer version number. The current protocol, version 7, is documented here. 
- 
-> **Important**: Protocols 1, 2, and 3 are no longer supported. Clients are encouraged to keep up to date with changes. 
- 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119). 
- 
+
+Describes the JSON based protocol used by clients to communicate with Pusher Channels, mainly over a WebSocket connection.
+
+Changes to this protocol are handled by incrementing an integer version number. The current protocol, version 7, is documented here.
+
+> **Important**: Protocols 1, 2, and 3 are no longer supported. Clients are encouraged to keep up to date with changes.
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+
 # WebSocket connection
- 
+
 Clients should make a WebSocket connection to
- 
+
 ```bash
 [scheme]://ws-[cluster_name].pusher.com:[port]/app/[key]
 ```
-  *  **scheme**   *  `ws` - for a normal WebSocket connection  *  `wss` - for a secure WebSocket connection   *  **cluster_name**   * The name of the cluster that you're using  *  **port**   * Default WebSocket ports: `80` (`ws`) or `443` (`wss`) *  For Silverlight clients ports `4502` (`ws`) and `4503` (`wss`) may be used.   *  **key**   * The app key for the application connecting to Pusher Channels   
-The following query parameters should be supplied:
-  *  **protocol** [integer]   *  The protocol version to use. If this is not supplied the protocol version to use is inferred from the version parameter (to support old javascript clients which relied on this behaviour). Failing that protocol 1 is used (this behaviour is deprecated and will in future be replaced by a 4008 error code)   *  **client** [string]   *  Identifies the client which is connecting. This string should be of the form `platform-library` - for example the iOS library identifies itself as `iOS-libPusher`.   *  **version** [string]   *  The version of the library which is connecting, for example `1.9.3`.    
-For example
- 
+
+- **scheme** _ `ws` - for a normal WebSocket connection _ `wss` - for a secure WebSocket connection _ **cluster_name** _ The name of the cluster that you're using _ **port** _ Default WebSocket ports: `80` (`ws`) or `443` (`wss`) _ For Silverlight clients ports `4502` (`ws`) and `4503` (`wss`) may be used. _ **key** \* The app key for the application connecting to Pusher Channels  
+  The following query parameters should be supplied:
+- **protocol** [integer] _ The protocol version to use. If this is not supplied the protocol version to use is inferred from the version parameter (to support old javascript clients which relied on this behaviour). Failing that protocol 1 is used (this behaviour is deprecated and will in future be replaced by a 4008 error code) _ **client** [string] _ Identifies the client which is connecting. This string should be of the form `platform-library` - for example the iOS library identifies itself as `iOS-libPusher`. _ **version** [string] \* The version of the library which is connecting, for example `1.9.3`.  
+  For example
+
 ```bash
 ws://ws-ap1.pusher.com:80/app/APP_KEY?client=js&version=${process.env.CURRENT_JS_VERSION}&protocol=5
 ```
- 
+
 ## WebSocket data messages
- 
-Data is sent bidirectionally over a WebSocket as text data containing UTF8 encoded JSON. 
- 
->Note: Binary WebSocket frames are not supported.
- 
-Every JSON message contains a single **event** and has an `event` property which is known as the event name. See [events](#events) below for a description of the event types. 
- 
+
+Data is sent bidirectionally over a WebSocket as text data containing UTF8 encoded JSON.
+
+> Note: Binary WebSocket frames are not supported.
+
+Every JSON message contains a single **event** and has an `event` property which is known as the event name. See [events](#events) below for a description of the event types.
+
 ## Ping and pong messages
- 
-If the WebSocket connection supports ping & pong (i.e. advertises itself as draft 01 or above), Pusher Channels will send ping messages to the client in order to verify that it is active. 
- 
-In protocol versions 5 and above, when using an old version of the WebSocket protocol, Pusher Channels will send `pusher:ping` event (see [events](#events)) to the client). The client should respond with a `pusher:pong` event. 
- 
+
+If the WebSocket connection supports ping & pong (i.e. advertises itself as draft 01 or above), Pusher Channels will send ping messages to the client in order to verify that it is active.
+
+In protocol versions 5 and above, when using an old version of the WebSocket protocol, Pusher Channels will send `pusher:ping` event (see [events](#events)) to the client). The client should respond with a `pusher:pong` event.
+
 #### Detecting that the connection is alive
- 
-Both Pusher Channels and clients require a mechanism for establishing that the connection is alive. 
- 
-The basic design pattern is described in the [ ZeroMQ Wiki ](http://www.zeromq.org/deleted:topics:heartbeating) and is symmetric for the client and Pusher Channels. 
- 
-Essentially any messages received from the other party are considered to mean that the connection is alive. In the absence of any messages either party may check that the other side is responding by sending a ping message, to which the other party should respond with a pong. 
- 
-In recent WebSocket drafts ping & pong are supported as part of the protocol. Unfortunately this was not the case in earlier drafts, and unfortunately it is still not possible to trigger sending a ping, or binding to a pong from JavaScript using the [ W3C API ](http://dev.w3.org/html5/websockets/#ping-and-pong-frames) . For both these reasons, Pusher Channels supports both protocol level ping-pong, and an emulated one. This means that Pusher Channels will respond to a WebSocket protocol ping message with a pong message, and also it will respond to a `pusher:ping` event with a `pusher:pong` event (both have empty data). 
- 
+
+Both Pusher Channels and clients require a mechanism for establishing that the connection is alive.
+
+The basic design pattern is described in the [ ZeroMQ Wiki ](http://www.zeromq.org/deleted:topics:heartbeating) and is symmetric for the client and Pusher Channels.
+
+Essentially any messages received from the other party are considered to mean that the connection is alive. In the absence of any messages either party may check that the other side is responding by sending a ping message, to which the other party should respond with a pong.
+
+In recent WebSocket drafts ping & pong are supported as part of the protocol. Unfortunately this was not the case in earlier drafts, and unfortunately it is still not possible to trigger sending a ping, or binding to a pong from JavaScript using the [ W3C API ](http://dev.w3.org/html5/websockets/#ping-and-pong-frames) . For both these reasons, Pusher Channels supports both protocol level ping-pong, and an emulated one. This means that Pusher Channels will respond to a WebSocket protocol ping message with a pong message, and also it will respond to a `pusher:ping` event with a `pusher:pong` event (both have empty data).
+
 #### Recommendations for client libraries
- 
-If the WebSocket draft supports protocol level ping-pong, then on receipt of a ping message, the client MUST respond with a pong message. 
- 
-If the client does not support protocol level pings and advertises (on connect) that it implements a protocol version >= 5 then the client MUST respond to a `pusher:ping` event with a `pusher.pong` event. 
- 
-Clients SHOULD send a ping to Pusher Channels when the connection has been inactive for some time in order to check that the connection is alive. They MUST then wait some time for receipt of a pong message before closing the connection / reconnecting. Clients SHOULD send a protocol ping if supported (sending a `pusher:ping` event will also work). 
- 
-Clients MAY use platform specific APIs to trigger a ping check at an appropriate time (for example when network conditions change). 
- 
-The precise timeouts before sending a ping and how long to wait for a pong MAY be configurable by the user of the library, but sensible defaults SHOULD be specified. The recommended values are: 
-  * Activity timeout before sending ping: 120s * Time to wait for pong response before closing: 30s  
-If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server. 
- 
-The following example code is taken from the `pusher-js` library. This function is called whenever a message is received 
- 
+
+If the WebSocket draft supports protocol level ping-pong, then on receipt of a ping message, the client MUST respond with a pong message.
+
+If the client does not support protocol level pings and advertises (on connect) that it implements a protocol version >= 5 then the client MUST respond to a `pusher:ping` event with a `pusher.pong` event.
+
+Clients SHOULD send a ping to Pusher Channels when the connection has been inactive for some time in order to check that the connection is alive. They MUST then wait some time for receipt of a pong message before closing the connection / reconnecting. Clients SHOULD send a protocol ping if supported (sending a `pusher:ping` event will also work).
+
+Clients MAY use platform specific APIs to trigger a ping check at an appropriate time (for example when network conditions change).
+
+The precise timeouts before sending a ping and how long to wait for a pong MAY be configurable by the user of the library, but sensible defaults SHOULD be specified. The recommended values are:
+
+- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s  
+  If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server.
+
+The following example code is taken from the `pusher-js` library. This function is called whenever a message is received
+
 ```js
 function resetActivityCheck() { if (self._activityTimer) { clearTimeout(self._activityTimer); } // Send ping after inactivity self._activityTimer = setTimeout(function() { self.send_event('pusher:ping', {}) // Wait for pong response self._activityTimer = setTimeout(function() { self.socket.close(); }, (self.options.pong_timeout || Pusher.pong_timeout)) }, (self.options.activity_timeout || Pusher.activity_timeout)) }
 ```
- 
+
 ## Connection closure
- 
+
 Clients may close the WebSocket connection at any time.
- 
-The Pusher Channels server may choose to close the WebSocket connection, in which case a close code and reason will be sent. 
- 
+
+The Pusher Channels server may choose to close the WebSocket connection, in which case a close code and reason will be sent.
+
 Clients SHOULD support the following 3 ranges
- 
-**4000-4099**: The connection SHOULD NOT be re-established unchanged. 
- 
-**4100-4199**: The connection SHOULD be re-established after backing off. The back-off time SHOULD be at least 1 second in duration and MAY be exponential in nature on consecutive failures. 
- 
-**4200-4299**: The connection SHOULD be re-established immediately. 
- 
-Clients MAY handle specific close codes in particular way, but this is generally not necessary. See [error codes](#error-codes) below for a list of errors. 
- 
-> **Old WebSocket drafts**: If the underlying WebSocket does not support close codes then a `pusher:error` event will be sent with an appropriate code before the WebSocket connection is closed (see [below](#system-events)). 
- 
-> **Legacy protocols**: When using protocol versions {'< 6'}, a `pusher:error` event is also sent before the connection is closed (regardless of the WebSocket draft). 
- 
+
+**4000-4099**: The connection SHOULD NOT be re-established unchanged.
+
+**4100-4199**: The connection SHOULD be re-established after backing off. The back-off time SHOULD be at least 1 second in duration and MAY be exponential in nature on consecutive failures.
+
+**4200-4299**: The connection SHOULD be re-established immediately.
+
+Clients MAY handle specific close codes in particular way, but this is generally not necessary. See [error codes](#error-codes) below for a list of errors.
+
+> **Old WebSocket drafts**: If the underlying WebSocket does not support close codes then a `pusher:error` event will be sent with an appropriate code before the WebSocket connection is closed (see [below](#system-events)).
+
+> **Legacy protocols**: When using protocol versions {'< 6'}, a `pusher:error` event is also sent before the connection is closed (regardless of the WebSocket draft).
+
 # Events
- 
-Every message on a Pusher Channels WebSocket connection is packaged as an 'event', whether it is user-generated, or if it is a message from the system. There is always an event name that can be used to determine what should happen to the payload. 
- 
-Every event must contain an `event` property containing the event name. 
- 
-In the docs below "(Pusher Channels -> Client)" indicates that this event is sent from the Pusher Channels server to to client, and similarly vice versa. 
- 
+
+Every message on a Pusher Channels WebSocket connection is packaged as an 'event', whether it is user-generated, or if it is a message from the system. There is always an event name that can be used to determine what should happen to the payload.
+
+Every event must contain an `event` property containing the event name.
+
+In the docs below "(Pusher Channels -> Client)" indicates that this event is sent from the Pusher Channels server to to client, and similarly vice versa.
+
 ## Double encoding
- 
-All events received and sent by clients can contain a `data` field. While all `pusher:` -prefixed events contain only JSON-serializable hashes, it is possible for publishers to trigger messages containing arbitrarily-encoded data. In order to keep the protocol consistent, Pusher Channels tries to send the `data` field as a string. In case of `pusher:` events data may be JSON-serialized first (see our documentation on individual `pusher:` events). As an example of one of these 'double-encoded' events, Pusher Channels will send: 
- 
+
+All events received and sent by clients can contain a `data` field. While all `pusher:` -prefixed events contain only JSON-serializable hashes, it is possible for publishers to trigger messages containing arbitrarily-encoded data. In order to keep the protocol consistent, Pusher Channels tries to send the `data` field as a string. In case of `pusher:` events data may be JSON-serialized first (see our documentation on individual `pusher:` events). As an example of one of these 'double-encoded' events, Pusher Channels will send:
+
 ```json
 { "event": "pusher:connection_established", "data": "{\\"socket_id\\":\\"123.456\\"}" }
 ```
- 
+
 instead of:
- 
+
 ```json
-{ "event": "pusher:connection_established", "data": {"socket_id": "123.456"} }
+{ "event": "pusher:connection_established", "data": { "socket_id": "123.456" } }
 ```
- 
+
 ## Connection events
- 
 
 #### `pusher:connection_established` (Pusher Channels -> Client)
- 
- 
-When the client has connected to the Channel service a `pusher:connection_established` event is triggered. Once this event has been triggered subscriptions can be made to Pusher Channels using the WebSocket connection. 
- 
+
+When the client has connected to the Channel service a `pusher:connection_established` event is triggered. Once this event has been triggered subscriptions can be made to Pusher Channels using the WebSocket connection.
+
 ```json
 { "event": "pusher:connection_established", "data": String }
 ```
- 
-Where the `data` field is a JSON-encoded hash of following format: 
- 
+
+Where the `data` field is a JSON-encoded hash of following format:
+
 ```json
 { "socket_id": String "activity_timeout": Number }
 ```
-  * data.socket_id (String)  * A unique identifier for the connected client  * data.activity_timeout (Number) (Protocol 7 and above)  *  The number of seconds of server inactivity after which the client should initiate a ping message    
-Within the client libraries the connection is normally established when the constructor is called. 
- 
+
+- data.socket_id (String) _ A unique identifier for the connected client _ data.activity_timeout (Number) (Protocol 7 and above) \* The number of seconds of server inactivity after which the client should initiate a ping message  
+  Within the client libraries the connection is normally established when the constructor is called.
+
 ```js
-var pusher = new Pusher('APP_KEY');
+var pusher = new Pusher("APP_KEY");
 ```
+
  <Image src="/docs/static/channels/media/connect.png" alt="Connection and connection event" /> 
 ## System Events
  
@@ -426,4 +429,3 @@ Renamed `connection_established` event to `pusher:connection_established`
 ## Version 1
  
 Initial release
-
