@@ -25,7 +25,23 @@ export default () => {
           snippet.classList.toggle("dn", !active);
           snippet.setAttribute("aria-expanded", active);
         });
+
+        if (snippetsContainer.dataset.method === "true") {
+          toggleMethods(snippetsContainer, targetLang);
+        }
       });
     });
   }
+};
+
+const toggleMethods = (snippet, targetLang) => {
+  const language = targetLang.replace("language-", "");
+  const container = getClosest(snippet, ".method-wrapper");
+  const methods = container.querySelectorAll(".method");
+
+  methods.forEach((method) => {
+    const languages = method.dataset.language.split(",");
+    method.classList.toggle("db", languages.includes(language));
+    method.classList.toggle("dn", !languages.includes(language));
+  });
 };

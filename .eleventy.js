@@ -103,20 +103,23 @@ module.exports = (eleventyConfig) => {
     ghostMode: false,
   });
 
-  eleventyConfig.addPairedShortcode("snippets", function (content, languages) {
-    const languageMap = {
-      rb: "Ruby",
-      js: "Node",
-      php: "PHP",
-      go: "Go",
-      py: "Python",
-      c: ".NET",
-      java: "Java",
-      bash: "Pusher&nbsp;CLI",
-      swift: "Swift",
-      objc: "Objective-C",
-    };
-    return `<div class="bg-snow-light br2 tabbed-snippets">
+  eleventyConfig.addPairedShortcode(
+    "snippets",
+    (content, languages, method = false) => {
+      const languageMap = {
+        rb: "Ruby",
+        js: "Node",
+        php: "PHP",
+        go: "Go",
+        py: "Python",
+        c: ".NET",
+        java: "Java",
+        bash: "Pusher&nbsp;CLI",
+        swift: "Swift",
+        objc: "Objective-C",
+        http: "http",
+      };
+      return `<div class="bg-snow-light br2 tabbed-snippets" data-method="${method}">
       <nav class="ph3 bb b--smoke overflow-auto scrollbar--light">
         <ul class="flex">
       ${languages
@@ -130,6 +133,28 @@ module.exports = (eleventyConfig) => {
       </ul>
     </nav>
     ${content}</div>`;
+    }
+  );
+
+  eleventyConfig.addPairedShortcode(
+    "method",
+    (content, name, type, required = false, language = null, show = true) => {
+      const requiredLabel = `<span class="pumpkin fw6 ml4 f6">Required</span>`;
+      const optionalLabel = `<span class="slate fw6 ml4 f6">Optional</span>`;
+      return `<dl class="method ${show ? "" : "dn"}" ${
+        language !== null ? `data-language="${language}"` : ""
+      }>
+        <dt class="flex items-center pt3">
+          <span class="code ma0 f4 lh-solid" style="font-weight: 400; margin: 0;">${name}</span>
+          <span class="slate fw6 ml4 f6">(${type})</span>
+          ${required ? requiredLabel : optionalLabel}
+        </dt>
+        <dd class="ma0">${content}</dd></dl>`;
+    }
+  );
+
+  eleventyConfig.addPairedShortcode("methodwrap", (content) => {
+    return `<div class="method-wrapper">${content}</div>`;
   });
 
   eleventyConfig.setUseGitIgnore(false);
