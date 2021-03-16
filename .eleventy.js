@@ -145,8 +145,8 @@ module.exports = (eleventyConfig) => {
       return `<dl class="method ${show ? "" : "dn"}" ${
         language !== null ? `data-language="${language}"` : ""
       }>
-        <dt class="flex items-center pt3">
           <span class="code ma0 f4 lh-solid" style="font-weight: 400; margin: 0;">${name}</span>
+        <dt class="flex items-center">
           <span class="slate fw6 ml4 f6">(${type})</span>
           ${required ? requiredLabel : optionalLabel}
         </dt>

@@ -152,6 +152,8 @@ blockquote {
   margin: var(--spacing-large) 0;
 }
 
-.method:visible + .method {
+.method:not([class*="dn"]) + .method {
+  margin-top: var(--spacing-large);
+  padding-top: var(--spacing-large);
   border-top: 1px solid var(--smoke);
 }
