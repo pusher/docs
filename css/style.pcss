@@ -22,6 +22,10 @@
 @import "./modules/_toc-list.pcss";
 @import "./modules/_variables.pcss";
 
+:root {
+  --sidebar-width: 18rem;
+}
+
 .basis-30 {
   flex-basis: 30%;
 }
@@ -46,7 +50,11 @@
 @media (--breakpoint-large) {
   .side-nav {
     box-shadow: rgba(207, 211, 230, 0.5) 2px 0 4px;
-    width: 18rem;
+    width: var(--sidebar-width);
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-width);
   }
 }
 
