@@ -4,6 +4,7 @@ description: Some words about what this website is to help people find it with s
 layout: channels.njk
 hideTOC: true
 eleventyNavigation:
+  parent: Docs
   key: Channels
   order: 2
 ---

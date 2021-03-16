@@ -2,8 +2,9 @@
 title: Connection — Channels — Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: Using Channels
+  parent: Using channels
   key: Connection
+  order: 2
 ---
 
 # Connection
