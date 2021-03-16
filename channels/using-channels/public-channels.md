@@ -13,9 +13,9 @@ Public channels should be used for publicly accessible data as they do not requi
 
 You can subscribe and unsubscribe from channels at any time. There's no need to wait for the Channels to finish connecting first.
 
-# Subscribe
+## Subscribe
 
-{% snippets ['js', 'swift', 'js'] %}
+{% snippets ['js', 'swift', 'php'] %}
 
 ```js
 var channel = pusher.subscribe(channelName);
@@ -25,41 +25,63 @@ var channel = pusher.subscribe(channelName);
 PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:channelName];
 ```
 
-```js
+```php
 var channel = Echo.channel(channelName);
 ```
 
 {% endsnippets %}
 
-- channelName (String) _ The name of the channel to subscribe to. </Item> _ ** _Returns_ ** \* A channel object which events can be bound to. See [ binding to events ](/docs/channels/using_channels/events) . </Item>
+#### Parameters
 
-# Unsubscribe
+{% method 'channelName', 'string', true %}
 
-{% snippets ['js', 'swift', 'js'] %}
+The name of the channel to subscribe to.
+
+{% endmethod %}
+
+#### Returns
+
+A channel object which events can be bound to. See [ binding to events ](/docs/channels/using_channels/events) .
+
+## Unsubscribe
+
+{% methodwrap %}
+
+{% snippets ['js', 'swift', 'php'], true %}
 
 ```js
 pusher.unsubscribe(channelName);
 ```
 
-- channelName (String) \* The name of the channel to unsubscribe from.
-
 ```swift
 [self.pusher unsubscribeFromChannel:channel];
 ```
 
-- channel (PTPusherChannel) \* The name of the channel to unsubscribe from.
-
-```js
+```php
 Echo.leaveChannel(channelName);
 ```
 
-- channelName (String) \* The name of the channel to unsubscribe from.  
-  {% endsnippets %}
+{% endsnippets %}
 
-# Events
+#### Parameters
+
+{% method 'channelName', 'string', true, 'js,php' %}
+
+The name of the channel to unsubscribe from.
+
+{% endmethod %}
+
+{% method 'channel', 'PTPusherChannel', true, 'swift', false %}
+
+The name of the channel to unsubscribe from.
+
+{% endmethod %}
+{% endmethodwrap %}
+
+## Events
 
 See [binding to events](/docs/channels/using_channels/events) for general information about how to bind to events on a channel object.
 
 You can bind to the following `pusher:` events on a public channel:
 
-      *  [ pusher:subscription\_succeeded ](/docs/channels/using_channels/events)
+- [ pusher:subscription_succeeded ](/docs/channels/using_channels/events)
