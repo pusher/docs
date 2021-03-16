@@ -4,6 +4,11 @@ const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const stringLib = require("string");
 const slugifyCustom = (s) => stringLib(s).slugify().toString();
+const hash = (s) =>
+  s.split("").reduce((a, b) => {
+    a = (a << 5) - a + b.charCodeAt(0);
+    return a & a;
+  }, 0);
 
 // widont is a function that takes a string and replaces the space between the last two words with a non breaking space. This stops typographic widows forming
 const widont = (string) => {
@@ -145,11 +150,12 @@ module.exports = (eleventyConfig) => {
     (content, name, type, required = false, language = null, show = true) => {
       const requiredLabel = `<span class="pumpkin fw6 ml4 f6">required</span>`;
       const optionalLabel = `<span class="slate fw6 ml4 f6">optional</span>`;
+      const slug = slugifyCustom(`${name}-${hash(content)}`);
       return `<dl class="method ${show ? "" : "dn"}" ${
         language !== null ? `data-language="${language}"` : ""
-      }>
-          <span class="code ma0 f4 lh-solid" style="font-weight: 400; margin: 0;">${name}</span>
+      } id="${slug}">
         <dt class="flex items-center">
+          <span class="code ma0 f4 lh-solid" style="font-weight: 400; margin: 0;"><a class="link bn" href="#${slug}">∞</a> ${name}</span>
           <span class="slate fw6 ml4 f6">(${type})</span>
           ${required ? requiredLabel : optionalLabel}
         </dt>
