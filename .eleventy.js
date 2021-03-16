@@ -2,6 +2,8 @@ const fs = require("fs");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const stringLib = require("string");
+const slugifyCustom = (s) => stringLib(s).slugify().toString();
 
 // widont is a function that takes a string and replaces the space between the last two words with a non breaking space. This stops typographic widows forming
 const widont = (string) => {
@@ -47,6 +49,7 @@ module.exports = (eleventyConfig) => {
     permalinkClass: "link bn",
     permalinkSymbol: "∞",
     permalinkBefore: true,
+    slugify: slugifyCustom,
   };
 
   markdownIt.renderer.rules.image = (tokens) => {
