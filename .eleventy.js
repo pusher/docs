@@ -140,8 +140,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPairedShortcode(
     "method",
     (content, name, type, required = false, language = null, show = true) => {
-      const requiredLabel = `<span class="pumpkin fw6 ml4 f6">Required</span>`;
-      const optionalLabel = `<span class="slate fw6 ml4 f6">Optional</span>`;
+      const requiredLabel = `<span class="pumpkin fw6 ml4 f6">required</span>`;
+      const optionalLabel = `<span class="slate fw6 ml4 f6">optional</span>`;
       return `<dl class="method ${show ? "" : "dn"}" ${
         language !== null ? `data-language="${language}"` : ""
       }>
