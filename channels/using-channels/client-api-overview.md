@@ -13,7 +13,7 @@ The Client API Overview provides information on how to perform specific actions 
 
 The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below.
 
-{% snippets ['js', 'swift', 'objc', 'objc', 'java', 'php', 'c'] %}
+{% snippets ['js', 'swift', 'objc', 'java', 'php', 'c'] %}
 
 ```js
 var pusher = new Pusher("YOUR_APP_KEY", options);
@@ -25,10 +25,6 @@ let pusher = Pusher(key: "YOUR_APP_KEY")
 
 ```objc
 self.pusher = [[Pusher alloc] initWithKey:@"YOUR_APP_KEY"];
-```
-
-```objc
-self.pusher = [PTPusher pusherWithKey:@"YOUR_APP_KEY"];
 ```
 
 ```java
