@@ -21,17 +21,16 @@ var pusher = new Pusher("APP_KEY", options);
 
 #### Parameters
 
-{% method 'applicationKey', 'String', true %}
+{% parameter 'applicationKey', 'String', true %}
 
 The application key is a string which is globally unique to your application. It can be found in the API Access section of your application within the Channels user dashboard.
 
-{% endmethod %}
-
-{% method 'options', 'Object' %}
+{% endparameter %}
+{% parameter 'options', 'Object' %}
 
 See Channels `options` parameter [below](/channels/using-channels/connection/#channels-options-parameter).
 
-{% endmethod %}
+{% endparameter %}
 
 ### Channels 'options' parameter
 
@@ -56,13 +55,12 @@ The `options` parameter on the `Pusher` constructor is an optional parameter use
 
 The options are:
 
-{% method 'forceTLS', 'Boolean' %}
+{% parameter 'forceTLS', 'Boolean' %}
 
 It’s possible to define if the connection should be made over TLS. For more information see Encrypting connections
 
-{% endmethod %}
-
-{% method 'authEndpoint', 'String' %}
+{% endparameter %}
+{% parameter 'authEndpoint', 'String' %}
 
 Endpoint on your server that will return the authentication signature needed for private and presence channels. Defaults to `'/pusher/auth'`.
 
@@ -70,9 +68,8 @@ For more information see authenticating users.
 
 > If authentication fails a `subscription_error` event is triggered on the channel. For more information see handling authentication problems.
 
-{% endmethod %}
-
-{% method 'authTransport', 'String' %}
+{% endparameter %}
+{% parameter 'authTransport', 'String' %}
 
 Defines how the authentication endpoint, defined using `authEndpoint`, will be called. There are two options available:
 
@@ -81,9 +78,8 @@ Defines how the authentication endpoint, defined using `authEndpoint`, will be c
 
 For more information see the Channel authentication transport section of the authenticating users docs.
 
-{% endmethod %}
-
-{% method 'auth', 'Object' %}
+{% endparameter %}
+{% parameter 'auth', 'Object' %}
 
 > This feature was introduced in **version 1.12** of the Channels JavaScript library.
 
@@ -101,14 +97,13 @@ var pusher = new Pusher("app_key", {
 });
 ```
 
-{% endmethod %}
-
-{% method 'auth.params', 'Object' %}
+{% endparameter %}
+{% parameter 'auth.params', 'Object' %}
 
 Additional parameters to be sent when the channel authentication endpoint is called. When using ajax authentication the parameters are passed as additional `POST` parameters. When using jsonp authentication the parameters are passed as `GET` parameters. This can be useful with web application frameworks that guard against [CSRF (Cross-site request forgery)](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-{% endmethod %}
-{% method 'auth.headers', 'Object' %}
+{% endparameter %}
+{% parameter 'auth.headers', 'Object' %}
 
 **Only applied when using ajax authentication**
 
@@ -124,8 +119,8 @@ var pusher = new Pusher("app_key", {
 });
 ```
 
-{% endmethod %}
-{% method 'cluster', 'String', true %}
+{% endparameter %}
+{% parameter 'cluster', 'String', true %}
 
 The identifier of the cluster your application was created in. When not supplied, will connect to the `mt1` (`us-east-1`) cluster.
 
@@ -135,41 +130,41 @@ var pusher = new Pusher("app_key", { cluster: "eu" });
 ```
 
 This parameter is mandatory when the app is created in a any cluster except `mt1` (`us-east-1`). Read more about configuring clusters.
-{% endmethod %}
-{% method 'disableStats', 'Boolean' %}
+{% endparameter %}
+{% parameter 'disableStats', 'Boolean' %}
 
 Disables stats collection, so that connection metrics are not submitted to Pusher’s servers.
 
-{% endmethod %}
-{% method 'enabledTransports', 'Array' %}
+{% endparameter %}
+{% parameter 'enabledTransports', 'Array' %}
 
 Specifies which transports should be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
 
-{% endmethod %}
-{% method 'disabledTransports', 'Array' %}
+{% endparameter %}
+{% parameter 'disabledTransports', 'Array' %}
 
 Specifies which transports must not be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
 
-{% endmethod %}
-{% method 'wsHost, wsPort, wssPort, httpHost, httpPort, httpsPort', 'Boolean' %}
+{% endparameter %}
+{% parameter 'wsHost, wsPort, wssPort, httpHost, httpPort, httpsPort', 'Boolean' %}
 These can be changed to point to alternative Channels URLs (used internally for our staging server).
 
-{% endmethod %}
-{% method 'ignoreNullOrigin', 'Boolean' %}
+{% endparameter %}
+{% parameter 'ignoreNullOrigin', 'Boolean' %}
 
 Ignores null origin checks for HTTP fallbacks. Use with care, it should be disabled only if necessary (i.e. PhoneGap).
 
-{% endmethod %}
-{% method 'activityTimeout', 'Integer' %}
+{% endparameter %}
+{% parameter 'activityTimeout', 'Integer' %}
 
 After this time (in milliseconds) without any messages received from the server, a ping message will be sent to check if the connection is still working. Default value is supplied by the server, low values will result in unnecessary traffic.
 
-{% endmethod %}
-{% method 'pongTimeout', 'Integer' %}
+{% endparameter %}
+{% parameter 'pongTimeout', 'Integer' %}
 
 After sending a ping message to the server, the client waits `pongTimeout` milliseconds for a response before assuming the connection is dead and closing it. Default value is supplied by the server.
 
-{% endmethod %}
+{% endparameter %}
 
 ### TLS connections
 

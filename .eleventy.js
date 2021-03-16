@@ -146,12 +146,12 @@ module.exports = (eleventyConfig) => {
   );
 
   eleventyConfig.addPairedShortcode(
-    "method",
+    "parameter",
     (content, name, type, required = false, language = null, show = true) => {
       const requiredLabel = `<span class="pumpkin fw6 ml4 f6">required</span>`;
       const optionalLabel = `<span class="slate fw6 ml4 f6">optional</span>`;
       const slug = slugifyCustom(`${name}-${hash(content)}`);
-      return `<dl class="method ${show ? "" : "dn"}" ${
+      return `<dl class="parameter ${show ? "" : "dn"}" ${
         language !== null ? `data-language="${language}"` : ""
       } id="${slug}">
         <dt class="flex items-center">

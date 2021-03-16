@@ -33,11 +33,11 @@ var channel = Echo.channel(channelName);
 
 #### Parameters
 
-{% method 'channelName', 'string', true %}
+{% parameter 'channelName', 'string', true %}
 
 The name of the channel to subscribe to.
 
-{% endmethod %}
+{% endparameter %}
 
 #### Returns
 
@@ -65,17 +65,17 @@ Echo.leaveChannel(channelName);
 
 #### Parameters
 
-{% method 'channelName', 'string', true, 'js,php' %}
+{% parameter 'channelName', 'string', true, 'js,php' %}
 
 The name of the channel to unsubscribe from.
 
-{% endmethod %}
+{% endparameter %}
 
-{% method 'channel', 'PTPusherChannel', true, 'swift', false %}
+{% parameter 'channel', 'PTPusherChannel', true, 'swift', false %}
 
 The name of the channel to unsubscribe from.
 
-{% endmethod %}
+{% endparameter %}
 {% endmethodwrap %}
 
 ## Events
