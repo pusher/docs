@@ -9,7 +9,10 @@ eleventyNavigation:
 
 # JavaScript realtime chart quick start
 
-<Video src="/docs/static/channels/media/javascript-realtime-chart.mp4" alt="Video of JavaScript realtime chart" autoPlay muted // Browser policy says video must be muted in order to autoplay loop="loop" />
+<figure class="mh0 mv5 pa0 border-box">
+  <video src="/video/javascript-realtime-chart.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
+</figure>
+
 After following this guide you will have a chart in a webpage that you can publish new data-points to from your server. If you have any questions [get in touch](https://pusher.com/support).
 
 # Get your free API keys
@@ -27,7 +30,41 @@ We’ll make the chart UI using [Google Charts](https://developers.google.com/ch
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://js.pusher.com/${process.env.CURRENT_JS_VERSION}/pusher.min.js"></script>
     <script>
-      google.charts.load('current', {'packages':['corechart']}); google.charts.setOnLoadCallback(() => { // Instead of hard-coding the initial table data, // you could fetch it from your server. const dataTable = google.visualization.arrayToDataTable([ ['Year', 'Price'], [2013, 400], [2014, 460], ]); const chart = new google.visualization.AreaChart( document.getElementById('chart_div')); const options = { title: '1 BTC in USD', hAxis: {title: 'Year', titleTextStyle: {color: '#333'}}, vAxis: {minValue: 0}, animation:{ duration: 100, easing: 'out' } }; chart.draw(dataTable, options); let year = 2015; Pusher.logToConsole = true; const pusher = new Pusher('APP_KEY', { // Replace with 'key' from dashboard cluster: 'APP_CLUSTER', // Replace with 'cluster' from dashboard forceTLS: true }); const channel = pusher.subscribe('price-btcusd'); channel.bind('new-price', data => { const row = [year++, data.value]; dataTable.addRow(row); chart.draw(dataTable, options); }); });
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(() => {
+        // Instead of hard-coding the initial table data,
+        // you could fetch it from your server.
+        const dataTable = google.visualization.arrayToDataTable([
+          ["Year", "Price"],
+          [2013, 400],
+          [2014, 460],
+        ]);
+        const chart = new google.visualization.AreaChart(
+          document.getElementById("chart_div")
+        );
+        const options = {
+          title: "1 BTC in USD",
+          hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
+          vAxis: { minValue: 0 },
+          animation: { duration: 100, easing: "out" },
+        };
+        chart.draw(dataTable, options);
+        let year = 2015;
+        Pusher.logToConsole = true;
+        const pusher = new Pusher(
+          "APP_KEY", // Replace with 'key' from dashboard
+          {
+            cluster: "APP_CLUSTER", // Replace with 'cluster' from dashboard
+            forceTLS: true,
+          }
+        );
+        const channel = pusher.subscribe("price-btcusd");
+        channel.bind("new-price", (data) => {
+          const row = [year++, data.value];
+          dataTable.addRow(row);
+          chart.draw(dataTable, options);
+        });
+      });
     </script>
   </body>
 </html>
@@ -42,25 +79,75 @@ Your server should trigger events called `new-price` on a channel called `price-
 {% snippets ['js', 'php', 'py'] %}
 
 ```js
-// First, run 'npm install pusher' const Pusher = require("pusher"); const pusher = new Pusher({ appId: "APP_ID", // Replace with 'app_id' from dashboard key: "APP_KEY", // Replace with 'key' from dashboard secret: "APP_SECRET", // Replace with 'secret' from dashboard cluster: "APP_CLUSTER", // Replace with 'cluster' from dashboard useTLS: true }); // Trigger a new random event every second. In your application, // you should trigger the event based on real-world changes! setInterval(() => { pusher.trigger("price-btcusd", "new-price", { value: Math.random() * 5000 }); }, 1000);
+// First, run 'npm install pusher'
+const Pusher = require("pusher");
+const pusher = new Pusher({
+  appId: "APP_ID", // Replace with 'app_id' from dashboard
+  key: "APP_KEY", // Replace with 'key' from dashboard
+  secret: "APP_SECRET", // Replace with 'secret' from dashboard
+  cluster: "APP_CLUSTER", // Replace with 'cluster' from dashboard
+  useTLS: true,
+});
+// Trigger a new random event every second. In your application,
+// you should trigger the event based on real-world changes!
+setInterval(() => {
+  pusher.trigger("price-btcusd", "new-price", {
+    value: Math.random() * 5000,
+  });
+}, 1000);
 ```
 
 ```php
-<?php // First, run 'composer require pusher/pusher-php-server' require __DIR__ . '/vendor/autoload.php'; $pusher = new Pusher\\Pusher( "APP_KEY", // Replace with 'key' from dashboard "APP_SECRET", // Replace with 'secret' from dashboard "APP_ID", // Replace with 'app_id' from dashboard array( 'cluster' => 'APP_CLUSTER' // Replace with 'cluster' from dashboard ) ); // Trigger a new random event every second. In your application, // you should trigger the event based on real-world changes! while (true) { $pusher->trigger('price-btcusd', 'new-price', array( 'value' => rand(0, 5000) )); sleep(1); }
+<?php
+// First, run 'composer require pusher/pusher-php-server'
+require __DIR__ . '/vendor/autoload.php';
+
+$pusher = new Pusher\Pusher(
+  "APP_KEY", // Replace with 'key' from dashboard
+  "APP_SECRET", // Replace with 'secret' from dashboard
+  "APP_ID", // Replace with 'app_id' from dashboard
+  array(
+    'cluster' => 'APP_CLUSTER' // Replace with 'cluster' from dashboard
+  )
+);
+// Trigger a new random event every second. In your application,
+// you should trigger the event based on real-world changes!
+while (true) {
+  $pusher->trigger('price-btcusd', 'new-price', array(
+    'value' => rand(0, 5000)
+  ));
+  sleep(1);
+}
 ```
 
 ```py
-# First, run 'pip install pusher' import pusher import random import time pusher_client = pusher.Pusher( app_id='APP_ID', # Replace with 'app_id' from dashboard key='APP_KEY', # Replace with 'key' from dashboard secret='APP_SECRET', # Replace with 'secret' from dashboard cluster='APP_CLUSTER', # Replace with 'cluster' from dashboard ssl=True ) # Trigger a new random event every second. In your application, # you should trigger the event based on real-world changes! while True: pusher_client.trigger('price-btcusd', 'new-price', { 'value': random.randint(0, 5000) }) time.sleep(1)
+# First, run 'pip install pusher'
+import pusher
+import random
+import time pusher_client = pusher.Pusher(
+  app_id='APP_ID', # Replace with 'app_id' from dashboard
+  key='APP_KEY', # Replace with 'key' from dashboard
+  secret='APP_SECRET', # Replace with 'secret' from dashboard
+  cluster='APP_CLUSTER', # Replace with 'cluster' from dashboard
+  ssl=True
+)
+# Trigger a new random event every second.In your application,
+# you should trigger the event based on real-world changes!
+while True:
+  pusher_client.trigger('price-btcusd', 'new-price', {
+    'value': random.randint(0, 5000)
+  })
+  time.sleep(1)
 ```
 
-> If there isn't an example in your language, have a look on our [ server SDKs ](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
-
 {% endsnippets %}
+
+> If there isn't an example in your language, have a look on our [ server SDKs ](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
 
 Finally, go back to your browser to see the realtime data appearing in the chart!
 
 # Where next?
 
-      *  If you had any trouble, [get in touch](https://pusher.com/support).
-      *  For the core concepts, read [Understanding Pusher Channels](/docs/channels).
-      *  For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [ publish/subscribe over channels ](/docs/channels/using_channels/channels) , and [ the JavaScript client library ](/docs/channels/using_channels/client-api-overview) .
+- If you had any trouble, [get in touch](https://pusher.com/support).
+- For the core concepts, read [Understanding Pusher Channels](/docs/channels).
+- For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [ publish/subscribe over channels ](/docs/channels/using_channels/channels) , and [ the JavaScript client library ](/docs/channels/using_channels/client-api-overview) .

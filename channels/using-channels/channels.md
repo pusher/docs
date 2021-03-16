@@ -43,7 +43,6 @@ If a channel has been subscribed to already it is possible to access channels by
 var channel = pusher.channel(channelName);
 ```
 
-      * channelName (String)
+#### channelName (String)
 
-        * The name of the channel to retrieve
-
+The name of the channel to retrieve

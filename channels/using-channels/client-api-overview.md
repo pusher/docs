@@ -47,10 +47,9 @@ var pusher = new Pusher("YOUR_APP_KEY");
 
 # Where Next?
 
-      *  [Connection](/docs/channels/using_channels/connection)
-
-      *  [Channels](/docs/channels/using_channels/channels)
-      *  [Events](/docs/channels/using_channels/events)
-      *  [ Presence ](/docs/channels/using_channels/presence-channels)
-      *  [ User Authentication ](/docs/channels/using_channels/authorized-connections)
-      *  [ Global config ](/docs/channels/using_channels/global-config)
+- [Connection](/docs/channels/using_channels/connection)
+- [Channels](/docs/channels/using_channels/channels)
+- [Events](/docs/channels/using_channels/events)
+- [Presence](/docs/channels/using_channels/presence-channels)
+- [User Authentication](/docs/channels/using_channels/authorized-connections)
+- [Global config](/docs/channels/using_channels/global-config)
