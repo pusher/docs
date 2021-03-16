@@ -119,7 +119,15 @@
   margin: 3rem 0 1rem;
 }
 
-.nested-headlines h4,
+.nested-headlines h4 {
+  font-size: var(--font-size-5);
+  font-weight: 700;
+  line-height: 1.75;
+  margin: 3rem 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--smoke);
+}
+
 .nested-headlines h5,
 .nested-headlines h6 {
   font-size: var(--font-size-5);
