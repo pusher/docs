@@ -40,7 +40,7 @@ If you want to customise how to present a received notification to a user when y
 {iOSHandleNotificationActionsExample}
 ```
 
-Please read the Apple documentation on [ handling notification-related actions ](https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions) for more information.
+Please read the Apple documentation on [handling notification-related actions](https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions) for more information.
 
 # While your app is closed
 

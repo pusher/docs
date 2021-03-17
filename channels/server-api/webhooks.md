@@ -11,7 +11,7 @@ eleventyNavigation:
 
 Webhooks allow your server to be notified about events occurring within Channels.
 
-You can activate webhooks in your [account dashboard](https://dashboard.pusher.com) on a per app basis. For general information on webhooks, see the [ webhooks.org Wiki ](https://webhooks.pbworks.com/w/page/13385124/FrontPage) .
+You can activate webhooks in your [account dashboard](https://dashboard.pusher.com) on a per app basis. For general information on webhooks, see the [webhooks.org Wiki](https://webhooks.pbworks.com/w/page/13385124/FrontPage) .
 
 # Webhook format
 

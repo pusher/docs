@@ -14,7 +14,7 @@ Pusher Channels will only allow a connection to subscribe to a [private channel]
 
 # Server-side: implementing authentication endpoints
 
-You can start with an authentication endpoint that authorizes every request it receives. You can do that with [ pusher-channels-auth-example ](https://github.com/pusher/pusher-channels-auth-example) , or by copy-pasting one of the examples below. (If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).)
+You can start with an authentication endpoint that authorizes every request it receives. You can do that with [pusher-channels-auth-example](https://github.com/pusher/pusher-channels-auth-example) , or by copy-pasting one of the examples below. (If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).)
 
 ## Implementing the auth endpoint for a private channel
 
@@ -222,11 +222,11 @@ As an example, in Rails, you can inject the CSRF token into Javacript like this 
 
 # Batching auth requests (aka multi-auth)
 
-Currently, pusher-js itself does not support authenticating multiple channels in one HTTP request. However, thanks to [Dirk Bonhomme](https://github.com/dirkbonhomme) you can use the [ pusher-js-auth ](https://github.com/dirkbonhomme/pusher-js-auth) plugin that buffers subscription requests and sends auth requests to your endpoint in batches.
+Currently, pusher-js itself does not support authenticating multiple channels in one HTTP request. However, thanks to [Dirk Bonhomme](https://github.com/dirkbonhomme) you can use the [pusher-js-auth](https://github.com/dirkbonhomme/pusher-js-auth) plugin that buffers subscription requests and sends auth requests to your endpoint in batches.
 
 # Using JSONP in pusher-js
 
-In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [ the browser's same-origin policy ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) . For modern browsers, you should use [ Cross-Origin Resource Sharing (CORS) ](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `authTransport: 'jsonp'`:
+In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) . For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `authTransport: 'jsonp'`:
 
 ```html
 <script src="//js.pusher.com/${process.env.CURRENT_JS_VERSION}/pusher.min.js"></script>

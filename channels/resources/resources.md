@@ -48,7 +48,7 @@ By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pa
 - JavaScript _ Authentication _ Private Channels \* Presence Channels  
   A short blog post showing how to catch errors which occur when calling authentication endpoints to authenticate a private or presence channel subscription when using the Channels JavaScript library.
 
-[ Implement Live Web Chat With ASP.NET MVC 4, Pusher Channels and jQuery (Part 1) ](http://www.geekbeing.com/2012/05/18/implement-live-web-chat-part-1/)
+[Implement Live Web Chat With ASP.NET MVC 4, Pusher Channels and jQuery (Part 1)](http://www.geekbeing.com/2012/05/18/implement-live-web-chat-part-1/)
 
 [How to setup growl notifications for Beanstalk Deployments](http://www.joshstrange.com/2012/06/14/how-to-setup-growl-notifications-for-beanstalk-deployments-updated/)
 
@@ -61,9 +61,9 @@ By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pa
 - JavaScript _ Authentication _ Private Channels _ Presence Channels _ Ruby  
   This post shows how to use the JSONp authentication using the Channels JavaScript library and shows how to execute the callback in in Ruby.
 
-[ Adding Channels to Truestory (Rails tutorial) ](http://blog.new-bamboo.co.uk/2010/5/12/integrating-pusher-into-a-complex-app-in-one-day) <br /> By [Oliver](http://new-bamboo.co.uk)
+[Adding Channels to Truestory (Rails tutorial)](http://blog.new-bamboo.co.uk/2010/5/12/integrating-pusher-into-a-complex-app-in-one-day) <br /> By [Oliver](http://new-bamboo.co.uk)
 
-[ How to Push (PHP tutorial) ](http://blog.tarnfeldweb.com/2010/05/how-to-push/) <br /> By [Tom Arnfeld](http://tarnfeldweb.com/ "Tom Arnfeld")
+[How to Push (PHP tutorial)](http://blog.tarnfeldweb.com/2010/05/how-to-push/) <br /> By [Tom Arnfeld](http://tarnfeldweb.com/ "Tom Arnfeld")
 
 [Channels and ColdFusion](http://www.bennadel.com/blog/1954-Using-ColdFusion-With-Pusher-A-Notification-Service-Powered-By-HTML5-WebSockets.htm) <br /> By [Ben Nadel](http://www.bennadel.com/)
 

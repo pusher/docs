@@ -17,4 +17,4 @@ Pusher CLI is a tool that is designed to make your experience while developing P
 
 # How do I get and use it?
 
-You should check out our [installation guide](/docs/channels/pusher_cli/installation) , it'll help you get set up. [ We have documentation too. ](/docs/channels/pusher_cli/documentation)
+You should check out our [installation guide](/docs/channels/pusher_cli/installation) , it'll help you get set up. [We have documentation too.](/docs/channels/pusher_cli/documentation)

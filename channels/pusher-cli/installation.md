@@ -13,7 +13,7 @@ The Pusher CLI is a great way to improve your development experience, and the fi
 
 # Prerequisites
 
-- A computer running on a 64 bit architecture. We do not currently support 32 bit architectures _ A supported OS: MacOS, Linux, Windows or BSD _ An internet connection \* A Pusher account that has an API key [ (in your account settings) ](https://dashboard.pusher.com/accounts/api_key) .
+- A computer running on a 64 bit architecture. We do not currently support 32 bit architectures _ A supported OS: MacOS, Linux, Windows or BSD _ An internet connection \* A Pusher account that has an API key [(in your account settings)](https://dashboard.pusher.com/accounts/api_key) .
 
 # MacOS
 

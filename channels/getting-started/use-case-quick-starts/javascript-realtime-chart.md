@@ -150,4 +150,4 @@ Finally, go back to your browser to see the realtime data appearing in the chart
 
 - If you had any trouble, [get in touch](https://pusher.com/support).
 - For the core concepts, read [Understanding Pusher Channels](/docs/channels).
-- For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [ publish/subscribe over channels ](/docs/channels/using_channels/channels) , and [the JavaScript client library](/docs/channels/using_channels/client-api-overview) .
+- For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [publish/subscribe over channels](/docs/channels/using_channels/channels) , and [the JavaScript client library](/docs/channels/using_channels/client-api-overview) .

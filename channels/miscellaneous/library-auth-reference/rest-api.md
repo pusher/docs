@@ -14,7 +14,7 @@ This document lists all API methods, and details the authentication mechanism. U
 
 # General
 
-The API is hosted at [ http://api-CLUSTER.pusher.com ](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (for instance, mt1). The API may be accessed via HTTP or HTTPS.
+The API is hosted at [http://api-CLUSTER.pusher.com](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (for instance, mt1). The API may be accessed via HTTP or HTTPS.
 
 All requests MUST be authenticated, as described [below](#generating-authentication-signatures).
 
@@ -161,7 +161,7 @@ Returns an array of subscribed users ids
  
 # HTTP Keep-Alive
  
-The Channels API supports [ HTTP Keep-Alive ](https://en.wikipedia.org/wiki/HTTP_persistent_connection) . HTTP client libraries that implement this feature are able to re-use a single TCP connection to send multiple HTTP requests thus avoiding the overhead of the TCP connection (typically 100-200ms) between each subsequent request. 
+The Channels API supports [HTTP Keep-Alive](https://en.wikipedia.org/wiki/HTTP_persistent_connection) . HTTP client libraries that implement this feature are able to re-use a single TCP connection to send multiple HTTP requests thus avoiding the overhead of the TCP connection (typically 100-200ms) between each subsequent request. 
  
 In scenarios where many requests are sent at the same time this can improve the throughput and decrease the load on the machine that is sending those requests. 
  
