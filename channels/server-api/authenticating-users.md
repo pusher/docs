@@ -9,12 +9,12 @@ eleventyNavigation:
 
 # Authenticating users
 
-Pusher Channels will only allow a connection to subscribe to a [ private channel ](/docs/channels/using_channels/private-channels) or [ presence channel ](/docs/channels/using_channels/presence-channels) if the connection provides an auth token signed by your server. This lets you restrict access. For example, if only your user Bob should be able to see the events in the channel `private-user-bob`, your server should only give Bob an auth token for this channel. Your server can also add user data to the auth token, which is used by [ presence channels ](/docs/channels/using_channels/presence-channels) to [ tell all subscribers who else is subscribed ](/docs/channels/using_channels/presence-channels#events) . When your client subscribes to a private or presence channel, the Channels client library requests an auth token from your server:
+Pusher Channels will only allow a connection to subscribe to a [private channel](/docs/channels/using_channels/private-channels) or [presence channel](/docs/channels/using_channels/presence-channels) if the connection provides an auth token signed by your server. This lets you restrict access. For example, if only your user Bob should be able to see the events in the channel `private-user-bob`, your server should only give Bob an auth token for this channel. Your server can also add user data to the auth token, which is used by [presence channels](/docs/channels/using_channels/presence-channels) to [tell all subscribers who else is subscribed](/docs/channels/using_channels/presence-channels#events) . When your client subscribes to a private or presence channel, the Channels client library requests an auth token from your server:
 <Image src="/docs/static/channels/media/private-channel-auth-process.png" alt="Auth Process" />
 
 # Server-side: implementing authentication endpoints
 
-You can start with an authentication endpoint that authorizes every request it receives. You can do that with [ pusher-channels-auth-example ](https://github.com/pusher/pusher-channels-auth-example) , or by copy-pasting one of the examples below. (If you don't see your language listed, you can [ implement your own authentication endpoint ](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).)
+You can start with an authentication endpoint that authorizes every request it receives. You can do that with [ pusher-channels-auth-example ](https://github.com/pusher/pusher-channels-auth-example) , or by copy-pasting one of the examples below. (If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).)
 
 ## Implementing the auth endpoint for a private channel
 
@@ -156,7 +156,7 @@ params, _ := ioutil.ReadAll(req.Body) presenceData := pusher.MemberData{ UserId:
 
 In all cases, the format of the response is very similar:
 
-- **Unsuccessful** responses from an authentication endpoint should serve a `403 Forbidden` HTTP status. \* **Successful** responses from an authentication endpoint should carry a `200 OK` HTTP status and a body of the form <InlineCode language="json"> {'{ "auth": "$AUTHORIZATION_STRING" }'} `. Authentication of a presence channel is performed in exactly the same way as a private channel but the JSON response must also have a`channel_data` property containing information that you wish to share about the current user. For more details of this format, see [ generating the authentication string ](/docs/channels/library_auth_reference/auth-signatures) .
+- **Unsuccessful** responses from an authentication endpoint should serve a `403 Forbidden` HTTP status. \* **Successful** responses from an authentication endpoint should carry a `200 OK` HTTP status and a body of the form <InlineCode language="json"> {'{ "auth": "$AUTHORIZATION_STRING" }'} `. Authentication of a presence channel is performed in exactly the same way as a private channel but the JSON response must also have a`channel_data` property containing information that you wish to share about the current user. For more details of this format, see [generating the authentication string](/docs/channels/library_auth_reference/auth-signatures) .
 
 # Client-side: setting the Channel Authentication endpoint
 

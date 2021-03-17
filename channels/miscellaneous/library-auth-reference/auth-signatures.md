@@ -10,7 +10,7 @@ eleventyNavigation:
 
 # Generating the authentication string
 
-This guide is designed for library makers who wish to implement the signing mechanism in use by [ private channels ](/docs/channels/using_channels/private-channels) . Visit that page for information about integration and an overview of the technique.
+This guide is designed for library makers who wish to implement the signing mechanism in use by [private channels](/docs/channels/using_channels/private-channels) . Visit that page for information about integration and an overview of the technique.
 
 The auth string should look like
 
@@ -62,7 +62,7 @@ The auth response should be a JSON string with a an `auth` property with a value
 
 ## Encrypted channels
 
-[ Encrypted channels ](/docs/channels/using_channels/encrypted-channels) require an additional `shared_secret` key in the auth response, which is populated with the per-channel shared key to use for decryption. The key is base64 encoded, it must be decoded before use.
+[Encrypted channels](/docs/channels/using_channels/encrypted-channels) require an additional `shared_secret` key in the auth response, which is populated with the per-channel shared key to use for decryption. The key is base64 encoded, it must be decoded before use.
 
 This value is not part of the signature for the auth token, it is independent of the value in the `auth` key.
 
@@ -74,7 +74,7 @@ For example:
 
 ## Presence channels
 
-[ Presence channels ](/docs/channels/using_channels/presence-channels) require extra user data to be passed back to the client along with the auth string. These data need to be part of the signature as a valid JSON string. For presence channels, the signature is a HMAC SHA256 hex digest of the following string:
+[Presence channels](/docs/channels/using_channels/presence-channels) require extra user data to be passed back to the client along with the auth string. These data need to be part of the signature as a valid JSON string. For presence channels, the signature is a HMAC SHA256 hex digest of the following string:
 
 ```js
 <socket_id>:<channel_name>:<JSON encoded user data>

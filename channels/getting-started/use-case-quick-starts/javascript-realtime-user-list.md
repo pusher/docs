@@ -136,7 +136,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(\`Listening on port ${port}!`));
 ```
 
-> If there isn't an example in your language, have a look on our [ server SDKs ](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
+> If there isn't an example in your language, have a look on our [server SDKs](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
 
 Open <http://localhost:5000/>. Log in by entering your initials in the prompt. Your user should appear in the top-right. For more users, open "incognito" browser windows.
 

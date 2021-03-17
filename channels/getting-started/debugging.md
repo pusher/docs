@@ -67,7 +67,7 @@ Pusher.log = function(message) { // custom logging logic };
 
 # Automated Diagnostics
 
-We have a [ Channels Diagnostics application ](http://pusher-diagnostics.herokuapp.com) that runs a number of tests related to the runtime environment (the browser) and the features offered by the Channels JavaScript library. If you still can't get to the bottom of a problem running the diagnostics and then getting in touch with support is a good next step.
+We have a [Channels Diagnostics application](http://pusher-diagnostics.herokuapp.com) that runs a number of tests related to the runtime environment (the browser) and the features offered by the Channels JavaScript library. If you still can't get to the bottom of a problem running the diagnostics and then getting in touch with support is a good next step.
 
 ![A screenshot of the Channels Diagnostics tools](./img/pusher_diagnostics.png)
 

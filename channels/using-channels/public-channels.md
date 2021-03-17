@@ -41,7 +41,7 @@ The name of the channel to subscribe to.
 
 #### Returns
 
-A channel object which events can be bound to. See [ binding to events ](/docs/channels/using_channels/events) .
+A channel object which events can be bound to. See [binding to events](/docs/channels/using_channels/events) .
 
 ## Unsubscribe
 
@@ -84,4 +84,4 @@ See [binding to events](/docs/channels/using_channels/events) for general inform
 
 You can bind to the following `pusher:` events on a public channel:
 
-- [ pusher:subscription_succeeded ](/docs/channels/using_channels/events)
+- [pusher:subscription_succeeded](/docs/channels/using_channels/events)

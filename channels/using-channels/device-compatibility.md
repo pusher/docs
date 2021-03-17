@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Device compatibility
 
-Channels connections are designed to work with a very wide array of devices through a range of [ client libraries ](/docs/channels/channels_libraries/libraries) .
+Channels connections are designed to work with a very wide array of devices through a range of [client libraries](/docs/channels/channels_libraries/libraries) .
 
 There are 3 broad categories of devices that we support:
 

@@ -74,7 +74,7 @@ This page is now waiting for `new-price` events on the `price-btcusd` channel. W
 
 # Trigger events from your server
 
-Your server should trigger events called `new-price` on a channel called `price-btcusd`. Each example below uses one of the [ official Pusher Channels server SDKs ](/docs/channels/channels_libraries/libraries) to trigger the events.
+Your server should trigger events called `new-price` on a channel called `price-btcusd`. Each example below uses one of the [official Pusher Channels server SDKs](/docs/channels/channels_libraries/libraries) to trigger the events.
 
 {% snippets ['js', 'php', 'py'] %}
 
@@ -142,7 +142,7 @@ while True:
 
 {% endsnippets %}
 
-> If there isn't an example in your language, have a look on our [ server SDKs ](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
+> If there isn't an example in your language, have a look on our [server SDKs](/docs/channels/channels_libraries/libraries) page, or [get in touch](https://pusher.com/support).
 
 Finally, go back to your browser to see the realtime data appearing in the chart!
 
@@ -150,4 +150,4 @@ Finally, go back to your browser to see the realtime data appearing in the chart
 
 - If you had any trouble, [get in touch](https://pusher.com/support).
 - For the core concepts, read [Understanding Pusher Channels](/docs/channels).
-- For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [ publish/subscribe over channels ](/docs/channels/using_channels/channels) , and [ the JavaScript client library ](/docs/channels/using_channels/client-api-overview) .
+- For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [ publish/subscribe over channels ](/docs/channels/using_channels/channels) , and [the JavaScript client library](/docs/channels/using_channels/client-api-overview) .

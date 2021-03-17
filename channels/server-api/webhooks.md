@@ -90,7 +90,7 @@ The event data for this event is as follows:
 
 ## Presence events
 
-Notify your application whenever a user subscribes to or unsubscribes from a [ Presence channel ](/docs/channels/using_channels/presence-channels) .
+Notify your application whenever a user subscribes to or unsubscribes from a [Presence channel](/docs/channels/using_channels/presence-channels) .
 
 For example, this allows you to synchronise channel presence state on your server as well as all your application clients.
 
@@ -118,7 +118,7 @@ The event data for this event is as follows:
 
 Notify your application whenever a client event is sent.
 
-Channels will send a `client_event` event whenever a [ client event ](/docs/channels/using_channels/events#triggering-client-events) is sent on any private or presence channel.
+Channels will send a `client_event` event whenever a [client event](/docs/channels/using_channels/events#triggering-client-events) is sent on any private or presence channel.
 
 The event data for this event is as follows:
 

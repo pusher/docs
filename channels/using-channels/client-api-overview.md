@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Client API overview
 
-The Client API Overview provides information on how to perform specific actions using our [ client libraries ](/docs/channels/channels_libraries/libraries) . Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used.
+The Client API Overview provides information on how to perform specific actions using our [client libraries](/docs/channels/channels_libraries/libraries) . Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used.
 
 The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below.
 

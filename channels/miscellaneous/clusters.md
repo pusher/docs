@@ -209,4 +209,4 @@ Pusher pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET");
 
       *  First make sure your app is created in the intended cluster and that all the Channels libraries you are using in your project are configured correctly.
       *  Make sure your app makes requests to the correct endpoints. On the server-side, use a traffic sniffing tool like [tcpdump](http://www.tcpdump.org/). On the client-side, open your browser's developer tools and inspect the network requests.
-      *  [ Contact support ](https://support.pusher.com/hc/en-us/requests/new)
+      *  [Contact support](https://support.pusher.com/hc/en-us/requests/new)

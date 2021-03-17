@@ -1,20 +1,23 @@
 ---
 title: Webhooks - Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Api
   key: Webhooks
   order: 5
 ---
+
 # Webhook Reference
- 
-Webhooks will are sent as `POST` requests with a JSON body. The request body contains a generic wrapper around the following event-specific payloads: 
- {WEBHOOKS_DOCS_ENABLED && (  {/* Keep these event descriptions in sync with the ones in the webhooks concept page */} 
-#  `v1.PublishToUsersAttempt` 
- 
-Contains a summary of what happened during a publish to one or more [ Authenticated Users ](/docs/beams/concepts/authenticated-users) . 
- 
+
+Webhooks will are sent as `POST` requests with a JSON body. The request body contains a generic wrapper around the following event-specific payloads:
+{WEBHOOKS_DOCS_ENABLED && ( {/_ Keep these event descriptions in sync with the ones in the webhooks concept page _/}
+
+# `v1.PublishToUsersAttempt`
+
+Contains a summary of what happened during a publish to one or more [Authenticated Users](/docs/beams/concepts/authenticated-users) .
+
 ## Payload Schema
+
  <Table> <thead> <tr> <th>Key Name</th> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> `instance_id` </td> <td>string</td> <td> ID of the Pusher Beams instance that made this publish request. </td> </tr> <tr> <td> `publish_id` </td> <td>string</td> <td>Unique ID of the completed publish request.</td> </tr> <tr> <td> `users_delivered_to_gateway` </td> <td>{'Array<string>'}</td> <td> List of IDs of users who have had a notification accepted by the gateway for at least one of their devices. </td> </tr> <tr> <td> `users_no_devices` </td> <td>{'Array<string>'}</td> <td> List of IDs of users that do not have any devices registered with Pusher Beams. </td> </tr> <tr> <td> `users_gateway_failed` </td> <td>{'Array<string>'}</td> <td> List of IDs of users that could not be delivered to due to transient issues with the gateway. </td> </tr> </tbody> </Table> 
 ## Example
  
@@ -70,9 +73,8 @@ Indicates we have started publishing to the devices subscribed to the specified 
  
 ## Publish Finished Hook
  
-Indicates we have finished publishing the push notification to devices subscribed to the specified interests. 
+Indicates we have finished publishing the push notification to devices subscribed to the specified interests.
 
-    
 #### Payload Schema
 
     <Table>
@@ -124,7 +126,7 @@ Indicates we have finished publishing the push notification to devices subscribe
         </tr>
       </tbody>
     </Table>
-    
+
 #### Result Object Schema
 
     <Table>
@@ -164,11 +166,11 @@ Indicates we have finished publishing the push notification to devices subscribe
         </tr>
       </tbody>
     </Table>
-    
+
 #### Example
 
-    
 ```js
-{finishedExample}
+{
+  finishedExample;
+}
 ```
-

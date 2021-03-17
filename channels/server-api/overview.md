@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Server API overview
 
-The Server API Overview provides information on how to perform specific actions using our [ Server libraries ](/docs/channels/channels_libraries/libraries) .
+The Server API Overview provides information on how to perform specific actions using our [Server libraries](/docs/channels/channels_libraries/libraries) .
 
 Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used
 
@@ -199,11 +199,11 @@ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "my-
 
 # The Guide
 
-      *  [ Interacting with our HTTP API ](/docs/channels/server_api/http-api)  <Item indent> [ Publishing events ](/docs/channels/server_api/http-api#publishing-events)
+      *  [Interacting with our HTTP API](/docs/channels/server_api/http-api)  <Item indent> [Publishing events](/docs/channels/server_api/http-api#publishing-events)
           <Item indent>
-            [ Querying application state ](/docs/channels/server_api/http-api#querying-application-state)
+            [Querying application state](/docs/channels/server_api/http-api#querying-application-state)
           </Item>
 
       </Item>
-      *  [ Receiving webhooks ](/docs/channels/server_api/webhooks)
-      *  [ Authenticating users ](/docs/channels/server_api/authenticating-users)
+      *  [Receiving webhooks](/docs/channels/server_api/webhooks)
+      *  [Authenticating users](/docs/channels/server_api/authenticating-users)

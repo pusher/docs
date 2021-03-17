@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Push Notifications Server Migration Guide
 
-Use the [ new Pusher Beams Server SDKs ](/docs/beams/reference/all-libraries#server-sdks) to publish notifications.
+Use the [new Pusher Beams Server SDKs](/docs/beams/reference/all-libraries#server-sdks) to publish notifications.
 
 # Create and Configure Beams instance
 

@@ -204,9 +204,9 @@ Once you've subscribed to a channel you can bind to the `pusher:subscription_suc
 channel.bind("pusher:subscription_succeeded", function () {});
 ```
 
-This is particularly useful for private and presence channels if you are using [ client events ](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once a successful subscription has occurred.
+This is particularly useful for private and presence channels if you are using [client events](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once a successful subscription has occurred.
 
-> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [ presence events docs ](/docs/channels/using_channels/presence-channels#events) .
+> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events) .
 
 ## pusher:subscription_error
 
@@ -216,13 +216,13 @@ Sometimes things go wrong so we've exposed a `pusher:subscription_error` event t
 
 The event is triggered either when the authentication endpoint returns a HTTP status code that is not 200 or if there is a problem parsing the JSON that the endpoint returned.
 
-**Note:** if the library is unable to create a websocket connection at all, this event will **not** be emitted. In order to catch events at the connection level you must bind to `error` events on the connection as described [ here ](/docs/channels/using_channels/connection#binding-to-connection-events)
+**Note:** if the library is unable to create a websocket connection at all, this event will **not** be emitted. In order to catch events at the connection level you must bind to `error` events on the connection as described [here](/docs/channels/using_channels/connection#binding-to-connection-events)
 
 ```js
 channel.bind("pusher:subscription_error", function (err) {});
 ```
 
-- `err` (Object) An error object with the following properties: _ `type` (String) _ Category of error that occured, e.g. `AuthError` </Item> _ `error` (String) _ Human readable details of error that occurred. </Item> _ `status` (Number) _ The [ HTTP Status code ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authentication call. </Item>
+- `err` (Object) An error object with the following properties: _ `type` (String) _ Category of error that occured, e.g. `AuthError` </Item> _ `error` (String) _ Human readable details of error that occurred. </Item> _ `status` (Number) _ The [HTTP Status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authentication call. </Item>
 
 ## Example
 
@@ -232,7 +232,7 @@ var pusher = new Pusher('APP_KEY'); var channel = pusher.subscribe('private-chan
 
 ## Additional presence events
 
-Presence comes with a number of presence specific events. For more information please see the [ presence events docs ](/docs/channels/using_channels/presence-channels#events) .
+Presence comes with a number of presence specific events. For more information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events) .
 
 # Triggering client events
 
@@ -244,7 +244,7 @@ Not all traffic needs to go via your conventional web server when using Channels
 
 Client events have a number of **enforced restrictions** to ensure that the user subscribing to the channel is an authenticated user and so that client events can be clearly identified:
 
-- **Client events must be enabled for the application**. You can do this in the ** _Settings_ ** tab for your app within the Channels dashboard _ The user must be subscribed to the channel that the event is being triggered on _ Client events can only be triggered on [ private ](/docs/channels/using_channels/private-channels) and [ presence ](/docs/channels/using_channels/presence-channels) channels because they require authentication _ Client events must be prefixed by `client-`. Events with any other prefix will be rejected by the Channels server, as will events sent to channels to which the client is not subscribed. _ You can only trigger a client event once a subscription has been successfully registered with Channels. You can ensure this is the case using the <a href="#pusher-subscription-succeeded"> <inlinecode>pusher:subscription_succeeded</inlinecode> event </a> . _ Client events are not delivered to the originator of the event. For more information see [Message Routing](#message-routing). _ Publish no more than 10 messages per second per client (connection). Any events triggered above this rate limit will be rejected by our API. See [Rate limit your events](#rate-limit-your-events).  
+- **Client events must be enabled for the application**. You can do this in the ** _Settings_ ** tab for your app within the Channels dashboard _ The user must be subscribed to the channel that the event is being triggered on _ Client events can only be triggered on [private](/docs/channels/using_channels/private-channels) and [presence](/docs/channels/using_channels/presence-channels) channels because they require authentication _ Client events must be prefixed by `client-`. Events with any other prefix will be rejected by the Channels server, as will events sent to channels to which the client is not subscribed. _ You can only trigger a client event once a subscription has been successfully registered with Channels. You can ensure this is the case using the <a href="#pusher-subscription-succeeded"> <inlinecode>pusher:subscription*succeeded</inlinecode> event </a> . * Client events are not delivered to the originator of the event. For more information see [Message Routing](#message-routing). \_ Publish no more than 10 messages per second per client (connection). Any events triggered above this rate limit will be rejected by our API. See [Rate limit your events](#rate-limit-your-events).  
   {% snippets ['js', 'js', 'swift', 'swift', 'js', 'js'] %}
 
 ```js
@@ -301,7 +301,7 @@ channel.listen("pusher:subscription_succeeded", function () {
 
 ## Message routing
 
-When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [ excluding event recipients ](/docs/channels/server_api/excluding-event-recipients) .
+When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [excluding event recipients](/docs/channels/server_api/excluding-event-recipients) .
 
 # Best practice when sending client events
 
@@ -334,7 +334,7 @@ var channel = pusher.subscribe("private-mousemoves"); // this method should be b
 
 {% snippets ['js', 'java', 'swift'] %}
 
-When you bind to client events on presence channels, your bound callback will be called with a metadata object as the second argument. This metadata object contains a `user_id` key, the value of which is the `user_id` of the client that triggered the event, as taken from the [ auth token ](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a metadata object as the second argument. This metadata object contains a `user_id` key, the value of which is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```js
 const channel = pusher.subscribe("presence-chat");
@@ -352,7 +352,7 @@ channel.bind("client-msg", function (data, metadata) {
 
 The `user_id` field is useful for displaying the author of an event. You should trust the `user_id` from the `metadata` object, rather than embedding a user ID in the `data` object, which would allow any client to impersonate any user!
 
-When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` key, accessible by calling `getUserId()` on the event. The value of this is the `user_id` of the client that triggered the event, as taken from the [ auth token ](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` key, accessible by calling `getUserId()` on the event. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```java
 channel.bind("client-my-event", new SubscriptionEventListener() { @Override public void onEvent(PusherEvent event) { System.out.println("Received event with userId: " + event.getUserId()); } });
@@ -360,7 +360,7 @@ channel.bind("client-my-event", new SubscriptionEventListener() { @Override publ
 
 The `getUserId()` method is useful for displaying the author of an event. You should trust the user ID returned by `getUserId()`, rather than embedding a user ID in the `data` object, which would allow any client to impersonate any user!
 
-When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` property. The value of this is the `user_id` of the client that triggered the event, as taken from the [ auth token ](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` property. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```swift
 channel.bind(eventName: "client-my-event", eventCallback: { (event: PusherEvent) in if let userId = event.userId { print("Received event with userId: \\(userId)") } })
@@ -372,6 +372,5 @@ The `userId` property is useful for displaying the author of an event. You shoul
 
 # Also see
 
-          *  [ Connection status events ](/docs/channels/using_channels/connection#connection-status-events)
-          *  [ Presence events ](/docs/channels/using_channels/presence-channels#events)
-
+          *  [Connection status events](/docs/channels/using_channels/connection#connection-status-events)
+          *  [Presence events](/docs/channels/using_channels/presence-channels#events)

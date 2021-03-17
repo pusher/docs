@@ -10,9 +10,9 @@ eleventyNavigation:
 
 # Interacting with our HTTP API
 
-Channels provides a HTTP API as the main point of interaction with your servers. [Publishing events](#publishing-events) is the most important aspect of this, but there are other methods for querying the state of your Channels applications. These are documented in our [ API reference ](/docs/channels/library_auth_reference/rest-api) .
+Channels provides a HTTP API as the main point of interaction with your servers. [Publishing events](#publishing-events) is the most important aspect of this, but there are other methods for querying the state of your Channels applications. These are documented in our [API reference](/docs/channels/library_auth_reference/rest-api) .
 
-All interactions with the Channels HTTP API must contain an authentication signature that is generated with your secret key. Using one of our libraries means you generally don't need to worry about this, but more information can be found [ here ](/docs/channels/library_auth_reference/rest-api#authentication) .
+All interactions with the Channels HTTP API must contain an authentication signature that is generated with your secret key. Using one of our libraries means you generally don't need to worry about this, but more information can be found [here](/docs/channels/library_auth_reference/rest-api#authentication) .
 
 Many of our libraries allow requests to be made asynchronously. Please consult the individual documentation for more information.
 
@@ -22,7 +22,7 @@ Because it is such a fundamental part of the service, most of our libraries have
 
 Please bear in mind the following when publishing events:
 
-- Event names (and the channels they are sent to) can only contain characters which are alphanumeric, '-' or '\_' (see [ naming channels ](/docs/channels/using_channels/channels#channel-naming-conventions) ) _ The data content (POST body) of events must be smaller than 10kB. _ Exceeding your quota will return a 413 HTTP error code _ An event can be published to between 1 and 100 channel names in a single request _ Often it is useful to exclude the sender from the recipients of the event ( [ readmore ](/docs/channels/server_api/excluding-event-recipients) )  
+- Event names (and the channels they are sent to) can only contain characters which are alphanumeric, '-' or '\_' (see [naming channels](/docs/channels/using_channels/channels#channel-naming-conventions) ) _ The data content (POST body) of events must be smaller than 10kB. _ Exceeding your quota will return a 413 HTTP error code _ An event can be published to between 1 and 100 channel names in a single request _ Often it is useful to exclude the sender from the recipients of the event ( [readmore](/docs/channels/server_api/excluding-event-recipients) )  
   For full details about the HTTP API including resource endpoints, allowed attributes, server responses, and error codes please consult our [ HTTP API reference. ](/docs/channels/library_auth_reference/rest-api)
 
 {% snippets ['rb', 'php', 'php', 'c', 'js', 'py', 'go'] %}
@@ -42,7 +42,7 @@ The parameters passed to the `trigger` function are:
 
 The parameters passed to the `trigger` function are:
 
-- **$channels** - either a single channel name as a `string` or an `array` of channel names that the event is to be published on _ **$event** - the name of the event to be triggered _ **$data** - the data to be sent with the event. This will be converted to JSON by the library. * **$socket_id** - \*\* *Optional\* \*\* . The socket ID of a client to be excluded from receiving the event. See [ excluding recipients ](/docs/channels/server_api/excluding-event-recipients) .  
+- **$channels** - either a single channel name as a `string` or an `array` of channel names that the event is to be published on _ **$event** - the name of the event to be triggered _ **$data** - the data to be sent with the event. This will be converted to JSON by the library. * **$socket_id** - \*\* *Optional\* \*\* . The socket ID of a client to be excluded from receiving the event. See [excluding recipients](/docs/channels/server_api/excluding-event-recipients) .  
   `$response` is `true` if the event was successfully triggered, otherwise `false`.
 
 If debug is enabled (see the library README for more information) the `$response` is an associative array with the following elements:
@@ -54,7 +54,7 @@ If debug is enabled (see the library README for more information) the `$response
 {publishEvents.laravel}
 ```
 
-Refer to the [ official Laravel docs ](https://laravel.com/docs/master/broadcasting) for more information.
+Refer to the [official Laravel docs](https://laravel.com/docs/master/broadcasting) for more information.
 
 ```c
 {publishEvents.net}
@@ -85,13 +85,13 @@ The parameters passed to the `trigger` function are:
 {publishEvents.python}
 ```
 
-For more information see the [ Channels python server library ](https://github.com/pusher/pusher-http-python) README.
+For more information see the [Channels python server library](https://github.com/pusher/pusher-http-python) README.
 
 ```go
 {publishEvents.go}
 ```
 
-For more information see the [ Go HTTP library README ](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
 
 {% endsnippets %}
 
@@ -203,7 +203,7 @@ This is currently only supported in the PHP, Node.js and Go SDKs.
 
 # Publishing batches of events
 
-You might also find yourself wanting to publish many non-identical events in a short space of time. To reduce the number of HTTP requests you need to make in this case, the Channels HTTP API [ supports batches ](/docs/channels/library_auth_reference/rest-api#post-batch-events-trigger-multiple-events-) of up to ten events in one request. Our server libraries provide a ** _trigger batch_ ** method that wraps this API call. In the examples below an event called `my-event-1` is being triggered on channel `my-channel-1`, and an event called `my-event-2` is being triggered on channel `my-channel-2`.
+You might also find yourself wanting to publish many non-identical events in a short space of time. To reduce the number of HTTP requests you need to make in this case, the Channels HTTP API [supports batches](/docs/channels/library_auth_reference/rest-api#post-batch-events-trigger-multiple-events-) of up to ten events in one request. Our server libraries provide a ** _trigger batch_ ** method that wraps this API call. In the examples below an event called `my-event-1` is being triggered on channel `my-channel-1`, and an event called `my-event-2` is being triggered on channel `my-channel-2`.
 
 {% snippets ['rb', 'php', 'c', 'js', 'py', 'go'] %}
 
@@ -269,7 +269,7 @@ This is currently only supported in the PHP, Node.js and Go SDKs.
 
 # Querying application state
 
-Sometimes you may want to know the state of your application to determine things like which channels have active subscribers or which users are currently on a [ presence channel ](/docs/channels/using_channels/presence-channels) . The Channels Server library contains a specific set of calls to query for application state. Alternatively the Channels HTTP API exposes a way of doing that and many of the [ Channels server libraries ](/docs/channels/channels_libraries/libraries) offer a generic **GET** method for performing such queries.
+Sometimes you may want to know the state of your application to determine things like which channels have active subscribers or which users are currently on a [presence channel](/docs/channels/using_channels/presence-channels) . The Channels Server library contains a specific set of calls to query for application state. Alternatively the Channels HTTP API exposes a way of doing that and many of the [Channels server libraries](/docs/channels/channels_libraries/libraries) offer a generic **GET** method for performing such queries.
 
 The **GET** method maps to a `GET` HTTP request to the Channels HTTP API and as such the libraries require:
 
@@ -282,7 +282,7 @@ pusher.get(resource, params)
 
 The parameters passed to the `get` function are:
 
-- **resource** - the resource endpoint to be queried. * **params** - \*\* *Optional\* \*\* . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [ HTTP API reference ](/docs/channels/library_auth_reference/rest-api) for more information.  
+- **resource** - the resource endpoint to be queried. * **params** - \*\* *Optional\* \*\* . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [HTTP API reference](/docs/channels/library_auth_reference/rest-api) for more information.  
   For more information see the [ pusher-http-ruby ](https://github.com/pusher/pusher-http-ruby) README.
 
 ```php
@@ -291,7 +291,7 @@ response = $pusher->get($resource, $params)
 
 The parameters passed to the `get` function are:
 
-- **$resource** - the resource endpoint to be queried. * **$params** - \*\* *Optional\* \*\* . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [ HTTP API reference ](/docs/channels/library_auth_reference/rest-api) for more information.  
+- **$resource** - the resource endpoint to be queried. * **$params** - \*\* *Optional\* \*\* . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [HTTP API reference](/docs/channels/library_auth_reference/rest-api) for more information.  
   For more information see the [ pusher-http-php ](https://github.com/pusher/pusher-http-php) README.
 
 ```c
@@ -308,7 +308,7 @@ const res = await pusher.get({ path, params });
 
 The parameters passed to the `get` function are:
 
-- **options** _ **path** - the path to the resource endpoint to be queried. _ **params** - ** _Optional_ ** . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [ HTTP API reference ](/docs/channels/library_auth_reference/rest-api) for more information. \* **callback** - the function to be called when the request has completed. The function signature for the callback is `function( error, request, response )`.  
+- **options** _ **path** - the path to the resource endpoint to be queried. _ **params** - ** _Optional_ ** . Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [HTTP API reference](/docs/channels/library_auth_reference/rest-api) for more information. \* **callback** - the function to be called when the request has completed. The function signature for the callback is `function( error, request, response )`.  
   For more information see the [ pusher-http-node ](https://github.com/pusher/pusher-http-node) README.
 
 {% endsnippets %}
@@ -317,7 +317,7 @@ The parameters passed to the `get` function are:
 
 If you would like a list of the channel within an application that have active subscriptions (also referred to as being **occupied**) then you can query the `/channels` resource.
 
-For full parameter information see the [ HTTP API channels reference ](/docs/channels/library_auth_reference/rest-api#channels) .
+For full parameter information see the [HTTP API channels reference](/docs/channels/library_auth_reference/rest-api#channels) .
 
 {% snippets ['rb', 'php', 'c', 'js', 'py', 'go'] %}
 
@@ -357,7 +357,7 @@ For more information see the [ pusher-http-python ](https://github.com/pusher/pu
 prefixFilter := "presence-" attributes := "user_count" params := pusher.ChannelsParams{FilterByPrefix: &prefixFilter, Info: &attributes} channels, err := pusherClient.Channels(params)
 ```
 
-For more information see the [ Go HTTP library README ](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
 
 {% endsnippets %}
 
@@ -365,7 +365,7 @@ For more information see the [ Go HTTP library README ](https://github.com/pushe
 
 You can query the state of an individual channel. This is done by querying the `/channels/[channel_name]` resource where `channel_name` is replaced with the actual name of the channel you are requesting information for.
 
-For full parameter information see the [ HTTP API channel reference ](/docs/channels/library_auth_reference/rest-api) .
+For full parameter information see the [HTTP API channel reference](/docs/channels/library_auth_reference/rest-api) .
 
 {% snippets ['rb', 'c', 'php', 'js', 'py', 'go'] %}
 
@@ -405,7 +405,7 @@ For more information see the [ pusher-http-python ](https://github.com/pusher/pu
 attributes := "user_count,subscription_count" params := &ChannelParams{Info: &attributes} channel, err := pusherClient.Channel("presence-chatroom", params)
 ```
 
-For more information see the [ Go HTTP library README ](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
 
 {% endsnippets %}
 
@@ -453,6 +453,6 @@ For more information see the [ pusher-http-python ](https://github.com/pusher/pu
 users, err := pusherClient.GetChannelUsers("presence-chatroom")
 ```
 
-For more information see the [ Go HTTP library README ](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
 
 {% endsnippets %}

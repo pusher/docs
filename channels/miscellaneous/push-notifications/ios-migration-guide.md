@@ -20,7 +20,7 @@ You'll need to configure your iOS instance on the Pusher Beams dashboard, by goi
 
 # Integrate Beams Swift SDK
 
-Add SDK dependency which can be done by using [ CocoaPods ](https://github.com/pusher/push-notifications-swift#cocoapods) or [ Carthage ](https://github.com/pusher/push-notifications-swift#carthage) . Ensure that Push Notifications capabilities are [ enabled ](/docs/beams/getting-started/ios/sdk-integration#enable-capabilities) .
+Add SDK dependency which can be done by using [CocoaPods](https://github.com/pusher/push-notifications-swift#cocoapods) or [Carthage](https://github.com/pusher/push-notifications-swift#carthage) . Ensure that Push Notifications capabilities are [enabled](/docs/beams/getting-started/ios/sdk-integration#enable-capabilities) .
 
 Import the Beams SDK into your project:
 
@@ -46,7 +46,7 @@ We’ve simplified the way how we register with APNs. Existing code:
 let center = UNUserNotificationCenter.current() center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in // Handle user allowing / declining notification permission. Example: if (granted) { DispatchQueue.main.async(execute: { application.registerForRemoteNotifications() }) } else { print("User declined notification permissions") } }
 ```
 
-Can be [ replaced ](https://docs.pusher.com/mimir, !node_modules, !.nextfications/ios/sdk-integration#register-with-apns) with:
+Can be [replaced](https://docs.pusher.com/mimir, !node_modules, !.nextfications/ios/sdk-integration#register-with-apns) with:
 
 ```swift
 self.pushNotifications.registerForRemoteNotifications()
@@ -104,7 +104,7 @@ Remove the `PusherSwift` dependency from your `Podfile` or `Cartfile` and all as
 
 The first step to test your migration is successful is to make sure the notifications are publishing from Pusher Beams to the migrated client device correctly.
 
-- Confirm successful migration by [ sending ](/docs/beams/getting-started/ios/publish-notifications) a test push notification.  
+- Confirm successful migration by [sending](/docs/beams/getting-started/ios/publish-notifications) a test push notification.  
   The next step to verify that your migration is successful is to attempt to publish a notification to the same Interest using the beta push notification service. If the device has been migrated by installing the new client SDK, then you will no longer deliver a notification to it because the Interest subscription has been removed from the beta push notifications service.
 
 # FAQ

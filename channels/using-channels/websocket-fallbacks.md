@@ -17,7 +17,7 @@ Additional JavaScript is required for the HTTP support. This is loaded dynamical
 
 # Connection strategy
 
-We wrote an extensive [ series of blog posts ](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) about the strategy pusher-js uses to establish a connection, which covers [ problems with WebSockets ](https://blog.pusher.com/how-we-built-pusher20-part-1/) , [ pusher-js strategy implementation ](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-2-implementation/) and [ metric collection ](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) .
+We wrote an extensive [series of blog posts](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) about the strategy pusher-js uses to establish a connection, which covers [problems with WebSockets](https://blog.pusher.com/how-we-built-pusher20-part-1/) , [ pusher-js strategy implementation ](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-2-implementation/) and [metric collection](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) .
 
 # SockJS compatibility
 

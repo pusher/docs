@@ -14,7 +14,7 @@ This document describes the functionality that is currently available in the Pus
 # Generating an API Key.
 
 Before you can use Pusher CLI, you need to generate an API key to allow Pusher CLI access to your account. Accounts do not by default have an API key, so please do this first.
-<List order> _ Go to your [ account settings page ](https://dashboard.pusher.com/accounts/api_key) _ Tick the "Regenerate API key" box \* Tap "Update account settings"
+<List order> _ Go to your [account settings page](https://dashboard.pusher.com/accounts/api_key) _ Tick the "Regenerate API key" box \* Tap "Update account settings"
 
 # Logging into Pusher CLI
 

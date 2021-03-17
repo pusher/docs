@@ -20,7 +20,7 @@ GET / apps / [app_id] / channels / [channel_name] / stats
 
 Returns statistics for the given channel.
 
-Deprecated 2012-09: use [ GET channel ](/docs/channels/library_auth_reference/rest-api#get-channels-fetch-info-for-multiple-channels-) instead.
+Deprecated 2012-09: use [GET channel](/docs/channels/library_auth_reference/rest-api#get-channels-fetch-info-for-multiple-channels-) instead.
 
 #### Request
 
@@ -41,7 +41,7 @@ POST /apps/[app_id]/channels/[channel_name]/events
  
 Triggers an event on a channel. The event will be triggered on all clients which have subscribed to that channel. 
  
-Deprecated 2012-09: use the more flexible [ POSTevents ](/docs/channels/library_auth_reference/rest-api) instead. 
+Deprecated 2012-09: use the more flexible [POSTevents](/docs/channels/library_auth_reference/rest-api) instead. 
  
 #### Request
  
@@ -52,7 +52,7 @@ A `Content-Type` header should be sent identifying the body of the request as `a
 **Parameters (in query string)** 
  
 This API is an exception to the general rule: parameters must be submitted in the query string. 
- <Table> <thead> <tr> <th>Parameter</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>Event name (required)</td> </tr> <tr> <td>socket_id</td> <td> Excludes the event from being sent to a specific connection (see [ excluding recipients ](/docs/channels/server_api/excluding-event-recipients) ) </td> </tr> </tbody> </Table> 
+ <Table> <thead> <tr> <th>Parameter</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>Event name (required)</td> </tr> <tr> <td>socket_id</td> <td> Excludes the event from being sent to a specific connection (see [excluding recipients](/docs/channels/server_api/excluding-event-recipients) ) </td> </tr> </tbody> </Table> 
 **Request body** 
  
 This API is an exception to the general rule: parameters must not be submitted in the body. 
