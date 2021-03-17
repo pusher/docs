@@ -19,7 +19,7 @@ After enabling this feature, you can verify that it is working by visiting the d
 
 > We really appreciate any feedback you might have around using encrypted channels so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support) -- please let us know if you would like support added to an additional library. We can be contacted by [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new) .
 
-# Authenticate
+## Authenticate
 
 Encrypted channel subscriptions must be authenticated in the exact same way as private channels. See [Authenticating Users](/docs/channels/server_api/authenticating-users) .
 
@@ -57,7 +57,7 @@ openssl rand -base64 32
 
 > The base64 encoding of a 32 byte key will be 44 bytes long.<br /> The key is encoded like this to ensure that the full range of values can be used for each byte, while the key can still be stored and passed to the library as an ASCII safe string.
 
-# Subscribe
+## Subscribe
 
 When a subscription takes place the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered. In addition to providing an auth token, the authentication process to an encrypted channel provides an encryption/decryption key which is used by the client to decrypt events. This happens automatically and if you are using a supported library you do not need to do anything.
 
@@ -67,11 +67,11 @@ var encryptedChannel = pusher.subscribe(encryptedChannelName);
 
 - encryptedChannelName (String) _ The name of the channel to subscribe to. Since it is an encrypted channel the name must be prefixed with `private-encrypted-` _ Returns \* A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
 
-# Unsubscribe
+## Unsubscribe
 
 See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe) .
 
-# Events
+## Events
 
 See [binding to events](/docs/channels/using_channels/events#binding-to-events) for general information about how to bind to events on a channel object.
 
@@ -79,27 +79,27 @@ You can bind to the following `pusher:` events on an encrypted channel:
 
 - [pusher:subscription_succeeded](/docs/channels/using_channels/events#pusher-subscription-succeeded) \* [pusher:subscription_error](/docs/channels/using_channels/events#pusher-subscription-error)
 
-# Limitations
+## Limitations
 
 This feature hides the sensitive `data` field of your messages. However, by design, there are many things which this feature does not do, and it is important that you are aware of these. They include:
 
 - Only Private channels are supported <br /> Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publically accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support. _ Channel name are not encrypted. <br /> Pusher needs to inspect the message's channel name to determine which clients to send it to. _ Event names are not encrypted. <br /> Pusher needs to inspect the message's event name to restrict namespaces (for example, only Pusher can publish events with the prefix `pusher:`). _ Client libraries do not support triggering events to `private-encrypted-` channels. <br /> We may lift this restriction in future, please get in touch if this would be valuable to you. _ It does not encrypt messages published to channels without the `private-encrypted-` prefix, even if you have set a master encryption key. \* It does not encrypt messages published by server libraries which do not have this feature implemented. <br /> Check that your library version [supports E2E encryption.](/docs/channels/using_channels/encrypted-channels#library-support)  
   The debug console in your dashboard may help demonstrate which things are encrypted, and which are not.
 
-# Library Support
+## Library Support
 
 Library support is limited to those listed below. If you want to use encrypted channels and your library isn't listed, [please let us know!](mailto:support@pusher.com)
 
-## Client
+### Client
 
 - [pusher-js](https://github.com/pusher/pusher-js) _ Supported from version 4.3.0 _ [pusher-angular](https://github.com/pusher/pusher-angular) _ Supported as long as the pusher-js version used with it is >= 4.3.0. _ [pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) _ Supported from version 2.1.0 _ [pusher-websocket-swift](https://github.com/pusher/pusher-websocket-swift) \* Supported from version 8.0
 
-## Server
+### Server
 
 - [pusher-http-node](https://github.com/pusher/pusher-http-node) _ Supported from version 4.3 onwards. _ [pusher-http-go](https://github.com/pusher/pusher-http-go) _ Supported from version 1.1.0 onwards. _ [pusher-http-php](https://github.com/pusher/pusher-http-php) _ Supported from version 3.2.0 onwards. _ [pusher-http-python](https://github.com/pusher/pusher-http-python) _ Supported from version 2.1.1 onwards. _ [pusher-http-ruby](https://github.com/pusher/pusher-http-ruby) \* Supported from version 1.4.0 onwards.  
   [Client events](/docs/channels/using_channels/events) are not currently supported.
 
-# Key rotation
+## Key rotation
 
 Because Pusher has no access to your encryption keys, key rotation is under your control. The client libraries make a best effort attempt to handle key rotation gracefully, but it is not guaranteed to be lossless.
 
@@ -113,22 +113,21 @@ During this period, clients may fail to decypt some events, even after requestin
 
 Once the key rotation is complete, all servers and clients will converge on the new keys, and events will flow without loss again.
 
-# Technical Description
+## Technical Description
 
 The authentication process for encrypted channels is very similar to that of [private and presence channels](/docs/channels/server_api/authenticating-users) . When clients are authenticated to access an encrypted channel, they receive a channel specific encryption/decryption key in addition to the authentication token.
 
-    <Image src="https://www.websequencediagrams.com/cgi-bin/cdraw?lz=cGFydGljaXBhbnQgWW91ciBBcHBcblNlcnZlcgoAEQxDaGFubmVscyAAFgZcbkxpYnJhcnkAGA0APQVDbGllbnRcbkFwcAA1DVB1c2hlciBKUwAmFgAZBgoKCm9wdCBDb25uZWN0IHRvIFdlYnNvY2tldAogICAAUREtPgBFEjogKDEpIHZhciBwAG0GPSBuZXcAeQcoJ2FwcF9rZXknKTsATQUAgQUSAEwIOiAoMikAgQIJV2ViUwB-CgCBRwYAZxczKQBzBzpjAIFCBmlvbl9lc3RhYmxpc2hlZFxuKACBTQZfaWQpCmVuZACBbwVTdWJzY3JpYmUgdG8AgmcIAIFILDQAbggucwBCCCgncHJpdmF0ZS1lbmNyeXB0ZWQtYwCDQwYAgWMcAIN5EDogKDUpIGh0dHBzOi8veW91cmFwcC8AglcGL2F1dGhcbiB7AFEHX25hbWUsIACBVwl9AIMtCgCEUAsAgyAXNikgSlNPTjogeyJhdXRoIjogJEFVVEhfU1RSSU5HLCAic2hhcmVkX3NlY3JldCI6ICRERUNSWVBUSU9OX0tFWQBnBm5vdGUgcmlnaHQgb2YAhGMUICAgICAgICAAhTwHIHN0b3JlcwAOCQBGDwCEcwVlbmQAUwUAhBEiNwCDdAkAgn4JXG4gKACCEQ4AgUsMAIN4ClB1AIQcBSBFdmVudACBCgYAgicSAIZxGDogKDgpIHAAPAdldmVuAIYsBgCCAA4Ahy4ZAIIMCHBheWxvYWQgAIQoCQCCJQlieSBzAIgTBSBsAII9CwCCDA0AiA0YAIZHCzkpAFEKAIEgBiBzZW50IG92ZQCHKAgAhj8iMTAALxd0byBjAIh6BQCDSAYAhAUFbGVmAINpIACBAgZkZQCBYBNKUwCBVRoAhiMZAIl4CzogKDExKQBSCgCDEwdlbmQKCg&s=rose" />
+![Image](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=cGFydGljaXBhbnQgWW91ciBBcHBcblNlcnZlcgoAEQxDaGFubmVscyAAFgZcbkxpYnJhcnkAGA0APQVDbGllbnRcbkFwcAA1DVB1c2hlciBKUwAmFgAZBgoKCm9wdCBDb25uZWN0IHRvIFdlYnNvY2tldAogICAAUREtPgBFEjogKDEpIHZhciBwAG0GPSBuZXcAeQcoJ2FwcF9rZXknKTsATQUAgQUSAEwIOiAoMikAgQIJV2ViUwB-CgCBRwYAZxczKQBzBzpjAIFCBmlvbl9lc3RhYmxpc2hlZFxuKACBTQZfaWQpCmVuZACBbwVTdWJzY3JpYmUgdG8AgmcIAIFILDQAbggucwBCCCgncHJpdmF0ZS1lbmNyeXB0ZWQtYwCDQwYAgWMcAIN5EDogKDUpIGh0dHBzOi8veW91cmFwcC8AglcGL2F1dGhcbiB7AFEHX25hbWUsIACBVwl9AIMtCgCEUAsAgyAXNikgSlNPTjogeyJhdXRoIjogJEFVVEhfU1RSSU5HLCAic2hhcmVkX3NlY3JldCI6ICRERUNSWVBUSU9OX0tFWQBnBm5vdGUgcmlnaHQgb2YAhGMUICAgICAgICAAhTwHIHN0b3JlcwAOCQBGDwCEcwVlbmQAUwUAhBEiNwCDdAkAgn4JXG4gKACCEQ4AgUsMAIN4ClB1AIQcBSBFdmVudACBCgYAgicSAIZxGDogKDgpIHAAPAdldmVuAIYsBgCCAA4Ahy4ZAIIMCHBheWxvYWQgAIQoCQCCJQlieSBzAIgTBSBsAII9CwCCDA0AiA0YAIZHCzkpAFEKAIEgBiBzZW50IG92ZQCHKAgAhj8iMTAALxd0byBjAIh6BQCDSAYAhAUFbGVmAINpIACBAgZkZQCBYBNKUwCBVRoAhiMZAIl4CzogKDExKQBSCgCDEwdlbmQKCg&s=rose)
 
-    <List order>
-      *  When a new instance of the `Pusher` object is created a new WebSocket object is created.
-      *  The WebSocket object connects to the Channels WebSocket endpoint.
-      *  Once the connection has been established a universally unique `socket_id` is returned to the Channels JavaScript library.
-      *  A subscription is made to a `private-encrypted`.
-      *  The `private-encrypted` prefix identifies the channel as requiring authentication so a request is made to an authentication endpoint via AJAX.
-      *  If successful your application returns an authentication string to the Channels JavaScript library signed with your Channels secret and a channel specific `shared_secret` used to encrypt/decrypt payload data. The `shared_secret` is stored by the Channels JavaScript library.
-      *  The `channel_name` and authentication signature is sent to Channels over the WebSocket, which completes the authentication if the authentication string has been correctly signed.
-      *  When events are triggered using the Channels Server Library, they're encrypted by the library using the channel specific encryption key.
-      * The encrypted events are sent to the Pusher API.
-      * The encrypted events are delivered to subscribers.
-      *  The Channels JavaScript library decrypts the event payload with the `shared_secret` from step 6.
-      *  The Channels JavaScript library emits decrypted events as normal
+- When a new instance of the `Pusher` object is created a new WebSocket object is created.
+- The WebSocket object connects to the Channels WebSocket endpoint.
+- Once the connection has been established a universally unique `socket_id` is returned to the Channels JavaScript library.
+- A subscription is made to a `private-encrypted`.
+- The `private-encrypted` prefix identifies the channel as requiring authentication so a request is made to an authentication endpoint via AJAX.
+- If successful your application returns an authentication string to the Channels JavaScript library signed with your Channels secret and a channel specific `shared_secret` used to encrypt/decrypt payload data. The `shared_secret` is stored by the Channels JavaScript library.
+- The `channel_name` and authentication signature is sent to Channels over the WebSocket, which completes the authentication if the authentication string has been correctly signed.
+- When events are triggered using the Channels Server Library, they're encrypted by the library using the channel specific encryption key.
+- The encrypted events are sent to the Pusher API.
+- The encrypted events are delivered to subscribers.
+- The Channels JavaScript library decrypts the event payload with the `shared_secret` from step 6.
+- The Channels JavaScript library emits decrypted events as normal

@@ -14,7 +14,7 @@ Private channels should be used when access to the channel needs to be restricte
 > - Private channels must be prefixed with `private-`. See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions)
 > - Private channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users)
 
-# Subscribe
+## Subscribe
 
 When a subscription takes place the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
 
@@ -51,11 +51,11 @@ A channel cast to the correct `PTPusherChannel` subclass `PTPusherPrivateChannel
 {% endparameter %}
 {% endmethodwrap %}
 
-# Unsubscribe
+## Unsubscribe
 
 See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe)
 
-# Events
+## Events
 
 See [binding to events](/docs/channels/using_channels/events#binding-to-events) for general information about how to bind to events on a channel object.
 
