@@ -25,10 +25,6 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
-    init: ({ Prism }) => {
-      Prism.languages.laravel = Prism.languages.php;
-      Prism.languages.laravelecho = Prism.languages.javascript;
-    },
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC, {
@@ -146,7 +142,7 @@ module.exports = (eleventyConfig) => {
       ${languages
         .map(
           (language, i) =>
-            `<li class="mh1"><button class="bn bg-snow-light sans-serif fw6 pt3 pb2 ph2 dragonfruit pointer pa0" data-snippet="language-${language}" aria-selected="${
+            `<li class="mh1"><button class="bn bg-snow-light sans-serif fw6 pt3 pb2 ph2 dragonfruit pointer pa0" data-snippet="language-${language}" data-index="${i}" aria-selected="${
               i === 0
             }">${languageMap[language] || language}</button></li>`
         )

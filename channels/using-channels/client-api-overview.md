@@ -31,8 +31,8 @@ self.pusher = [[Pusher alloc] initWithKey:@"YOUR_APP_KEY"];
 Pusher pusher = new Pusher("YOUR_APP_KEY");
 ```
 
-```laravelecho
-window.Echo = new Echo({ broadcaster: 'pusher', key: 'YOUR_APP_KEY' });
+```js
+window.Echo = new Echo({ broadcaster: "pusher", key: "YOUR_APP_KEY" });
 ```
 
 ```c

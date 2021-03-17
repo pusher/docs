@@ -11,6 +11,7 @@ export default () => {
         e.preventDefault();
 
         const targetLang = e.target.dataset.snippet;
+        const targetIndex = parseInt(e.target.dataset.index);
         const snippetsContainer = getClosest(e.target, ".tabbed-snippets");
         const snippets = snippetsContainer.querySelectorAll("pre");
         const allToggles = snippetsContainer.querySelectorAll("button");
@@ -19,8 +20,9 @@ export default () => {
           toggle.setAttribute("aria-selected", e.target === toggle);
         });
 
-        snippets.forEach((snippet) => {
-          const active = snippet.classList.contains(targetLang);
+        snippets.forEach((snippet, i) => {
+          console.log(i, targetIndex);
+          const active = i === targetIndex;
           snippet.classList.toggle("db", active);
           snippet.classList.toggle("dn", !active);
           snippet.setAttribute("aria-expanded", active);

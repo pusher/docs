@@ -36,7 +36,7 @@ var presenceChannel = pusher.subscribe(presenceChannelName);
 PTPusherPresenceChannel *presence = [self.pusher subscribeToPresenceChannelNamed:@"chat" delegate:self];
 ```
 
-```laravelecho
+```js
 var presenceChannel = Echo.join(presenceChannelName);
 ```
 
@@ -161,7 +161,7 @@ channel.bind("pusher:subscription_succeeded", (members) => {
 });
 ```
 
-```laravelecho
+```js
 var channel = Echo.join(presenceChannelName);
 channel.here((members) => {
   // For example
@@ -201,7 +201,7 @@ channel.bind("pusher:member_added", (member) => {
 });
 ```
 
-```laravelecho
+```js
 channel.joining((member) => {
   // For example
   add_member(member.id, member.info);
@@ -233,7 +233,7 @@ channel.bind("pusher:member_removed", (member) => {
 });
 ```
 
-```laravelecho
+```js
 channel.leaving((member) => {
   // For example
   remove_member(member.id, member.info);
