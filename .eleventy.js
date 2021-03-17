@@ -122,7 +122,8 @@ module.exports = (eleventyConfig) => {
     (content, languages, method = false) => {
       const languageMap = {
         rb: "Ruby",
-        js: "Node",
+        js: "JavaScript",
+        node: "Node.js",
         php: "PHP",
         laravel: "Laravel",
         go: "Go",
@@ -142,7 +143,7 @@ module.exports = (eleventyConfig) => {
           (language, i) =>
             `<li class="mh1"><button class="bn bg-snow-light sans-serif fw6 pt3 pb2 ph2 dragonfruit pointer pa0" data-snippet="language-${language}" aria-selected="${
               i === 0
-            }">${languageMap[language]}</button></li>`
+            }">${languageMap[language] || language}</button></li>`
         )
         .join("\n")}
       </ul>
