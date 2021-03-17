@@ -77,7 +77,7 @@ See [binding to events](/docs/channels/using_channels/events#binding-to-events) 
 
 You can bind to the following `pusher:` events on an encrypted channel:
 
-- [ pusher:subscription_succeeded ](/docs/channels/using_channels/events#pusher-subscription-succeeded) \* [ pusher:subscription_error ](/docs/channels/using_channels/events#pusher-subscription-error)
+- [pusher:subscription_succeeded](/docs/channels/using_channels/events#pusher-subscription-succeeded) \* [pusher:subscription_error](/docs/channels/using_channels/events#pusher-subscription-error)
 
 # Limitations
 

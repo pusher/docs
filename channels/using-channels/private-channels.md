@@ -40,5 +40,5 @@ See [binding to events](/docs/channels/using_channels/events#binding-to-events) 
 
 You can bind to the following `pusher:` events on a private channel:
 
-      *  [ pusher:subscription\_succeeded ](/docs/channels/using_channels/events#pusher-subscription-succeeded)
-      *  [ pusher:subscription\_error ](/docs/channels/using_channels/events#pusher-subscription-error)
+- [pusher:subscription_succeeded](/docs/channels/using_channels/events#pusher-subscription-succeeded)
+- [pusher:subscription_error](/docs/channels/using_channels/events#pusher-subscription-error)

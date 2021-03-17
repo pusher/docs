@@ -94,7 +94,7 @@ var user = presenceChannel.members.get("some_user_id");
 
 - Note: this feature was introduced in **version 1.12** of the Channels JavaScript library. \*
 
-Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [ pusher:subscription_succeeded ](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
+Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
 
 ```js
 var me = presenceChannel.members.me;
