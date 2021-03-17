@@ -11,9 +11,8 @@ eleventyNavigation:
 
 Private channels should be used when access to the channel needs to be restricted in some way. In order for a user to subscribe to a private channel permission must be authorized. The authentication occurs via a HTTP Request to a configurable authentication url when the `subscribe` method is called with a `private-` channel name. In the JavaScript client library the HTTP Request is executed via AJAX (see [ Authenticating Users ](/docs/channels/server_api/authenticating-users) ).
 
-> Private channels must be prefixed with `private-`. See <a href="/docs/channels/using_channels/channels#channel-naming-conventions"> channel naming conventions </a> .
-
-> Private channel subscriptions must be authenticated. See [ Authenticating Users ](/docs/channels/server_api/authenticating-users) .
+> - Private channels must be prefixed with `private-`. See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions)
+> - Private channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users)
 
 # Subscribe
 
