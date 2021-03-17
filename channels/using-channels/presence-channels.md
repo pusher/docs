@@ -21,11 +21,12 @@ Information on users subscribing to, and unsubscribing from a channel can then b
 
 > Presence channels have some limits associated with them: 100 members maximum, 1KB limit for user object, and maximum 128 characters for user id. If you use a numeric user id, remember that the maximum size integer that is representable in JavaScript is 2^53.
 
-# Subscribe
+## Subscribe
 
 When subscribing the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
 
-{% snippets ['js', 'swift', 'js'] %}
+{% methodwrap %}
+{% snippets ['js', 'swift', 'laravelecho'], true %}
 
 ```js
 var presenceChannel = pusher.subscribe(presenceChannelName);
@@ -35,43 +36,54 @@ var presenceChannel = pusher.subscribe(presenceChannelName);
 PTPusherPresenceChannel *presence = [self.pusher subscribeToPresenceChannelNamed:@"chat" delegate:self];
 ```
 
-```js
+```laravelecho
 var presenceChannel = Echo.join(presenceChannelName);
 ```
 
 {% endsnippets %}
 
-**presenceChannelName _string_**
+{% parameter 'presenceChannelName', 'String', true, 'js,laravelecho' %}
 
-- The name of the channel to subscribe to. Since it is a presence channel the name must be prefixed with `presence-`.
+The name of the channel to subscribe to. Since it is a presence channel the name must be prefixed with `presence-`.
 
-**Returns**
+##### Returns
 
-- An object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
+An object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
 
-It is recommended to implement `PTPusherPresenceChannelDelegate` protocol, to receive notifications for members subscribing or unsubscribing from the presence channel.
+{% endparameter %}
+{% parameter 'presenceChannelName', 'String', true, 'swift', false %}
 
-# Unsubscribe
+The name of the channel to subscribe to. Since it is a presence channel the name must be prefixed with `presence-`.
+
+##### Returns
+
+An object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
+
+> It is recommended to implement `PTPusherPresenceChannelDelegate` protocol, to receive notifications for members subscribing or unsubscribing from the presence channel.
+
+{% endparameter %}
+{% endmethodwrap %}
+
+## Unsubscribe
 
 See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe) .
 
-# Accessing channel members
+## Accessing channel members
 
 > Documentation for accessing channel members is only presently available for the Channels JavaScript library. For other libraries please see the README file.
 
 A Presence channel has a `members` property. This object represents the state of the users that are subscribed to the presence channel. The `members` object has the following properties and methods:
 
-## members.count : Number
-
-A property with a value that indicates how many members are subscribed to the presence channel.
+{% parameter 'members.count', 'Number' %}
 
 ```js
 var count = presenceChannel.members.count;
 ```
 
-## members.each(function) : Function
+A property with a value that indicates how many members are subscribed to the presence channel.
 
-The `members.each` function is used to iterate the members who are subscribed to the presence channel. The method takes a single function parameter which is called for each member that is subscribed to the presence channel. The function will be pass a `member` object representing each subscribed member.
+{% endparameter %}
+{% parameter 'members.each(function)', 'Function' %}
 
 ```js
 presenceChannel.members.each(function (member) {
@@ -80,25 +92,29 @@ presenceChannel.members.each(function (member) {
 });
 ```
 
-## members.get(userId) : Function
+The `members.each` function is used to iterate the members who are subscribed to the presence channel. The method takes a single function parameter which is called for each member that is subscribed to the presence channel. The function will be pass a `member` object representing each subscribed member.
 
-The `get(userId)` method can be used to get a `member` with a specified `userId`.
-
-** _Returns_ ** : A `member` object with a `member.id` and `member.info` property.
+{% endparameter %}
+{% parameter 'members.get(userId)', 'Function' %}
 
 ```js
 var user = presenceChannel.members.get("some_user_id");
 ```
 
-## members.me : Object
+The `get(userId)` method can be used to get a `member` with a specified `userId`.
 
-- Note: this feature was introduced in **version 1.12** of the Channels JavaScript library. \*
+#### Returns
 
-Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
+A `member` object with a `member.id` and `member.info` property.
+
+{% endparameter %}
+{% parameter 'members.me', 'Object' %}
 
 ```js
 var me = presenceChannel.members.me;
 ```
+
+Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
 
 The `me` property represents a `member` object and has an `id` and `info` property. For more information on the `member` object see [Presence channel events section](/docs/channels/using_channels/presence-channels#events) .
 
@@ -114,7 +130,9 @@ presenceChannel.bind("pusher:subscription_succeeded", function () {
 });
 ```
 
-# Events
+{% endparameter %}
+
+## Events
 
 > Documentation for Presence events is only presently available for the Channels JavaScript library. For other libraries please see the README file.
 
@@ -122,74 +140,115 @@ See [binding to events](/docs/channels/using_channels/events#binding-to-events) 
 
 After a subscripting to a presence channel you can subscribe to presence events on that channel. Presence channels have a number of pre-defined events that can be bound to in order to notify a connected client about users joining or leaving the channel.
 
-## pusher:subscription_succeeded
+{% parameter 'pusher:subscription_succeeded', 'Function' %}
 
 Once a subscription has been made to a presence channel, an event is triggered with a members iterator. You could use this for example to build a user list.
 
 #### Example
 
-{% snippets ['js', 'js'] %}
+{% snippets ['js', 'laravelecho'] %}
 
 ```js
-var channel = pusher.subscribe('presence-meeting-11'); channel.bind('pusher:subscription_succeeded', function(members) { // for example update_member_count(members.count); members.each(function(member) { // for example: add_member(member.id, member.info); }); })
+var channel = pusher.subscribe("presence-meeting-11");
+channel.bind("pusher:subscription_succeeded", (members) => {
+  // For example
+  update_member_count(members.count);
+
+  members.each((member) => {
+    // For example
+    add_member(member.id, member.info);
+  });
+});
 ```
 
-```js
-var channel = Echo.join(presenceChannelName); channel.here(function(members) { // for example update_member_count(members.count); members.each(function(member) { // for example: add_member(member.id, member.info); }); })
+```laravelecho
+var channel = Echo.join(presenceChannelName);
+channel.here((members) => {
+  // For example
+  update_member_count(members.count);
+
+  members.each((member) => {
+    // For example
+    add_member(member.id, member.info);
+  });
+});
 ```
 
 {% endsnippets %}
+{% endparameter %}
 
-#### The `members` parameter
+## The members parameter
 
 When the `pusher:subscription_succeeded` event is triggered a `members` parameter is passed to the callback. The parameter is the <a href="#accessing-channel-members"> <inlinecode>channel.members</inlinecode> property </a> .
 
-## pusher:subscription_error
+{% parameter 'pusher:subscription_error', 'Function' %}
 
 For more information on the `pusher:subscription_error` event please see the [subscription error section](/docs/channels/using_channels/events#pusher-subscription-error) of the client event docs.
 
-## pusher:member_added
+{% endparameter %}
+{% parameter 'pusher:member_added', 'Function' %}
 
 The `pusher:member_added` event is triggered when a user joins a channel. It's quite possible that a user can have multiple connections to the same channel (for example by having multiple browser tabs open) and in this case the events will only be triggered when the first tab is opened.
 
 #### Example
 
-{% snippets ['js', 'js'] %}
+{% snippets ['js', 'laravelecho'] %}
 
 ```js
-channel.bind('pusher:member_added', function(member) { // for example: add_member(member.id, member.info); });
+channel.bind("pusher:member_added", (member) => {
+  // For example
+  add_member(member.id, member.info);
+});
 ```
 
-```js
-channel.joining(function(member) { // for example add_member(member.id, member.info); })
+```laravelecho
+channel.joining((member) => {
+  // For example
+  add_member(member.id, member.info);
+});
 ```
 
 {% endsnippets %}
 
 When the event is triggered and `member` object is passed to the callback. The `member` object has the following properties:
 
-- id (String) _ A unique identifier of the user. The value for this depends on the server authentication. _ info (Object) \* An object that can have any number of properties on it. The properties depend on the server authentication.
+- `id` (String)
+  A unique identifier of the user. The value for this depends on the server authentication.
+- `info` (Object)
+  An object that can have any number of properties on it. The properties depend on the server authentication.
 
-## pusher:member_removed
+{% endparameter %}
+{% parameter 'pusher:member_removed', 'Function' %}
 
 The `pusher:member_removed` is triggered when a user leaves a channel. It's quite possible that a user can have multiple connections to the same channel (for example by having multiple browser tabs open) and in this case the events will only be triggered when the last one is closed.
 
 #### Example
 
-{% snippets ['js', 'js'] %}
+{% snippets ['js', 'laravelecho'] %}
 
 ```js
-channel.bind('pusher:member_removed', function(member) { // for example: remove_member(member.id, member.info); });
+channel.bind("pusher:member_removed", (member) => {
+  // For example
+  remove_member(member.id, member.info);
+});
 ```
 
-```js
-channel.leaving(function(member) { // for example remove_member(member.id, member.info); })
+```laravelecho
+channel.leaving((member) => {
+  // For example
+  remove_member(member.id, member.info);
+});
 ```
 
 {% endsnippets %}
 
-- id (String) _ A unique identifier of the user. The value for this depends on the server authentication. _ info (Object) \* An object that can have any number of properties on it. The properties depend on the server authentication.
+- id (String)
+  A unique identifier of the user. The value for this depends on the server authentication.
+- info (Object)
+  An object that can have any number of properties on it. The properties depend on the server authentication.
 
-# user_id in client events
+{% endparameter %}
+
+## user_id in client events
 
 When you bind to client events on presence channels, your bound callback will be called with a metadata object which contains a `user_id` key. [See the client events docs for more detail](/docs/channels/using_channels/events#user-id-in-client-events) .
