@@ -37,7 +37,7 @@ export default () => {
 const toggleMethods = (snippet, targetLang) => {
   const language = targetLang.replace("language-", "");
   const container = getClosest(snippet, ".method-wrapper");
-  const methods = container.querySelectorAll(".method");
+  const methods = container.querySelectorAll(".parameter");
 
   methods.forEach((method) => {
     const languages = method.dataset.language.split(",");
