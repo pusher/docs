@@ -70,7 +70,7 @@
 .nested-code code {
   background-color: var(--snow-light);
   border-radius: var(--border-radius-1);
-  color: var(--dragonfruit-light);
+  color: var(--dragonfruit-dark);
   padding: var(--spacing-extra-extra-small);
   font-size: var(--font-size-6);
 }
