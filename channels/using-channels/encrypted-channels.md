@@ -28,23 +28,53 @@ For encryption and decryption to work the server library **must** be instantiate
 {% snippets ['js', 'go', 'php', 'php', 'py'] %}
 
 ```js
-const pusher = new Pusher({ appId: "APP_ID", key: "APP_KEY", secret: "SECRET_KEY", useTLS: true, encryptionMasterKeyBase64: "YOUR_MASTER_KEY", // generate this with, e.g. 'openssl rand -base64 32' });
+const pusher = new Pusher({
+  appId: "APP_ID",
+  key: "APP_KEY",
+  secret: "SECRET_KEY",
+  useTLS: true,
+  encryptionMasterKeyBase64: "YOUR_MASTER_KEY", // generate this with, e.g. 'openssl rand -base64 32'
+});
 ```
 
 ```go
-pusherClient := pusher.Client{ AppID: appID, Key: key, Secret: secret, Secure: true, EncryptionMasterKeyBase64: "YOUR_MASTER_KEY", // generate this with, e.g. 'openssl rand -base64 32' }
+pusherClient := pusher.Client{
+  AppID: appID,
+  Key: key,
+  Secret: secret,
+  Secure: true,
+  EncryptionMasterKeyBase64: "YOUR_MASTER_KEY", // generate this with, e.g. 'openssl rand -base64 32'
+}
 ```
 
 ```php
-pusher = new Pusher\\Pusher( key, secret, app_id, array( 'encrypted' => true, 'encryption_master_key_base64' => "YOUR_MASTER_KEY", # generate this with, e.g. 'openssl rand -base64 32' ) );
+pusher = new Pusher\Pusher(
+  key,
+  secret,
+  app_id,
+  array(
+    'encrypted' => true,
+   'encryption_master_key_base64' => "YOUR_MASTER_KEY", # generate this with, e.g. 'openssl rand -base64 32'
+  )
+);
 ```
 
 ```php
-// in config/broadcasting.php 'options' => [ 'useTLS' => true, 'encryption_master_key_base64' => 'YOUR_MASTER_KEY', # generate this with, e.g. 'openssl rand -base64 32' ],
+// in config/broadcasting.php
+'options' => [
+  'useTLS' => true,
+  'encryption_master_key_base64' => 'YOUR_MASTER_KEY', # generate this with, e.g. 'openssl rand -base64 32'
+],
 ```
 
 ```py
-pusher_client = pusher.Pusher( app_id = 'your-app-id', key = 'your-key', secret = 'your-secret', ssl = True, encryption_master_key_base64 = 'YOUR_MASTER_KEY' # generate this with, e.g. 'openssl rand -base64 32' )
+pusher_client = pusher.Pusher(
+  app_id = 'your-app-id',
+  key = 'your-key',
+  secret = 'your-secret',
+  ssl = True,
+  encryption_master_key_base64 = 'YOUR_MASTER_KEY' # generate this with, e.g. 'openssl rand -base64 32'
+)
 ```
 
 {% endsnippets %}
@@ -65,11 +95,19 @@ When a subscription takes place the [user authentication process](/docs/channels
 var encryptedChannel = pusher.subscribe(encryptedChannelName);
 ```
 
-- encryptedChannelName (String) _ The name of the channel to subscribe to. Since it is an encrypted channel the name must be prefixed with `private-encrypted-` _ Returns \* A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
+{% parameter 'encryptedChannelName', 'String', true %}
+
+The name of the channel to subscribe to. Since it is an encrypted channel the name must be prefixed with `private-encrypted-`
+
+#### Returns
+
+A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
+
+{% endparameter %}
 
 ## Unsubscribe
 
-See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe) .
+See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe).
 
 ## Events
 
@@ -77,14 +115,32 @@ See [binding to events](/docs/channels/using_channels/events#binding-to-events) 
 
 You can bind to the following `pusher:` events on an encrypted channel:
 
-- [pusher:subscription_succeeded](/docs/channels/using_channels/events#pusher-subscription-succeeded) \* [pusher:subscription_error](/docs/channels/using_channels/events#pusher-subscription-error)
+- [pusher:subscription_succeeded](/docs/channels/using_channels/events#pusher-subscription-succeeded)
+- [pusher:subscription_error](/docs/channels/using_channels/events#pusher-subscription-error)
 
 ## Limitations
 
 This feature hides the sensitive `data` field of your messages. However, by design, there are many things which this feature does not do, and it is important that you are aware of these. They include:
 
-- Only Private channels are supported <br /> Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publically accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support. _ Channel name are not encrypted. <br /> Pusher needs to inspect the message's channel name to determine which clients to send it to. _ Event names are not encrypted. <br /> Pusher needs to inspect the message's event name to restrict namespaces (for example, only Pusher can publish events with the prefix `pusher:`). _ Client libraries do not support triggering events to `private-encrypted-` channels. <br /> We may lift this restriction in future, please get in touch if this would be valuable to you. _ It does not encrypt messages published to channels without the `private-encrypted-` prefix, even if you have set a master encryption key. \* It does not encrypt messages published by server libraries which do not have this feature implemented. <br /> Check that your library version [supports E2E encryption.](/docs/channels/using_channels/encrypted-channels#library-support)  
-  The debug console in your dashboard may help demonstrate which things are encrypted, and which are not.
+**Only Private channels are supported**
+
+Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publically accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
+
+- **Channel names are not encrypted.**
+  Pusher needs to inspect the message's channel name to determine which clients to send it to.
+
+- **Event names are not encrypted.**
+  Pusher needs to inspect the message's event name to restrict namespaces (for example, only Pusher can publish events with the prefix `pusher:`).
+
+- Client libraries do not support triggering events to `private-encrypted-` channels.
+  We may lift this restriction in future, please get in touch if this would be valuable to you.
+
+- It does not encrypt messages published to channels without the `private-encrypted-` prefix, even if you have set a master encryption key.
+
+- It does not encrypt messages published by server libraries which do not have this feature implemented.
+  Check that your library version [supports E2E encryption.](/docs/channels/using_channels/encrypted-channels#library-support)
+
+The debug console in your dashboard may help demonstrate which things are encrypted, and which are not.
 
 ## Library Support
 
@@ -92,12 +148,45 @@ Library support is limited to those listed below. If you want to use encrypted c
 
 ### Client
 
-- [pusher-js](https://github.com/pusher/pusher-js) _ Supported from version 4.3.0 _ [pusher-angular](https://github.com/pusher/pusher-angular) _ Supported as long as the pusher-js version used with it is >= 4.3.0. _ [pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) _ Supported from version 2.1.0 _ [pusher-websocket-swift](https://github.com/pusher/pusher-websocket-swift) \* Supported from version 8.0
+[pusher-js](https://github.com/pusher/pusher-js)
+
+- Supported from version 4.3.0
+
+[pusher-angular](https://github.com/pusher/pusher-angular)
+
+- Supported as long as the pusher-js version used with it is >= 4.3.0.
+
+[pusher-websocket-java](https://github.com/pusher/pusher-websocket-java)
+
+- Supported from version 2.1.0
+
+[pusher-websocket-swift](https://github.com/pusher/pusher-websocket-swift)
+
+- Supported from version 8.0
 
 ### Server
 
-- [pusher-http-node](https://github.com/pusher/pusher-http-node) _ Supported from version 4.3 onwards. _ [pusher-http-go](https://github.com/pusher/pusher-http-go) _ Supported from version 1.1.0 onwards. _ [pusher-http-php](https://github.com/pusher/pusher-http-php) _ Supported from version 3.2.0 onwards. _ [pusher-http-python](https://github.com/pusher/pusher-http-python) _ Supported from version 2.1.1 onwards. _ [pusher-http-ruby](https://github.com/pusher/pusher-http-ruby) \* Supported from version 1.4.0 onwards.  
-  [Client events](/docs/channels/using_channels/events) are not currently supported.
+[pusher-http-node](https://github.com/pusher/pusher-http-node)
+
+- Supported from version 4.3 onwards.
+
+[pusher-http-go](https://github.com/pusher/pusher-http-go)
+
+- Supported from version 1.1.0 onwards.
+
+[pusher-http-php](https://github.com/pusher/pusher-http-php)
+
+- Supported from version 3.2.0 onwards.
+
+[pusher-http-python](https://github.com/pusher/pusher-http-python)
+
+- Supported from version 2.1.1 onwards.
+
+[pusher-http-ruby](https://github.com/pusher/pusher-http-ruby)
+
+- Supported from version 1.4.0 onwards.
+
+[Client events](/docs/channels/using_channels/events) are not currently supported.
 
 ## Key rotation
 
