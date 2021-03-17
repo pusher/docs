@@ -26,7 +26,7 @@ var pusher = new Pusher("APP_KEY", options);
 The application key is a string which is globally unique to your application. It can be found in the API Access section of your application within the Channels user dashboard.
 
 {% endparameter %}
-{% parameter 'options', 'Object' %}
+{% parameter 'options', 'Object', false %}
 
 See Channels `options` parameter [below](/channels/using-channels/connection/#channels-options-parameter).
 

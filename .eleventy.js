@@ -158,7 +158,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPairedShortcode(
     "parameter",
-    (content, name, type, required = false, language = null, show = true) => {
+    (content, name, type, required = null, language = null, show = true) => {
       const requiredLabel = `<span class="pumpkin fw6 ml4 f6">Required</span>`;
       const optionalLabel = `<span class="slate fw6 ml4 f6">Optional</span>`;
       const slug = slugifyCustom(`${name}-${hash(content)}`);
@@ -168,9 +168,10 @@ module.exports = (eleventyConfig) => {
         <dt class="flex items-center mb3">
           <a class="link bn mr4" href="#${slug}">∞</a>
           <span class="code ma0 f4 lh-title" style="font-weight: 400; margin: 0;">${name}</span>
-          <span class="slate fw6 ml4 f6">(${type})</span>
-          ${required ? requiredLabel : optionalLabel}
-        </dt>
+          <span class="slate fw6 ml4 f6">${type}</span>
+          ${
+            required === null ? "" : required ? requiredLabel : optionalLabel
+          }</dt>
         <dd class="ma0">${content}</dd></dl>`;
     }
   );
