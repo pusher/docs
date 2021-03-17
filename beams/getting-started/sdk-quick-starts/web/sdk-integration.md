@@ -58,7 +58,7 @@ The SDK will be available in the global scope as `PusherPushNotifications`
 
 # Initialize the SDK
 
-Get your Beams instance ID from the Keys tab on <a external="" href="https://dashboard.pusher.com/beams"> the dashboard </a> and use the following snippet to initialize the SDK:
+Get your Beams instance ID from the Keys tab on <a external="" href="https://dashboard.pusher.com/beams">the dashboard</a> and use the following snippet to initialize the SDK:
 
 ```js
 {
@@ -86,7 +86,7 @@ You should see `Current interests: [&quot;hello&quot;]` printed to your browser 
 # Send a notification
 
 You are now ready to send a notification. In later steps, you will use one of the Beams server SDKs to send notifications. Before you do that, you can test your implementation by sending a notification via a HTTP request to the Beams API. We will use curl in this example, but you could use an alternative tool that allows you to make HTTP requests.
-<List order> *Start by creating a file called `publish-body.json` with the request body for the publish. <Code language="bash" heading="JSON"> {publishBodyJsonFile}``` *Next, run the following curl command.Either export your instance ID and secret key as environment variables, or replace the variables in the command. If you don't have those keys from the previous steps, then you can find them on the <a external="" href="https://dashboard.pusher.com/beams"> dashboard </a> .`bash {curlExample}`After running the curl command, you should receive a notification in your browser <span role="img" aria-label="clap emoji"> 👏 </span> If you don't see the notification, check the [troubleshooting](#troubleshooting) section.
+<List order> *Start by creating a file called `publish-body.json` with the request body for the publish. <Code language="bash" heading="JSON"> {publishBodyJsonFile}``` *Next, run the following curl command.Either export your instance ID and secret key as environment variables, or replace the variables in the command. If you don't have those keys from the previous steps, then you can find them on the <a external="" href="https://dashboard.pusher.com/beams">dashboard</a> .`bash {curlExample}`After running the curl command, you should receive a notification in your browser <span role="img" aria-label="clap emoji"> 👏 </span> If you don't see the notification, check the [troubleshooting](#troubleshooting) section.
 
 # Customize your notifications
 

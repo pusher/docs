@@ -12,7 +12,7 @@ eleventyNavigation:
 
 Pusher relies on Firebase Cloud Messaging (FCM) to deliver push notifications to Android application users on your behalf. When we deliver push notifications, we use your FCM credentials. This page guides you through the process of getting an FCM Server Key and how to provide it to Pusher.
 
-Head over to the <a external="" href="https://dashboard.pusher.com/beams"> Pusher dashboard </a> and create a new instance of Beams. After that, you can either follow the interactive quick start over there, or return here to follow the documentation steps.
+Head over to the <a external="" href="https://dashboard.pusher.com/beams">Pusher dashboard</a> and create a new instance of Beams. After that, you can either follow the interactive quick start over there, or return here to follow the documentation steps.
 <br />
 
 ## Visual walkthrough
@@ -41,7 +41,7 @@ Keep a note of the file's location, as eventually you will add it to your Androi
 
 Go to your <Play time={38} seek={this.seek}> Firebase project's settings page </Play> , and then go to the <Play time={46} seek={this.seek}> Cloud Messaging tab </Play> .<br /> Now you can copy the FCM Server Key by clicking on the <Play time={51} seek={this.seek}> clipboard button </Play> .
 <Alert success> If you are following the quick start guide in the Pusher Beams dashboard, return to it now with your FCM Server Key. </Alert> <br />
-This FCM Server Key can be saved to your Pusher Beams instance in the <a external="" href="https://dashboard.pusher.com/beams"> dashboard </a> .
+This FCM Server Key can be saved to your Pusher Beams instance in the <a external="" href="https://dashboard.pusher.com/beams">dashboard</a> .
 
 # Where Next?
 

@@ -17,7 +17,7 @@ After following this guide you will have a user list in a webpage that updates w
 
 # Get your free API keys
 
-<a href="https://dashboard.pusher.com/accounts/sign_up" target="_blank"> Create an account </a> , then create a Channels app. Go to the "Keys" page for that app, and make a note of your `app_id`, `key`, `secret` and `cluster`.
+<a href="https://dashboard.pusher.com/accounts/sign_up" target="_blank">Create an account</a> , then create a Channels app. Go to the "Keys" page for that app, and make a note of your `app_id`, `key`, `secret` and `cluster`.
 
 # Create your webpage
 

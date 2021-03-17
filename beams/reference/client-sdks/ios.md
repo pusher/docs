@@ -1,143 +1,147 @@
 ---
 title: Ios - Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Client sdks
   key: Client sdks ios
   title: iOS
   order: 1
 ---
+
 # Swift client SDK
- 
+
 # `PushNotifications`
- 
-`PushNotifications` is the top-level entrypoint to the SDK. 
- 
+
+`PushNotifications` is the top-level entrypoint to the SDK.
+
 ## `.shared`
- 
-`.shared` is static, so can be accessed from anywhere in your project. The minimum you need to initialize a client is the following: 
- 
+
+`.shared` is static, so can be accessed from anywhere in your project. The minimum you need to initialize a client is the following:
+
 ```swift
 {basicInit}
 ```
- 
+
 ## `.start`
- 
+
 Register with the Beams service.
- 
-This must be done in `application:didFinishLaunchingWithOptions:` delegate method in AppDelegate class. 
- 
+
+This must be done in `application:didFinishLaunchingWithOptions:` delegate method in AppDelegate class.
+
 ```swift
 {register}
 ```
- 
+
 ## `.registerForRemoteNotifications`
- 
-This is a convenience method that uses <em>alert</em>, <em>sound</em>, and <em>badge</em> as default authorization options. 
- 
+
+This is a convenience method that uses <em>alert</em>, <em>sound</em>, and <em>badge</em> as default authorization options.
+
 ```swift
 {requestPermission}
 ```
- 
-You can specify constants to request authorization for multiple items. 
- 
+
+You can specify constants to request authorization for multiple items.
+
 ```swift
 {requestPermissionWithOptions}
 ```
-  *  iOS Available options: <a external="" href="https://developer.apple.com/documentation/usernotifications/unauthorizationoptions"> UNAuthorizationOptions </a>  *  macOS Available options: <a external="" href="https://developer.apple.com/documentation/appkit/nsapplication.remotenotificationtype"> NSApplication.RemoteNotificationType </a>   
+
+- iOS Available options: <a external="" href="https://developer.apple.com/documentation/usernotifications/unauthorizationoptions">UNAuthorizationOptions</a> \* macOS Available options: <a external="" href="https://developer.apple.com/documentation/appkit/nsapplication.remotenotificationtype"> NSApplication.RemoteNotificationType </a>
+
 ## `.registerDeviceToken`
- 
+
 Register device token with the Beams service.
- 
+
 ```swift
 {registerDeviceToken}
 ```
- 
+
 ## `.addDeviceInterest`
- 
+
 Subscribes the device to the given interest.
- 
-*Arguments* <br /> *  `interest` (string): Interest that the device will be subscribed to.  
- 
-*Returns* <br /> None 
- 
-*Example* <br /> 
+
+_Arguments_ <br /> \* `interest` (string): Interest that the device will be subscribed to.
+
+_Returns_ <br /> None
+
+_Example_ <br />
+
 ```swift
 {addDeviceInterestExample}
 ```
- 
- 
+
 ## `.removeDeviceInterest`
- 
+
 Unsubscribes the device from the given interest.
- 
-*Arguments* <br /> *  `interest` (string): Interest that the device will be unsubscribed from.  
- 
-*Returns* <br /> None 
- 
-*Example* <br /> 
+
+_Arguments_ <br /> \* `interest` (string): Interest that the device will be unsubscribed from.
+
+_Returns_ <br /> None
+
+_Example_ <br />
+
 ```swift
 {removeDeviceInterestExample}
 ```
- 
- 
+
 ## `.getDeviceInterests`
- 
+
 Returns the interests the device is currently subscribed to.
- 
-*Arguments* <br /> None 
- 
-*Returns* <br /> `interests`({'[String]'} ): Set of interests the device is currently subscribed to. 
- 
-*Example* <br /> 
+
+_Arguments_ <br /> None
+
+_Returns_ <br /> `interests`({'[String]'} ): Set of interests the device is currently subscribed to.
+
+_Example_ <br />
+
 ```swift
 {getDeviceInterestsSwiftExample}
 ```
- 
- 
+
 ## `.setDeviceInterests`
- 
-Sets the subscriptions state for the device. Any interests not in the set will be unsubscribed from, so this will replace the Interest set by the one provided. 
- 
-*Arguments* <br /> *  `interests`({'[String]'} ): Set of new interests  
- 
-*Returns* <br /> None 
- 
-*Example* <br /> 
+
+Sets the subscriptions state for the device. Any interests not in the set will be unsubscribed from, so this will replace the Interest set by the one provided.
+
+_Arguments_ <br /> \* `interests`({'[String]'} ): Set of new interests
+
+_Returns_ <br /> None
+
+_Example_ <br />
+
 ```swift
 {setDeviceInterestsSwiftExample}
 ```
- 
- 
+
 ## `.clearDeviceInterests`
- 
+
 Unsubscribes the device from all interests.
- 
-*Arguments* <br /> None 
- 
-*Returns* <br /> None 
- 
-*Example* <br /> 
+
+_Arguments_ <br /> None
+
+_Returns_ <br /> None
+
+_Example_ <br />
+
 ```swift
 {clearDeviceInterestsExample}
 ```
- 
- 
+
 ## `.handleNotification`
- 
-Use this method to enable Pusher related features, for example, the notification [Insights](/docs/beams/concepts/insights). 
- 
+
+Use this method to enable Pusher related features, for example, the notification [Insights](/docs/beams/concepts/insights).
+
 ```swift
 {handleNotification}
 ```
- 
-We provide an option to ignore Pusher related remote notifications. 
- 
+
+We provide an option to ignore Pusher related remote notifications.
+
 ```swift
 {shouldIgnore}
 ```
- 
+
 All possible cases:
+
  <Table> <thead> <tr> <th>Case</th> <th>Status</th> </tr> </thead> <tbody> <tr> <td> Pusher sends a test push notification to validate the APNs token. </td> <td>.ShouldIgnore</td> </tr> <tr> <td> Payload contains only the `alert`. </td> <td>.ShouldIgnore</td> </tr> <tr> <td> While app is in the background and payload contains `alert` and `data`. </td> <td>.ShouldIgnore</td> </tr> <tr> <td> While app is in the foreground and payload contains `data`. </td> <td>.ShouldProcess</td> </tr> <tr> <td> Whenever `content-available: 1` is set. </td> <td>.ShouldProcess</td> </tr> </tbody> </Table> 
 ## `.interestsSetOnDeviceDidChange`
  
@@ -183,5 +187,3 @@ Stops the SDK by deleting all state (both locally and remotely). Calling this wi
 ```swift
 {stopExample}
 ```
- 
-

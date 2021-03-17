@@ -33,7 +33,7 @@ pusher.connection.bind("connected", function () {
 });
 ```
 
-Once the `socket_id` has been accessed it can be used when triggering an event on the server by passing it to the server. The following examples shows how this can be done and uses the <a href="http://api.jquery.com/jQuery.ajax/"> jQuery <inlinecode>ajax</inlinecode> </a> function.
+Once the `socket_id` has been accessed it can be used when triggering an event on the server by passing it to the server. The following examples shows how this can be done and uses the <a href="http://api.jquery.com/jQuery.ajax/">jQuery<inlinecode>ajax</inlinecode> </a> function.
 
 ```js
 var pusher = new Pusher('APP_KEY'); var socketId = null; pusher.connection.bind('connected', function() { socketId = pusher.connection.socket_id; jQuery.ajax({ url: "/trigger_event", type: "post", data: { id: 'some_id', updated_value: 'some_value', socket_id: socketId // pass socket_id parameter to be used by server } }); });

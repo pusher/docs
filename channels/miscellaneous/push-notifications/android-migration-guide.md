@@ -13,7 +13,7 @@ eleventyNavigation:
 
 In order to complete this migration you will need a Pusher Beams Instance.
 
-If you haven't already, head on over to the <a href="https://dashboard.pusher.com/beams" target="_blank"> Dashboard </a> and create a new Pusher Beams instance, noting down your Instance ID.
+If you haven't already, head on over to the <a href="https://dashboard.pusher.com/beams" target="_blank">Dashboard</a> and create a new Pusher Beams instance, noting down your Instance ID.
 
 You'll need to configure your Android instance on the Pusher Beams dashboard, by going to the instance's Settings tab.
 

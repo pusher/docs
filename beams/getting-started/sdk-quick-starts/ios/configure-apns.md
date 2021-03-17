@@ -20,7 +20,7 @@ Login into your [Apple Developer Account](https://developer.apple.com/account) .
 # Create a New Key
 
 Navigate to the [keys](https://developer.apple.com/account/resources/authkeys/add) section in your Apple Developer Center, where you'll <Anchor role="button" onClick={this.videoGoTo(0)}> create {videoPlayIcon} </Anchor> an APNs Key. Enter the key name and make sure that APNs checkbox is checked. Press the <em>continue</em> button in order to proceed to the step 3.
-<Alert primary> In order to generate the key, you'll either need to be an **Account Holder** or **Admin**, **App Manager** with _Certificates, Identifiers & Profiles_ access enabled. You can learn more about the roles, <a external="" href="https://developer.apple.com/support/roles/"> here </a> . </Alert>
+<Alert primary> In order to generate the key, you'll either need to be an **Account Holder** or **Admin**, **App Manager** with _Certificates, Identifiers & Profiles_ access enabled. You can learn more about the roles, <a external="" href="https://developer.apple.com/support/roles/">here</a> . </Alert>
 
 # Confirm your key configuration
 
@@ -30,7 +30,7 @@ If information entered in step 2 is correct proceed by pressing the <Anchor role
 
 Press <Anchor role="button" onClick={this.videoGoTo(11)}> <em>download</em> {videoPlayIcon} </Anchor> button to download the key. Finalize the process and press the <em>done</em> button.
 
-Now go to the Pusher Beams instance in the <a external="" href="https://dashboard.pusher.com/beams"> dashboard </a> , and use this APNs Key to configure your iOS integration.
+Now go to the Pusher Beams instance in the <a external="" href="https://dashboard.pusher.com/beams">dashboard</a> , and use this APNs Key to configure your iOS integration.
 
 # Where Next?
 
