@@ -13,7 +13,7 @@ The Client API Overview provides information on how to perform specific actions 
 
 The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below.
 
-{% snippets ['js', 'swift', 'objc', 'java', 'php', 'c'] %}
+{% snippets ['js', 'swift', 'objc', 'java', 'laravelecho', 'c'] %}
 
 ```js
 var pusher = new Pusher("YOUR_APP_KEY", options);
@@ -31,7 +31,7 @@ self.pusher = [[Pusher alloc] initWithKey:@"YOUR_APP_KEY"];
 Pusher pusher = new Pusher("YOUR_APP_KEY");
 ```
 
-```php
+```laravelecho
 window.Echo = new Echo({ broadcaster: 'pusher', key: 'YOUR_APP_KEY' });
 ```
 

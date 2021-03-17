@@ -25,6 +25,9 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
+    init: ({ Prism }) => {
+      Prism.languages.laravelecho = Prism.languages.javascript;
+    },
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC, {
@@ -126,6 +129,7 @@ module.exports = (eleventyConfig) => {
         node: "Node.js",
         php: "PHP",
         laravel: "Laravel",
+        laravelecho: "Laravel Echo",
         go: "Go",
         py: "Python",
         c: ".NET",
