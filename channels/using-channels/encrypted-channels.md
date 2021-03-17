@@ -25,7 +25,7 @@ Encrypted channel subscriptions must be authenticated in the exact same way as p
 
 For encryption and decryption to work the server library **must** be instantiated with a 32 byte encryption key, encoded as base64.
 
-{% snippets ['js', 'go', 'php', 'php', 'py'] %}
+{% snippets ['js', 'go', 'php', 'laravel', 'py'] %}
 
 ```js
 const pusher = new Pusher({
@@ -59,7 +59,7 @@ pusher = new Pusher\Pusher(
 );
 ```
 
-```php
+```laravel
 // in config/broadcasting.php
 'options' => [
   'useTLS' => true,

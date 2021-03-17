@@ -124,6 +124,7 @@ module.exports = (eleventyConfig) => {
         rb: "Ruby",
         js: "Node",
         php: "PHP",
+        laravel: "Laravel",
         go: "Go",
         py: "Python",
         c: ".NET",
