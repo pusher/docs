@@ -70,7 +70,7 @@ module.exports = (eleventyConfig) => {
   };
 
   markdownIt.core.ruler.push("widont", (state) => {
-    const tokens = state.tokens;
+    const { tokens } = state;
 
     tokens
       .filter((token) => token.type === "heading_open")
