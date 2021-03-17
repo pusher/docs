@@ -18,17 +18,38 @@ Private channels should be used when access to the channel needs to be restricte
 
 When a subscription takes place the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
 
-```js
-var privateChannel = pusher.subscribe(privateChannelName);
-```
+{% methodwrap %}
+{% snippets ['js', 'swift'], true %}
 
-- privateChannelName (String) _ The name of the channel to subscribe to. Since it is a private channel the name must be prefixed with `private-` _ Returns \* A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
+```js
+var privateChannel = pusher.subscribe("privateChannelName");
+```
 
 ```swift
 PTPusherPrivateChannel *private = [self.pusher subscribeToPrivateChannelNamed:privateChannelName];
 ```
 
-- privateChannelName (String) * The name of the channel to subscribe to. *This method will add the appropriate `private-` prefix to the channel name for you.\* _ Returns _ A channel cast to the correct `PTPusherChannel` subclass `PTPusherPrivateChannel` which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) .
+{% endsnippets %}
+
+{% parameter 'privateChannelName', "String", true, 'js' %}
+
+The name of the channel to subscribe to. Since it is a private channel the name must be prefixed with `private-`
+
+##### Returns
+
+A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
+
+{% endparameter %}
+{% parameter 'privateChannelName', "String", true, 'swift', false %}
+
+The name of the channel to subscribe to. _This method will add the appropriate `private-` prefix to the channel name for you_.
+
+##### Returns
+
+A channel cast to the correct `PTPusherChannel` subclass `PTPusherPrivateChannel` which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events).
+
+{% endparameter %}
+{% endmethodwrap %}
 
 # Unsubscribe
 
