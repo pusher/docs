@@ -34,6 +34,10 @@
   list-style-type: none;
 }
 
+.nested-list-spacing li + li {
+  margin-top: var(--spacing-small);
+}
+
 .nested-copy-indent p + p {
   text-indent: var(--letter-spacing-1);
   margin-top: var(--spacing-none);
