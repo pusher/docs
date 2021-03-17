@@ -58,9 +58,14 @@ module.exports = (eleventyConfig) => {
   };
 
   markdownIt.renderer.rules.image = (tokens) => {
-    const src = tokens[0].attrs[tokens[0].attrIndex("src")][1].replace(".", "");
-    const width = tokens[0].attrs[tokens[0].attrIndex("width")][1];
-    const height = tokens[0].attrs[tokens[0].attrIndex("height")][1];
+    let src = tokens[0].attrs[tokens[0].attrIndex("src")][1];
+    let width = "";
+    let height = "";
+    if (src.match(/^http/) === null) {
+      src = tokens[0].attrs[tokens[0].attrIndex("src")][1].replace(".", "");
+      width = tokens[0].attrs[tokens[0].attrIndex("width")][1] || "";
+      height = tokens[0].attrs[tokens[0].attrIndex("height")][1] || "";
+    }
     const alt =
       tokens[0].attrs[tokens[0].attrIndex("alt")][1] ||
       tokens[0].children[0].content;
