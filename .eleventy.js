@@ -25,6 +25,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
+    trim: true,
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC, {
