@@ -93,7 +93,7 @@ module.exports = (eleventyConfig) => {
 
         // Replace content with widont applied text
         textToWidont.forEach((token) => {
-          token.content = widont(title);
+          if (token.type === "code_inline") token.content = widont(title);
         });
       });
   });
