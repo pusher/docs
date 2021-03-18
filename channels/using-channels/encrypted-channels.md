@@ -59,7 +59,7 @@ pusher = new Pusher\Pusher(
 );
 ```
 
-```laravel
+```php
 // in config/broadcasting.php
 'options' => [
   'useTLS' => true,
