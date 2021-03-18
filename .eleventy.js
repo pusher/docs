@@ -163,7 +163,7 @@ module.exports = (eleventyConfig) => {
       const requiredLabel = `<span class="pumpkin fw6 ml4 f6">Required</span>`;
       const optionalLabel = `<span class="slate fw6 ml4 f6">Optional</span>`;
       const slug = slugifyCustom(`${name}-${hash(content)}`);
-      return `<dl class="parameter ${show ? "" : "dn"}" ${
+      return `<dl class="parameter-block ${show ? "" : "dn"}" ${
         language !== null ? `data-language="${language}"` : ""
       } id="${slug}">
         <dt class="flex items-center mb3">
