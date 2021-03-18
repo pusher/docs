@@ -26,6 +26,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
     init: ({ Prism }) => {
+      Prism.languages.laravel = Prism.languages.php;
       Prism.languages.laravelecho = Prism.languages.javascript;
     },
   });
