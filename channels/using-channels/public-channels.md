@@ -15,7 +15,7 @@ You can subscribe and unsubscribe from channels at any time. There's no need to 
 
 ## Subscribe
 
-{% snippets ['js', 'swift', 'php'] %}
+{% snippets ['js', 'swift', 'laravelecho'] %}
 
 ```js
 var channel = pusher.subscribe(channelName);
@@ -25,7 +25,7 @@ var channel = pusher.subscribe(channelName);
 PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:channelName];
 ```
 
-```php
+```js
 var channel = Echo.channel(channelName);
 ```
 
@@ -47,7 +47,7 @@ A channel object which events can be bound to. See [binding to events](/docs/cha
 
 {% methodwrap %}
 
-{% snippets ['js', 'swift', 'php'], true %}
+{% snippets ['js', 'swift', 'laravelecho'], true %}
 
 ```js
 pusher.unsubscribe(channelName);
@@ -57,7 +57,7 @@ pusher.unsubscribe(channelName);
 [self.pusher unsubscribeFromChannel:channel];
 ```
 
-```php
+```js
 Echo.leaveChannel(channelName);
 ```
 
@@ -65,7 +65,7 @@ Echo.leaveChannel(channelName);
 
 #### Parameters
 
-{% parameter 'channelName', 'string', true, 'js,php' %}
+{% parameter 'channelName', 'string', true, 'js,laravelecho' %}
 
 The name of the channel to unsubscribe from.
 
