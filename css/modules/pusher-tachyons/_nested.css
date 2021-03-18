@@ -88,6 +88,10 @@
   overflow-x: auto;
 }
 
+.nested-code pre code {
+  padding: 0;
+}
+
 .nested-headlines h1,
 .nested-headlines h2,
 .nested-headlines h3,
