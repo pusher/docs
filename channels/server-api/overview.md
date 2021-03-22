@@ -15,93 +15,94 @@ Where possible each section provides an overview of the action, a reference-styl
 
 The reference-style guide and examples may contain information for different languages. You can choose which language you wish to view by clicking on the appropriate tab as below.
 
-{% snippets ['rb', 'rb', 'php', 'php', 'js', 'c', 'py', 'go', 'java', 'bash'] %}
+{% snippets ['rb', 'Rails', 'php', 'laravel', 'node', 'ASP.NET', 'py', 'go', 'java', 'bash'] %}
 
 ```rb
 # First, run 'gem install pusher'
+require 'pusher'
 
-          require 'pusher'
+pusher = Pusher::Client.new(
+  app_id: 'APP_ID',
+  key: 'APP_KEY',
+  secret: 'APP_SECRET',
+  cluster: 'APP_CLUSTER'
+)
 
-          pusher = Pusher::Client.new(
-            app_id: 'APP_ID',
-            key: 'APP_KEY',
-            secret: 'APP_SECRET',
-            cluster: 'APP_CLUSTER'
-          )
-
-          class HelloWorldController < ApplicationController
-            def hello_world
-              pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
-            end
-          end
+class HelloWorldController < ApplicationController
+  def hello_world
+    pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
+  end
+end
 ```
 
 ```rb
 # First, run 'gem install pusher'
+require 'pusher'
 
-        require 'pusher'
+pusher = Pusher::Client.new(
+  app_id: 'APP_ID',
+  key: 'APP_KEY',
+  secret: 'APP_SECRET',
+  cluster: 'APP_CLUSTER'
+)
 
-        pusher = Pusher::Client.new(
-          app_id: 'APP_ID',
-          key: 'APP_KEY',
-          secret: 'APP_SECRET',
-          cluster: 'APP_CLUSTER'
-        )
+pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
+```
 
-        pusher.trigger('my-channel', 'my-event', {:message => 'hello world'})
+```php
+// First, run 'composer require pusher/pusher-php-server'
+require __DIR__ . '/vendor/autoload.php';
+
+$pusher = new Pusher\Pusher(
+  "APP_KEY",
+  "APP_SECRET",
+  "APP_ID",
+  array('cluster' => 'APP_CLUSTER')
+);
+
+$pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
 ```
 
 ```php
 // First, run 'composer require pusher/pusher-php-server'
 
-        require __DIR__ . '/vendor/autoload.php';
+// Second, define the options in config/broadcasting.php
+'options' => [
+  'cluster' => 'APP_CLUSTER',
+  'useTLS' => true
+],
 
-        $pusher = new Pusher\\Pusher("APP_KEY", "APP_SECRET", "APP_ID", array('cluster' => 'APP_CLUSTER'));
+// Third, define events in your code like this
+<?php
 
-        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
-```
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-```php
-// First, run 'composer require pusher/pusher-php-server'
+class MyEvent implements ShouldBroadcast
+{
+  use Dispatchable, InteractsWithSockets, SerializesModels;
 
-          // Second, define the options in config/broadcasting.php
-          'options' => [
-            'cluster' => 'APP_CLUSTER',
-            'useTLS' => true
-          ],
+  public $message;
 
-          // Third, define events in your code like this
-          <?php
+  public function __construct($messsage)
+  {
+      $this->message = $message;
+  }
 
-          use Illuminate\Queue\SerializesModels;
-          use Illuminate\Foundation\Events\Dispatchable;
-          use Illuminate\Broadcasting\InteractsWithSockets;
-          use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+  public function broadcastOn()
+  {
+      return ['my-channel'];
+  }
+}
 
-          class MyEvent implements ShouldBroadcast
-          {
-            use Dispatchable, InteractsWithSockets, SerializesModels;
-
-            public $message;
-
-            public function __construct($messsage)
-            {
-                $this->message = $message;
-            }
-
-            public function broadcastOn()
-            {
-                return ['my-channel'];
-            }
-          }
-
-          // Fourth, publish events like this
-          event(new MyEvent('hello world'));
+// Fourth, publish events like this
+event(new MyEvent('hello world'));
 ```
 
 ```js
 // First, run 'npm install pusher'
-
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
@@ -119,74 +120,70 @@ pusher.trigger("my-channel", "my-event", {
 
 ```c
 // First, run 'Install-Package PusherServer'
+  using PusherServer;
+  using System.Web.Mvc;
+  using System.Net;
+  using Your.Config;
 
-        using PusherServer;
-        using System.Web.Mvc;
-        using System.Net;
-        using Your.Config;
+  public class HelloWorldController : Controller {
+    [httpPost]
+    public async Task<ActionResult> HelloWorld() {
+      var options = new PusherOptions();
+      options.Cluster = 'APP_CLUSTER';
 
-        public class HelloWorldController : Controller {
-          [httpPost]
-          public async Task<ActionResult> HelloWorld() {
-            var options = new PusherOptions();
-            options.Cluster = 'APP_CLUSTER';
-
-            var pusher = new Pusher('APP_ID', 'APP_KEY', 'APP_SECRET', options);
-            var result = await pusher.TriggerAsync("my-channel", "my-event", new { message = "hello world" });
-            return new HttpStatusCodeResult((int)HttpStatusCode.OK);
-          }
-        }
+      var pusher = new Pusher('APP_ID', 'APP_KEY', 'APP_SECRET', options);
+      var result = await pusher.TriggerAsync("my-channel", "my-event", new { message = "hello world" });
+      return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+    }
+  }
 ```
 
 ```py
 # First, run 'pip install pusher'
+import pusher
 
-        import pusher
+pusher_client = pusher.Pusher(
+  app_id=u'APP_ID',
+  key=u'APP_KEY',
+  secret=u'APP_SECRET',
+  cluster=u'APP_CLUSTER'
+)
 
-        pusher_client = pusher.Pusher(
-          app_id=u'APP_ID',
-          key=u'APP_KEY',
-          secret=u'APP_SECRET',
-          cluster=u'APP_CLUSTER'
-        )
-
-        pusher_client.trigger(u'my-channel', u'my-event', {u'message': u'hello world'})
+pusher_client.trigger(u'my-channel', u'my-event', {u'message': u'hello world'})
 ```
 
 ```go
 package main
 
-        import "github.com/pusher/pusher-http-go/v5"
+import "github.com/pusher/pusher-http-go/v5"
 
-        func main(){
+func main(){
+  pusherClient := pusher.Client{
+    AppID: "APP_ID",
+    Key: "APP_KEY",
+    Secret: "APP_SECRET",
+    Cluster: "APP_CLUSTER",
+  }
 
-          pusherClient := pusher.Client{
-            AppID: "APP_ID",
-            Key: "APP_KEY",
-            Secret: "APP_SECRET",
-            Cluster: "APP_CLUSTER",
-          }
-
-          data := map[string]string{"message": "hello world"}
-          pusherClient.Trigger("my-channel", "my-event", data)
-        }
+  data := map[string]string{"message": "hello world"}
+  pusherClient.Trigger("my-channel", "my-event", data)
+}
 ```
 
 ```java
 /*
-        First, add this Maven dependency:
+First, add this Maven dependency:
+<dependency>
+  <groupId>com.pusher</groupId>
+  <artifactId>pusher-http-java</artifactId>
+  <version>1.0.0</version>
+</dependency>
+*/
 
-        <dependency>
-          <groupId>com.pusher</groupId>
-          <artifactId>pusher-http-java</artifactId>
-          <version>1.0.0</version>
-        </dependency>
-        */
+Pusher pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET");
+pusher.setCluster("APP_CLUSTER");
 
-        Pusher pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET");
-        pusher.setCluster("APP_CLUSTER");
-
-        pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "Hello World"));
+pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "Hello World"));
 ```
 
 ```bash
@@ -199,11 +196,10 @@ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "my-
 
 # The Guide
 
-      *  [Interacting with our HTTP API](/docs/channels/server_api/http-api)  <Item indent> [Publishing events](/docs/channels/server_api/http-api#publishing-events)
-          <Item indent>
-            [Querying application state](/docs/channels/server_api/http-api#querying-application-state)
-          </Item>
+- [Interacting with our HTTP API](/docs/channels/server_api/http-api)
 
-      </Item>
-      *  [Receiving webhooks](/docs/channels/server_api/webhooks)
-      *  [Authenticating users](/docs/channels/server_api/authenticating-users)
+  - [Publishing events](/docs/channels/server_api/http-api#publishing-events)
+  - [Querying application state](/docs/channels/server_api/http-api#querying-application-state)
+
+- [Receiving webhooks](/docs/channels/server_api/webhooks)
+- [Authenticating users](/docs/channels/server_api/authenticating-users)
