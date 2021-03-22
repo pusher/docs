@@ -310,41 +310,59 @@ channel.stopListening("new-price");
 
 Some events are triggered by Channels and to clearly indicate this, these are prefixed with `pusher:`.
 
-### pusher:subscription_succeeded
+{% parameter 'pusher:subscription_succeeded', 'Event', null %}
 
-**Note:** this feature was introduced in **version 1.10** of the Channels JavaScript library.
-
-Once you've subscribed to a channel you can bind to the `pusher:subscription_succeeded` event so that you know when the subscription has been registered within Channels.
+Once you have subscribed to a channel you can bind to the `pusher:subscription_succeeded` event so that you know when the subscription has been registered within Channels.
 
 ```js
-channel.bind("pusher:subscription_succeeded", function () {});
+channel.bind("pusher:subscription_succeeded", () => {});
 ```
 
 This is particularly useful for private and presence channels if you are using [client events](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once a successful subscription has occurred.
 
 > For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events) .
 
-### pusher:subscription_error
+{% endparameter %}
 
-**Note:** the `pusher:subscription_error` event was introduced without the `pusher` prefix but this is required in **version 1.10** of the Channels JavaScript library and up.
+{% parameter 'pusher:subscription_error', 'Event', null %}
 
-Sometimes things go wrong so we've exposed a `pusher:subscription_error` event that is triggered when an authentication request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authenticated.
+Sometimes things go wrong so we have exposed a `pusher:subscription_error` event that is triggered when an authentication request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authenticated.
 
 The event is triggered either when the authentication endpoint returns a HTTP status code that is not 200 or if there is a problem parsing the JSON that the endpoint returned.
 
 **Note:** if the library is unable to create a websocket connection at all, this event will **not** be emitted. In order to catch events at the connection level you must bind to `error` events on the connection as described [here](/docs/channels/using_channels/connection#binding-to-connection-events)
 
 ```js
-channel.bind("pusher:subscription_error", function (err) {});
+channel.bind("pusher:subscription_error", (error) => {});
 ```
 
-- `err` (Object) An error object with the following properties: _ `type` (String) _ Category of error that occured, e.g. `AuthError` </Item> _ `error` (String) _ Human readable details of error that occurred. </Item> _ `status` (Number) _ The [HTTP Status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authentication call. </Item>
+{% parameter 'error', 'Object', null %}
 
-### Example
+An error object with the following properties:
+
+- `type` (String)
+  Category of error that occured, e.g. `AuthError`
+- `error` (String)
+  Human readable details of error that occurred.
+- `status` (Number)
+  The [HTTP Status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authentication call.
+
+{% endparameter %}
+
+#### Example
 
 ```js
-var pusher = new Pusher('APP_KEY'); var channel = pusher.subscribe('private-channel'); channel.bind('pusher:subscription_error', function(err) { let { status } = err; if(status == 408 || status == 503){ // retry? } });
+var pusher = new Pusher("APP_KEY");
+var channel = pusher.subscribe("private-channel");
+channel.bind("pusher:subscription_error", (error) => {
+  var { status } = error;
+  if (status == 408 || status == 503) {
+    // Retry?
+  }
+});
 ```
+
+{% endparameter %}
 
 ### Additional presence events
 
@@ -354,49 +372,92 @@ Presence comes with a number of presence specific events. For more information p
 
 Not all traffic needs to go via your conventional web server when using Channels. Some actions may not need validation or persistence and can go directly via the socket to all the other clients connected to the channel.
 
-** It is important that you apply additional care when using client events, since these originate from other users, and could be subject to tampering by a malicious user of your site. **
+_It is important that you apply additional care when using client events, since these originate from other users, and could be subject to tampering by a malicious user of your site._
 
 > Note that you cannot trigger client events from the debug console.
 
 Client events have a number of **enforced restrictions** to ensure that the user subscribing to the channel is an authenticated user and so that client events can be clearly identified:
 
-- **Client events must be enabled for the application**. You can do this in the ** _Settings_ ** tab for your app within the Channels dashboard _ The user must be subscribed to the channel that the event is being triggered on _ Client events can only be triggered on [private](/docs/channels/using_channels/private-channels) and [presence](/docs/channels/using_channels/presence-channels) channels because they require authentication _ Client events must be prefixed by `client-`. Events with any other prefix will be rejected by the Channels server, as will events sent to channels to which the client is not subscribed. _ You can only trigger a client event once a subscription has been successfully registered with Channels. You can ensure this is the case using the <a href="#pusher-subscription-succeeded"> <inlinecode>pusher:subscription*succeeded</inlinecode> event </a> . * Client events are not delivered to the originator of the event. For more information see [Message Routing](#message-routing). \_ Publish no more than 10 messages per second per client (connection). Any events triggered above this rate limit will be rejected by our API. See [Rate limit your events](#rate-limit-your-events).
+- **Client events must be enabled for the application**. You can do this in the _Settings_ tab for your app within the Channels dashboard
+- The user must be subscribed to the channel that the event is being triggered on
+- Client events can only be triggered on [private](/docs/channels/using_channels/private-channels) and [presence](/docs/channels/using_channels/presence-channels) channels because they require authentication
+- Client events must be prefixed by `client-`. Events with any other prefix will be rejected by the Channels server, as will events sent to channels to which the client is not subscribed.
+- You can only trigger a client event once a subscription has been successfully registered with Channels. You can ensure this is the case using the `pusher:subscription_succeeded` [event](#pusher-subscription-succeeded).
+- Client events are not delivered to the originator of the event. For more information see [Message Routing](#message-routing).
+- Publish no more than 10 messages per second per client (connection). Any events triggered above this rate limit will be rejected by our API. See [Rate limit your events](#rate-limit-your-events).
+
+{% methodwrap %}
+{% snippets ['js', 'swift', 'laravelecho'], true %}
 
 ```js
 var triggered = channel.trigger(eventName, data);
-```
-
-- `eventName` (String) * The name of the event to be triggered. A client event must have a name prefixed with \*\* *client-_ \*\* or it will be rejected by the server. _ `data` (Object) _ The object to be converted to JSON and distributed with the event. _ **Returns** (Boolean) \* `true` if the event was successfully triggered, otherwise `false`
-
-### Example
-
-```js
-var pusher = new Pusher("YOUR_APP_KEY");
-var channel = pusher.subscribe("private-channel");
-channel.bind("pusher:subscription_succeeded", function () {
-  var triggered = channel.trigger("client-someeventname", { your: data });
-});
 ```
 
 ```swift
 [private triggerEventNamed:eventName data:data];
 ```
 
-- `eventName` (String) _ The name of the event to be triggered. If the event name is not prefixed with `client-` the library will prepend it. _ `data` (Object) \* The object to be converted to JSON and distributed with the event.
-
-### Example
-
-```swift
-PTPusherPrivateChannel *private = [self.pusher subscribeToPrivateChannelNamed:@"chat"]; [private triggerEventNamed:@"myevent" data:@{@"foo": @"bar"}];
-```
-
 ```js
 channel.whisper(eventName, data);
 ```
 
-- `eventName` (String) * The name of the event to be triggered. The event name will automatically be prefixed with \*\* *client-_ \*\* or it will be rejected by the server. _ `data` (Object) \* The object to be converted to JSON and distributed with the event.
+{% endsnippets %}
 
-### Example
+{% parameter 'eventName', 'String', true, 'js' %}
+
+The name of the event to be triggered. A client event must have a name prefixed with `client-` or it will be rejected by the server.
+
+{% endparameter %}
+{% parameter 'data', 'Object', false, 'js' %}
+
+The object to be converted to JSON and distributed with the event.
+
+{% endparameter %}
+
+##### Returns (Boolean)
+
+`true` if the event was successfully triggered, otherwise `false`
+
+##### Example
+
+```js
+var pusher = new Pusher("YOUR_APP_KEY");
+var channel = pusher.subscribe("private-channel");
+channel.bind("pusher:subscription_succeeded", () => {
+  var triggered = channel.trigger("client-someEventName", {
+    your: "data",
+  });
+});
+```
+
+{% parameter 'eventName', 'String', true, 'swift', false %}
+
+The name of the event to be triggered. If the event name is not prefixed with `client-` the library will prepend it.
+
+{% endparameter %}
+{% parameter 'data', 'Object', false, 'swift', false %}
+
+The object to be converted to JSON and distributed with the event.
+
+##### Example
+
+```swift
+PTPusherPrivateChannel *private = [self.pusher subscribeToPrivateChannelNamed:@"chat"];
+[private triggerEventNamed:@"myevent" data:@{@"foo": @"bar"}];
+```
+
+{% endparameter %}
+
+{% parameter 'eventName', 'String', true, 'laravelecho', false %}
+
+The name of the event to be triggered. A client event must have a name prefixed with `client-` or it will be rejected by the server.
+
+{% endparameter %}
+{% parameter 'data', 'Object', false, 'laravelecho', false %}
+
+The object to be converted to JSON and distributed with the event.
+
+##### Example
 
 ```js
 window.Echo = new Echo({
@@ -406,13 +467,18 @@ window.Echo = new Echo({
   forceTLS: true,
 });
 var channel = Echo.channel("private-channel");
-var callback = function (data) {};
-channel.listen("pusher:subscription_succeeded", function () {
-  var triggered = channel.whisper("someeventname", { your: data });
+var callback = (data) => {};
+channel.listen("pusher:subscription_succeeded", () => {
+  var triggered = channel.whisper("someeventname", {
+    your: "data",
+  });
 });
 ```
 
-### Message routing
+{% endparameter %}
+{% endmethodwrap %}
+
+## Message routing
 
 When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [excluding event recipients](/docs/channels/server_api/excluding-event-recipients) .
 
@@ -434,22 +500,51 @@ For example, if you have bound the the `mousemove` event and a user is wildly wa
 
 ##### Example
 
-`<span id="client_event_example_log"> Information to appear here </span>`
-
 ```js
 var outputEl = document.getElementById("client_event_example_log");
 var state = { currentX: 0, currentY: 0, lastX: undefined, lastY: undefined };
 var pusher = new Pusher("YOUR_APP_KEY");
-var channel = pusher.subscribe("private-mousemoves"); // this method should be bound as a 'mousemove' event listener document.body.addEventListener('mousemove', onMouseMove, false); function onMouseMove(ev){ ev = ev || window.event; state.currentX = ev.pageX || ev.clientX; state.currentY = ev.pageY || ev.clientY; } setInterval(function(){ if(state.currentX !== state.lastX || state.currentY !== state.lastY){ state.lastX = state.currentX; state.lastY = state.currentY; var text = document.createTextNode( 'Triggering event due to state change: x: ' + state.currentX + ', y: ' + state.currentY ); outputEl.replaceChild( text, outputEl.firstChild ); channel.trigger("client-mouse-moved", {x:state.currentX, y: state.currentY}); } }, 300); // send every 300 milliseconds if position has changed
+var channel = pusher.subscribe("private-mousemoves");
+// this method should be bound as a 'mousemove' event listener document.body.
+addEventListener("mousemove", onMouseMove, false);
+var onMouseMove = (ev) => {
+  ev = ev || window.event;
+  state.currentX = ev.pageX || ev.clientX;
+  state.currentY = ev.pageY || ev.clientY;
+};
+setInterval(() => {
+  if (state.currentX !== state.lastX || state.currentY !== state.lastY) {
+    state.lastX = state.currentX;
+    state.lastY = state.currentY;
+    var text = document.createTextNode(
+      "Triggering event due to state change: x: " +
+        state.currentX +
+        ", y: " +
+        state.currentY
+    );
+    outputEl.replaceChild(text, outputEl.firstChild);
+    channel.trigger("client-mouse-moved", {
+      x: state.currentX,
+      y: state.currentY,
+    });
+  }
+}, 300);
+// send every 300 milliseconds if position has changed
 ```
 
-## user_id in client events
+## `user_id` in client events
+
+{% methodwrap %}
+{% snippets ['js', 'java', 'swift'], true %}
+{% endsnippets %}
+
+{% conditionalContent 'js' %}
 
 When you bind to client events on presence channels, your bound callback will be called with a metadata object as the second argument. This metadata object contains a `user_id` key, the value of which is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```js
 const channel = pusher.subscribe("presence-chat");
-channel.bind("client-msg", function (data, metadata) {
+channel.bind("client-msg", (data, metadata) => {
   console.log(
     "I received",
     data,
@@ -463,23 +558,42 @@ channel.bind("client-msg", function (data, metadata) {
 
 The `user_id` field is useful for displaying the author of an event. You should trust the `user_id` from the `metadata` object, rather than embedding a user ID in the `data` object, which would allow any client to impersonate any user!
 
+{% endconditionalContent %}
+{% conditionalContent 'java', false %}
+
 When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` key, accessible by calling `getUserId()` on the event. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```java
-channel.bind("client-my-event", new SubscriptionEventListener() { @Override public void onEvent(PusherEvent event) { System.out.println("Received event with userId: " + event.getUserId()); } });
+channel.bind("client-my-event", new SubscriptionEventListener() {
+  @Override
+  public void onEvent(PusherEvent event) {
+    System.out.println("Received event with userId: " + event.getUserId());
+  }
+});
 ```
 
 The `getUserId()` method is useful for displaying the author of an event. You should trust the user ID returned by `getUserId()`, rather than embedding a user ID in the `data` object, which would allow any client to impersonate any user!
 
+{% endconditionalContent %}
+{% conditionalContent 'swift', false %}
+
 When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` property. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
 
 ```swift
-channel.bind(eventName: "client-my-event", eventCallback: { (event: PusherEvent) in if let userId = event.userId { print("Received event with userId: \\(userId)") } })
+channel.bind(eventName: "client-my-event", eventCallback: {(event: PusherEvent) in
+if let userId = event.userId {
+  print("Received event with userId: \(userId)")
+  }
+})
 ```
 
 The `userId` property is useful for displaying the author of an event. You should trust the `userId` from the `PusherEvent` object, rather than embedding a user ID in the `data` object, which would allow any client to impersonate any user!
 
-## Also see
+{% endconditionalContent %}
 
-          *  [Connection status events](/docs/channels/using_channels/connection#connection-status-events)
-          *  [Presence events](/docs/channels/using_channels/presence-channels#events)
+{% endmethodwrap %}
+
+## See also
+
+- [Connection status events](/docs/channels/using_channels/connection#connection-status-events)
+- [Presence events](/docs/channels/using_channels/presence-channels#events)

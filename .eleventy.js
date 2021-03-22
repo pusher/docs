@@ -174,6 +174,15 @@ module.exports = (eleventyConfig) => {
     }
   );
 
+  eleventyConfig.addPairedShortcode(
+    "conditionalContent",
+    (content, language = null, show = true) => {
+      return `<div class="parameter-block ${
+        show ? "" : "dn"
+      }" data-language="${language}">${content}</div>`;
+    }
+  );
+
   eleventyConfig.addPairedShortcode("methodwrap", (content) => {
     return `<div class="method-wrapper">${content}</div>`;
   });
