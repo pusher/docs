@@ -12,7 +12,7 @@ eleventyNavigation:
 
 # Installation
 
-The Beams Web SDK is available on npm [here](https://www.npmjs.com/package/@pusher/push-notifications-web) .
+The Beams Web SDK is available on npm [here](https://www.npmjs.com/package/@pusher/push-notifications-web).
 
 ## npm/yarn
 
@@ -314,10 +314,10 @@ A Promise that resolves with the registration state.
  
 ##  `Constructor` 
  
-Constructs a new Beams `TokenProvider` instance. You must pass a `TokenProvider` when you call the `setUserId` method. This will determine how the SDK will request a Beams Token from your auth system. [Learn more](/docs/beams/guides/publish-to-specific-user/web) . 
+Constructs a new Beams `TokenProvider` instance. You must pass a `TokenProvider` when you call the `setUserId` method. This will determine how the SDK will request a Beams Token from your auth system. [Learn more](/docs/beams/guides/publish-to-specific-user/web). 
  
 *Arguments* 
-  *  `url` (string | required): The absolute/relative URL of your Beams auth endpoint. See [Publish to a specific User: Web](/docs/beams/guides/publish-to-specific-user/web)  *  `queryParams` (object | optional): A key/value mapping of the query parameters you would like to be used when the SDK makes a request to your Beams auth endpoint.  *  `headers` (object | optional): A key/value mapping of the HTTP request headers you would like to be used when the SDK makes a request to your Beams auth endpoint.  *  `credentials` (string | optional): A string representing which policy you would like to use for determining which cookies will be sent to your Beams auth endpoint. Must be one of: `omit` (send no cookies), `same-origin` (send cookies if the URL is on the same origin as the calling script), or `include` (send cookies irrespective of origin). Defaults to `same-origin`. [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) .   
+  *  `url` (string | required): The absolute/relative URL of your Beams auth endpoint. See [Publish to a specific User: Web](/docs/beams/guides/publish-to-specific-user/web)  *  `queryParams` (object | optional): A key/value mapping of the query parameters you would like to be used when the SDK makes a request to your Beams auth endpoint.  *  `headers` (object | optional): A key/value mapping of the HTTP request headers you would like to be used when the SDK makes a request to your Beams auth endpoint.  *  `credentials` (string | optional): A string representing which policy you would like to use for determining which cookies will be sent to your Beams auth endpoint. Must be one of: `omit` (send no cookies), `same-origin` (send cookies if the URL is on the same origin as the calling script), or `include` (send cookies irrespective of origin). Defaults to `same-origin`. [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials).   
 *Returns* 
  
 A new `TokenProvider` instance 

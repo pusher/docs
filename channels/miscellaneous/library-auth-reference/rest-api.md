@@ -39,7 +39,7 @@ Triggers an event on one or more channels.
  
 The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter you will receive a 413 error code. If you have a use case which requires a larger messages size please [get in touch](https://pusher.com/support). 
  
-> **Note:** a previous version of this resource is now considered deprecated but is detailed [here](/docs/channels/library_auth_reference/rest-api-deprecated) . 
+> **Note:** a previous version of this resource is now considered deprecated but is detailed [here](/docs/channels/library_auth_reference/rest-api-deprecated). 
  
 > **Note:** For POST requests we recommend including parameters in the JSON body. If using the query string, arrays should be sent as `channels[]=channel1&amp;channels[]=channel2;` this is more verbose than the JSON representation. 
  
@@ -161,7 +161,7 @@ Returns an array of subscribed users ids
  
 # HTTP Keep-Alive
  
-The Channels API supports [HTTP Keep-Alive](https://en.wikipedia.org/wiki/HTTP_persistent_connection) . HTTP client libraries that implement this feature are able to re-use a single TCP connection to send multiple HTTP requests thus avoiding the overhead of the TCP connection (typically 100-200ms) between each subsequent request. 
+The Channels API supports [HTTP Keep-Alive](https://en.wikipedia.org/wiki/HTTP_persistent_connection). HTTP client libraries that implement this feature are able to re-use a single TCP connection to send multiple HTTP requests thus avoiding the overhead of the TCP connection (typically 100-200ms) between each subsequent request. 
  
 In scenarios where many requests are sent at the same time this can improve the throughput and decrease the load on the machine that is sending those requests. 
  

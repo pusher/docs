@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Authenticating users
 
-Pusher Channels will only allow a connection to subscribe to a [private channel](/docs/channels/using_channels/private-channels) or [presence channel](/docs/channels/using_channels/presence-channels) if the connection provides an auth token signed by your server. This lets you restrict access. For example, if only your user Bob should be able to see the events in the channel `private-user-bob`, your server should only give Bob an auth token for this channel. Your server can also add user data to the auth token, which is used by [presence channels](/docs/channels/using_channels/presence-channels) to [tell all subscribers who else is subscribed](/docs/channels/using_channels/presence-channels#events) . When your client subscribes to a private or presence channel, the Channels client library requests an auth token from your server:
+Pusher Channels will only allow a connection to subscribe to a [private channel](/docs/channels/using_channels/private-channels) or [presence channel](/docs/channels/using_channels/presence-channels) if the connection provides an auth token signed by your server. This lets you restrict access. For example, if only your user Bob should be able to see the events in the channel `private-user-bob`, your server should only give Bob an auth token for this channel. Your server can also add user data to the auth token, which is used by [presence channels](/docs/channels/using_channels/presence-channels) to [tell all subscribers who else is subscribed](/docs/channels/using_channels/presence-channels#events). When your client subscribes to a private or presence channel, the Channels client library requests an auth token from your server:
 <Image src="/docs/static/channels/media/private-channel-auth-process.png" alt="Auth Process" />
 
 # Server-side: implementing authentication endpoints
@@ -156,7 +156,7 @@ params, _ := ioutil.ReadAll(req.Body) presenceData := pusher.MemberData{ UserId:
 
 In all cases, the format of the response is very similar:
 
-- **Unsuccessful** responses from an authentication endpoint should serve a `403 Forbidden` HTTP status. \* **Successful** responses from an authentication endpoint should carry a `200 OK` HTTP status and a body of the form <InlineCode language="json"> {'{ "auth": "$AUTHORIZATION_STRING" }'} `. Authentication of a presence channel is performed in exactly the same way as a private channel but the JSON response must also have a`channel_data` property containing information that you wish to share about the current user. For more details of this format, see [generating the authentication string](/docs/channels/library_auth_reference/auth-signatures) .
+- **Unsuccessful** responses from an authentication endpoint should serve a `403 Forbidden` HTTP status. \* **Successful** responses from an authentication endpoint should carry a `200 OK` HTTP status and a body of the form <InlineCode language="json"> {'{ "auth": "$AUTHORIZATION_STRING" }'} `. Authentication of a presence channel is performed in exactly the same way as a private channel but the JSON response must also have a`channel_data` property containing information that you wish to share about the current user. For more details of this format, see [generating the authentication string](/docs/channels/library_auth_reference/auth-signatures).
 
 # Client-side: setting the Channel Authentication endpoint
 
@@ -226,7 +226,7 @@ Currently, pusher-js itself does not support authenticating multiple channels in
 
 # Using JSONP in pusher-js
 
-In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) . For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `authTransport: 'jsonp'`:
+In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `authTransport: 'jsonp'`:
 
 ```html
 <script src="//js.pusher.com/${process.env.CURRENT_JS_VERSION}/pusher.min.js"></script>

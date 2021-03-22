@@ -13,15 +13,15 @@ End-to-end encrypted channels provide the same subscription restrictions as priv
 
 Clients subscribing to encrypted channels must perform the same [HTTP authentication step](/docs/channels/server_api/authenticating-users) as private and presence channels.
 
-> Encrypted channels must be prefixed with `private-encrypted-`. See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions) . Currently, only private channels can be encrypted.
+> Encrypted channels must be prefixed with `private-encrypted-`. See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions). Currently, only private channels can be encrypted.
 
 After enabling this feature, you can verify that it is working by visiting the debug console for the app where you enabled the feature and seeing the ciphertext. You'll know that it is working if the messages you send over the channel are unreadable in the debug console.
 
-> We really appreciate any feedback you might have around using encrypted channels so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support) -- please let us know if you would like support added to an additional library. We can be contacted by [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new) .
+> We really appreciate any feedback you might have around using encrypted channels so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support) -- please let us know if you would like support added to an additional library. We can be contacted by [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new).
 
 ## Authenticate
 
-Encrypted channel subscriptions must be authenticated in the exact same way as private channels. See [Authenticating Users](/docs/channels/server_api/authenticating-users) .
+Encrypted channel subscriptions must be authenticated in the exact same way as private channels. See [Authenticating Users](/docs/channels/server_api/authenticating-users).
 
 For encryption and decryption to work the server library **must** be instantiated with a 32 byte encryption key, encoded as base64.
 
@@ -204,7 +204,7 @@ Once the key rotation is complete, all servers and clients will converge on the 
 
 ## Technical Description
 
-The authentication process for encrypted channels is very similar to that of [private and presence channels](/docs/channels/server_api/authenticating-users) . When clients are authenticated to access an encrypted channel, they receive a channel specific encryption/decryption key in addition to the authentication token.
+The authentication process for encrypted channels is very similar to that of [private and presence channels](/docs/channels/server_api/authenticating-users). When clients are authenticated to access an encrypted channel, they receive a channel specific encryption/decryption key in addition to the authentication token.
 
 ![Image](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=cGFydGljaXBhbnQgWW91ciBBcHBcblNlcnZlcgoAEQxDaGFubmVscyAAFgZcbkxpYnJhcnkAGA0APQVDbGllbnRcbkFwcAA1DVB1c2hlciBKUwAmFgAZBgoKCm9wdCBDb25uZWN0IHRvIFdlYnNvY2tldAogICAAUREtPgBFEjogKDEpIHZhciBwAG0GPSBuZXcAeQcoJ2FwcF9rZXknKTsATQUAgQUSAEwIOiAoMikAgQIJV2ViUwB-CgCBRwYAZxczKQBzBzpjAIFCBmlvbl9lc3RhYmxpc2hlZFxuKACBTQZfaWQpCmVuZACBbwVTdWJzY3JpYmUgdG8AgmcIAIFILDQAbggucwBCCCgncHJpdmF0ZS1lbmNyeXB0ZWQtYwCDQwYAgWMcAIN5EDogKDUpIGh0dHBzOi8veW91cmFwcC8AglcGL2F1dGhcbiB7AFEHX25hbWUsIACBVwl9AIMtCgCEUAsAgyAXNikgSlNPTjogeyJhdXRoIjogJEFVVEhfU1RSSU5HLCAic2hhcmVkX3NlY3JldCI6ICRERUNSWVBUSU9OX0tFWQBnBm5vdGUgcmlnaHQgb2YAhGMUICAgICAgICAAhTwHIHN0b3JlcwAOCQBGDwCEcwVlbmQAUwUAhBEiNwCDdAkAgn4JXG4gKACCEQ4AgUsMAIN4ClB1AIQcBSBFdmVudACBCgYAgicSAIZxGDogKDgpIHAAPAdldmVuAIYsBgCCAA4Ahy4ZAIIMCHBheWxvYWQgAIQoCQCCJQlieSBzAIgTBSBsAII9CwCCDA0AiA0YAIZHCzkpAFEKAIEgBiBzZW50IG92ZQCHKAgAhj8iMTAALxd0byBjAIh6BQCDSAYAhAUFbGVmAINpIACBAgZkZQCBYBNKUwCBVRoAhiMZAIl4CzogKDExKQBSCgCDEwdlbmQKCg&s=rose)
 

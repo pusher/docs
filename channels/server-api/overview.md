@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Server API overview
 
-The Server API Overview provides information on how to perform specific actions using our [Server libraries](/docs/channels/channels_libraries/libraries) .
+The Server API Overview provides information on how to perform specific actions using our [Server libraries](/docs/channels/channels_libraries/libraries).
 
 Where possible each section provides an overview of the action, a reference-style guide to the constructor, property or method and an example of how it is used
 

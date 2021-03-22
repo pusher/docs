@@ -20,7 +20,7 @@ You'll need to configure your iOS instance on the Pusher Beams dashboard, by goi
 
 # Integrate Beams Swift SDK
 
-Add SDK dependency which can be done by using [CocoaPods](https://github.com/pusher/push-notifications-swift#cocoapods) or [Carthage](https://github.com/pusher/push-notifications-swift#carthage) . Ensure that Push Notifications capabilities are [enabled](/docs/beams/getting-started/ios/sdk-integration#enable-capabilities) .
+Add SDK dependency which can be done by using [CocoaPods](https://github.com/pusher/push-notifications-swift#cocoapods) or [Carthage](https://github.com/pusher/push-notifications-swift#carthage). Ensure that Push Notifications capabilities are [enabled](/docs/beams/getting-started/ios/sdk-integration#enable-capabilities).
 
 Import the Beams SDK into your project:
 

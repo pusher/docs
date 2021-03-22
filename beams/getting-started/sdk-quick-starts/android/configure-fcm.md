@@ -22,7 +22,7 @@ To help you find your way around, this video mirrors the steps listed below.
 
 # Open Firebase Console
 
-The first step is to go your [Firebase console](https://console.firebase.google.com) . Sign up if you haven't already.
+The first step is to go your [Firebase console](https://console.firebase.google.com). Sign up if you haven't already.
 
 # Create a new app
 

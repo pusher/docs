@@ -41,7 +41,7 @@ The name of the channel to subscribe to.
 
 #### Returns
 
-A channel object which events can be bound to. See [binding to events](/docs/channels/using_channels/events) .
+A channel object which events can be bound to. See [binding to events](/docs/channels/using_channels/events).
 
 ## Unsubscribe
 

@@ -13,7 +13,7 @@ The Pusher CLI is a great way to improve your development experience, and the fi
 
 # Prerequisites
 
-- A computer running on a 64 bit architecture. We do not currently support 32 bit architectures _ A supported OS: MacOS, Linux, Windows or BSD _ An internet connection \* A Pusher account that has an API key [(in your account settings)](https://dashboard.pusher.com/accounts/api_key) .
+- A computer running on a 64 bit architecture. We do not currently support 32 bit architectures _ A supported OS: MacOS, Linux, Windows or BSD _ An internet connection \* A Pusher account that has an API key [(in your account settings)](https://dashboard.pusher.com/accounts/api_key).
 
 # MacOS
 
@@ -29,7 +29,7 @@ Your other option is to grab the binary and add it to your path yourself. It has
 
 # Windows
 
-<List order> _ You should download the Windows CLI from our [releases page](https://github.com/pusher/pusher-cli/releases) . This will be a zip file that contains an executable. _ Extract this executable and put it somewhere easy to find. \* You can now run this binary by opening up your Powershell and typing `pusher.exe`.  
+<List order> _ You should download the Windows CLI from our [releases page](https://github.com/pusher/pusher-cli/releases). This will be a zip file that contains an executable. _ Extract this executable and put it somewhere easy to find. \* You can now run this binary by opening up your Powershell and typing `pusher.exe`.  
 You can streamline this further by adding the binary to your path; something that won't be covered here. [Here](https://www.computerhope.com/issues/ch000549.htm) is a good guide on how to do so from the good people at Windows IT Pro.
 
 # Other platforms

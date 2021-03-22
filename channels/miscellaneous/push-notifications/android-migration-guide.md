@@ -17,7 +17,7 @@ If you haven't already, head on over to the <a href="https://dashboard.pusher.co
 
 You'll need to configure your Android instance on the Pusher Beams dashboard, by going to the instance's Settings tab.
 
-If you previously had integrated with FCM, you can use the same FCM Key to setup your new instance. Otherwise, you can learn how to get this key [here](/docs/beams/getting-started/android/configure-fcm) .
+If you previously had integrated with FCM, you can use the same FCM Key to setup your new instance. Otherwise, you can learn how to get this key [here](/docs/beams/getting-started/android/configure-fcm).
 
 # Integrate Beams Android SDK
 

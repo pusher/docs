@@ -13,7 +13,7 @@ Mozilla have deep concerns about the user experience of web push notifications. 
 
 # Requesting permissions from a button click
 
-Firefox requires that users interact with the page before push permissions can be requested [Learn more](https://blog.mozilla.org/futurereleases/2019/11/04/restricting-notification-permission-prompts-in-firefox/) . As such, we recommend that you add a button to your page to allow users to enable notifications and call the `.start` method of the Beams SDK in the click handler.
+Firefox requires that users interact with the page before push permissions can be requested [Learn more](https://blog.mozilla.org/futurereleases/2019/11/04/restricting-notification-permission-prompts-in-firefox/). As such, we recommend that you add a button to your page to allow users to enable notifications and call the `.start` method of the Beams SDK in the click handler.
 
     <Code heading="Firefox permissions example" language="html">
               <!DOCTYPE html>

@@ -15,9 +15,9 @@ Presence channels are subscribed to from the client API in the same way as [priv
 
 Information on users subscribing to, and unsubscribing from a channel can then be accessed by [binding to events on the presence channel](/docs/channels/using_channels/presence-channels#events) and the current state of users subscribed to the channel is available via the <a href="/docs/channels/using_channels/presence-channels#accessing-channel-members"> <inlinecode>channel.members</inlinecode> property </a> .
 
-> Presence channels must be prefixed with `presence-` . See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions) .
+> Presence channels must be prefixed with `presence-` . See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions).
 
-> Presence channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users) .
+> Presence channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users).
 
 > Presence channels have some limits associated with them: 100 members maximum, 1KB limit for user object, and maximum 128 characters for user id. If you use a numeric user id, remember that the maximum size integer that is representable in JavaScript is 2^53.
 
@@ -66,7 +66,7 @@ An object which events can be bound to. See [binding to events](/docs/channels/u
 
 ## Unsubscribe
 
-See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe) .
+See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe).
 
 ## Accessing channel members
 
@@ -116,7 +116,7 @@ var me = presenceChannel.members.me;
 
 Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
 
-The `me` property represents a `member` object and has an `id` and `info` property. For more information on the `member` object see [Presence channel events section](/docs/channels/using_channels/presence-channels#events) .
+The `me` property represents a `member` object and has an `id` and `info` property. For more information on the `member` object see [Presence channel events section](/docs/channels/using_channels/presence-channels#events).
 
 #### Example
 
@@ -251,4 +251,4 @@ channel.leaving((member) => {
 
 ## user_id in client events
 
-When you bind to client events on presence channels, your bound callback will be called with a metadata object which contains a `user_id` key. [See the client events docs for more detail](/docs/channels/using_channels/events#user-id-in-client-events) .
+When you bind to client events on presence channels, your bound callback will be called with a metadata object which contains a `user_id` key. [See the client events docs for more detail](/docs/channels/using_channels/events#user-id-in-client-events).

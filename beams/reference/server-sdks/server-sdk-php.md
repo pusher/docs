@@ -14,7 +14,7 @@ eleventyNavigation:
 
 # Installation
 
-The Beams PHP Server SDK is available on Packagist [here](https://packagist.org/packages/pusher/pusher-push-notifications) .
+The Beams PHP Server SDK is available on Packagist [here](https://packagist.org/packages/pusher/pusher-push-notifications).
 <Alert primary> We recommend that you use [Composer](https://getcomposer.org/) to install this SDK. </Alert> <br />
 
 ## Using Composer
@@ -49,7 +49,7 @@ _Example_
 
 Sends broadcast notifications to groups of subscribed devices using [Device Interests](/docs/beams/concepts/device-interests)
 
-_Arguments_ <br /> * `$interests` (Array&lt;string&gt; | *required* ): Array of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests) . * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
+_Arguments_ <br /> * `$interests` (Array&lt;string&gt; | *required* ): Array of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests). * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
 
 _Returns_ <br /> An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 
@@ -63,7 +63,7 @@ _Example_
 
 Securely send notifications to individual users of your application using [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
-_Arguments_ <br /> * `$userIds` (Array&lt;string&gt; | *required* ): Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users) . * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
+_Arguments_ <br /> * `$userIds` (Array&lt;string&gt; | *required* ): Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users). * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
 
 _Returns_ <br /> An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 

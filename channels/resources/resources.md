@@ -25,7 +25,7 @@ These two Backbone mixins aim to make working with Channels even easier. It keep
 - Apex _ Force _ Java \* Visualforce  
   Apex provides a complete set of features for building business applications – including data models and objects to manage data, a workflow engine for managing collaboration of that data between users, a user interface model to handle forms and other interactions, and a Web services API for programmatic access and integration. You can now do this in realtime, using Pusher Channels.
 
-By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pat-patterson) .
+By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pat-patterson).
 
 ** [Managing and responding to the status of your Channels connection](https://blog.pusher.com/2011/7/12/connections-states) **
 

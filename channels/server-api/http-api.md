@@ -10,9 +10,9 @@ eleventyNavigation:
 
 # Interacting with our HTTP API
 
-Channels provides a HTTP API as the main point of interaction with your servers. [Publishing events](#publishing-events) is the most important aspect of this, but there are other methods for querying the state of your Channels applications. These are documented in our [API reference](/docs/channels/library_auth_reference/rest-api) .
+Channels provides a HTTP API as the main point of interaction with your servers. [Publishing events](#publishing-events) is the most important aspect of this, but there are other methods for querying the state of your Channels applications. These are documented in our [API reference](/docs/channels/library_auth_reference/rest-api).
 
-All interactions with the Channels HTTP API must contain an authentication signature that is generated with your secret key. Using one of our libraries means you generally don't need to worry about this, but more information can be found [here](/docs/channels/library_auth_reference/rest-api#authentication) .
+All interactions with the Channels HTTP API must contain an authentication signature that is generated with your secret key. Using one of our libraries means you generally don't need to worry about this, but more information can be found [here](/docs/channels/library_auth_reference/rest-api#authentication).
 
 Many of our libraries allow requests to be made asynchronously. Please consult the individual documentation for more information.
 
@@ -42,7 +42,7 @@ The parameters passed to the `trigger` function are:
 
 The parameters passed to the `trigger` function are:
 
-- **$channels** - either a single channel name as a `string` or an `array` of channel names that the event is to be published on _ **$event** - the name of the event to be triggered _ **$data** - the data to be sent with the event. This will be converted to JSON by the library. * **$socket_id** - \*\* *Optional\* \*\* . The socket ID of a client to be excluded from receiving the event. See [excluding recipients](/docs/channels/server_api/excluding-event-recipients) .  
+- **$channels** - either a single channel name as a `string` or an `array` of channel names that the event is to be published on _ **$event** - the name of the event to be triggered _ **$data** - the data to be sent with the event. This will be converted to JSON by the library. * **$socket_id** - \*\* *Optional\* \*\* . The socket ID of a client to be excluded from receiving the event. See [excluding recipients](/docs/channels/server_api/excluding-event-recipients).  
   `$response` is `true` if the event was successfully triggered, otherwise `false`.
 
 If debug is enabled (see the library README for more information) the `$response` is an associative array with the following elements:
@@ -91,7 +91,7 @@ For more information see the [Channels python server library](https://github.com
 {publishEvents.go}
 ```
 
-For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go).
 
 {% endsnippets %}
 
@@ -269,7 +269,7 @@ This is currently only supported in the PHP, Node.js and Go SDKs.
 
 # Querying application state
 
-Sometimes you may want to know the state of your application to determine things like which channels have active subscribers or which users are currently on a [presence channel](/docs/channels/using_channels/presence-channels) . The Channels Server library contains a specific set of calls to query for application state. Alternatively the Channels HTTP API exposes a way of doing that and many of the [Channels server libraries](/docs/channels/channels_libraries/libraries) offer a generic **GET** method for performing such queries.
+Sometimes you may want to know the state of your application to determine things like which channels have active subscribers or which users are currently on a [presence channel](/docs/channels/using_channels/presence-channels). The Channels Server library contains a specific set of calls to query for application state. Alternatively the Channels HTTP API exposes a way of doing that and many of the [Channels server libraries](/docs/channels/channels_libraries/libraries) offer a generic **GET** method for performing such queries.
 
 The **GET** method maps to a `GET` HTTP request to the Channels HTTP API and as such the libraries require:
 
@@ -317,7 +317,7 @@ The parameters passed to the `get` function are:
 
 If you would like a list of the channel within an application that have active subscriptions (also referred to as being **occupied**) then you can query the `/channels` resource.
 
-For full parameter information see the [HTTP API channels reference](/docs/channels/library_auth_reference/rest-api#channels) .
+For full parameter information see the [HTTP API channels reference](/docs/channels/library_auth_reference/rest-api#channels).
 
 {% snippets ['rb', 'php', 'c', 'js', 'py', 'go'] %}
 
@@ -357,7 +357,7 @@ For more information see the [pusher-http-python](https://github.com/pusher/push
 prefixFilter := "presence-" attributes := "user_count" params := pusher.ChannelsParams{FilterByPrefix: &prefixFilter, Info: &attributes} channels, err := pusherClient.Channels(params)
 ```
 
-For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go).
 
 {% endsnippets %}
 
@@ -365,7 +365,7 @@ For more information see the [Go HTTP library README](https://github.com/pusher/
 
 You can query the state of an individual channel. This is done by querying the `/channels/[channel_name]` resource where `channel_name` is replaced with the actual name of the channel you are requesting information for.
 
-For full parameter information see the [HTTP API channel reference](/docs/channels/library_auth_reference/rest-api) .
+For full parameter information see the [HTTP API channel reference](/docs/channels/library_auth_reference/rest-api).
 
 {% snippets ['rb', 'c', 'php', 'js', 'py', 'go'] %}
 
@@ -405,7 +405,7 @@ For more information see the [pusher-http-python](https://github.com/pusher/push
 attributes := "user_count,subscription_count" params := &ChannelParams{Info: &attributes} channel, err := pusherClient.Channel("presence-chatroom", params)
 ```
 
-For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go).
 
 {% endsnippets %}
 
@@ -453,6 +453,6 @@ For more information see the [pusher-http-python](https://github.com/pusher/push
 users, err := pusherClient.GetChannelUsers("presence-chatroom")
 ```
 
-For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go) .
+For more information see the [Go HTTP library README](https://github.com/pusher/pusher-http-go).
 
 {% endsnippets %}

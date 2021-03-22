@@ -11,7 +11,7 @@ eleventyNavigation:
 
 Webhooks allow your server to be notified about events occurring within Channels.
 
-You can activate webhooks in your [account dashboard](https://dashboard.pusher.com) on a per app basis. For general information on webhooks, see the [webhooks.org Wiki](https://webhooks.pbworks.com/w/page/13385124/FrontPage) .
+You can activate webhooks in your [account dashboard](https://dashboard.pusher.com) on a per app basis. For general information on webhooks, see the [webhooks.org Wiki](https://webhooks.pbworks.com/w/page/13385124/FrontPage).
 
 # Webhook format
 
@@ -90,7 +90,7 @@ The event data for this event is as follows:
 
 ## Presence events
 
-Notify your application whenever a user subscribes to or unsubscribes from a [Presence channel](/docs/channels/using_channels/presence-channels) .
+Notify your application whenever a user subscribes to or unsubscribes from a [Presence channel](/docs/channels/using_channels/presence-channels).
 
 For example, this allows you to synchronise channel presence state on your server as well as all your application clients.
 

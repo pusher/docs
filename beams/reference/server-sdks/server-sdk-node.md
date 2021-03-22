@@ -57,9 +57,9 @@ _Example_
 
 Publish a push notification to devices subscribed to given Interests, with the given payload.
 
-_Arguments_ <br /> `interests` ({'Array<string>'}) - Interests to send the push notification to, ranging from 1 to 100 per publish request. See [Concept: Device Interests](/docs/beams/concepts/device-interests) .<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> `interests` ({'Array<string>'}) - Interests to send the push notification to, ranging from 1 to 100 per publish request. See [Concept: Device Interests](/docs/beams/concepts/device-interests).<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
-_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body) .
+_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
 
 _Example_
 
@@ -73,9 +73,9 @@ _Example_
 
 Publish a push notification to devices belonging to specific users, with the given payload.
 
-_Arguments_ <br /> `userIDs` ({'Array<string>'}) User IDs to send the push notification to, ranging from 1 to 1000 per publish request. See [Concept: Authenticated Users](/docs/beams/concepts/authenticated-users) .<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> `userIDs` ({'Array<string>'}) User IDs to send the push notification to, ranging from 1 to 1000 per publish request. See [Concept: Authenticated Users](/docs/beams/concepts/authenticated-users).<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
-_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body) .
+_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
 
 _Example_
 

@@ -10,11 +10,11 @@ eleventyNavigation:
 # Webhook Reference
 
 Webhooks will are sent as `POST` requests with a JSON body. The request body contains a generic wrapper around the following event-specific payloads:
-{WEBHOOKS_DOCS_ENABLED && ( {/_ Keep these event descriptions in sync with the ones in the webhooks concept page _/}
+{WEBHOOKS*DOCS_ENABLED && ( {/* Keep these event descriptions in sync with the ones in the webhooks concept page \_/}
 
 # `v1.PublishToUsersAttempt`
 
-Contains a summary of what happened during a publish to one or more [Authenticated Users](/docs/beams/concepts/authenticated-users) .
+Contains a summary of what happened during a publish to one or more [Authenticated Users](/docs/beams/concepts/authenticated-users).
 
 ## Payload Schema
 

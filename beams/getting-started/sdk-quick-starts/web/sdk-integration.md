@@ -69,11 +69,11 @@ Get your Beams instance ID from the Keys tab on <a external="" href="https://das
 # Check your integration
 
 When you run the code, a dialog will appear requesting permission to send notifications. After giving permission, open the browser console and check for a log line that says `Successfully registered with Beams`. This means that the web SDK has been successfully integrated into your app and the browser is ready to receive notifications <span role="img" aria-label="party popper emoji"> 🎉 </span>
-<Alert warning> If a permission prompt does not appear, you may have to enable the notification permission in the top left of your address bar and refresh. You can find the best practices for prompting for permissions in different browsers [here](/docs/beams/guides/web-notification-permissions-in-firefox) . </Alert>
+<Alert warning> If a permission prompt does not appear, you may have to enable the notification permission in the top left of your address bar and refresh. You can find the best practices for prompting for permissions in different browsers [here](/docs/beams/guides/web-notification-permissions-in-firefox). </Alert>
 
 # Subscribe to an interest
 
-Now that the user's browser is registered, we need a way for Beams to know which notifications should be sent to them. In this guide, we will use Beams [Device Interests](/docs/beams/concepts/device-interests) . Any device subscribed to a given Device Interest will receive notifications published to that interest.
+Now that the user's browser is registered, we need a way for Beams to know which notifications should be sent to them. In this guide, we will use Beams [Device Interests](/docs/beams/concepts/device-interests). Any device subscribed to a given Device Interest will receive notifications published to that interest.
 
 Let's subscribe to the interest `hello` by adding the lines highlighted below:
 
@@ -92,7 +92,7 @@ You are now ready to send a notification. In later steps, you will use one of th
 
 You may have noticed that clicking the notification opens `www.pusher.com`. This is configurable by changing the `deep_link` value in the payload. Change `deep_link` to a different URL and send a notification. Notice how clicking the notification takes you to that new URL.
 
-The full set of options is described in the [payload reference docs](/docs/beams/reference/publish-payloads#web-format) .
+The full set of options is described in the [payload reference docs](/docs/beams/reference/publish-payloads#web-format).
 
 # Send notifications from your server
 

@@ -19,7 +19,7 @@ Webhooks are sent as `POST` requests with a JSON body. The request body contains
 
 #### `v1.PublishToUsersAttempt`
 
-Contains a summary of what happened during a publish to a collection of [Authenticated Users](/docs/beams/concepts/authenticated-users) .
+Contains a summary of what happened during a publish to a collection of [Authenticated Users](/docs/beams/concepts/authenticated-users).
 
 [See schema reference](/docs/beams/reference/webhooks#v1-publishtousersattempt)
 
@@ -73,4 +73,4 @@ Using one of our server SDKs (or raw HTTP) send a request to the publish API mak
 
 ## Parse the webhook body
 
-Some post requests should now have been sent to your webhook URL. To find out what to expect in the request body take a look at the [webhook reference documentation](/docs/beams/reference/webhooks) .
+Some post requests should now have been sent to your webhook URL. To find out what to expect in the request body take a look at the [webhook reference documentation](/docs/beams/reference/webhooks).

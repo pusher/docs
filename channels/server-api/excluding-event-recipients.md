@@ -13,7 +13,7 @@ In some situations, you want to stop the client that broadcasts an event from re
 
 # Problem
 
-The most common way to push data into Channels is via an AJAX call to your own server which then triggers an appropriate event using the Channels HTTP API, or via one of our [server libraries](/docs/channels/channels_libraries/libraries) . This event is then distributed to all connected clients. If the client that made the AJAX call is also subscribed to that channel it will also receive the event. In some cases this can be unexpected and can results in things such as duplicate entries within the UI.
+The most common way to push data into Channels is via an AJAX call to your own server which then triggers an appropriate event using the Channels HTTP API, or via one of our [server libraries](/docs/channels/channels_libraries/libraries). This event is then distributed to all connected clients. If the client that made the AJAX call is also subscribed to that channel it will also receive the event. In some cases this can be unexpected and can results in things such as duplicate entries within the UI.
 
 # Solution
 
@@ -23,7 +23,7 @@ Each pusher connection is assigned a unique `socket_id` which can be accessed vi
 pusher.socket_id; // JS versions < 1.9.0 pusher.connection.socket_id // JS versions >= 1.9.0
 ```
 
-The `socket_id` is set once the client has connected to Channels. The following code extract shows how to access the `socket_id` once the client has connected by binding to the `connected` `state_change` event. For more information on connection states see the [connection states documentation](/docs/channels/using_channels/connection#connection-states) .
+The `socket_id` is set once the client has connected to Channels. The following code extract shows how to access the `socket_id` once the client has connected by binding to the `connected` `state_change` event. For more information on connection states see the [connection states documentation](/docs/channels/using_channels/connection#connection-states).
 
 ```js
 var pusher = new Pusher("APP_KEY");

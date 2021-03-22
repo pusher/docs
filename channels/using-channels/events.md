@@ -320,7 +320,7 @@ channel.bind("pusher:subscription_succeeded", () => {});
 
 This is particularly useful for private and presence channels if you are using [client events](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once a successful subscription has occurred.
 
-> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events) .
+> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events).
 
 {% endparameter %}
 
@@ -366,7 +366,7 @@ channel.bind("pusher:subscription_error", (error) => {
 
 ### Additional presence events
 
-Presence comes with a number of presence specific events. For more information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events) .
+Presence comes with a number of presence specific events. For more information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events).
 
 ## Triggering client events
 
@@ -480,7 +480,7 @@ channel.listen("pusher:subscription_succeeded", () => {
 
 ## Message routing
 
-When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [excluding event recipients](/docs/channels/server_api/excluding-event-recipients) .
+When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [excluding event recipients](/docs/channels/server_api/excluding-event-recipients).
 
 ## Best practice when sending client events
 

@@ -15,7 +15,7 @@ Pusher relies on Apple Push Notification service (APNs) to deliver push notifica
 
 # Open Apple Developer Account
 
-Login into your [Apple Developer Account](https://developer.apple.com/account) .
+Login into your [Apple Developer Account](https://developer.apple.com/account).
 
 # Create a New Key
 

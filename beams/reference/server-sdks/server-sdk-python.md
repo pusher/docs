@@ -12,7 +12,7 @@ eleventyNavigation:
 
 # Installation
 
-The Beams Python server SDK is available on PyPi [here](https://pypi.python.org/pypi/pusher_push_notifications/) .
+The Beams Python server SDK is available on PyPi [here](https://pypi.python.org/pypi/pusher_push_notifications/).
 
 You can install this SDK by using pip:
 

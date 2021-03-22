@@ -64,7 +64,7 @@ _Arguments_ <br /> _ `instance_id` (string): The unique identifier for your Push
 
 Publish a new push notification to Pusher Beams with the given payload.
 
-_Arguments_ <br /> _ `interests`: List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests). _ `payload`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> _ `interests`: List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests). _ `payload`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
 _Returns_ <br /> String that contains `publish_id`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 
@@ -72,7 +72,7 @@ _Returns_ <br /> String that contains `publish_id`: See [publish API reference](
 
 Publish the given `publishRequest` to specified users.
 
-_Arguments_ <br /> _ `users`: Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/users). _ `publishRequest`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> _ `users`: Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/users). _ `publishRequest`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
 _Returns_ <br /> String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 

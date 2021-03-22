@@ -57,7 +57,7 @@ The basic design pattern is described in the [ZeroMQ Wiki](http://www.zeromq.org
 
 Essentially any messages received from the other party are considered to mean that the connection is alive. In the absence of any messages either party may check that the other side is responding by sending a ping message, to which the other party should respond with a pong.
 
-In recent WebSocket drafts ping & pong are supported as part of the protocol. Unfortunately this was not the case in earlier drafts, and unfortunately it is still not possible to trigger sending a ping, or binding to a pong from JavaScript using the [W3C API](http://dev.w3.org/html5/websockets/#ping-and-pong-frames) . For both these reasons, Pusher Channels supports both protocol level ping-pong, and an emulated one. This means that Pusher Channels will respond to a WebSocket protocol ping message with a pong message, and also it will respond to a `pusher:ping` event with a `pusher:pong` event (both have empty data).
+In recent WebSocket drafts ping & pong are supported as part of the protocol. Unfortunately this was not the case in earlier drafts, and unfortunately it is still not possible to trigger sending a ping, or binding to a pong from JavaScript using the [W3C API](http://dev.w3.org/html5/websockets/#ping-and-pong-frames). For both these reasons, Pusher Channels supports both protocol level ping-pong, and an emulated one. This means that Pusher Channels will respond to a WebSocket protocol ping message with a pong message, and also it will respond to a `pusher:ping` event with a `pusher:pong` event (both have empty data).
 
 #### Recommendations for client libraries
 
@@ -162,21 +162,21 @@ When an error occurs a `pusher:error` event will be triggered. An error may be s
  
 #### `pusher:subscribe` (Client -> Pusher Channels)
  
-The `pusher:subscribe` event is generated on the client and sent to Pusher Channels when a subscription is made. For more information on channel names see the [channels documentation](/docs/channels/using_channels/channels) . 
+The `pusher:subscribe` event is generated on the client and sent to Pusher Channels when a subscription is made. For more information on channel names see the [channels documentation](/docs/channels/using_channels/channels). 
  
 ```json
 { "event": "pusher:subscribe", "data": { "channel": String, "auth": String, "channel_data": String } }
 ```
  
 Where the `data` members are as follows: 
-  * data.channel (String)  * The name of the channel that is being subscribed to.  * data.auth (String) [optional]  *  If the channel is a presence or private channel then the subscription needs to be authenticated. The authentication signature should be provided on this property if required. The value will be generated on the application server. For more information see [authentication signatures](/docs/channels/library_auth_reference/auth-signatures) .   * data.channel_data (String) [optional]  *  This property should be populated with additional information about the channel if the channel is a presence channel. The JSON for the `channel_data` will be generated on the application server and should be encoded as a string and assigned to this property. The format of the object is as follows:    
+  * data.channel (String)  * The name of the channel that is being subscribed to.  * data.auth (String) [optional]  *  If the channel is a presence or private channel then the subscription needs to be authenticated. The authentication signature should be provided on this property if required. The value will be generated on the application server. For more information see [authentication signatures](/docs/channels/library_auth_reference/auth-signatures).   * data.channel_data (String) [optional]  *  This property should be populated with additional information about the channel if the channel is a presence channel. The JSON for the `channel_data` will be generated on the application server and should be encoded as a string and assigned to this property. The format of the object is as follows:    
 #### Example JSON
  
 ```json
 { "event": "pusher:subscribe", "data": { "channel": "presence-example-channel", "auth": "<APP_KEY>:<server_generated_signature>", "channel_data": "{ \\"user_id\\": \\"<unique_user_id>\\", \\"user_info\\": { \\"name\\": \\"Phil Leggetter\\", \\"twitter\\": \\"@leggetter\\", \\"blogUrl\\":\\"http://blog.pusher.com\\" } }" } }
 ```
  
-For more information see [authenticating users](/docs/channels/server_api/authenticating-users) . 
+For more information see [authenticating users](/docs/channels/server_api/authenticating-users). 
  
 From the API users point of view the subscription is made the moment that the `subscribe` method is called. However, the actual moment within the client library that a `pusher:subscribe` event is triggered depends on the type of channel that is being subscribed to. 
  
@@ -192,7 +192,7 @@ Since no authentication must take place when subscribing to a public channel the
  
 Private, Encrypted and Presence channels require authentication so an additional call needs to be made to the application server hosting the web application in order to make sure the current user can subscribe to the given channel. 
  <Image src="/docs/static/channels/media/subscribe-private-channel.png" alt="Subscribing to a private channel" /> 
-For more information on authentication of channels see the [Authenticating Users docs](/docs/channels/server_api/authenticating-users) . 
+For more information on authentication of channels see the [Authenticating Users docs](/docs/channels/server_api/authenticating-users). 
  
 #### `pusher:unsubscribe` (Client -> Pusher Channels)
  
@@ -221,7 +221,7 @@ Channel events are associated with a single channel.
 ```json
 { "event": String, "channel": String, "data": String, "user_id"?: String }
 ```
-  * event (String)  * The name of the event  * channel (String)  *  The name of the channel that the event is associated with e.g. `my-channel`   * data (String)  *  The data associated with the event. It is strongly recommended that this be a JSON-serialized hash (e.g. `{'{"hello":"world", "foo": {"bar": 1000}}'}` ), although it is possible to send any type of payload, for example a simple string.   * user_id (optional, String)  *  The `user_id` key is only present if this is a client event on a [presence channel](/docs/channels/using_channels/presence-channels) . The value is the `user_id` of the client that triggered the event. This value is taken from the [auth token](/docs/channels/server_api/authenticating-users#implementing_presence_endpoints) generated by your server for that client's subscription to this channel.    
+  * event (String)  * The name of the event  * channel (String)  *  The name of the channel that the event is associated with e.g. `my-channel`   * data (String)  *  The data associated with the event. It is strongly recommended that this be a JSON-serialized hash (e.g. `{'{"hello":"world", "foo": {"bar": 1000}}'}` ), although it is possible to send any type of payload, for example a simple string.   * user_id (optional, String)  *  The `user_id` key is only present if this is a client event on a [presence channel](/docs/channels/using_channels/presence-channels). The value is the `user_id` of the client that triggered the event. This value is taken from the [auth token](/docs/channels/server_api/authenticating-users#implementing_presence_endpoints) generated by your server for that client's subscription to this channel.    
 > Note: The following code shows how to receive an event and not how to trigger one 
  
 ```js
@@ -302,7 +302,7 @@ Where the `data` field is a JSON-encoded hash of following format:
   * channel (String)  * The presence channel name  * data.user_id (String)  *  The ID of a user who has just unsubscribed from the presence channel.    
 ## Triggering Channel Client Events
  
-It is possible to trigger events from a client when the application that the client has connected to has had client events enabled, the event name must be prefixed with `client-` and the channel must be an authenticated channel (private or presence). For more information on this see the [Triggering Client Events docs](/docs/channels/using_channels/events#trigger-events) . 
+It is possible to trigger events from a client when the application that the client has connected to has had client events enabled, the event name must be prefixed with `client-` and the channel must be an authenticated channel (private or presence). For more information on this see the [Triggering Client Events docs](/docs/channels/using_channels/events#trigger-events). 
  
 > Client events are not currently prohibited in encrypted channels by the protocol, but existing Pusher WebSocket libraries are not capable of encryption and so omit the functionality to trigger client events in encrypted channels. 
  
@@ -360,7 +360,7 @@ Client Only Events are events that transition from the client library to the API
  
 Understanding and having access to information about the connection status to Pusher Channels is very important, especially when developing for applications to run on mobile devices where network connectivity might not be very reliable. For this reasons we've spent a lot of time thinking about how to manage this and how best to keep a developer informed about the connection state. We have implemented functionality for this within the JavaScript library and we recommend that other client libraries copy, or follow, this functionality very closely. 
  
-For more information see our [connection states documentation](/docs/channels/using_channels/connection) . 
+For more information see our [connection states documentation](/docs/channels/using_channels/connection). 
  
 #### pusher:subscription_succeeded
  
@@ -378,7 +378,7 @@ function Members() {}; /* For each member call the 'iterator' function */ Member
  
 > Note: The members object is structured in this way because in future versions the members may be accessed through **lazy loading** within the `each` function. 
  
-For more information on the members object see the `pusher:subscription_succeeded` section of the [presence events docs](/docs/channels/using_channels/events) . 
+For more information on the members object see the `pusher:subscription_succeeded` section of the [presence events docs](/docs/channels/using_channels/events). 
  
 # Error Codes
  

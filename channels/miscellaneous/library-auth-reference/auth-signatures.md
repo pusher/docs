@@ -10,7 +10,7 @@ eleventyNavigation:
 
 # Generating the authentication string
 
-This guide is designed for library makers who wish to implement the signing mechanism in use by [private channels](/docs/channels/using_channels/private-channels) . Visit that page for information about integration and an overview of the technique.
+This guide is designed for library makers who wish to implement the signing mechanism in use by [private channels](/docs/channels/using_channels/private-channels). Visit that page for information about integration and an overview of the technique.
 
 The auth string should look like
 

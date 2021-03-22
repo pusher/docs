@@ -22,7 +22,7 @@ The Beams Java/Kotlin server SDK is available on Maven Central.
 {addGradle}
 ```
 
-You can download a version of the `.jar` directly from [Maven](http://repo1.maven.org/maven2/com/pusher/push-notifications-server-java/) .
+You can download a version of the `.jar` directly from [Maven](http://repo1.maven.org/maven2/com/pusher/push-notifications-server-java/).
 
 # Reference
 
@@ -50,7 +50,7 @@ _Example_
 
 Sends broadcast notifications to groups of subscribed devices using [Device Interests](/docs/beams/concepts/device-interests)
 
-_Arguments_ <br /> _ `interests`({'List<String>'} ): List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests). _ `publishRequest`({'Map<String, Map>'} ): Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> _ `interests`({'List<String>'} ): List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests). _ `publishRequest`({'Map<String, Map>'} ): Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
 _Returns_ <br /> String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 
@@ -71,7 +71,7 @@ _Example_ <br />
 
 Securely send notifications to individual users of your application using [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
-_Arguments_ <br /> * `userIds`({'List<String>'} | *Min length=1, Max length=1000* ): List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users) * `publishRequest`({'Map<String, Map>'} ): Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body) .
+_Arguments_ <br /> * `userIds`({'List<String>'} | *Min length=1, Max length=1000* ): List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users) * `publishRequest`({'Map<String, Map>'} ): Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
 
 _Returns_ <br /> String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
 
