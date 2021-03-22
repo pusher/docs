@@ -21,7 +21,6 @@ export default () => {
         });
 
         snippets.forEach((snippet, i) => {
-          console.log(i, targetIndex);
           const active = i === targetIndex;
           snippet.classList.toggle("db", active);
           snippet.classList.toggle("dn", !active);
