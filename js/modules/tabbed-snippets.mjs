@@ -41,8 +41,11 @@ const toggleMethods = (snippet, targetLang) => {
   const methods = container.querySelectorAll(".parameter-block");
 
   methods.forEach((method) => {
-    const languages = method.dataset.language.split(",");
-    method.classList.toggle("db", languages.includes(language));
-    method.classList.toggle("dn", !languages.includes(language));
+    const blockLang = method.dataset.language;
+    if (blockLang !== undefined) {
+      const languages = blockLang.split(",");
+      method.classList.toggle("db", languages.includes(language));
+      method.classList.toggle("dn", !languages.includes(language));
+    }
   });
 };
