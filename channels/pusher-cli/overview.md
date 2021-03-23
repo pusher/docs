@@ -13,7 +13,11 @@ Pusher CLI is a tool that is designed to make your experience while developing P
 
 # What features does it have?
 
-- List your Pusher apps as well as their tokens. _ Subscribe to channels and see events _ Trigger events on a given channel _ Run a demo authorisation server (that by default just authorizes all clients!) to make debugging private channel using apps easier _ Generate client and server code with your keys prefilled.
+- List your Pusher apps as well as their tokens.
+- Subscribe to channels and see events
+- Trigger events on a given channel
+- Run a demo authorisation server (that by default just authorizes all clients!) to make debugging private channel using apps easier
+- Generate client and server code with your keys prefilled.
 
 # How do I get and use it?
 
