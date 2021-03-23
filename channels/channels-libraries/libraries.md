@@ -14,91 +14,230 @@ Sending and receiving messages using the Channels API requires libraries. In thi
 
 Channels libraries are divided into 2 categories:
 
-- <Label>Client</Label> libraries predominantly consume messages using a [WebSocket interface](/docs/channels/library_auth_reference/pusher-websockets-protocol). Think of them as ** _subscribers_ ** , although it's possible to publish messages using [Client Events](/docs/channels/using_channels/events#triggering-client-events). * <Label background="#ffae00">Server</Label> libraries publish messages, request information using [our HTTP API](/docs/channels/library_auth_reference/rest-api) , [authenticate](/docs/channels/server_api/authenticating-users) channel subscriptions, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as \*\* *publishers\* \*\* , although it's possible to subscribe to messages using [Client Event Webhooks](/docs/channels/server_api/webhooks#client-events).
+- **Client**
+  Client libraries predominantly consume messages using a [WebSocket interface](/docs/channels/library_auth_reference/pusher-websockets-protocol). Think of them as _subscribers_ , although it's possible to publish messages using [Client Events](/docs/channels/using_channels/events#triggering-client-events).
+- **Server**
+  Server libraries publish messages, request information using [our HTTP API](/docs/channels/library_auth_reference/rest-api), [authenticate](/docs/channels/server_api/authenticating-users) channel subscriptions, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as _publishers_, although it's possible to subscribe to messages using [Client Event Webhooks](/docs/channels/server_api/webhooks#client-events).
 
-# Official libraries
+## Official libraries
 
 The following libraries are updated and supported by Pusher.
 
-## Client libraries
+### Client libraries
 
- <Table> <thead> <tr> <th>Library</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="client-android" markdown="1"> Android (uses [Java library](#java)) </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-android) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-android](https://github.com/pusher/pusher-websocket-android) </p> </td> </tr> <tr> <td> <p id="client-android" markdown="1"> AngularJS (uses [JavaScript library](/docs/channels/channels_libraries/libraries#javascript) ) </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-angular) </p> </td> <td> <p markdown="1"> [pusher/pusher-angular](https://github.com/pusher/pusher-angular) </p> </td> </tr> <tr> <td> <p id="client-ios" markdown="1"> iOS: Swift and Objective-C </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-swift) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-swift](https://github.com/pusher/pusher-websocket-swift) </p> </td> </tr> <tr> <td> <p id="client-objc" markdown="1"> iOS: Objective-C </p> </td> <td> <p markdown="1"> Pusher <br /> [Luke Redpath](http://lukeredpath.co.uk/) </p> </td> <td> <p markdown="1"> [Docs](/docs/channels/getting_started/ios) </p> </td> <td> <p markdown="1"> [pusher/libPusher](https://github.com/pusher/libPusher) </p> </td> </tr> <tr> <td> <p id="client-java" markdown="1"> Java </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-java#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) </p> </td> </tr> <tr> <td> <p id="client-javascript" markdown="1"> JavaScript </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](/docs/channels/getting_started/javascript) </p> </td> <td> <p markdown="1"> [pusher/pusher-js](https://github.com/pusher/pusher-js) </p> </td> </tr> <tr> <td> <p id="pusher-websocket-dotnet" markdown="1"> .NET </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-dotnet) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-dotnet](https://github.com/pusher/pusher-websocket-dotnet) </p> </td> </tr> <tr> <td> <p id="pusher-websocket-unity" markdown="1"> Unity </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-unity) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-unity](https://github.com/pusher/pusher-websocket-unity) </p> </td> </tr> </tbody> </Table> 
+| Library                             | Maintainer                                       | Docs                                                                 | Code                                                                                  |
+| ----------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Android (uses Java library)         | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-android)           | [pusher/pusher-websocket-android](https://github.com/pusher/pusher-websocket-android) |
+| AngularJS (uses JavaScript library) | Pusher                                           | [Docs](https://github.com/pusher/pusher-angular)                     | [pusher/pusher-angular](https://github.com/pusher/pusher-angular)                     |
+| iOS: Swift and Objective-C          | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-swift)             | [pusher/pusher-websocket-swift](https://github.com/pusher/pusher-websocket-swift)     |
+| iOS: Objective-C                    | Pusher [Luke Redpath](http://lukeredpath.co.uk/) | [Docs](/docs/channels/getting_started/ios)                           | [pusher/libPusher](https://github.com/pusher/libPusher)                               |
+| Java                                | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-java#installation) | [pusher/pusher-websocket-java](https://github.com/pusher/pusher-websocket-java)       |
+| JavaScript                          | Pusher                                           | [Docs](/docs/channels/getting_started/javascript)                    | [pusher/pusher-js](https://github.com/pusher/pusher-js)                               |
+| .NET                                | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-dotnet)            | [pusher/pusher-websocket-dotnet](https://github.com/pusher/pusher-websocket-dotnet)   |
+| Unity                               | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-unity)             | [pusher/pusher-websocket-unity](https://github.com/pusher/pusher-websocket-unity)     |
+
 ## Official server libraries
- <Table> <thead> <tr> <th>Library</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="server-go" markdown="1"> Go </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](http://godoc.org/github.com/pusher/pusher-http-go) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-go](https://github.com/pusher/pusher-http-go) </p> </td> </tr> <tr> <td> <p id="server-java" markdown="1"> Java </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-java#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-java](https://github.com/pusher/pusher-http-java) </p> </td> </tr> <tr> <td> <p id="server-net" markdown="1"> .NET </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-dotnet#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) </p> </td> </tr> <tr> <td> <p id="server-nodejs" markdown="1"> Node.js </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-node#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-node](https://github.com/pusher/pusher-http-node) </p> </td> </tr> <tr> <td> <p id="server-php" markdown="1"> PHP </p> </td> <td> <p>Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-php#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-php](https://github.com/pusher/pusher-http-php) </p> </td> </tr> <tr> <td> <p id="server-python" markdown="1"> Python </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-python#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-python](http://github.com/pusher/pusher-http-python) </p> </td> </tr> <tr> <td> <p id="server-ruby" markdown="1"> Ruby </p> </td> <td> <p markdown="1">Pusher</p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-http-ruby#installation--configuration) </p> </td> <td> <p markdown="1"> [pusher/pusher-http-ruby](https://github.com/pusher/pusher-http-ruby) </p> </td> </tr> </tbody> </Table> 
+
+| Library | Maintainer | Docs                                                                           | Code                                                                      |
+| ------- | ---------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| Go      | Pusher     | [Docs](http://godoc.org/github.com/pusher/pusher-http-go)                      | [pusher/pusher-http-go](https://github.com/pusher/pusher-http-go)         |
+| Java    | Pusher     | [Docs](https://github.com/pusher/pusher-http-java#installation)                | [pusher/pusher-http-java](https://github.com/pusher/pusher-http-java)     |
+| .NET    | Pusher     | [Docs](https://github.com/pusher/pusher-http-dotnet#installation)              | [pusher/pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) |
+| Node.js | Pusher     | [Docs](https://github.com/pusher/pusher-http-node#installation)                | [pusher/pusher-http-node](https://github.com/pusher/pusher-http-node)     |
+| PHP     | Pusher     | [Docs](https://github.com/pusher/pusher-http-php#installation)                 | [pusher/pusher-http-php](https://github.com/pusher/pusher-http-php)       |
+| Python  | Pusher     | [Docs](https://github.com/pusher/pusher-http-python#installation)              | [pusher/pusher-http-python](http://github.com/pusher/pusher-http-python)  |
+| Ruby    | Pusher     | [Docs](https://github.com/pusher/pusher-http-ruby#installation--configuration) | [pusher/pusher-http-ruby](https://github.com/pusher/pusher-http-ruby)     |
+
 # Community libraries
- 
-These libraries are built by members of the Pusher Channels Developer Community. They are potentially incomplete and are therefore not officially supported by Pusher. We recommend that you first reach out to the maintainer of the library before contacting Pusher support. 
- 
+
+These libraries are built by members of the Pusher Channels Developer Community. They are potentially incomplete and are therefore not officially supported by Pusher. We recommend that you first reach out to the maintainer of the library before contacting Pusher support.
+
 ## ActionScript
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pusheras" markdown="1"> PusherAS </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [rocketengine.io](http://rocketengine.io/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/rocketengineio/PusherAS/#pusheras) </p> </td> <td> <p markdown="1"> [rocketengineio/PusherAS](https://github.com/rocketengineio/PusherAS/) </p> </td> </tr> <tr> <td> <p id="community-pusher-actionscript-library" markdown="1"> Pusher-ActionScript-Library </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Shawn Makison](http://squarefactor.com/) </p> </td> <td> <p markdown="1" /> </td> <td> <p markdown="1"> [smakinson/Pusher-ActionScript-Library](https://github.com/smakinson/Pusher-ActionScript-Library) </p> </td> </tr> </tbody> </Table> 
+
+| Library                     | Type   | Maintainer                                 | Docs                                                         | Code                                                                                              |
+| --------------------------- | ------ | ------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| PusherAS                    | Client | [rocketengine.io](http://rocketengine.io/) | [Docs](https://github.com/rocketengineio/PusherAS/#pusheras) | [rocketengineio/PusherAS](https://github.com/rocketengineio/PusherAS/)                            |
+| Pusher-ActionScript-Library | Client | [Shawn Makison](http://squarefactor.com/)  |                                                              | [smakinson/Pusher-ActionScript-Library](https://github.com/smakinson/Pusher-ActionScript-Library) |
+
 ## Android
- 
-also see [Java](#java) 
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-titanium_pusher_android" markdown="1"> titanium_pusher_android </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Ruben Fonseca](http://blog.0x82.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher-community/titanium_pusher_android#building) </p> </td> <td> <p markdown="1"> [pusher/titanium\_pusher\_android](https://github.com/pusher-community/titanium_pusher_android) </p> </td> </tr> </tbody> </Table> 
+
+also see [Java](#java)
+
+| Library                 | Type   | Maintainer                             | Docs                                                                         | Code                                                                                          |
+| ----------------------- | ------ | -------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| titanium_pusher_android | Client | [Ruben Fonseca](http://blog.0x82.com/) | [Docs](https://github.com/pusher-community/titanium_pusher_android#building) | [pusher/titanium_pusher_android](https://github.com/pusher-community/titanium_pusher_android) |
+
 ## Arduino
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-arduinopusherclient" markdown="1"> ArduinoPusherClient </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Kevin Rohling](http://www.kevinrohling.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/krohling/ArduinoPusherClient#installation-instructions) </p> </td> <td> <p markdown="1"> [krohling/ArduinoPusherClient](https://github.com/krohling/ArduinoPusherClient) </p> </td> </tr> </tbody> </Table> 
+
+| Library             | Type   | Maintainer                                    | Docs                                                                              | Code                                                                            |
+| ------------------- | ------ | --------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| ArduinoPusherClient | Client | [Kevin Rohling](http://www.kevinrohling.com/) | [Docs](https://github.com/krohling/ArduinoPusherClient#installation-instructions) | [krohling/ArduinoPusherClient](https://github.com/krohling/ArduinoPusherClient) |
+
 ## C++
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-websocket-cpp" markdown="1"> niv/pusher-websocket-cpp </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [niv](https://github.com/niv) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/niv/pusher-websocket-cpp) </p> </td> <td> <p markdown="1"> [niv/pusher-websocket-cpp](https://github.com/niv/pusher-websocket-cpp) </p> </td> </tr> <tr> <td> <p id="community-pusherpp" markdown="1"> pusherpp </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Mazen Abdulaziz](https://github.com/parallelfold) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/parallelfold/pusherpp#installing) </p> </td> <td> <p markdown="1"> [parallelfold/pusherpp](https://github.com/parallelfold/pusherpp) </p> </td> </tr> <tr> <td> <p markdown="1">BenPope/pusher-cpp</p> </td> <td> <p> <Label>Client</Label> and <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [BenPope](https://github.com/BenPope) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/BenPope/pusher-cpp) </p> </td> <td> <p markdown="1"> [BenPope/pusher-cpp](https://github.com/BenPope/pusher-cpp) </p> </td> </tr> </tbody> </Table> 
+
+| Library                  | Type              | Maintainer                                         | Docs                                                        | Code                                                                    |
+| ------------------------ | ----------------- | -------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
+| niv/pusher-websocket-cpp | Client            | [niv](https://github.com/niv)                      | [Docs](https://github.com/niv/pusher-websocket-cpp)         | [niv/pusher-websocket-cpp](https://github.com/niv/pusher-websocket-cpp) |
+| pusherpp                 | Server            | [Mazen Abdulaziz](https://github.com/parallelfold) | [Docs](https://github.com/parallelfold/pusherpp#installing) | [parallelfold/pusherpp](https://github.com/parallelfold/pusherpp)       |
+| BenPope/pusher-cpp       | Client and Server | [BenPope](https://github.com/BenPope)              | [Docs](https://github.com/BenPope/pusher-cpp)               | [BenPope/pusher-cpp](https://github.com/BenPope/pusher-cpp)             |
+
 ## Clojure
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-clj-pusher" markdown="1"> clj-pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Bartosz Blimke](https://github.com/bblimke) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/bblimke/clj-pusher#building) </p> </td> <td> <p markdown="1"> [bblimke/clj-pusher](https://github.com/bblimke/clj-pusher) </p> </td> </tr> </tbody> </Table> 
+
+| Library    | Type   | Maintainer                                   | Docs                                                   | Code                                                        |
+| ---------- | ------ | -------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------- |
+| clj-pusher | Server | [Bartosz Blimke](https://github.com/bblimke) | [Docs](https://github.com/bblimke/clj-pusher#building) | [bblimke/clj-pusher](https://github.com/bblimke/clj-pusher) |
+
 ## Coldfusion
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pushercfc" markdown="1"> Pusher.cfc </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Ben Nadel](http://www.bennadel.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/bennadel/Pusher.cfc#pushercfc---pushercom-rest-api-library-for-coldfusion) </p> </td> <td> <p markdown="1"> [bennadel/Pusher.cfc](https://github.com/bennadel/Pusher.cfc) </p> </td> </tr> </tbody> </Table> 
+
+| Library    | Type   | Maintainer                            | Docs                                                                                                 | Code                                                          |
+| ---------- | ------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Pusher.cfc | Server | [Ben Nadel](http://www.bennadel.com/) | [Docs](https://github.com/bennadel/Pusher.cfc#pushercfc---pushercom-rest-api-library-for-coldfusion) | [bennadel/Pusher.cfc](https://github.com/bennadel/Pusher.cfc) |
+
 ## Dart
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-dart" markdown="1"> Dart Pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Adao Junior](https://github.com/adaojunior/) </p> </td> <td> <p markdown="1"> [Docs](http://www.dartdocs.org/documentation/pusher/latest/index.html) </p> </td> <td> <p markdown="1"> [adaojunior/pusher](https://github.com/adaojunior/pusher) </p> </td> </tr> </tbody> </Table> 
+
+| Library     | Type   | Maintainer                                    | Docs                                                                   | Code                                                      |
+| ----------- | ------ | --------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------- |
+| Dart Pusher | Server | [Adao Junior](https://github.com/adaojunior/) | [Docs](http://www.dartdocs.org/documentation/pusher/latest/index.html) | [adaojunior/pusher](https://github.com/adaojunior/pusher) |
+
 ## Elixir
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pushest" markdown="1"> Pushest </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Tomas Koutsky](https://github.com/stepnivlk) </p> </td> <td> <p markdown="1"> [Docs](https://hexdocs.pm/pushest/Pushest.html) </p> </td> <td> <p markdown="1"> [stepnivlk/pushest](https://github.com/stepnivlk/pushest) </p> </td> </tr> </tbody> </Table> 
-## Flash
- see [ActionScript](#actionscript) 
+
+| Library | Type   | Maintainer                                    | Docs                                            | Code                                                      |
+| ------- | ------ | --------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------- |
+| Pushest | Client | [Tomas Koutsky](https://github.com/stepnivlk) | [Docs](https://hexdocs.pm/pushest/Pushest.html) | [stepnivlk/pushest](https://github.com/stepnivlk/pushest) |
+
 ## Flutter
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-flutter-pusher" markdown="1"> flutter_pusher </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Genert](https://github.com/genert) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/ninjasolutions/flutter_pusher#how-to-install) </p> </td> <td> <p markdown="1"> [ninjasolutions/flutter\_pusher](https://github.com/ninjasolutions/flutter_pusher) </p> </td> </tr> <tr> <td> <p id="community-flutter-pusher" markdown="1"> pusher_client </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [chinloyal](https://github.com/chinloyal) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/chinloyal/pusher_client#installation) </p> </td> <td> <p markdown="1"> [chinloyal/pusher\_client](https://github.com/chinloyal/pusher_client) </p> </td> </tr> </tbody> </Table> 
+
+| Library        | Type   | Maintainer                                | Docs                                                                    | Code                                                                              |
+| -------------- | ------ | ----------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| flutter_pusher | Client | [Genert](https://github.com/genert)       | [Docs](https://github.com/ninjasolutions/flutter_pusher#how-to-install) | [ninjasolutions/flutter_pusher](https://github.com/ninjasolutions/flutter_pusher) |
+| pusher_client  | Client | [chinloyal](https://github.com/chinloyal) | [Docs](https://github.com/chinloyal/pusher_client#installation)         | [chinloyal/pusher_client](https://github.com/chinloyal/pusher_client)             |
+
 ## Grails
- see [Groovy](#groovy) 
+
+see [Groovy](#groovy)
+
 ## Groovy
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-groovy-libpusher" markdown="1"> groovy-libpusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [zenuevo](https://github.com/zenuevo) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/zenuevo/groovy-libpusher#usage) </p> </td> <td> <p markdown="1"> [zenuevo/groovy-libpusher](https://github.com/zenuevo/groovy-libpusher) </p> </td> </tr> <tr> <td> <p id="community-pusher-plugin" markdown="1"> pusher-plugin </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [micpango](https://github.com/micpango) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/micpango/pusher-plugin#installation) </p> </td> <td> <p markdown="1"> [micpango/pusher-plugin](https://github.com/micpango/pusher-plugin) </p> </td> </tr> </tbody> </Table> 
+
+| Library          | Type   | Maintainer                              | Docs                                                           | Code                                                                    |
+| ---------------- | ------ | --------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| groovy-libpusher | Server | [zenuevo](https://github.com/zenuevo)   | [Docs](https://github.com/zenuevo/groovy-libpusher#usage)      | [zenuevo/groovy-libpusher](https://github.com/zenuevo/groovy-libpusher) |
+| pusher-plugin    | Server | [micpango](https://github.com/micpango) | [Docs](https://github.com/micpango/pusher-plugin#installation) | [micpango/pusher-plugin](https://github.com/micpango/pusher-plugin)     |
+
 ## Haskell
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pusher-http-haskell" markdown="1"> pusher-http-haskell </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Will Sewell](http://willsewell.com/) </p> </td> <td> <p markdown="1"> [Docs](https://hackage.haskell.org/package/pusher-http-haskell) </p> </td> <td> <p markdown="1"> [WillSewell/pusher-http-haskell](https://github.com/WillSewell/pusher-http-haskell) </p> </td> </tr> <tr> <td> <p id="community-pusher-haskell" markdown="1"> pusher-haskell </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Sid Raval](http://sidraval.github.io/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/sidraval/pusher-haskell) </p> </td> <td> <p markdown="1"> [sidraval/pusher-haskell](https://github.com/sidraval/pusher-haskell) </p> </td> </tr> <tr> <td> <p id="community-pusher-ws" markdown="1"> pusher-ws </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [barrucadu](https://www.barrucadu.co.uk/) </p> </td> <td> <p markdown="1"> [Docs](https://hackage.haskell.org/package/pusher-ws) </p> </td> <td> <p markdown="1"> [barrucadu/pusher-ws](https://github.com/barrucadu/pusher-ws) </p> </td> </tr> </tbody> </Table> 
+
+| Library             | Type   | Maintainer                                | Docs                                                            | Code                                                                                |
+| ------------------- | ------ | ----------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| pusher-http-haskell | Server | [Will Sewell](http://willsewell.com/)     | [Docs](https://hackage.haskell.org/package/pusher-http-haskell) | [WillSewell/pusher-http-haskell](https://github.com/WillSewell/pusher-http-haskell) |
+| pusher-haskell      | Server | [Sid Raval](http://sidraval.github.io/)   | [Docs](https://github.com/sidraval/pusher-haskell)              | [sidraval/pusher-haskell](https://github.com/sidraval/pusher-haskell)               |
+| pusher-ws           | Client | [barrucadu](https://www.barrucadu.co.uk/) | [Docs](https://hackage.haskell.org/package/pusher-ws)           | [barrucadu/pusher-ws](https://github.com/barrucadu/pusher-ws)                       |
+
 ## iOS
- 
-also see [Objective-C](#objective-c) 
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-titanium_pusher_ios" markdown="1"> titanium_pusher_ios </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Ruben Fonseca](http://blog.0x82.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher-community/titanium_pusher_ios#building) </p> </td> <td> <p markdown="1"> [pusher/titanium\_pusher\_ios](https://github.com/pusher-community/titanium_pusher_ios) </p> </td> </tr> </tbody> </Table> 
+
+also see [Objective-C](#objective-c)
+
+| Library             | Type   | Maintainer                             | Docs                                                                     | Code                                                                                  |
+| ------------------- | ------ | -------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| titanium_pusher_ios | Client | [Ruben Fonseca](http://blog.0x82.com/) | [Docs](https://github.com/pusher-community/titanium_pusher_ios#building) | [pusher/titanium_pusher_ios](https://github.com/pusher-community/titanium_pusher_ios) |
+
 ## Java
- 
-also see [Android](#android) 
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-javapusherclient" markdown="1"> JavaPusherClient </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Justin Schultz](http://www.justinschultz.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/jmschultz/JavaPusherClient#examples) </p> </td> <td> <p markdown="1"> [jmschultz/JavaPusherClient](https://github.com/jmschultz/JavaPusherClient) </p> </td> </tr> <tr> <td> <p id="community-gae-java-libpusher" markdown="1"> gae-java-libpusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Docs](https://github.com/marcbaechinger) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/marcbaechinger/gae-java-libpusher#get-started) </p> </td> <td> <p markdown="1"> [marcbaechinger/gae-java-libpusher](https://github.com/marcbaechinger/gae-java-libpusher) </p> </td> </tr> <tr> <td> <p id="community-play2pusher" markdown="1"> Play2Pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Tindr Solutions](http://tindr.co/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/tindr/Play2Pusher#installation) </p> </td> <td> <p markdown="1"> [tindr/Play2Pusher](https://github.com/tindr/Play2Pusher) </p> </td> </tr> <tr> <td> <p id="community-play-pusher" markdown="1"> Play-Pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [regisbamba](http://github.com/regisbamba) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/regisbamba/Play-Pusher#usage) </p> </td> <td> <p markdown="1"> [regisbamba/Play-Pusher](https://github.com/regisbamba/Play-Pusher) </p> </td> </tr> </tbody> </Table> 
+
+also see [Android](#android)
+
+| Library            | Type   | Maintainer                                      | Docs                                                                     | Code                                                                                      |
+| ------------------ | ------ | ----------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| JavaPusherClient   | Client | [Justin Schultz](http://www.justinschultz.com/) | [Docs](https://github.com/jmschultz/JavaPusherClient#examples)           | [jmschultz/JavaPusherClient](https://github.com/jmschultz/JavaPusherClient)               |
+| gae-java-libpusher | Server | [Docs](https://github.com/marcbaechinger)       | [Docs](https://github.com/marcbaechinger/gae-java-libpusher#get-started) | [marcbaechinger/gae-java-libpusher](https://github.com/marcbaechinger/gae-java-libpusher) |
+| Play2Pusher        | Server | [Tindr Solutions](http://tindr.co/)             | [Docs](https://github.com/tindr/Play2Pusher#installation)                | [tindr/Play2Pusher](https://github.com/tindr/Play2Pusher)                                 |
+| Play-Pusher        | Server | [regisbamba](http://github.com/regisbamba)      | [Docs](https://github.com/regisbamba/Play-Pusher#usage)                  | [regisbamba/Play-Pusher](https://github.com/regisbamba/Play-Pusher)                       |
+
 ## JavaScript
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="laravel-echo" markdown="1"> Laravel Echo </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Laravel](https://laravel.com/) </p> </td> <td> <p markdown="1"> [Docs](https://laravel.com/docs/master/broadcasting) </p> </td> <td> <p markdown="1"> [laravel/echo](https://github.com/laravel/echo) </p> </td> </tr> </tbody> </Table> 
+
+| Library      | Type   | Maintainer                      | Docs                                                 | Code                                            |
+| ------------ | ------ | ------------------------------- | ---------------------------------------------------- | ----------------------------------------------- |
+| Laravel Echo | Client | [Laravel](https://laravel.com/) | [Docs](https://laravel.com/docs/master/broadcasting) | [laravel/echo](https://github.com/laravel/echo) |
+
 ## .NET
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pusher-universal" markdown="1"> pusher-universal </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Gateway Apps](https://www.gatewayapps.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/gatewayapps/pusher-universal#install) </p> </td> <td> <p markdown="1"> [gatewayapps/pusher-universal](https://github.com/gatewayapps/pusher-universal) </p> </td> </tr> <tr> <td> <p id="community-pushernet" markdown="1"> Pusher.NET </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Digital Creations AS](https://github.com/digitalcreations) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/digitalcreations/Pusher.NET#install) </p> </td> <td> <p markdown="1"> [digitalcreations/Pusher.NET](https://github.com/digitalcreations/Pusher.NET) </p> </td> </tr> <tr> <td> <p id="community-jdi-pusherclient" markdown="1"> JDI PusherClient </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Jim Stabile](http://jasdev.com/) </p> </td> <td> <p markdown="1"> [Docs](http://jdipusherclient.codeplex.com/Docs) </p> </td> <td> <p markdown="1"> [jdipusherclient.codeplex](http://jdipusherclient.codeplex.com/) </p> </td> </tr> </tbody> </Table> 
+
+| Library          | Type   | Maintainer                                                  | Docs                                                            | Code                                                                            |
+| ---------------- | ------ | ----------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| pusher-universal | Client | [Gateway Apps](https://www.gatewayapps.com/)                | [Docs](https://github.com/gatewayapps/pusher-universal#install) | [gatewayapps/pusher-universal](https://github.com/gatewayapps/pusher-universal) |
+| Pusher.NET       | Client | [Digital Creations AS](https://github.com/digitalcreations) | [Docs](https://github.com/digitalcreations/Pusher.NET#install)  | [digitalcreations/Pusher.NET](https://github.com/digitalcreations/Pusher.NET)   |
+| JDI PusherClient | Client | [Jim Stabile](http://jasdev.com/)                           | [Docs](http://jdipusherclient.codeplex.com/Docs)                | [jdipusherclient.codeplex](http://jdipusherclient.codeplex.com/)                |
+
 ## Node.js
- 
-also see [JavaScript](/docs/channels/channels_libraries/libraries#javascript) 
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pusher-node-client" markdown="1"> pusher-node-client </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Abhishiv Saxena](https://github.com/abhishiv) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/abhishiv/pusher-node-client#how-to-use) </p> </td> <td> <p markdown="1"> [abhishiv/pusher-node-client](https://github.com/abhishiv/pusher-node-client) </p> </td> </tr> </tbody> </Table> 
+
+also see [JavaScript](/docs/channels/channels_libraries/libraries#javascript)
+
+| Library            | Type   | Maintainer                                     | Docs                                                              | Code                                                                          |
+| ------------------ | ------ | ---------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| pusher-node-client | Client | [Abhishiv Saxena](https://github.com/abhishiv) | [Docs](https://github.com/abhishiv/pusher-node-client#how-to-use) | [abhishiv/pusher-node-client](https://github.com/abhishiv/pusher-node-client) |
+
 ## Objective-C
- 
-also see [iOS](#ios) 
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-bully" markdown="1"> Bully </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Sam Soffes](http://soff.es/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/samsoffes/bully#example-usage) </p> </td> <td> <p markdown="1"> [samsoffes/bully](https://github.com/samsoffes/bully) </p> </td> </tr> </tbody> </Table> 
+
+also see [iOS](#ios)
+
+| Library | Type   | Maintainer                    | Docs                                                     | Code                                                  |
+| ------- | ------ | ----------------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
+| Bully   | Client | [Sam Soffes](http://soff.es/) | [Docs](https://github.com/samsoffes/bully#example-usage) | [samsoffes/bully](https://github.com/samsoffes/bully) |
+
 ## Perl
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-www-pusher" markdown="1"> WWW::Pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Squeeks](http://github.com/squeeks) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-perl-server#readme) </p> </td> <td> <p markdown="1"> [pusher/pusher-perl-server](https://github.com/pusher/pusher-perl-server) </p> </td> </tr> </tbody> </Table> 
+
+| Library     | Type   | Maintainer                           | Docs                                                        | Code                                                                      |
+| ----------- | ------ | ------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------- |
+| WWW::Pusher | Server | [Squeeks](http://github.com/squeeks) | [Docs](https://github.com/pusher/pusher-perl-server#readme) | [pusher/pusher-perl-server](https://github.com/pusher/pusher-perl-server) |
+
 ## PHP
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="laravel" markdown="1"> Laravel </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Laravel](https://laravel.com/) </p> </td> <td> <p markdown="1"> [Docs](https://laravel.com/docs/master/broadcasting) </p> </td> <td> <p markdown="1"> [laravel/laravel](https://github.com/laravel/laravel) </p> </td> </tr> <tr> <td> <p id="community-zfrpusher" markdown="1"> ZfrPusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Michaël Gallego](https://github.com/bakura10) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/zf-fr/zfr-pusher#installation) </p> </td> <td> <p markdown="1"> [zf-fr/zfr-pusher](https://github.com/zf-fr/zfr-pusher) </p> </td> </tr> <tr> <td> <p id="community-php-codeigniter" markdown="1"> Channels PHP SDK for CodeIgniter </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Mattias Hedman](https://github.com/darkwhispering) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/darkwhispering/pusher-for-codeigniter/blob/master/README.md) </p> </td> <td> <p markdown="1"> [darkwhispering/pusher-for-codeigniter](https://github.com/darkwhispering/pusher-for-codeigniter) </p> </td> </tr> <tr> <td> <p id="community-php-symfony" markdown="1"> Symfony </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Pierre-Louis Launay](https://github.com/laupiFrpar) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/laupiFrpar/LopiPusherBundle#installation) </p> </td> <td> <p markdown="1"> [laupiFrpar/LopiPusherBundle](https://github.com/laupiFrpar/LopiPusherBundle) </p> </td> </tr> <tr> <td> <p id="community-php-zend2" markdown="1"> Zend Framework 2 </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Michaël Gallego](https://github.com/bakura10) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/zf-fr/zfr-pusher-module#installation) </p> </td> <td> <p markdown="1"> [zf-fr/zfr-pusher-module](https://github.com/zf-fr/zfr-pusher-module) </p> </td> </tr> <tr> <td> <p id="community-php-yii" markdown="1"> Yii PHP Framework </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [nk913](http://www.yiiframework.com/user/41288/) </p> </td> <td> <p markdown="1"> [Docs](http://www.yiiframework.com/extension/pusher/) </p> </td> <td> <p markdown="1"> [yiiframework/pusher](http://www.yiiframework.com/extension/pusher/) </p> </td> </tr> <tr> <td> <p id="community-php-kohana3" markdown="1"> Kohana 3 </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [2bj](http://github.com/2bj) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/2bj/Pushko#pushko) </p> </td> <td> <p markdown="1"> [2bj/Pushko](https://github.com/2bj/Pushko) </p> </td> </tr> <tr> <td> <p id="community-php-fuel" markdown="1"> FuelPHP </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [Ahmad Shah](http://www.lembubintik.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/lembubintik/pusherapp#how-to-use-it) </p> </td> <td> <p markdown="1"> [lembubintik/pusherapp](https://github.com/lembubintik/pusherapp) </p> </td> </tr> <tr> <td> <p id="community-php-drupal" markdown="1"> Drupal </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [fabianderijk](https://drupal.org/user/278745) </p> </td> <td> <p markdown="1"> [Docs](https://drupal.org/project/pusher_api) </p> </td> <td> <p markdown="1"> [drupal/pusher](https://drupal.org/project/pusher_api) </p> </td> </tr> </tbody> </Table> 
+
+| Library                          | Type   | Maintainer                                           | Docs                                                                                   | Code                                                                                              |
+| -------------------------------- | ------ | ---------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Laravel                          | Server | [Laravel](https://laravel.com/)                      | [Docs](https://laravel.com/docs/master/broadcasting)                                   | [laravel/laravel](https://github.com/laravel/laravel)                                             |
+| ZfrPusher                        | Server | [Michaël Gallego](https://github.com/bakura10)       | [Docs](https://github.com/zf-fr/zfr-pusher#installation)                               | [zf-fr/zfr-pusher](https://github.com/zf-fr/zfr-pusher)                                           |
+| Channels PHP SDK for CodeIgniter | Server | [Mattias Hedman](https://github.com/darkwhispering)  | [Docs](https://github.com/darkwhispering/pusher-for-codeigniter/blob/master/README.md) | [darkwhispering/pusher-for-codeigniter](https://github.com/darkwhispering/pusher-for-codeigniter) |
+| Symfony                          | Server | [Pierre-Louis Launay](https://github.com/laupiFrpar) | [Docs](https://github.com/laupiFrpar/LopiPusherBundle#installation)                    | [laupiFrpar/LopiPusherBundle](https://github.com/laupiFrpar/LopiPusherBundle)                     |
+| Zend Framework 2                 | Server | [Michaël Gallego](https://github.com/bakura10)       | [Docs](https://github.com/zf-fr/zfr-pusher-module#installation)                        | [zf-fr/zfr-pusher-module](https://github.com/zf-fr/zfr-pusher-module)                             |
+| Yii PHP Framework                | Server | [nk913](http://www.yiiframework.com/user/41288/)     | [Docs](http://www.yiiframework.com/extension/pusher/)                                  | [yiiframework/pusher](http://www.yiiframework.com/extension/pusher/)                              |
+| Kohana 3                         | Server | [2bj](http://github.com/2bj)                         | [Docs](https://github.com/2bj/Pushko#pushko)                                           | [2bj/Pushko](https://github.com/2bj/Pushko)                                                       |
+| FuelPHP                          | Server | [Ahmad Shah](http://www.lembubintik.com/)            | [Docs](https://github.com/lembubintik/pusherapp#how-to-use-it)                         | [lembubintik/pusherapp](https://github.com/lembubintik/pusherapp)                                 |
+| Drupal                           | Server | [fabianderijk](https://drupal.org/user/278745)       | [Docs](https://drupal.org/project/pusher_api)                                          | [drupal/pusher](https://drupal.org/project/pusher_api)                                            |
+
 ## Python
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-laraval-pusher" markdown="1"> Pysher </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Nils Diefenbach](https://github.com/nlsdfnbch) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/nlsdfnbch/Pysher/blob/master/README.md) </p> </td> <td> <p markdown="1"> [nlsdfnbch/Pysher](https://github.com/nlsdfnbch/Pysher) </p> </td> </tr> </tbody> </Table> 
+
+| Library | Type   | Maintainer                                      | Docs                                                              | Code                                                    |
+| ------- | ------ | ----------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------- |
+| Pysher  | Client | [Nils Diefenbach](https://github.com/nlsdfnbch) | [Docs](https://github.com/nlsdfnbch/Pysher/blob/master/README.md) | [nlsdfnbch/Pysher](https://github.com/nlsdfnbch/Pysher) |
+
 ## React
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-react-pusher-hoc" markdown="1"> react-pusher-hoc </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Felix Wostal](http://felixwostal.de) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/fel1xw/react-pusher-hoc#install) </p> </td> <td> <p markdown="1"> [fel1xw/react-pusher-hoc](https://github.com/fel1xw/react-pusher-hoc) </p> </td> </tr> </tbody> </Table> 
+
+| Library          | Type   | Maintainer                            | Docs                                                       | Code                                                                  |
+| ---------------- | ------ | ------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
+| react-pusher-hoc | Client | [Felix Wostal](http://felixwostal.de) | [Docs](https://github.com/fel1xw/react-pusher-hoc#install) | [fel1xw/react-pusher-hoc](https://github.com/fel1xw/react-pusher-hoc) |
+
 ## React Native
- 
+
 ## QML
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-qml-pusher" markdown="1"> qml-pusher </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Jason Barron](http://www.cutehacks.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/Cutehacks/qml-pusher#installing) </p> </td> <td> <p markdown="1"> [Cutehacks/qml-pusher](https://github.com/Cutehacks/qml-pusher) </p> </td> </tr> </tbody> </Table> 
+
+| Library    | Type   | Maintainer                                | Docs                                                       | Code                                                            |
+| ---------- | ------ | ----------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
+| qml-pusher | Client | [Jason Barron](http://www.cutehacks.com/) | [Docs](https://github.com/Cutehacks/qml-pusher#installing) | [Cutehacks/qml-pusher](https://github.com/Cutehacks/qml-pusher) |
+
 ## Ruby
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-pusher-websocket-ruby" markdown="1"> pusher-websocket-ruby </p> </td> <td> <p> <Label>Client</Label> </p> </td> <td> <p markdown="1"> [Logan Koester](http://blog.logankoester.com/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/pusher/pusher-websocket-ruby#installation) </p> </td> <td> <p markdown="1"> [pusher/pusher-websocket-ruby](https://github.com/pusher/pusher-websocket-ruby) </p> </td> </tr> </tbody> </Table> 
+
+| Library               | Type   | Maintainer                                     | Docs                                                                 | Code                                                                            |
+| --------------------- | ------ | ---------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| pusher-websocket-ruby | Client | [Logan Koester](http://blog.logankoester.com/) | [Docs](https://github.com/pusher/pusher-websocket-ruby#installation) | [pusher/pusher-websocket-ruby](https://github.com/pusher/pusher-websocket-ruby) |
+
 ## Scala
- <Table> <thead> <tr> <th>Library</th> <th>Type</th> <th>Maintainer</th> <th>Docs</th> <th>Code</th> </tr> </thead> <tbody> <tr> <td> <p id="community-aka-pusher" markdown="1"> dtaniwaki/akka-pusher </p> </td> <td> <p> <Label background="#ffae00">Server</Label> </p> </td> <td> <p markdown="1"> [dtaniwaki](https://github.com/dtaniwaki/) </p> </td> <td> <p markdown="1"> [Docs](https://github.com/dtaniwaki/akka-pusher) </p> </td> <td> <p markdown="1"> [dtaniwaki/akka-pusher](https://github.com/dtaniwaki/akka-pusher) </p> </td> </tr> </tbody> </Table> 
+
+| Library               | Type   | Maintainer                                 | Docs                                             | Code                                                              |
+| --------------------- | ------ | ------------------------------------------ | ------------------------------------------------ | ----------------------------------------------------------------- |
+| dtaniwaki/akka-pusher | Server | [dtaniwaki](https://github.com/dtaniwaki/) | [Docs](https://github.com/dtaniwaki/akka-pusher) | [dtaniwaki/akka-pusher](https://github.com/dtaniwaki/akka-pusher) |
+
 ## Test/example applications
- 
-For an open source example application built on libPusher, see [the Github repo](http://github.com/pusher/pusher-test-iOS) and [the App Store](https://itunes.apple.com/us/app/pusher-diagnostics/id622538006) 
- 
-For an open source example application built on pusher-websocket-java, see [the Github repo](http://github.com/pusher/pusher-test-android) and [the Play Store](https://play.google.com/store/apps/details?id=com.pusher.testapp) 
- 
+
+For an open source example application built on libPusher, see [the Github repo](http://github.com/pusher/pusher-test-iOS) and [the App Store](https://itunes.apple.com/us/app/pusher-diagnostics/id622538006)
+
+For an open source example application built on pusher-websocket-java, see [the Github repo](http://github.com/pusher/pusher-test-android) and [the Play Store](https://play.google.com/store/apps/details?id=com.pusher.testapp)
+
 ## Don't see your platform?
- 
+
 We'd love to see client and server libraries for other languages. Make sure to [let us know](https://pusher.com/support) if you come up with anything so we can highlight it here.
