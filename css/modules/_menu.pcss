@@ -6,6 +6,7 @@
     top: var(--spacing-extra-small);
     right: var(--spacing-extra-small);
     left: var(--spacing-extra-small);
+    overflow: scroll;
 
     @media (--breakpoint-large) {
       display: none;
@@ -26,6 +27,9 @@
 }
 
 #docs-menu {
+  height: calc(100vh - 6rem);
+  top: 6rem;
+
   &.open {
     display: block;
     position: absolute;

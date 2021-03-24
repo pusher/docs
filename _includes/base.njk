@@ -15,7 +15,7 @@
     {% block header %}
     {% endblock %}
 
-    <div class="flex-grow-1 flex flex-column justify-between main-content z-0">
+    <div class="flex-grow-1 flex flex-column justify-between {{ contentWrapClasses }} z-0">
       {% block container %}
         {{ content | safe }}
       {% endblock %}
