@@ -31,12 +31,12 @@ Each log line SHOULD include the name of the SDK, to distinguish the log source 
 
 # WebSocket library log event list
 
-| Log level | Content                                                                                     | Context/notes                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| INFO      | `{'SDK initialized with logLevel: ${logLevel}'}`                                            | The SDK MAY alternatively log all configuration.                                                                           |
-| ERROR     | `{'Invalid response from auth endpoint: ${error}'}`                                         | The SDK MUST log _why_ the response was invalid.                                                                           |
-| ERROR     | `{'Received a pusher:error event: ${event}'}`                                               | We prefer including "how to fix" guidance in the message from the server-side, which MUST be included in the logged error. |
-| INFO      | `{'Connection state changed to: ${newState}'}`                                              | The SDK MAY also include the previous state, and why the state changed.                                                    |
-| INFO      | `{'No callbacks are bound to event name ${name}; discarding event: ${event}. To fix: ...'}` | The recommendation SHOULD be to call the SDK's equivalent of `bind`.                                                       |
-| DEBUG     | `{'Protocol event sent: ${event}'}`                                                         | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
-| DEBUG     | `{'Protocol event received: ${event}'}`                                                     | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
+| Log level | Content                                                                                 | Context/notes                                                                                                              |
+| --------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| INFO      | `SDK initialized with logLevel: ${logLevel}`                                            | The SDK MAY alternatively log all configuration.                                                                           |
+| ERROR     | `Invalid response from auth endpoint: ${error}`                                         | The SDK MUST log _why_ the response was invalid.                                                                           |
+| ERROR     | `Received a pusher:error event: ${event}`                                               | We prefer including "how to fix" guidance in the message from the server-side, which MUST be included in the logged error. |
+| INFO      | `Connection state changed to: ${newState}`                                              | The SDK MAY also include the previous state, and why the state changed.                                                    |
+| INFO      | `No callbacks are bound to event name ${name}; discarding event: ${event}. To fix: ...` | The recommendation SHOULD be to call the SDK's equivalent of `bind`.                                                       |
+| DEBUG     | `Protocol event sent: ${event}`                                                         | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
+| DEBUG     | `Protocol event received: ${event}`                                                     | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
