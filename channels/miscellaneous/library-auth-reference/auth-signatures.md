@@ -49,7 +49,14 @@ You would first check that the user (authenticated via cookies or whatever) has 
 Using Ruby as an example
 
 ```rb
-require "openssl" digest = OpenSSL::Digest::SHA256.new secret = "7ad3773142a6692b25b8" string_to_sign = "1234.1234:private-foobar" puts signature = OpenSSL::HMAC.hexdigest(digest, secret, string_to_sign) # => 58df8b0c36d6982b82c3ecf6b4662e34fe8c25bba48f5369f135bf843651c3a4
+require "openssl"
+
+digest = OpenSSL::Digest::SHA256.new
+secret = "7ad3773142a6692b25b8"
+string_to_sign = "1234.1234:private-foobar"
+
+puts signature = OpenSSL::HMAC.hexdigest(digest, secret, string_to_sign)
+# => 58df8b0c36d6982b82c3ecf6b4662e34fe8c25bba48f5369f135bf843651c3a4
 ```
 
 The auth response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':' as follows:
@@ -69,7 +76,10 @@ This value is not part of the signature for the auth token, it is independent of
 For example:
 
 ```json
-{ "auth": "...", // as above for private channels "shared_secret": "<channel secret derived from master secret>" }
+{
+  "auth": "...", // as above for private channels
+  "shared_secret": "<channel secret derived from master secret>"
+}
 ```
 
 ## Presence channels
@@ -83,13 +93,30 @@ For example:
 Ruby example for presence channels:
 
 ```rb
-require "json" require "openssl" json_user_data = JSON.generate({ :user_id => 10, :user_info => {:name => "Mr. Channels"} }) # NB: written as double-escaped JSON! # => "{\\"user_id\\":10,\\"user_info\\":{\\"name\\":\\"Mr. Channels\\"}}" digest = OpenSSL::Digest::SHA256.new secret = "7ad3773142a6692b25b8" string_to_sign = "1234.1234:presence-foobar:#{json_user_data}" puts signature = OpenSSL::HMAC.hexdigest(digest, secret, string_to_sign) # => afaed3695da2ffd16931f457e338e6c9f2921fa133ce7dac49f529792be6304c
+require "json"
+require "openssl"
+
+json_user_data = JSON.generate({
+  :user_id => 10,
+  :user_info => {:name => "Mr. Channels"} })
+# NB: written as double-escaped JSON!
+# => "{\"user_id\":10,\"user_info\":{\"name\":\"Mr. Channels\"}}"
+
+digest = OpenSSL::Digest::SHA256.new
+
+secret = "7ad3773142a6692b25b8"
+string_to_sign = "1234.1234:presence-foobar:#{json_user_data}"
+puts signature = OpenSSL::HMAC.hexdigest(digest, secret, string_to_sign)
+# => afaed3695da2ffd16931f457e338e6c9f2921fa133ce7dac49f529792be6304c
 ```
 
 The auth response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':'. A `channel_data` property should also be present composed of the data for the channel as a **string** (_note: double-encoded JSON_):
 
 ```json
-{"auth":"278d425bdf160c739803:afaed3695da2ffd16931f457e338e6c9f2921fa133ce7dac49f529792be6304c","channel_data":"{\\"user_id\\":10,\\"user_info\\":{\\"name\\":\\"Mr. Channels\\"}}"}
+{
+  "auth": "278d425bdf160c739803:afaed3695da2ffd16931f457e338e6c9f2921fa133ce7dac49f529792be6304c",
+  "channel_data": "{\"user_id\":10,\"user_info\":{\"name\":\"Mr. Channels\"}}"
+}
 ```
 
-> NOTE: The whole response must be JSON-encoded before returning it to the client, even if "channel_data" inside it is already JSON-encoded.
+> **Note:** The whole response must be JSON-encoded before returning it to the client, even if `channel_data` inside it is already JSON-encoded.

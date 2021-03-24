@@ -2,8 +2,9 @@
 title: Library auth reference - Docs - Pusher Docs
 layout: channels.njk
 eleventyNavigation:
-  parent: Miscellaneous
+  parent: Channels
   key: Library auth reference
-  order: 3
+  url: /channels/miscellaneous/library-auth-reference/auth-signatures/?ref=library-auth-reference
+  order: 10
 permalink: false
 ---

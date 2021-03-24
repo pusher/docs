@@ -31,52 +31,12 @@ Each log line SHOULD include the name of the SDK, to distinguish the log source 
 
 # WebSocket library log event list
 
-    <Table>
-      <thead>
-        <tr>
-          <th>Log level</th>
-          <th>Content</th>
-          <th>Context/notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{INFO}</td>
-          <td>`{'SDK initialized with logLevel: ${logLevel}'}`</td>
-          <td>The SDK MAY alternatively log all configuration.</td>
-        </tr>
-        <tr>
-          <td>{ERROR}</td>
-          <td>`{'Invalid response from auth endpoint: ${error}'}`</td>
-          <td>The SDK MUST log *why* the response was invalid.</td>
-        </tr>
-        <tr>
-          <td>{ERROR}</td>
-          <td>`{'Received a pusher:error event: ${event}'}`</td>
-          <td>
-            We prefer including "how to fix" guidance in the message from the server-side,
-            which MUST be included in the logged error.
-          </td>
-        </tr>
-        <tr>
-          <td>{INFO}</td>
-          <td>`{'Connection state changed to: ${newState}'}`</td>
-          <td>The SDK MAY also include the previous state, and why the state changed.</td>
-        </tr>
-        <tr>
-          <td>{INFO}</td>
-          <td>`{'No callbacks are bound to event name ${name}; discarding event: ${event}. To fix: ...'}`</td>
-          <td>The recommendation SHOULD be to call the SDK's equivalent of `bind`.</td>
-        </tr>
-        <tr>
-          <td>{DEBUG}</td>
-          <td>`{'Protocol event sent: ${event}'}`</td>
-          <td>MUST be logged for all Channels protocol events (e.g. including ping/pong)</td>
-        </tr>
-        <tr>
-          <td>{DEBUG}</td>
-          <td>`{'Protocol event received: ${event}'}`</td>
-          <td>MUST be logged for all Channels protocol events (e.g. including ping/pong)</td>
-        </tr>
-      </tbody>
-    </Table>
+| Log level | Content                                                                                     | Context/notes                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| INFO      | `{'SDK initialized with logLevel: ${logLevel}'}`                                            | The SDK MAY alternatively log all configuration.                                                                           |
+| ERROR     | `{'Invalid response from auth endpoint: ${error}'}`                                         | The SDK MUST log _why_ the response was invalid.                                                                           |
+| ERROR     | `{'Received a pusher:error event: ${event}'}`                                               | We prefer including "how to fix" guidance in the message from the server-side, which MUST be included in the logged error. |
+| INFO      | `{'Connection state changed to: ${newState}'}`                                              | The SDK MAY also include the previous state, and why the state changed.                                                    |
+| INFO      | `{'No callbacks are bound to event name ${name}; discarding event: ${event}. To fix: ...'}` | The recommendation SHOULD be to call the SDK's equivalent of `bind`.                                                       |
+| DEBUG     | `{'Protocol event sent: ${event}'}`                                                         | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
+| DEBUG     | `{'Protocol event received: ${event}'}`                                                     | MUST be logged for all Channels protocol events (e.g. including ping/pong)                                                 |
