@@ -1,5 +1,5 @@
 ---
-title: Client api overview - Channels - Pusher Docs
+title: Client API overview - Channels - Pusher Docs
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels
