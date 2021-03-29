@@ -1,8 +1,7 @@
 ---
 title: Beams - Pusher Docs
 layout: beams.njk
-hideTOC: true
-eleventyNavigation: 
+eleventyNavigation:
   parent: Docs
   key: Beams
   order: 1
