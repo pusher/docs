@@ -16,19 +16,27 @@ It’s deployed and hosted by [Vercel] when the `main` branch changes using thei
 git checkout git@github.com:pusher/docs.git
 ```
 
-2. Install the dependencies via [npm]
+2. Install the dependencies via [yarn]
 
 ```bash
-npm install
+yarn install
 ```
 
 3. Run [Eleventy] in development mode
 
 ```bash
-npm run dev
+yarn run dev
 ```
 
 [Eleventy] watches for any changes and recompiles automatically, it uses [BrowserSync] behind the scenes to refresh the browser.
+
+### Compiling the CSS
+
+If you’ve just checked out the repo, you’ll need to generate the css. You can also leave this running if you intend to change the CSS as you go, it will recompile and 11ty will pick up the changes and reload.
+
+```bash
+yarn run css
+```
 
 ## How to add new pages
 
@@ -109,7 +117,7 @@ Contributions welcome
 [vercel]: https://vercel.co/
 [github integration]: https://vercel.com/docs/git-integrations
 [markdown]: https://www.markdownguide.org/
-[npm]: https://npmjs.com/
+[yarn]: https://yarnpkg.com/
 [browsersync]: https://www.browsersync.io/
 [prism]: https://prismjs.com/
 [nunjucks]: https://mozilla.github.io/nunjucks/

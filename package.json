@@ -6,7 +6,7 @@
   "author": "Jon Heslop <jon@jonheslop.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose & eleventy --serve",
+    "dev": "eleventy --serve",
     "build": "NODE_ENV=production postcss css/style.pcss -o _site/style.min.css && ELEVENTY_PRODUCTION=true eleventy",
     "css": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose"
   },
