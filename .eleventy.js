@@ -136,6 +136,7 @@ module.exports = (eleventyConfig) => {
         swift: "Swift",
         objc: "Objective-C",
         http: "http",
+        kotlin: "Kotlin",
       };
       return `<div class="bg-snow-light br2 tabbed-snippets" data-method="${method}">
       <nav class="ph3 bb b--smoke overflow-auto scrollbar--light">

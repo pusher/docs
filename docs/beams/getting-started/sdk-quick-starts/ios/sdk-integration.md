@@ -10,7 +10,7 @@ eleventyNavigation:
 
 # Integrate iOS SDK
 
-Our Beams service lets you subscribe iOS devices to [interests]({urls.interests}). When your servers publish push notifications to interests, the iOS devices subscribed to the relevant interests will receive them. Your iOS application can subscribe to interests using our Swift SDK. This page guides you through setting up your iOS application to register, subscribe to interests, and receive push notifications pushed to those interests.
+Our Beams service lets you subscribe iOS devices to [interests](/docs/beams/concepts/interests). When your servers publish push notifications to interests, the iOS devices subscribed to the relevant interests will receive them. Your iOS application can subscribe to interests using our Swift SDK. This page guides you through setting up your iOS application to register, subscribe to interests, and receive push notifications pushed to those interests.
 
 # Minimum Requirements
 
