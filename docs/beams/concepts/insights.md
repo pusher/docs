@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Insights
 
-Beams tracks the lifecycle of the push notifications you send and uses this data to produce analytics that will help you make sure you are sending the most engaging push notifications to your users. This data is currently available in the "Notification Insights" panel which can be found on the instance overview page on the <a external="" href="https://dashboard.pusher.com/beams">dashboard</a> .
+Beams tracks the lifecycle of the push notifications you send and uses this data to produce analytics that will help you make sure you are sending the most engaging push notifications to your users. This data is currently available in the "Notification Insights" panel which can be found on the instance overview page on the [dashboard](https://dashboard.pusher.com/beams) .
 
 # Available Metrics
 
@@ -45,7 +45,7 @@ Only newer versions of the client SDKs support open and delivery tracking. You m
 
 Android SDK Version >= 0.9.13 <br /> iOS SDK Version >= 0.10.6 <br /> Web SDK: >= 1.0.0
 
-As your users start using the version of your application that satisfies these minimum requirements, their data will begin to appear on the "Notification Insights" panel which can be found on the instance overview page on the <a external="" href="https://dashboard.pusher.com/beams">dashboard</a> .
+As your users start using the version of your application that satisfies these minimum requirements, their data will begin to appear on the "Notification Insights" panel which can be found on the instance overview page on the [dashboard](https://dashboard.pusher.com/beams) .
 
 # iOS Delivery Tracking
 
