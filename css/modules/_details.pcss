@@ -1,0 +1,19 @@
+summary {
+  cursor: pointer;
+}
+
+summary span {
+  color: var(--dragonfruit);
+  transition: all 0.15s ease-in;
+  text-decoration: none;
+  border-bottom: 3px solid var(--dragonfruit);
+  padding-bottom: 1px;
+  font-weight: 600;
+}
+
+summary:hover span,
+summary:focus span {
+  color: var(--white);
+  background-color: var(--dragonfruit-light);
+  border-bottom-color: var(--dragonfruit-light);
+}
