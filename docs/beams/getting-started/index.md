@@ -6,9 +6,6 @@ eleventyNavigation:
   key: Beams getting started
   title: Getting started
   order: 1
+  url: /docs/beams/getting-started/sdk-quick-starts/android/configure-fcm/?ref=getting-started
 permalink: false
 ---
-
-# Getting started
-
-We have some guides
