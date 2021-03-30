@@ -59,17 +59,19 @@ module.exports = (eleventyConfig) => {
   };
 
   markdownIt.renderer.rules.image = (tokens) => {
-    let src = tokens[0].attrs[tokens[0].attrIndex("src")][1];
+    // Sometimes this retuns things that arn’t images so we need to filter
+    const [filtered] = tokens.filter((token) => token.type === "image");
+    let src = filtered.attrs[filtered.attrIndex("src")][1];
     let width = "";
     let height = "";
     if (src.match(/^http/) === null) {
-      src = tokens[0].attrs[tokens[0].attrIndex("src")][1].replace(".", "");
-      width = tokens[0].attrs[tokens[0].attrIndex("width")][1] || "";
-      height = tokens[0].attrs[tokens[0].attrIndex("height")][1] || "";
+      src = filtered.attrs[filtered.attrIndex("src")][1].replace(".", "");
+      width = filtered.attrs[filtered.attrIndex("width")][1] || "";
+      height = filtered.attrs[filtered.attrIndex("height")][1] || "";
     }
     const alt =
-      tokens[0].attrs[tokens[0].attrIndex("alt")][1] ||
-      tokens[0].children[0].content;
+      filtered.attrs[filtered.attrIndex("alt")][1] ||
+      filtered.children[0].content;
     return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
