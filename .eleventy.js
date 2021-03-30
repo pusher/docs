@@ -60,21 +60,26 @@ module.exports = (eleventyConfig) => {
 
   markdownIt.renderer.rules.image = (tokens) => {
     // Sometimes this retuns things that arn’t images so we need to filter
-    const [filtered] = tokens.filter((token) => token.type === "image");
-    let src = filtered.attrs[filtered.attrIndex("src")][1];
-    let width = "";
-    let height = "";
-    if (src.match(/^http/) === null) {
-      src = filtered.attrs[filtered.attrIndex("src")][1].replace(".", "");
-      width = filtered.attrs[filtered.attrIndex("width")][1] || "";
-      height = filtered.attrs[filtered.attrIndex("height")][1] || "";
-    }
-    const alt =
-      filtered.attrs[filtered.attrIndex("alt")][1] ||
-      filtered.children[0].content;
-    return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
+    try {
+      const [filtered] = tokens.filter((token) => token.type === "image");
+      let src = filtered.attrs[filtered.attrIndex("src")][1];
+      let width = "";
+      let height = "";
+      if (src.match(/^http/) === null) {
+        src = filtered.attrs[filtered.attrIndex("src")][1].replace(".", "");
+        width = filtered.attrs[filtered.attrIndex("width")][1] || "";
+        height = filtered.attrs[filtered.attrIndex("height")][1] || "";
+      }
+      const alt =
+        filtered.attrs[filtered.attrIndex("alt")][1] ||
+        filtered.children[0].content;
+      return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
+    } catch (e) {
+      return `<span class="code radish">Failed to parse image, it could be the path to the image file is incorrect</span>`;
+      console.error("can’t find the image");
+    }
   };
 
   markdownIt.core.ruler.push("widont", (state) => {
