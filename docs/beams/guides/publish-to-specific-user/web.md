@@ -6,17 +6,7 @@ eleventyNavigation:
   key: Web
 ---
 
----
-
-title: iOS - Beams - Pusher Docs
-layout: beams.njk
-eleventyNavigation:
-parent: Publish to specific user
-key: iOS
-
----
-
-# Publish to a specific User: iOS
+# Publish to a specific User: Web
 
 Beams allows you to send notifications to individual users of your application via their user ID (whatever ID you use in your system). You can do this by associating users with their devices using the [Authenticated Users](/docs/beams/concepts/authenticated-users) feature.
 
@@ -172,8 +162,12 @@ When the Beams SDK tries to authenticate a device it will verify the user's iden
 ```js
 const tokenProvider = new PusherPushNotifications.TokenProvider({
   url: "YOUR_BEAMS_AUTH_URL_HERE",
-  queryParams: { someQueryParam: "parameter-content" }, // URL query params your auth endpoint needs
-  headers: { someHeader: "header-content" }, // Headers your auth endpoint needs
+  queryParams: {
+    someQueryParam: "parameter-content", // URL query params your auth endpoint needs
+  },
+  headers: {
+    someHeader: "header-content", // Headers your auth endpoint needs
+  },
 });
 ```
 
