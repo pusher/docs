@@ -1,5 +1,5 @@
 ---
-title: Ios - Beams - Pusher Docs
+title: iOS - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks

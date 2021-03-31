@@ -1,7 +1,7 @@
 ---
-title: Ios - Beams - Pusher Docs
+title: iOS - Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Publish to specific user
-  key: Ios
+  key: iOS
 ---

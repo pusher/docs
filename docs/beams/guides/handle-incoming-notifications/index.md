@@ -1,8 +1,9 @@
 ---
 title: Handle incoming notifications - Docs - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Guides
   key: Handle incoming notifications
-  order: 1
+  url: /docs/beams/guides/handle-incoming-notifications/android/?ref=handle-incoming-notifications
+order: 1
 ---
