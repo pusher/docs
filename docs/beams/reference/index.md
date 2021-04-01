@@ -1,9 +1,10 @@
 ---
 title: Reference - Docs - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Beams
   key: Reference
+  url: /docs/beams/reference/all-libraries/?ref=reference
   order: 4
 permalink: false
 ---
