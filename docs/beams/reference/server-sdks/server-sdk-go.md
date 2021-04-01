@@ -1,5 +1,5 @@
 ---
-title: Server sdk go - Beams - Pusher Docs
+title: Server SDK Go - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks
@@ -10,82 +10,254 @@ eleventyNavigation:
 
 # Go Server SDK
 
-# Installation
+## Installation
 
 You can install this SDK by doing:
 
-```http
-{goGetInstallExample}
+```bash
+go get github.com/pusher/push-notifications-go
 ```
 
-# Reference
+## Reference
 
-## `.New`
+### `.New`
 
 Constructs a new Beams client instance using your instance id and secret key (you can get these from the dashboard)
 
-_Arguments_ <br /> _ `instanceId` (string): The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials". _ `secretKey` (string): The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials". \* `options` (Option | vararg): Variadic list of options for configuring the SDK
+#### Arguments
 
-_Returns_ <br /> _ `client` (PushNotifications): Beams API client implementing the `PushNotifications` interface. _ `err` (error): Error value if something went wrong, `nil` otherwise.
+{% parameter 'instanceId', 'String', true %}
 
-_Example_
+The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+{% parameter 'secretKey', 'String', true %}
+
+The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+{% parameter 'options', 'Option | vararg', false %}
+
+Variadic list of options for configuring the SDK
+
+{% endparameter %}
+
+#### Returns
+
+{% parameter 'client', 'PushNotifications' %}
+
+Beams API client implementing the `PushNotifications` interface.
+
+{% endparameter %}
+{% parameter 'err', 'Error' %}
+
+Error value if something went wrong, `nil` otherwise.
+
+{% endparameter %}
+
+#### Example
 
 ```go
-{connectingExample}
+const (
+  instanceId = "YOUR_INSTANCE_ID_HERE"
+  secretKey  = "YOUR_SECRET_KEY_HERE"
+)
+
+beamsClient, err := pushnotifications.New(instanceId, secretKey)
+if err != nil {
+  fmt.Println("Could not create Beams Client:", err.Error())
+}
 ```
 
-## `.PublishToInterests`
+### `.PublishToInterests`
 
 Sends broadcast notifications to groups of subscribed devices using [Device Interests](/docs/beams/concepts/device-interests)
 
-_Arguments_ <br /> * `interests` ([]string | *Min length=1, Max length=100* ): List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests) * `publishBody`({'map[string]interface{}'} ): A map containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br /> _ `publishID` (string): Unique identifier for the publish request. _ `err` (error): Error value if something went wrong, `nil` otherwise.
+{% parameter 'interests', '[]string | Min length=1, Max length=100', true %}
 
-_Example_ <br />
+List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests)
+
+{% endparameter %}
+{% parameter 'publishBody', 'map[string]interface{}' %}
+
+A map containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+{% parameter 'publishID', 'string' %}
+
+Unique identifier for the publish request.
+
+{% endparameter %}
+{% parameter 'err', 'error' %}
+
+Error value if something went wrong, `nil` otherwise.
+
+{% endparameter %}
+
+#### Example
 
 ```go
-{goPublishToInterests}
+publishRequest := map[string]interface{}{
+  "apns": map[string]interface{}{
+    "aps": map[string]interface{}{
+      "alert": map[string]interface{}{
+        "title": "Hello",
+        "body":  "Hello, world",
+      },
+    },
+  },
+  "fcm": map[string]interface{}{
+    "notification": map[string]interface{}{
+      "title": "Hello",
+      "body":  "Hello, world",
+    },
+  },
+  "web": map[string]interface{}{
+    "notification": map[string]interface{}{
+      "title": "Hello",
+      "body":  "Hello, world",
+    },
+  },
+}
+
+pubId, err := beamsClient.PublishToInterests([]string{"hello"}, publishRequest)
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println("Publish Id:", pubId)
+}
 ```
 
-## `.PublishToUsers`
+### `.PublishToUsers`
 
 Securely send notifications to individual users of your application using [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
-_Arguments_ <br /> * `userIds` ([]string | *Min length=1, Max length=1000* ): List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users) * `publishBody`({'map[string]interface{}'} ): A map containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br /> _ `publishID` (string): Unique identifier for the publish request. _ `err` (error): Error value if something went wrong, `nil` otherwise.
+{% parameter 'userIds', '[]string | Min length=1, Max length=100', true %}
 
-_Example_ <br />
+List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users)
+
+{% endparameter %}
+{% parameter 'publishBody', 'map[string]interface{}' %}
+
+A map containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+{% parameter 'publishID', 'string' %}
+
+Unique identifier for the publish request.
+
+{% endparameter %}
+{% parameter 'err', 'error' %}
+
+Error value if something went wrong, `nil` otherwise.
+
+{% endparameter %}
+
+#### Example
 
 ```go
-{goPublishToUsers}
+publishRequest := map[string]interface{}{
+  "apns": map[string]interface{}{
+    "aps": map[string]interface{}{
+      "alert": map[string]interface{}{
+        "title": "Hello",
+        "body":  "Hello, world",
+      },
+    },
+  },
+  "fcm": map[string]interface{}{
+    "notification": map[string]interface{}{
+      "title": "Hello",
+      "body":  "Hello, world",
+    },
+  },
+  "web": map[string]interface{}{
+    "notification": map[string]interface{}{
+      "title": "Hello",
+      "body":  "Hello, world",
+    },
+  },
+}
+
+pubId, err := beamsClient.PublishToUsers([]string{"user-001", "user-002"}, publishRequest)
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println("Publish Id:", pubId)
+}
 ```
 
-## `.GenerateToken`
+### `.GenerateToken`
 
 Generate a Beams auth token to allow a user to associate their device with their user id. The token is valid for 24 hours.
 
-_Arguments_ <br /> \* `userID` (string): Id of the user you would like to generate a Beams auth token for.
+#### Arguments
 
-_Returns_ <br /> _ `beamsToken` (string): Beams Token for the given user _ `err` (error): Error value if something went wrong, `nil` otherwise.
+{% parameter 'userID', 'string', true %}
 
-_Example_ <br />
+ID of the user you would like to generate a Beams auth token for
+
+{% endparameter %}
+
+#### Returns
+
+{% parameter 'beamsToken', 'string' %}
+
+Beams Token for the given user
+
+{% endparameter %}
+{% parameter 'err', 'error' %}
+
+Error value if something went wrong, `nil` otherwise.
+
+{% endparameter %}
+
+#### Example
 
 ```go
-{generateTokenExample}
+userID := "user-001"
+beamsToken, err := beamsClient.GenerateToken(userID)
+if err != nil {
+  fmt.Println("Could not generate Beams token:", err.Error())
+}
 ```
 
-## `.DeleteUser`
+### `.DeleteUser`
 
 Remove the given user (and all of their devices) from Beams. This user will no longer receive any notifications and all state stored about their devices will be deleted.
 
-_Arguments_ <br /> \* `userID` (string): Id of the user you would like to delete from Beams.
+#### Arguments
 
-_Returns_ <br /> \* `err` (error): Error value if something went wrong, `nil` otherwise.
+{% parameter 'userID', 'string', true %}
 
-_Example_ <br />
+ID of the user you would like to delete from Beams.
+
+{% endparameter %}
+
+#### Returns
+
+{% parameter 'err', 'error' %}
+
+Error value if something went wrong, `nil` otherwise.
+
+{% endparameter %}
+
+#### Example
 
 ```go
-{deleteUserExample}
+userID := "user-001"
+err := beamsClient.DeleteUser(userID)
+if err != nil {
+  fmt.Println("Could not delete user:", err.Error())
+}
 ```
