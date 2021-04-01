@@ -5,7 +5,7 @@ eleventyNavigation:
   parent: Client sdks
   key: Client sdks ios
   title: iOS
-  order: 1
+  order: 2
 ---
 
 # Swift client SDK
