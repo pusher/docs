@@ -71,6 +71,15 @@
   border-bottom-color: var(--dragonfruit-light);
 }
 
+.nested-code h2 code,
+.nested-code h3 code,
+.nested-code h4 code,
+.nested-code h5 code {
+  font-size: inherit;
+  background-color: var(--white);
+  color: var(--eggplant);
+}
+
 .nested-code code {
   background-color: var(--snow-light);
   border-radius: var(--border-radius-1);
