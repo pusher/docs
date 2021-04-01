@@ -1,11 +1,19 @@
 .toc-list {
   margin-top: var(--spacing-medium);
 
+  & > ul {
+    padding: 0;
+  }
+
   ul {
     margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  ul ul {
     padding: 0 var(--spacing-extra-small) var(--spacing-small)
       var(--spacing-small);
-    list-style-type: none;
   }
 
   li + li {
