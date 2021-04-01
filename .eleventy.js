@@ -172,7 +172,7 @@ module.exports = (eleventyConfig) => {
       language = null,
       show = true
     ) => {
-      const typeLabel = `<span class="pumpkin fw6 ml4 f6">${type}</span>`;
+      const typeLabel = `<span class="slate fw6 ml4 f6">${type}</span>`;
       const requiredLabel = `<span class="pumpkin fw6 ml4 f6">Required</span>`;
       const optionalLabel = `<span class="slate fw6 ml4 f6">Optional</span>`;
       const slug = slugifyCustom(`${name}-${hash(content)}`);
