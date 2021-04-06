@@ -1,5 +1,5 @@
 ---
-title: Server sdk php - Beams - Pusher Docs
+title: Server SDK PHP - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks
@@ -10,93 +10,196 @@ eleventyNavigation:
 
 # PHP Server SDK
 
-<Alert warning>This library requires a PHP version of 5.6 or greater</Alert>
+> This library requires a PHP version of 5.6 or greater
 
-# Installation
+## Installation
 
 The Beams PHP Server SDK is available on Packagist [here](https://packagist.org/packages/pusher/pusher-push-notifications).
-<Alert primary> We recommend that you use [Composer](https://getcomposer.org/) to install this SDK. </Alert> <br />
 
-## Using Composer
+> We recommend that you use [Composer](https://getcomposer.org/) to install this SDK.
+
+### Using Composer
 
 You can add this SDK to your project using composer, or by directly adding it to your composer.json:
 
-```http
-{composerRequireExample}
+```bash
+composer require pusher/pusher-push-notifications
 ```
 
-```js
-{
-  composerJsonExample;
+```json
+"require": {
+    "pusher/pusher-push-notifications": "^1.0"
 }
 ```
 
-# Reference
+## Reference
 
-## `PushNotifications.__construct`
+### `PushNotifications.__construct`
 
 Constructs a new Beams client instance using your instance id and secret key (you can get these from the dashboard)
 
-_Arguments_ <br /> * `$options` (array | *required* ): * `instanceId` (string | _required_ ): The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials". * `secretKey` (string | *required\* ): The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials". </Item>
+#### Arguments
 
-_Example_
+{% parameter '$options', 'Array', true %}
+
+- `instanceId` (String | _required_ ): The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials".
+- `secretKey` (String | _required_ ): The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+
+#### Example
 
 ```php
-{connectingExample}
+$beamsClient = new \Pusher\PushNotifications\PushNotifications(
+  array(
+    "instanceId" => "YOUR_INSTANCE_ID_HERE",
+    "secretKey" => "YOUR_SECRET_KEY_HERE",
+  )
+);
 ```
 
-## `.publishToInterests`
+### `.publishToInterests`
 
 Sends broadcast notifications to groups of subscribed devices using [Device Interests](/docs/beams/concepts/device-interests)
 
-_Arguments_ <br /> * `$interests` (Array&lt;string&gt; | *required* ): Array of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests). * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br /> An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter '$interests', 'Array&lt;string&gt', true %}
 
-_Example_
+Array of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests).
+
+{% endparameter %}
+{% parameter '$publishBody' %}
+
+See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
 
 ```php
-{phpPublishToInterests}
+<?php
+include 'src/PushNotifications.php';
+$publishResponse = $beamsClient->publishToInterests(
+  array("hello", "donuts"),
+  array(
+    "fcm" => array(
+      "notification" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    ),
+    "apns" => array("aps" => array(
+      "alert" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    )),
+    "web" => array(
+      "notification" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    )
+));
 ```
 
-## `.publishToUsers`
+### `.publishToUsers`
 
 Securely send notifications to individual users of your application using [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
-_Arguments_ <br /> * `$userIds` (Array&lt;string&gt; | *required* ): Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users). * `$publishBody`: See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br /> An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter '$userIds', 'Array&lt;string&gt', true %}
 
-_Example_
+Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users).
+
+{% endparameter %}
+{% parameter '$publishBody' %}
+
+See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+An array containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
 
 ```php
-{phpPublishToUsers}
+<?php
+include 'src/PushNotifications.php';
+$publishResponse = $beamsClient->publishToUsers(
+  array("user-001", "user-002"),
+  array(
+    "fcm" => array(
+      "notification" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    ),
+    "apns" => array("aps" => array(
+      "alert" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    )),
+    "web" => array(
+      "notification" => array(
+        "title" => "Hi!",
+        "body" => "This is my first Push Notification!"
+      )
+    )
+));
 ```
 
-## `.generateToken`
+### `.generateToken`
 
 Generate a Beams auth token to allow a user to associate their device with their user id. The token is valid for 24 hours.
 
-_Arguments_ <br /> * `$userId` (string | *required\* ): Id of the user you would like to generate a Beams auth token for.
+#### Arguments
 
-_Returns_ <br /> Beams token string.
+{% parameter '$userId', 'String', true %}
 
-_Example_
+Id of the user you would like to generate a Beams auth token for.
+
+{% endparameter %}
+
+#### Returns
+
+Beams token string.
+
+#### Example
 
 ```php
-{generateTokenExample}
+$userId = "user-001";
+$token = $beamsClient.generateToken($userId);
+// Return $token to device
 ```
 
-## `.deleteUser`
+### `.deleteUser`
 
 Remove the given user (and all of their devices) from Beams. This user will no longer receive any notifications and all state stored about their devices will be deleted.
 
-_Arguments_ <br /> * `$userId` (string | *required\* ): Id of the user you would like to remove from Beams.
+#### Arguments
 
-_Returns_ <br /> Nothing.
+{% parameter '$userId', 'String', true %}
 
-_Example_
+Id of the user you would like to remove from Beams.
+
+{% endparameter %}
+
+#### Returns
+
+Nothing
+
+#### Example
 
 ```php
-{deleteUserExample}
+$beamsClient.deleteUser("user-001");
 ```
