@@ -1,10 +1,10 @@
 ---
-title: Server sdk node - Beams - Pusher Docs
+title: Server SDK Node.js - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks
   key: Server sdk node
-  title: Node
+  title: Node.js
   order: 3
 ---
 
@@ -12,107 +12,217 @@ eleventyNavigation:
 
 The SDK includes a typings file for TypeScript compatibility.
 
-# Installation
+## Installation
 
-The Beams Node.js server SDK is available on NPM [here](https://www.npmjs.com/package/${SDK_NAME}).
+The Beams Node.js server SDK is available on NPM [here](https://www.npmjs.com/package/@pusher/push-notifications-server).
 
-## Install
+### Install
 
 You can install this SDK by using NPM or Yarn:
 
-{% snippets ['http', 'http'] %}
+{% snippets ['npm', 'yarn'] %}
 
-```http
-{npmInstallExample}
+```bash
+npm install @pusher/push-notifications-server --save
 ```
 
-```http
-{yarnInstallExample}
+```bash
+yarn add @pusher/push-notifications-server
 ```
 
 {% endsnippets %}
 
-# Reference
+## Reference
 
-## `constructor PushNotifications`
+### `constructor PushNotifications`
 
-**new PushNotifications(options)**
+`new PushNotifications(options)`
+
 Construct a new Pusher Beams Client connected to your Beams instance.
 
 You only need to do this once.
 
-_Arguments_ <br /> `options` (object) * `instanceId` (string | *required*) - The unique identifier for your Beams instance. This can be found in the dashboard under "Credentials". * `secretKey` (string | _required_) - The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+#### Arguments
 
-_Returns_ <br />A Pusher Beams client
+{% parameter 'options', 'Object', true %}
 
-_Example_
+- `instanceId` (String | _Required_) - The unique identifier for your Beams instance. This can be found in the dashboard under "Credentials".
+- `secretKey` (String | _Required_) - The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+
+#### Returns
+
+A Pusher Beams client
+
+#### Example
 
 ```js
-{
-  connectingExample;
-}
+const PushNotifications = require("${SDK_NAME}");
+
+let beamsClient = new PushNotifications({
+  instanceId: "YOUR_INSTANCE_ID_HERE",
+  secretKey: "YOUR_SECRET_KEY_HERE",
+});
 ```
 
-## `.publishToInterests`
+### `.publishToInterests`
 
 Publish a push notification to devices subscribed to given Interests, with the given payload.
 
-_Arguments_ <br /> `interests` ({'Array<string>'}) - Interests to send the push notification to, ranging from 1 to 100 per publish request. See [Concept: Device Interests](/docs/beams/concepts/device-interests).<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body).
+#### Arguments
 
-_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
+{% parameter 'interests', 'Array&lt;String&gt;', true %}
 
-_Example_
+Interests to send the push notification to, ranging from 1 to 100 per publish request. See [Concept: Device Interests](/docs/beams/concepts/device-interests).
+
+{% endparameter %}
+{% parameter 'publishBody', 'Object' %}
+
+See [publish API reference](/docs/beams/reference/publish-api#request-body).
+
+{% endparameter %}
+
+#### Returns
+
+(Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
+
+#### Example
 
 ```js
-{
-  nodePublishToInterests;
-}
+beamsClient
+  .publishToInterests(["hello"], {
+    apns: {
+      aps: {
+        alert: {
+          title: "Hello",
+          body: "Hello, world!",
+        },
+      },
+    },
+    fcm: {
+      notification: {
+        title: "Hello",
+        body: "Hello, world!",
+      },
+    },
+    web: {
+      notification: {
+        title: "Hello",
+        body: "Hello, world!",
+      },
+    },
+  })
+  .then((publishResponse) => {
+    console.log("Just published:", publishResponse.publishId);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 ```
 
-## `.publishToUsers`
+### `.publishToUsers`
 
 Publish a push notification to devices belonging to specific users, with the given payload.
 
-_Arguments_ <br /> `userIDs` ({'Array<string>'}) User IDs to send the push notification to, ranging from 1 to 1000 per publish request. See [Concept: Authenticated Users](/docs/beams/concepts/authenticated-users).<br /> `publishBody` (object) - See [publish API reference](/docs/beams/reference/publish-api#request-body).
+#### Arguments
 
-_Returns_ <br /> (Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
+{% parameter 'userIDs', 'Array&lt;String&gt;', true %}
 
-_Example_
+User IDs to send the push notification to, ranging from 1 to 1000 per publish request. See [Concept: Authenticated Users](/docs/beams/concepts/authenticated-users).
+
+{% endparameter %}
+{% parameter 'publishBody', 'Object' %}
+
+See [publish API reference](/docs/beams/reference/publish-api#request-body).
+
+{% endparameter %}
+
+#### Returns
+
+(Promise) - A promise that resolves to a `publishResponse`. See [publish API reference](/docs/beams/reference/publish-api#success-response-body).
+
+#### Example
 
 ```js
-{
-  nodePublishToUsers;
-}
+beamsClient
+  .publishToUsers(["user-001", "user-002"], {
+    apns: {
+      aps: {
+        alert: {
+          title: "Hello",
+          body: "Hello, world!",
+        },
+      },
+    },
+    fcm: {
+      notification: {
+        title: "Hello",
+        body: "Hello, world!",
+      },
+    },
+    web: {
+      notification: {
+        title: "Hello",
+        body: "Hello, world!",
+      },
+    },
+  })
+  .then((publishResponse) => {
+    console.log("Just published:", publishResponse.publishId);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 ```
 
-## `.generateToken`
+### `.generateToken`
 
 Generate a Beams auth token to allow a user to associate their device with their user id. The token is valid for 24 hours.
 
-_Arguments_ <br /> `userID` (string) - User ID of the user for whom you want to generate a Beams token. <br />
+#### Arguments
 
-_Returns_ <br /> (string) - A Beams token for the given user.
+{% parameter 'userID', 'String', true %}
 
-_Example_
+User ID of the user for whom you want to generate a Beams token.
+
+{% endparameter %}
+
+#### Returns
+
+A Beams token for the given user.
+
+#### Example
 
 ```js
-{
-  nodeGenerateToken;
-}
+const beamsToken = beamsClient.generateToken("user-001");
 ```
 
-## `.deleteUser`
+### `.deleteUser`
 
 Delete a user and all their devices from Pusher Beams.
 
-_Arguments_ <br /> `userID` (string) - The user ID of the user you wish to delete.
+#### Arguments
 
-_Returns_ <br /> (Promise) - A promise that resolves with no arguments. If deletion fails, the promise will reject.
+{% parameter 'userID', 'String', true %}
 
-_Example_
+The user ID of the user you wish to delete.
+
+{% endparameter %}
+
+#### Returns
+
+(Promise) - A promise that resolves with no arguments. If deletion fails, the promise will reject.
+
+#### Example
 
 ```js
-{
-  nodeDeleteUser;
-}
+beamsClient
+  .deleteUser("user-001")
+  .then(() => {
+    console.log("Successfully deleted the user!");
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 ```
