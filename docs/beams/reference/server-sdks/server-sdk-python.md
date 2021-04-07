@@ -1,5 +1,5 @@
 ---
-title: Server sdk python - Beams - Pusher Docs
+title: Server SDK Python - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks
@@ -10,82 +10,197 @@ eleventyNavigation:
 
 # Python Server SDK
 
-# Installation
+## Installation
 
 The Beams Python server SDK is available on PyPi [here](https://pypi.python.org/pypi/pusher_push_notifications/).
 
 You can install this SDK by using pip:
 
-```http
-{pipInstallExample}
+```bash
+pip install pusher_push_notifications
 ```
 
-# Reference
+## Reference
 
-## `class PushNotifications`
+### `class PushNotifications`
 
 Constructs a **new Beams client** instance using your instance id and secret key (you can get these from the dashboard)
 
-_Arguments_ <br /> _ `instance_id` (string): The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials". _ `secret_key` (string): The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+#### Arguments
 
-_Example_
+{% parameter 'instance_id', 'String', true %}
+
+The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials"
+
+{% endparameter %}
+{% parameter 'secret_key', 'String', true %}
+
+The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+
+#### Returns
+
+A Beams token for the given user.
+
+#### Example
 
 ```py
-{connectingExample}
+beams_client = PushNotifications(
+    instance_id='YOUR_INSTANCE_ID_HERE',
+    secret_key='YOUR_SECRET_KEY_HERE',
+)
 ```
 
-## `.publish_to_interests`
+### `.publish_to_interests`
 
 Sends broadcast notifications to groups of subscribed devices using [Device Interests](/docs/beams/concepts/device-interests)
 
-_Arguments_ <br /> * `interests` (list {'<string>'} | *Min length=1, Max length=100* ): List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests) * `publish_body` (dictionary): A dictionary containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br />A dictionary containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter 'interests', 'list&lt;String&gt; Min length=1, Max length=100', true %}
 
-_Example_ <br />
+List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Device Interests](/docs/beams/concepts/device-interests)
+
+{% endparameter %}
+{% parameter 'publish_body', 'Dictionary' %}
+
+A dictionary containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+A dictionary containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
 
 ```py
-{pythonPublishToInterests}
+response = beams_client.publish_to_interests(
+  interests=['hello'],
+  publish_body={
+    'apns': {
+      'aps': {
+        'alert': {
+          'title': 'Hello',
+          'body': 'Hello, world!',
+        },
+      },
+    },
+    'fcm': {
+      'notification': {
+        'title': 'Hello',
+        'body': 'Hello, world!',
+      },
+    },
+    'web': {
+      'notification': {
+        'title': 'Hello',
+        'body': 'Hello, world!',
+      },
+    },
+  },
+)
+
+print(response['publishId'])
 ```
 
-## `.publish_to_users`
+### `.publish_to_users`
 
 Securely send notifications to individual users of your application using [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
-_Arguments_ <br /> * `user_ids` (list {'<string>'} | *Min length=1, Max length=1000* ): List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users) * `publish_body` (dictionary): A dictionary containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+#### Arguments
 
-_Returns_ <br />A dictionary containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter 'user_ids', 'list&lt;String&gt; Min length=1, Max length=100', true %}
 
-_Example_ <br />
+List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users)
+
+{% endparameter %}
+{% parameter 'publish_body', 'Dictionary' %}
+
+A dictionary containing the publish request body. See [publish API reference](/docs/beams/reference/publish-api#request-body)
+
+{% endparameter %}
+
+#### Returns
+
+A dictionary containing the publish response body. See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
 
 ```py
-{pythonPublishToUsers}
+response = beams_client.publish_to_users(
+  user_ids=['user-001', 'user-002'],
+  publish_body={
+    'apns': {
+      'aps': {
+        'alert': {
+          'title': 'Hello',
+          'body': 'Hello, world!',
+        },
+      },
+    },
+    'fcm': {
+      'notification': {
+        'title': 'Hello',
+        'body': 'Hello, world!',
+      },
+    },
+    'web': {
+      'notification': {
+        'title': 'Hello',
+        'body': 'Hello, world!',
+      },
+    },
+  },
+)
+
+print(response['publishId'])
 ```
 
-## `.generate_token`
+### `.generate_token`
 
 Generate a Beams auth token to allow a user to associate their device with their user id. The token is valid for 24 hours.
 
-_Arguments_ <br /> \* `user_id` (string): Id of the user you would like to generate a Beams auth token for.
+#### Arguments
 
-_Returns_ <br /> Beams token string.
+{% parameter 'user_id', 'String', true %}
 
-_Example_ <br />
+Id of the user you would like to generate a Beams auth token for.
+
+{% endparameter %}
+
+#### Returns
+
+Beams token string.
+
+#### Example
 
 ```py
-{generateTokenExample}
+user_id = '<ID_OF_AUTHENTICATED_USER>'
+token = beams_client.generate_token(user_id)
+# Return token to device
 ```
 
-## `.delete_user`
+### `.delete_user`
 
 Remove the given user (and all of their devices) from Beams. This user will no longer receive any notifications and all state stored about their devices will be deleted.
 
-_Arguments_ <br /> \* `user_id` (string): Id of the user you would like to delete from Beams.
+#### Arguments
 
-_Returns_ <br /> None
+{% parameter 'user_id', 'String', true %}
 
-_Example_ <br />
+Id of the user you would like to delete from Beams.
+
+{% endparameter %}
+
+#### Returns
+
+None
+
+#### Example
 
 ```py
-{deleteUserExample}
+user_id = '<ID_OF_USER_TO_BE_DELETED>'
+beams_client.delete_user(user_id)
 ```
