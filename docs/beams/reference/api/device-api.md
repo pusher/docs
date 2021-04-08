@@ -1,420 +1,527 @@
 ---
-title: Device api - Beams - Pusher Docs
+title: Device API - Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Api
   key: Device api
   title: Device API
   order: 3
 ---
+
 # Device API
- 
+
 This is the API used by our Android, iOS and Web SDKs.
- <Alert danger> We want everyone to use our official Android, iOS and Web SDKs. If your use case requires this documentation, please contact us <a external="" href="mailto:betterbeams@pusher.com"> betterbeams@pusher.com </a> </Alert> 
-# Register new APNs device
- 
+
+> We want everyone to use our official Android, iOS and Web SDKs. If your use case requires this documentation, please contact us [betterbeams@pusher.com](mailto:betterbeams@pusher.com)
+
+## Register new APNs device
+
 ```http
-{newAPNsDeviceDefinition}
+POST https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/apns
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `token` (string| *required* ): The APNs gateway token.  *  `bundleIdentifier` (string| *required* ): The application bundle identifier.  *  `metadata` (apnsMetadata| *optional* ): The metadata for this device, which contains the following fields:  *  `sdkVersion`: the version of the SDK.  *  `iosVersion`: the iOS version the device has.  *  `macosVersion`: the macOS version the device has.   </Item>  
-## Response Body
- 
+
+{% parameter 'token', 'String', true %}
+
+The APNs gateway token.
+
+{% endparameter %}
+{% parameter 'bundleIdentifier', 'String', true %}
+
+The application bundle identifier.
+
+{% endparameter %}
+{% parameter 'metadata', 'apnsMetadata', false %}
+
+The metadata for this device, which contains the following fields:
+
+- `sdkVersion`: the version of the SDK.
+- `iosVersion`: the iOS version the device has.
+- `macosVersion`: the macOS version the device has.
+
+{% endparameter %}
+
+### Response Body
+
 A JSON object with the following fields:
-  *  `id` (string): Unique string used to identify this device.  *  `initialInterestSet` (set of string): Set of interests the device is initially subscribed to which can happen when they are migrated from other competitor products.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Missing APNs token.</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Missing App Bundle Identifier.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td>Incorrect instance credentials.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td>Incorrect APNs token supplied.</td> </tr> <tr> <td>Instance not found</td> <td>404</td> <td>Could not find the instance.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Register new FCM device
- 
+
+{% parameter 'id', 'String', null %}
+
+Unique string used to identify this device.
+
+{% endparameter %}
+{% parameter 'initialInterestSet', 'Set&lt;string&gt;', null %}
+
+Set of interests the device is initially subscribed to which can happen when they are migrated from other competitor products.
+
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.     |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Bad request          | 400         | Failed to read body as a JSON object.     |
+| Bad request          | 400         | Missing APNs token.                       |
+| Bad request          | 400         | Missing App Bundle Identifier.            |
+| Unauthorized         | 401         | Incorrect instance credentials.           |
+| Unauthorized         | 401         | Incorrect APNs token supplied.            |
+| Instance not found   | 404         | Could not find the instance.              |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Register new FCM device
+
 ```http
-{newFCMDeviceDefinition}
+POST https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `token` (string| *required* ): The FCM gateway token.  *  `metadata` (fcmMetadata| *optional* ): The metadata for this device, which contains the following fields:  *  `sdkVersion`: the version of the SDK.  *  `androidVersion`: the Android version the device has.   </Item>  
-## Response Body
- 
+
+{% parameter 'token', 'String', true %}
+
+The FCM gateway token.
+
+{% endparameter %}
+{% parameter 'bundleIdentifier', 'String', true %}
+
+The application bundle identifier.
+
+{% endparameter %}
+{% parameter 'metadata', 'fcmMetadata', false %}
+
+The metadata for this device, which contains the following fields:
+
+- `sdkVersion`: the version of the SDK.
+- `androidVersion`: the Android version the device has.
+
+{% endparameter %}
+
+### Response Body
+
 A JSON object with the following fields:
-  *  `id` (string): Unique string used to identify this device.  *  `initialInterestSet` (set of string): Set of interests the device is initially subscribed to which can happen when they are migrated from other competitor products.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Missing FCM token.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td>Incorrect instance credentials.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td>Incorrect FCM token supplied.</td> </tr> <tr> <td>Instance not found</td> <td>404</td> <td>Could not find the instance.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Get APNs device
- 
+
+{% parameter 'id', 'String', null %}
+
+Unique string used to identify this device.
+
+{% endparameter %}
+{% parameter 'initialInterestSet', 'Set&lt;String&gt;', null %}
+
+Set of interests the device is initially subscribed to which can happen when they are migrated from other competitor products.
+
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.     |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad request          | 400         | Failed to read body as a JSON object.     |
+| Bad request          | 400         | Missing FCM token.                        |
+| Unauthorized         | 401         | Incorrect instance credentials.           |
+| Unauthorized         | 401         | Incorrect FCM token supplied.             |
+| Instance not found   | 404         | Could not find the instance.              |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Get APNs device
+
 ```http
-{getAPNsDeviceDefinition}
+GET https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/apns/<DEVICE_ID>
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Response Body
- 
-A JSON object representing the Device with the following fields: 
-  *  `id` (string): Unique string used to identify this device.  *  `userId` (string): The User Id this device belongs to.  *  `metadata` (apnsMetadata): The metadata for this device, which contains the following fields:  *  `sdkVersion`: the version of the SDK.  *  `iosVersion`: the iOS version the device has.  *  `macosVersion`: the macOS version the device has.   </Item>  
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Instance not found</td> <td>404</td> <td>Could not find the instance.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Get FCM device
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Response Body
+
+A JSON object representing the Device with the following fields:
+
+{% parameter 'id', 'String', true %}
+
+Unique string used to identify this device.
+
+{% endparameter %}
+{% parameter 'userId', 'String', true %}
+
+The User Id this device belongs to.
+
+{% endparameter %}
+{% parameter 'metadata', 'apnsMetadata', false %}
+
+The metadata for this device, which contains the following fields:
+
+- `sdkVersion`: the version of the SDK.
+- `iosVersion`: the iOS version the device has.
+- `macosVersion`: the macOS version the device has.
+
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.     |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Instance not found   | 404         | Could not find the instance.              |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Get FCM device
+
 ```http
-{getFCMDeviceDefinition}
+GET https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm/<DEVICE_ID>
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Response Body
- 
-A JSON object representing the Device with the following fields: 
-  *  `id` (string): Unique string used to identify this device.  *  `userId` (string): The User Id this device belongs to.  *  `metadata` (fcmMetadata): The metadata for this device, which contains the following fields:  *  `sdkVersion`: the version of the SDK.  *  `androidVersion`: the iOS version the device has.   </Item>  
-# Delete APNs device
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Response Body
+
+A JSON object representing the Device with the following fields:
+
+A JSON object representing the Device with the following fields:
+
+{% parameter 'id', 'String', true %}
+
+Unique string used to identify this device.
+
+{% endparameter %}
+{% parameter 'userId', 'String', true %}
+
+The User Id this device belongs to.
+
+{% endparameter %}
+{% parameter 'metadata', 'fcmMetadata', false %}
+
+The metadata for this device, which contains the following fields:
+
+- `sdkVersion`: the version of the SDK.
+- `androidVersion`: the Android version the device has.
+
+{% endparameter %}
+
+## Delete APNs device
+
 ```http
-{deleteAPNsDeviceDefinition}
+DELETE https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/apns/<DEVICE_ID>
 ```
- 
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Delete FCM device
- 
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Delete FCM device
+
 ```http
-{deleteFCMDeviceDefinition}
+DELETE https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm/<DEVICE_ID>
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Update APNs Device Metadata
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Update APNs Device Metadata
+
 ```http
-{updateAPNsDeviceMetadataDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/apns/<DEVICE_ID>/metadata
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `sdkVersion`: the version of the SDK.  *  `iosVersion`: the iOS version the device has.  *  `macosVersion`: the macOS version the device has.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Update FCM Device Metadata
- 
+
+- `sdkVersion`: the version of the SDK.
+- `iosVersion`: the iOS version the device has.
+- `macosVersion`: the macOS version the device has.
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.     |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Bad request          | 400         | Failed to read body as a JSON object.     |
+| Device not found     | 404         | Could not find the device.                |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Update FCM Device Metadata
+
 ```http
-{updateFCMDeviceMetadataDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm/<DEVICE_ID>/metadata
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `sdkVersion`: the version of the SDK.  *  `androidVersion`: the iOS version the device   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Update FCM Device Token
- 
+
+- `sdkVersion`: the version of the SDK.
+- `androidVersion`: the iOS version the device
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.     |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Bad request          | 400         | Failed to read body as a JSON object.     |
+| Device not found     | 404         | Could not find the device.                |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Update FCM Device Token
+
 ```http
-{updateFCMDeviceTokenDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm/<DEVICE_ID>/token
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `token`: the updated FCM token for this device.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Missing token field with the FCM Registration Id.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Set APNs Device User Id
- 
+
+- `token`: the updated FCM token for this device.
+
+### Error Responses
+
+| Title                | Status Code | Description                                       |
+| -------------------- | ----------- | ------------------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.             |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.         |
+| Bad Request          | 400         | `instance-id` given is not valid.                 |
+| Incomplete Request   | 400         | `device-id` param is missing from path.           |
+| Bad request          | 400         | Failed to read body as a JSON object.             |
+| Bad request          | 400         | Missing token field with the FCM Registration Id. |
+| Device not found     | 404         | Could not find the device.                        |
+| Something went wrong | 500         | Internal server error.                            |
+
+## Set APNs Device User Id
+
 ```http
-{setAPNsDeviceUserIdDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/apns/<DEVICE_ID>/user
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Authorization`: with the value in the following format: `{'Bearer <BEAMS_USER_JWT_TOKEN>'}`.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing expiration (exp) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing subject (sub) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>JWT subject (sub) must be between 1-164 characters long</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing issuer (iss) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>A User Id is already associated with this device.</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Invalid device id.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td> `Authorization` header token is missing. </td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td> `Authorization` header token is malformed. </td> </tr> <tr> <td>Forbidden</td> <td>403</td> <td>Invalid JWT issuer.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Unprocessable Entity</td> <td>422</td> <td>User already has reached the maximum of 100 devices.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Set FCM Device User Id
- 
+
+- `Authorization`: with the value in the following format: `Bearer <BEAMS_USER_JWT_TOKEN>`.
+
+### Error Responses
+
+| Title                | Status Code | Description                                             |
+| -------------------- | ----------- | ------------------------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.                   |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.               |
+| Bad Request          | 400         | `instance-id` given is not valid.                       |
+| Incomplete Request   | 400         | `device-id` param is missing from path.                 |
+| Bad Request          | 400         | Missing expiration (exp) field in JWT                   |
+| Bad Request          | 400         | Missing subject (sub) field in JWT                      |
+| Bad Request          | 400         | JWT subject (sub) must be between 1-164 characters long |
+| Bad Request          | 400         | Missing issuer (iss) field in JWT                       |
+| Bad Request          | 400         | A User Id is already associated with this device.       |
+| Bad Request          | 400         | Invalid device id.                                      |
+| Unauthorized         | 401         | `Authorization` header token is missing.                |
+| Unauthorized         | 401         | `Authorization` header token is malformed.              |
+| Forbidden            | 403         | Invalid JWT issuer.                                     |
+| Device not found     | 404         | Could not find the device.                              |
+| Unprocessable Entity | 422         | User already has reached the maximum of 100 devices.    |
+| Something went wrong | 500         | Internal server error.                                  |
+
+## Set FCM Device User Id
+
 ```http
-{setFCMDeviceUserIdDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/fcm/<DEVICE_ID>/user
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Authorization`: with the value in the following format: `{'Bearer <BEAMS_USER_JWT_TOKEN>'}`.   
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing expiration (exp) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing subject (sub) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>JWT subject (sub) must be between 1-164 characters long</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Missing issuer (iss) field in JWT</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>A User Id is already associated with this device.</td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td>Invalid device id.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td> `Authorization` header token is missing. </td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td> `Authorization` header token is malformed. </td> </tr> <tr> <td>Forbidden</td> <td>403</td> <td>Invalid JWT issuer.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Unprocessable Entity</td> <td>422</td> <td>User already has reached the maximum of 100 devices.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Get Device Interests
- 
+
+- `Authorization`: with the value in the following format: `Bearer <BEAMS_USER_JWT_TOKEN>`.
+
+### Error Responses
+
+| Title                | Status Code | Description                                             |
+| -------------------- | ----------- | ------------------------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.                   |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.               |
+| Bad Request          | 400         | `instance-id` given is not valid.                       |
+| Incomplete Request   | 400         | `device-id` param is missing from path.                 |
+| Bad Request          | 400         | Missing expiration (exp) field in JWT                   |
+| Bad Request          | 400         | Missing subject (sub) field in JWT                      |
+| Bad Request          | 400         | JWT subject (sub) must be between 1-164 characters long |
+| Bad Request          | 400         | Missing issuer (iss) field in JWT                       |
+| Bad Request          | 400         | A User Id is already associated with this device.       |
+| Bad Request          | 400         | Invalid device id.                                      |
+| Unauthorized         | 401         | `Authorization` header token is missing.                |
+| Unauthorized         | 401         | `Authorization` header token is malformed.              |
+| Forbidden            | 403         | Invalid JWT issuer.                                     |
+| Device not found     | 404         | Could not find the device.                              |
+| Unprocessable Entity | 422         | User already has reached the maximum of 100 devices.    |
+| Something went wrong | 500         | Internal server error.                                  |
+
+## Get Device Interests
+
 ```http
-{getDeviceInterestsDefinition}
+GET https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/<DEVICE_PLATFORM>/<DEVICE_ID>/interests
 ```
- 
-## Request Query Parameters
- 
+
+### Request Query Parameters
+
 The request can have the following query parameters:
-  *  `limit`: the maximum number of interests to be returned from a single request. By default, it's the maximum value of 100.  *  `cursor`: the cursor returned from a previous request to continue fetching the list of interests.   
-## Response Body
- 
+
+- `limit`: the maximum number of interests to be returned from a single request. By default, it's the maximum value of 100.
+- `cursor`: the cursor returned from a previous request to continue fetching the list of interests.
+
+### Response Body
+
 A JSON object with the following fields:
-  *  `interests` (array of string): The array of interests the device is currently subscribed to. This array might be incomplete and more requests might be needed to get the complete list.  *  `responseMetadata` (responseMetadata): which contains the following fields:  *  `nextCursor`: if present, use this to perform the next request   </Item>  
-## Error Responses
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `instance-id` given is not valid. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `device-id` param is missing from path. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `limit` given is not valid. </td> </tr> <tr> <td>Bad Request</td> <td>400</td> <td> `cursor` given is not valid. </td> </tr> <tr> <td>Instance not found</td> <td>404</td> <td>Could not find the instance.</td> </tr> <tr> <td>Device not found</td> <td>404</td> <td>Could not find the device.</td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Set Device Interests
- 
+
+{% parameter 'interests', 'Array&lt;string&gt;', null %}
+
+The array of interests the device is currently subscribed to. This array might be incomplete and more requests might be needed to get the complete list.
+
+{% endparameter %}
+{% parameter 'responseMetadata', 'responseMetadata', null %}
+
+which contains the following fields: \_ `nextCursor`: if present, use this to perform the next request
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                               |
+| -------------------- | ----------- | ----------------------------------------- |
+| Incomplete Request   | 400         | `instance-id` param is missing from path. |
+| Bad Request          | 400         | `instance-id` given is not valid.         |
+| Incomplete Request   | 400         | `device-id` param is missing from path.   |
+| Bad Request          | 400         | `limit` given is not valid.               |
+| Bad Request          | 400         | `cursor` given is not valid.              |
+| Instance not found   | 404         | Could not find the instance.              |
+| Device not found     | 404         | Could not find the device.                |
+| Something went wrong | 500         | Internal server error.                    |
+
+## Set Device Interests
+
 ```http
-{setDeviceInterestsDefinition}
+PUT https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/<DEVICE_PLATFORM>/<DEVICE_ID>/interests
 ```
- 
-## Request Body
- 
+
+### Request Body
+
 A JSON object with the following keys:
 
-    
-      *  `interests` (array of string): the set of interests this device should be subscribed to. This replaces any other existing interests. Limited to 5000 interests per device. 
-    
+- `interests` (array of string): the set of interests this device should be subscribed to. This replaces any other existing interests. Limited to 5000 interests per device.
 
-    
-## Error Responses
+### Error Responses
 
-    <Table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status Code</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Bad Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `device-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Bad request</td>
-          <td>400</td>
-          <td>Failed to read body as a JSON object.</td>
-        </tr>
-        <tr>
-          <td>Invalid interest name</td>
-          <td>400</td>
-          <td>
-            `interest-name` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Interest set too large</td>
-          <td>400</td>
-          <td>
-            Too many interests are being set for this device. Only 5000
-            interests per device are allowed.
-          </td>
-        </tr>
-        <tr>
-          <td>Instance not found</td>
-          <td>404</td>
-          <td>Could not find the instance.</td>
-        </tr>
-        <tr>
-          <td>Device not found</td>
-          <td>404</td>
-          <td>Could not find the device.</td>
-        </tr>
-        <tr>
-          <td>Something went wrong</td>
-          <td>500</td>
-          <td>Internal server error.</td>
-        </tr>
-      </tbody>
-    </Table>
+| Title                             | Status Code | Description                                                 |
+| --------------------------------- | ----------- | ----------------------------------------------------------- |
+| Incomplete Request                | 400         | `instance-id` param is missing from path.                   |
+| Bad Request                       | 400         | `instance-id` given is not valid.                           |
+| Incomplete Request                | 400         | `device-id` param is missing from path.                     |
+| Bad request                       | 400         | Failed to read body as a JSON object.                       |
+| Invalid interest name             | 400         | `interest-name` given is not valid.                         |
+| Interest set too large            | 400         | Too many interests are being set for this device. Only 5000 |
+| interests per device are allowed. |
+| Instance not found                | 404         | Could not find the instance.                                |
+| Device not found                  | 404         | Could not find the device.                                  |
+| Something went wrong              | 500         | Internal server error.                                      |
 
-    
-# Add Device Interest
+## Add Device Interest
 
-    
 ```http
-{addDeviceInterestsDefinition}
+POST https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/<DEVICE_PLATFORM>/<DEVICE_ID>/interests/<INTEREST_NAME>
 ```
 
+### Error Responses
 
-    
-## Error Responses
+| Title                 | Status Code | Description                                 |
+| --------------------- | ----------- | ------------------------------------------- |
+| Incomplete Request    | 400         | `instance-id` param is missing from path.   |
+| Bad Request           | 400         | `instance-id` given is not valid.           |
+| Incomplete Request    | 400         | `device-id` param is missing from path.     |
+| Bad Request           | 400         | `device-id` given is not valid.             |
+| Invalid interest name | 400         | `interest-name` given is not valid.         |
+| Incomplete Request    | 400         | `interest-name` param is missing from path. |
+| Instance not found    | 404         | Could not find the instance.                |
+| Something went wrong  | 500         | Internal server error.                      |
 
-    <Table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status Code</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Bad Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `device-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Bad Request</td>
-          <td>400</td>
-          <td>
-            `device-id` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Invalid interest name</td>
-          <td>400</td>
-          <td>
-            `interest-name` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `interest-name` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Instance not found</td>
-          <td>404</td>
-          <td>Could not find the instance.</td>
-        </tr>
-        <tr>
-          <td>Something went wrong</td>
-          <td>500</td>
-          <td>Internal server error.</td>
-        </tr>
-      </tbody>
-    </Table>
+## Remove Device Interest
 
-    
-# Remove Device Interest
-
-    
 ```http
-{removeDeviceInterestsDefinition}
+DELETE https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/device_api/v1/instances/<YOUR_INSTANCE_ID>/devices/<DEVICE_PLATFORM>/<DEVICE_ID>/interests/<INTEREST_NAME>
 ```
 
+### Error Responses
 
-    
-## Error Responses
-
-    <Table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status Code</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Bad Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `device-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `device-id` given is not valid.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `interest-name` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Instance not found</td>
-          <td>404</td>
-          <td>Could not find the instance.</td>
-        </tr>
-        <tr>
-          <td>Something went wrong</td>
-          <td>500</td>
-          <td>Internal server error.</td>
-        </tr>
-      </tbody>
-    </Table>
+| Title                | Status Code | Description                                 |
+| -------------------- | ----------- | ------------------------------------------- |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.   |
+| Bad Request          | 400         | `instance-id` given is not valid.           |
+| Incomplete Request   | 400         | `device-id` param is missing from path.     |
+| Incomplete Request   | 400         | `device-id` given is not valid.             |
+| Incomplete Request   | 400         | `interest-name` param is missing from path. |
+| Instance not found   | 404         | Could not find the instance.                |
+| Something went wrong | 500         | Internal server error.                      |

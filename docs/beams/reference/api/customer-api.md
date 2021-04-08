@@ -1,73 +1,36 @@
 ---
-title: Customer api - Beams - Pusher Docs
+title: Customer API - Beams - Pusher Docs
 layout: beams.njk
-eleventyNavigation: 
+eleventyNavigation:
   parent: Api
   key: Customer api
   title: Customer API
   order: 2
 ---
+
 # Customer API
- 
-# Deleting a User
- 
+
+## Deleting a User
+
 ```http
-{deleteUserDefinition}
+DELETE https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/customer_api/v1/instances/<YOUR_INSTANCE_ID>/users/<YOUR_USER_ID>
 ```
- <Alert primary> When sending the User ID in the path, make sure it's URL encoded. </Alert> 
-## Request headers
- 
+
+> When sending the User ID in the path, make sure it's URL encoded.
+
+### Request headers
+
 The following headers are necessary:
 
-    
-      *  `Authorization`: with the value in the following format: `{'Bearer <YOUR_SECRET_KEY>'}`. 
-    
+- `Authorization`: with the value in the following format: `Bearer <YOUR_SECRET_KEY>`.
 
-    
-## Error Responses
+### Error Responses
 
-    <Table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status Code</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>Authorization header is missing.</td>
-        </tr>
-        <tr>
-          <td>Unauthorized</td>
-          <td>401</td>
-          <td>Incorrect API Key.</td>
-        </tr>
-        <tr>
-          <td>Instance not found</td>
-          <td>404</td>
-          <td>Could not find the instance.</td>
-        </tr>
-        <tr>
-          <td>Rate Limited</td>
-          <td>429</td>
-          <td>
-            Too many requests being made in quick succession (max 100 RPS).
-          </td>
-        </tr>
-        <tr>
-          <td>Something went wrong</td>
-          <td>500</td>
-          <td>Internal server error.</td>
-        </tr>
-      </tbody>
-    </Table>
+| Title                | Status Code | Description                                                     |
+| -------------------- | ----------- | --------------------------------------------------------------- |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.                       |
+| Incomplete Request   | 400         | Authorization header is missing.                                |
+| Unauthorized         | 401         | Incorrect API Key.                                              |
+| Instance not found   | 404         | Could not find the instance.                                    |
+| Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |
+| Something went wrong | 500         | Internal server error.                                          |

@@ -1,5 +1,5 @@
 ---
-title: Publish api - Beams - Pusher Docs
+title: Publish API - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Api
@@ -10,119 +10,141 @@ eleventyNavigation:
 
 # Publish API
 
-# Publishing a notification to interest(s)
+## Publishing a notification to interest(s)
 
 ```http
-{interestsPublishDefinition}
+POST https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/publish_api/v1/instances/<YOUR_INSTANCE_ID>/publishes/interests
 ```
 
-## Request headers
+### Request headers
 
 The following headers are necessary:
 
-- `Authorization`: with the value in the following format: `{'Bearer <YOUR_SECRET_KEY>'}`. \* `Content-Type`: with the value always set to `application/json`.
+- `Authorization`: with the value in the following format: `Bearer <YOUR_SECRET_KEY>`.
+- `Content-Type`: with the value always set to `application/json`.
 
-## Request body
+### Request body
 
 A JSON object with the following keys:
 
-- `interests` (Array&lt;string&gt;| _required_ ): Array of interests to send the push notification to, ranging from 1 to 100 per publish request. * `webhookUrl` (String| *optional* ): a URL to which we will send webhooks at key points throughout the publishing process. E.g when the publish finishes. * At least one of: _ `apns`: the payload to be sent to APNs. The full set of options for the APNs section of the <code className="highlighter-rouge">notify</code> call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1). _ `fcm`: the payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream). \* `web`: the payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format). </Item> {interestNameValidationRules}
+{% parameter 'interests', 'Array&lt;string&gt;', true %}
 
-## Response Body
+Array of interests to send the push notification to, ranging from 1 to 100 per publish request.
+
+{% endparameter %}
+{% parameter 'webhookUrl', 'String', false %}
+
+A URL to which we will send webhooks at key points throughout the publishing process. E.g when the publish finishes.
+
+{% endparameter %}
+
+**At least one of:**
+
+{% parameter 'apns', 'object', null %}
+
+The payload to be sent to APNs. The full set of options for the APNs section of the `notify` call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+
+{% endparameter %}
+{% parameter 'apns', 'object', null %}
+
+The payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
+
+{% endparameter %}
+{% parameter 'web', 'object', null %}
+
+The payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format).
+
+{% endparameter %}
+
+> Each interest name can be up to 164 characters. Each character in the name must be an ASCII upper- or lower-case letter, a number, or one of `_-=@,.;`.
+
+### Response Body
 
 A JSON object with the following fields:
 
-- `publishId` (string| _required_ ): Unique string used to identify this publish request.
+{% parameter 'publishId', 'string', true %}
 
-## Error Responses
+Unique string used to identify this publish request.
 
- <Table> <thead> <tr> <th>Title</th> <th>Status Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Invalid content type</td> <td>400</td> <td> Only `application/json` is supported. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td> `instance-id` param is missing from path. </td> </tr> <tr> <td>Incomplete Request</td> <td>400</td> <td>Authorization header is missing.</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Request body size is too large (max 10KiB).</td> </tr> <tr> <td>Bad request</td> <td>400</td> <td>Failed to read body as a JSON object.</td> </tr> <tr> <td>Unauthorized</td> <td>401</td> <td>Incorrect API Key.</td> </tr> <tr> <td>Instance not found</td> <td>404</td> <td>Could not find the instance.</td> </tr> <tr> <td>Unprocessable Entity</td> <td>422</td> <td>JSON does not our match schema.</td> </tr> <tr> <td>Rate Limited</td> <td>429</td> <td> Too many requests being made in quick succession (max 100 RPS). </td> </tr> <tr> <td>Something went wrong</td> <td>500</td> <td>Internal server error.</td> </tr> </tbody> </Table> 
-# Publishing a notification to user(s)
- 
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                                                     |
+| -------------------- | ----------- | --------------------------------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.                           |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.                       |
+| Incomplete Request   | 400         | Authorization header is missing.                                |
+| Bad request          | 400         | Request body size is too large (max 10KiB).                     |
+| Bad request          | 400         | Failed to read body as a JSON object.                           |
+| Unauthorized         | 401         | Incorrect API Key.                                              |
+| Instance not found   | 404         | Could not find the instance.                                    |
+| Unprocessable Entity | 422         | JSON does not our match schema.                                 |
+| Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |
+| Something went wrong | 500         | Internal server error.                                          |
+
+## Publishing a notification to user(s)
+
 ```http
-{usersPublishDefinition}
+POST https://<YOUR_INSTANCE_ID>.pushnotifications.pusher.com/publish_api/v1/instances/<YOUR_INSTANCE_ID>/publishes/users
 ```
- 
-## Request headers
- 
+
+### Request headers
+
 The following headers are necessary:
-  *  `Authorization`: with the value in the following format: `{'Bearer <YOUR_SECRET_KEY>'}`.  *  `Content-Type`: with the value always set to `application/json`.   
-## Request body
- 
+
+- `Authorization`: with the value in the following format: `Bearer <YOUR_SECRET_KEY>`.
+- `Content-Type`: with the value always set to `application/json`.
+
+### Request body
+
 A JSON object with the following keys:
-  *  `users` (Array&lt;string&gt;| *required* ): Array of user IDs to send the push notification to, ranging from 1 to 1000 per publish request. User IDs are UTF-8 encoded strings of no more than 164 bytes.  *  At least one of:  *  `apns`: the payload to be sent to APNs. The full set of options for the APNs section of the <code className="highlighter-rouge">notify</code> call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).  *  `fcm`: the payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).  *  `web`: the payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format).   </Item>  
-## Response Body
- 
+
+{% parameter 'users', 'Array&lt;string&gt;', true %}
+
+Array of user IDs to send the push notification to, ranging from 1 to 1000 per publish request. User IDs are UTF-8 encoded strings of no more than 164 bytes
+
+{% endparameter %}
+
+**At least one of:**
+
+{% parameter 'apns', 'object', null %}
+
+The payload to be sent to APNs. The full set of options for the APNs section of the `notify` call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+
+{% endparameter %}
+{% parameter 'apns', 'object', null %}
+
+The payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
+
+{% endparameter %}
+{% parameter 'web', 'object', null %}
+
+The payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format).
+
+{% endparameter %}
+
+### Response Body
+
 A JSON object with the following fields:
 
-      *  `publishId` (string| *required* ): Unique string used to identify this publish request.
+{% parameter 'publishId', 'string', true %}
 
-## Error Responses
+Unique string used to identify this publish request.
 
-    <Table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status Code</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Invalid content type</td>
-          <td>400</td>
-          <td>
-            Only `application/json` is supported.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>
-            `instance-id` param is missing from path.
-          </td>
-        </tr>
-        <tr>
-          <td>Incomplete Request</td>
-          <td>400</td>
-          <td>Authorization header is missing.</td>
-        </tr>
-        <tr>
-          <td>Bad request</td>
-          <td>400</td>
-          <td>Request body size is too large (max 200KiB).</td>
-        </tr>
-        <tr>
-          <td>Bad request</td>
-          <td>400</td>
-          <td>Failed to read body as a JSON object.</td>
-        </tr>
-        <tr>
-          <td>Unauthorized</td>
-          <td>401</td>
-          <td>Incorrect API Key.</td>
-        </tr>
-        <tr>
-          <td>Instance not found</td>
-          <td>404</td>
-          <td>Could not find the instance.</td>
-        </tr>
-        <tr>
-          <td>Unprocessable Entity</td>
-          <td>422</td>
-          <td>JSON does not our match schema.</td>
-        </tr>
-        <tr>
-          <td>Rate Limited</td>
-          <td>429</td>
-          <td>
-            Too many requests being made in quick succession (max 100 RPS).
-          </td>
-        </tr>
-        <tr>
-          <td>Something went wrong</td>
-          <td>500</td>
-          <td>Internal server error.</td>
-        </tr>
-      </tbody>
-    </Table>
+{% endparameter %}
+
+### Error Responses
+
+| Title                | Status Code | Description                                                     |
+| -------------------- | ----------- | --------------------------------------------------------------- |
+| Invalid content type | 400         | Only `application/json` is supported.                           |
+| Incomplete Request   | 400         | `instance-id` param is missing from path.                       |
+| Incomplete Request   | 400         | Authorization header is missing.                                |
+| Bad request          | 400         | Request body size is too large (max 200KiB).                    |
+| Bad request          | 400         | Failed to read body as a JSON object.                           |
+| Unauthorized         | 401         | Incorrect API Key.                                              |
+| Instance not found   | 404         | Could not find the instance.                                    |
+| Unprocessable Entity | 422         | JSON does not our match schema.                                 |
+| Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |
+| Something went wrong | 500         | Internal server error.                                          |
