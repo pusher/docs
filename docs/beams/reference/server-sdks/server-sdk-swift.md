@@ -1,5 +1,5 @@
 ---
-title: Server sdk swift - Beams - Pusher Docs
+title: Server SDK Swift - Beams - Pusher Docs
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks
@@ -10,83 +10,215 @@ eleventyNavigation:
 
 # Swift Server SDK
 
-# Installation
+## Installation
 
 To include PushNotifications in your package, add the following to your `Package.swift` file.
 
 ```swift
-{install}
+// swift-tools-version:4.0
+import PackageDescription
+
+let package = Package(
+    name: "YourProjectName",
+    dependencies: [
+        ...
+        .package(url: "git@github.com:pusher/push-notifications-server-swift.git", from: "1.0.0"),
+    ],
+    targets: [
+      .target(name: "YourProjectName", dependencies: ["PushNotifications", ... ])
+    ]
+)
 ```
 
-# Usage
+## Reference
 
-## Configuring the SDK for your instance
+### `Class: PushNotifications`
 
-Use your instance ID and secret key (you can get these from the dashboard) to create a `PushNotifications` instance:
-
-```swift
-{instanceExampleSwift}
-```
-
-## Publishing a notification
-
-Once you have created your `PushNotifications` instance you can publish a push notification to your registered and subscribed devices:
-
-```swift
-{publishExampleSwift}
-```
-
-## Publish to users
-
-```swift
-{publishToUsersExample}
-```
-
-## Generate Token
-
-```swift
-{generateTokenExample}
-```
-
-## Delete user
-
-```swift
-{deleteUserExample}
-```
-
-# Reference
-
-## `Class: PushNotifications`
-
-** PushNotifications(instanceId: instanceId, secretKey: secretKey) **
 Construct a new Pusher Beams Client connected to your Beams instance.
 
-_Arguments_ <br /> _ `instanceId` (string): The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials". _ `secretKey` (string): The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+#### Arguments
 
-## `publishToInterests(interests, publishRequest)`
+{% parameter 'instance_id', 'String', true %}
+
+The unique identifier for your Push notifications instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+{% parameter 'secret_key', 'String', true %}
+
+The secret key your server will use to access your Beams instance. This can be found in the dashboard under "Credentials".
+
+{% endparameter %}
+
+#### Example
+
+```swift
+// Pusher Beams Instance Id.
+let instanceId = "YOUR_INSTANCE_ID_HERE"
+// Pusher Beams Secret Key.
+let secretKey = "YOUR_SECRET_KEY_HERE"
+
+// PushNotifications instance.
+let beamsClient = PushNotifications(instanceId: instanceId, secretKey: secretKey
+```
+
+### `publishToInterests(interests, publishRequest)`
 
 Publish a new push notification to Pusher Beams with the given payload.
 
-_Arguments_ <br /> _ `interests`: List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests). _ `publishRequest`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
+#### Arguments
 
-_Returns_ <br />A non-empty device ID string if successful; or a non-nil `PushNotificationsError` error otherwise. String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter 'interests', 'Array', true %}
 
-## `publishToUsers(users, publishRequest)`
+List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests).
+
+{% endparameter %}
+{% parameter 'publishRequest', 'Map' %}
+
+Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
+
+{% endparameter %}
+
+#### Returns
+
+A non-empty device ID string if successful; or a non-nil `PushNotificationsError` error otherwise. String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
+
+```swift
+// Interests array.
+let interests = ["pizza", "donuts"]
+// Publish request: APNs, FCM.
+let publishRequest = [
+  "apns": [
+    "aps": [
+      "alert": [
+          "title": "Hello",
+          "body": "Hello, world",
+      ]
+    ]
+  ],
+  "fcm": [
+    "notification": [
+      "title": "Hello",
+      "body":  "Hello, world",
+    ]
+  ]
+]
+
+// Publish To Interests
+beamsClient.publishToInterests(interests, publishRequest, completion: { result in
+    switch result {
+    case .value(let publishId):
+        print("\\(publishId)")
+    case .error(let error):
+        print("\\(error)")
+    }
+})
+```
+
+### `publishToUsers(users, publishRequest)`
 
 Publish the given `publishRequest` to specified users.
 
-_Arguments_ <br /> _ `users`: Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/users). _ `publishRequest`: Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
+#### Arguments
 
-_Returns_ <br /> String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+{% parameter 'users', 'Array', true %}
 
-## `generateToken(userId)`
+Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/users).
+
+{% endparameter %}
+{% parameter 'publishRequest', 'Map' %}
+
+Map containing the body of the push notification publish request. See [publish API reference](/docs/beams/reference/publish-api#request-body).
+
+{% endparameter %}
+
+#### Returns
+
+String that contains `publishId`: See [publish API reference](/docs/beams/reference/publish-api#success-response-body)
+
+#### Example
+
+```swift
+// Users array.
+let users = ["jonathan", "jordan", "luís", "luka", "mina"]
+// Publish request: APNs, FCM.
+let publishRequest = [
+    "apns": [
+        "aps": [
+          "alert": [
+              "title": "Hello",
+              "body": "Hello, world",
+          ]
+        ]
+      ],
+    "fcm": [
+        "notification": [
+            "title": "Hello",
+            "body":  "Hello, world",
+        ]
+    ]
+]
+
+// Publish To Users
+beamsClient.publishToUsers(users, publishRequest, completion: { result in
+    switch result {
+    case .value(let publishId):
+        print("\\publishId)")
+    case .error(let error):
+        print("\\(error)")
+    }
+})
+```
+
+### `generateToken(userId)`
 
 Generate a Beams auth token to allow a user to associate their device with their user ID. The token is valid for 24 hours.
 
-_Arguments_ <br /> \* `userId`: ID of the user you would like to generate a Beams auth token for.
+#### Arguments
 
-## `deleteUser(userId)`
+{% parameter 'userId', null, true %}
+
+ID of the user you would like to generate a Beams auth token for.
+
+{% endparameter %}
+
+#### Example
+
+```swift
+beamsClient.generateToken("Elmo", completion: { result in
+    switch result {
+    case .value(let jwtToken):
+        // 'jwtToken' is a Dictionary<String, String>
+        // Example: ["token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYWEiLCJleHAiOjE"]
+        print("\\(jwtToken)")
+    case .error(let error):
+        print("\\(error)")
+    }
+})
+```
+
+### `deleteUser(userId)`
 
 Remove the given user (and all of their devices) from Beams. This user will no longer receive any notifications and all state stored about their devices will be deleted.
 
-_Arguments_ <br /> \* `userId`: ID of the user you would like to remove from Beams.
+#### Arguments
+
+{% parameter 'userId', null, true %}
+
+ID of the user you would like to remove from Beams.
+
+{% endparameter %}
+
+#### Example
+
+```swift
+beamsClient.deleteUser("Elmo", completion: { result in
+    switch result {
+    case .value:
+        print("User deleted 👌")
+    case .error(let error):
+        print("\\(error)")
+    }
+})
+```
