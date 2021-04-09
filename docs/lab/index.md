@@ -1,7 +1,6 @@
 ---
 title: Pusher Lab — Pusher Docs
-layout: channels.njk
-hideTOC: true
+layout: other.njk
 eleventyNavigation:
   parent: Docs
   key: Pusher Lab
