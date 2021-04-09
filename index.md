@@ -4,4 +4,4 @@ description: Some words about what this website is to help people find it with s
 layout: home.njk
 ---
 
-Welcome to Pusher. Hosted APIs that are flexible, scalable, and easy to integrate. Get familiar with our products by getting started or exploring our API documentation.
+Welcome to Pusher. Our hosted APIs are flexible, scalable, and easy to integrate. Get to know our products by getting started or exploring our API documentation.
