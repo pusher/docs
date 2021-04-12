@@ -31,5 +31,8 @@
     "postcss-nested": "^5.0.5",
     "postcss-preset-env": "^6.7.0",
     "string": "^3.3.3"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.8.6"
   }
 }
