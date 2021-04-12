@@ -1,4 +1,6 @@
 const purgecss = require("@fullhuman/postcss-purgecss");
+const { VERCEL_ENV } = process.env;
+const is_prod_like = VERCEL_ENV === "production" || VERCEL_ENV === "preview";
 
 module.exports = {
   plugins: [
@@ -14,7 +16,7 @@ module.exports = {
       },
       stage: 3,
     }),
-    ...(process.env.NODE_ENV === "production"
+    ...(is_prod_like
       ? [
           purgecss({
             content: ["**/*.njk", "**/*.mjs"],
