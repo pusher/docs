@@ -1,0 +1,14 @@
+---
+permalink: search/beams.json
+---
+{%- set posts = collections.beams | reverse -%}
+[
+{%- for post in posts -%}
+  {
+    "title": "{{ post.data.title | default(" ") }}",
+    "date": "{{ page.date }}",
+    "url": "{{ post.url }}",
+    "content": "{{ post.templateContent | algExcerpt | jsonify }}"
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

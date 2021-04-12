@@ -204,6 +204,17 @@ module.exports = (eleventyConfig) => {
     return `<div class="method-wrapper">${content}</div>`;
   });
 
+  eleventyConfig.addFilter("jsonify", (text) => {
+    return JSON.stringify(text);
+  });
+
+  eleventyConfig.addFilter("algExcerpt", (text) => {
+    return text
+      .replace(/<code class="language-.*?">.*?<\/code>/gs, "")
+      .replace(/<.*?>/g, "")
+      .substring(0, 8000);
+  });
+
   eleventyConfig.setUseGitIgnore(false);
 
   return {
