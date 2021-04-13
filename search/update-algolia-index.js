@@ -8,8 +8,8 @@ if (VERCEL_ENV === "production") {
 
   index
     .replaceAllObjects(records)
-    .then(() => console.log("Algolia index updated"));
-    .catch((error)=> console.error('Failed to Algolia update index', error));
+    .then(() => console.log("Algolia index updated"))
+    .catch((error) => console.error("Failed to Algolia update index", error));
 } else {
   console.log("Skipped Algolia update because this is not production");
 }
