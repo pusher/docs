@@ -7,7 +7,7 @@ if (VERCEL_ENV === "production") {
   const index = client.initIndex("docs");
 
   index
-    .replaceAllObjects(records)
+    .replaceAllObjects(records, { autoGenerateObjectIDIfNotExist: true })
     .then(() => console.log("Algolia index updated"))
     .catch((error) => console.error("Failed to Algolia update index", error));
 } else {
