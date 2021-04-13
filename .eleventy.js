@@ -205,7 +205,7 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("jsonify", (text) => {
-    return JSON.stringify(text);
+    return JSON.stringify(text).replace(/(?:\\n\s*){2,}/g, "\\n");
   });
 
   eleventyConfig.addFilter("algExcerpt", (text) => {
