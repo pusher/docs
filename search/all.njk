@@ -8,7 +8,7 @@ permalink: search/all.json
     "title": "{{ post.data.title | default(" ") }}",
     "date": "{{ page.date }}",
     "url": "{{ post.url }}",
-    "content": "{{ post.templateContent | algExcerpt | jsonify }}"
+    "content": {{ post.templateContent | algExcerpt | jsonify | safe }}
   }{% if not loop.last %},{% endif %}
 {% endfor %}
 ]
