@@ -7,8 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "NODE_ENV=production postcss css/style.pcss -o _site/style.min.css && ELEVENTY_PRODUCTION=true eleventy",
-    "css": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose"
+    "build": "postcss css/style.pcss -o _site/style.min.css && ELEVENTY_PRODUCTION=true eleventy && yarn updateAlgoliaIndex",
+    "css": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose",
+    "updateAlgoliaIndex": "node ./search/update-algolia-index.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -31,5 +32,8 @@
     "postcss-nested": "^5.0.5",
     "postcss-preset-env": "^6.7.0",
     "string": "^3.3.3"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.8.6"
   }
 }
