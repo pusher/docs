@@ -171,3 +171,22 @@ blockquote p + p {
   padding-top: var(--spacing-large);
   border-top: 1px solid var(--smoke);
 }
+
+.search-wrap:focus-within .search-results-wrap {
+  display: block;
+}
+
+#search-results:empty {
+  display: none;
+}
+
+#search-results li + li {
+  border-top: 1px solid var(--smoke);
+}
+
+.search-snippet em {
+  font-style: normal;
+  background-color: var(--dragonfruit-wash);
+  color: var(--dragonfruit);
+  padding: 2px 0;
+}
