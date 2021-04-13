@@ -1,5 +1,5 @@
 ---
-title: Javascript realtime user list - Channels - Pusher Docs
+title: Javascript realtime user list
 layout: channels.njk
 eleventyNavigation:
   parent: Use case quick starts

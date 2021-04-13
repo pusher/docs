@@ -1,5 +1,5 @@
 ---
-title: Rest API - Channels - Pusher Docs
+title: Rest API
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

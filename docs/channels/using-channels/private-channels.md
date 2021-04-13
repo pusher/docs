@@ -1,5 +1,5 @@
 ---
-title: Private channels - Channels - Pusher Docs
+title: Private channels
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

@@ -1,5 +1,5 @@
 ---
-title: Device interests - Beams - Pusher Docs
+title: Device interests
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

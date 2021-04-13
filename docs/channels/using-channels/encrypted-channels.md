@@ -1,5 +1,5 @@
 ---
-title: Encrypted channels - Channels - Pusher Docs
+title: Encrypted channels
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

@@ -1,5 +1,5 @@
 ---
-title: Logging - Channels - Pusher Docs
+title: Logging
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

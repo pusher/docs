@@ -1,5 +1,5 @@
 ---
-title: Webhooks - Channels - Pusher Docs
+title: Webhooks
 layout: channels.njk
 eleventyNavigation:
   parent: Server api

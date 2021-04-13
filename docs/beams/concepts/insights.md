@@ -1,5 +1,5 @@
 ---
-title: Insights - Beams - Pusher Docs
+title: Insights
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

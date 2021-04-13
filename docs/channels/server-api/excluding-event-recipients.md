@@ -1,5 +1,5 @@
 ---
-title: Excluding event recipients - Channels - Pusher Docs
+title: Excluding event recipients
 layout: channels.njk
 eleventyNavigation:
   parent: Server api

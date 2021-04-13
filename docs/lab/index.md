@@ -1,5 +1,5 @@
 ---
-title: Pusher Lab — Pusher Docs
+title: Pusher Lab
 layout: other.njk
 eleventyNavigation:
   parent: Docs

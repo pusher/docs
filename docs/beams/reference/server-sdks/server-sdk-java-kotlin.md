@@ -1,5 +1,5 @@
 ---
-title: Server SDK java kotlin - Beams - Pusher Docs
+title: Server SDK java kotlin
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

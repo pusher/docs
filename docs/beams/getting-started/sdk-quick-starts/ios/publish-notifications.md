@@ -1,5 +1,5 @@
 ---
-title: Publish notifications - Beams - Pusher Docs
+title: Publish notifications
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS

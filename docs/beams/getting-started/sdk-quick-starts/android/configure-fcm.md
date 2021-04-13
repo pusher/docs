@@ -1,5 +1,5 @@
 ---
-title: Configure FCM - Beams - Pusher Docs
+title: Configure FCM
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started android

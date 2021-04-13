@@ -1,5 +1,5 @@
 ---
-title: Publishing to multiple devices - Beams - Pusher Docs
+title: Publishing to multiple devices
 layout: beams.njk
 eleventyNavigation:
   parent: Guides

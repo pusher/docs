@@ -1,5 +1,5 @@
 ---
-title: Server SDK ruby - Beams - Pusher Docs
+title: Server SDK ruby
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

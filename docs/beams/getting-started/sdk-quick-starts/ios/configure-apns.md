@@ -1,5 +1,5 @@
 ---
-title: Configure APNS - Beams - Pusher Docs
+title: Configure APNS
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS

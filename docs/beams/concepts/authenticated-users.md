@@ -1,5 +1,5 @@
 ---
-title: Authenticated users - Beams - Pusher Docs
+title: Authenticated users
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

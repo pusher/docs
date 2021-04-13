@@ -1,5 +1,5 @@
 ---
-title: SDK integration - Beams - Pusher Docs
+title: SDK integration
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS

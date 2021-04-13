@@ -1,5 +1,5 @@
 ---
-title: Safari Certificate Expiration - Beams - Pusher Docs
+title: Safari Certificate Expiration
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides

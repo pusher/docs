@@ -1,5 +1,5 @@
 ---
-title: Device compatibility - Channels - Pusher Docs
+title: Device compatibility
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

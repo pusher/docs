@@ -1,5 +1,5 @@
 ---
-title: Auth signatures - Channels - Pusher Docs
+title: Auth signatures
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

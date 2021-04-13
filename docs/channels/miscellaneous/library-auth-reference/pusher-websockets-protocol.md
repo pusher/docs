@@ -1,5 +1,5 @@
 ---
-title: Pusher websockets protocol - Channels - Pusher Docs
+title: Pusher websockets protocol
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

@@ -1,5 +1,5 @@
 ---
-title: Server SDK Swift - Beams - Pusher Docs
+title: Server SDK Swift
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

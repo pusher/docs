@@ -1,5 +1,5 @@
 ---
-title: Installation - Channels - Pusher Docs
+title: Installation
 layout: channels.njk
 eleventyNavigation:
   parent: Pusher cli

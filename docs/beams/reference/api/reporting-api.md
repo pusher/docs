@@ -1,5 +1,5 @@
 ---
-title: Reporting API - Beams - Pusher Docs
+title: Reporting API
 layout: beams.njk
 eleventyNavigation:
   parent: Api

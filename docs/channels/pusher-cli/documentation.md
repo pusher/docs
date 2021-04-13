@@ -1,5 +1,5 @@
 ---
-title: Documentation - Channels - Pusher Docs
+title: Documentation
 layout: channels.njk
 eleventyNavigation:
   parent: Pusher cli

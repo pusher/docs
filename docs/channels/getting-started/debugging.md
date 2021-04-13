@@ -1,5 +1,5 @@
 ---
-title: Debugging - Channels - Pusher Docs
+title: Debugging
 layout: channels.njk
 eleventyNavigation:
   parent: Getting started

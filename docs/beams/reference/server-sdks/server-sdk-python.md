@@ -1,5 +1,5 @@
 ---
-title: Server SDK Python - Beams - Pusher Docs
+title: Server SDK Python
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

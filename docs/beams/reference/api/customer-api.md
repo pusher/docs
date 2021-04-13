@@ -1,5 +1,5 @@
 ---
-title: Customer API - Beams - Pusher Docs
+title: Customer API
 layout: beams.njk
 eleventyNavigation:
   parent: Api

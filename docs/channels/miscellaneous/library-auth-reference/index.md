@@ -1,5 +1,5 @@
 ---
-title: Library auth reference - Docs - Pusher Docs
+title: Library auth reference
 layout: channels.njk
 eleventyNavigation:
   parent: Channels

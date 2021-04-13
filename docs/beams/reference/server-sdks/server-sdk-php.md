@@ -1,5 +1,5 @@
 ---
-title: Server SDK PHP - Beams - Pusher Docs
+title: Server SDK PHP
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

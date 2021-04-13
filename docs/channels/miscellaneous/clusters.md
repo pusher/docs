@@ -1,5 +1,5 @@
 ---
-title: Clusters - Channels - Pusher Docs
+title: Clusters
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous

@@ -1,5 +1,5 @@
 ---
-title: Webhooks - Beams - Pusher Docs
+title: Webhooks
 layout: beams.njk
 eleventyNavigation:
   parent: Api

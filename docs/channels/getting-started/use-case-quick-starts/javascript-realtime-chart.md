@@ -1,5 +1,5 @@
 ---
-title: Javascript realtime chart - Channels - Pusher Docs
+title: Javascript realtime chart
 layout: channels.njk
 eleventyNavigation:
   parent: Use case quick starts

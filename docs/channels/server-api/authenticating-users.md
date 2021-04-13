@@ -1,5 +1,5 @@
 ---
-title: Authenticating users - Channels - Pusher Docs
+title: Authenticating users
 layout: channels.njk
 eleventyNavigation:
   parent: Server api

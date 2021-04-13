@@ -1,5 +1,5 @@
 ---
-title: Presence channels - Channels - Pusher Docs
+title: Presence channels
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

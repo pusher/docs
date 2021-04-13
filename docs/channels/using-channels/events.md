@@ -1,5 +1,5 @@
 ---
-title: Events - Channels - Pusher Docs
+title: Events
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

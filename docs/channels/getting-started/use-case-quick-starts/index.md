@@ -1,5 +1,5 @@
 ---
-title: Use case quick starts - Docs - Pusher Docs
+title: Use case quick starts
 layout: channels.njk
 eleventyNavigation:
   parent: Getting started

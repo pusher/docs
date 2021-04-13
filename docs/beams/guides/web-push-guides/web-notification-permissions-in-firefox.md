@@ -1,5 +1,5 @@
 ---
-title: Web notification permissions in firefox - Beams - Pusher Docs
+title: Web notification permissions in firefox
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides

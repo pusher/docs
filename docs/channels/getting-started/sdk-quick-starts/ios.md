@@ -1,5 +1,5 @@
 ---
-title: iOS quick start — Channels — Pusher Docs
+title: iOS quick start
 layout: channels.njk
 eleventyNavigation:
   parent: Sdk quick starts

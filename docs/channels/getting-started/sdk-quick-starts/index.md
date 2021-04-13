@@ -1,5 +1,5 @@
 ---
-title: Sdk quick starts - Docs - Pusher Docs
+title: SDK quick starts
 layout: channels.njk
 eleventyNavigation:
   parent: Getting started

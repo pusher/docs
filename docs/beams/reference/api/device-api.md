@@ -1,5 +1,5 @@
 ---
-title: Device API - Beams - Pusher Docs
+title: Device API
 layout: beams.njk
 eleventyNavigation:
   parent: Api

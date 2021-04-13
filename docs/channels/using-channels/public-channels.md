@@ -1,5 +1,5 @@
 ---
-title: Public channels - Channels - Pusher Docs
+title: Public channels
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

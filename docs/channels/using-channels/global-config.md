@@ -1,5 +1,5 @@
 ---
-title: Global config - Channels - Pusher Docs
+title: Global config
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

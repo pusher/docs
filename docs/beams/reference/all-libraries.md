@@ -1,5 +1,5 @@
 ---
-title: All libraries - Beams - Pusher Docs
+title: All libraries
 layout: beams.njk
 eleventyNavigation:
   parent: Reference

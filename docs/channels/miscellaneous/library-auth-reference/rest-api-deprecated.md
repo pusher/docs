@@ -1,5 +1,5 @@
 ---
-title: Rest api deprecated - Channels - Pusher Docs
+title: Rest api deprecated
 layout: channels.njk
 eleventyNavigation:
   key: Rest api deprecated

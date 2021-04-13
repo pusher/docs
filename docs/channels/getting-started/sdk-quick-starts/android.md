@@ -1,5 +1,5 @@
 ---
-title: Android quick start — Channels — Pusher Docs
+title: Android quick start
 layout: channels.njk
 eleventyNavigation:
   parent: Sdk quick starts

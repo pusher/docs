@@ -1,5 +1,5 @@
 ---
-title: Server SDK Go - Beams - Pusher Docs
+title: Server SDK Go
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

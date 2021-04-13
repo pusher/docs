@@ -1,5 +1,5 @@
 ---
-title: Existing service worker - Beams - Pusher Docs
+title: Existing service worker
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides

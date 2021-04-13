@@ -1,5 +1,5 @@
 ---
-title: Publish API - Beams - Pusher Docs
+title: Publish API
 layout: beams.njk
 eleventyNavigation:
   parent: Api

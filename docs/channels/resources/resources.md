@@ -1,5 +1,5 @@
 ---
-title: Resources - Channels - Pusher Docs
+title: Resources
 layout: channels.njk
 eleventyNavigation:
   parent: Resources

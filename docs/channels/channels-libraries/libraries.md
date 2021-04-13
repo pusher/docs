@@ -1,5 +1,5 @@
 ---
-title: Libraries - Channels - Pusher Docs
+title: Libraries
 layout: channels.njk
 eleventyNavigation:
   parent: Channels libraries

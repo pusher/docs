@@ -1,5 +1,5 @@
 ---
-title: Init beams - Beams - Pusher Docs
+title: Init beams
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started android

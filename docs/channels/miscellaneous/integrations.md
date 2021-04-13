@@ -1,5 +1,5 @@
 ---
-title: Integrations - Channels - Pusher Docs
+title: Integrations
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous

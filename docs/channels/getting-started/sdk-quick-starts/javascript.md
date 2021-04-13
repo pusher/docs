@@ -1,5 +1,5 @@
 ---
-title: JavaScript quick start — Channels — Pusher Docs
+title: JavaScript quick start
 layout: channels.njk
 eleventyNavigation:
   parent: Sdk quick starts

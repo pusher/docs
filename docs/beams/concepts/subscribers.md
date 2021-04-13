@@ -1,5 +1,5 @@
 ---
-title: Subscribers - Beams - Pusher Docs
+title: Subscribers
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

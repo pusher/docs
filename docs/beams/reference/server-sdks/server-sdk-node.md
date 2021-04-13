@@ -1,5 +1,5 @@
 ---
-title: Server SDK Node.js - Beams - Pusher Docs
+title: Server SDK Node.js
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

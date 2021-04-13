@@ -1,5 +1,5 @@
 ---
-title: Publish payloads - Beams - Pusher Docs
+title: Publish payloads
 layout: beams.njk
 eleventyNavigation:
   parent: Reference

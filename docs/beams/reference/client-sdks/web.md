@@ -1,5 +1,5 @@
 ---
-title: Web - Beams - Pusher Docs
+title: Web
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks

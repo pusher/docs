@@ -1,5 +1,5 @@
 ---
-title: Websocket fallbacks - Channels - Pusher Docs
+title: Websocket fallbacks
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

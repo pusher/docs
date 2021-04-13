@@ -1,5 +1,5 @@
 ---
-title: Android - Beams - Pusher Docs
+title: Android
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks
