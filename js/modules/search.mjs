@@ -24,30 +24,28 @@ const runSearch = async (event) => {
   });
 
   const formattedResults = results.map((result) => {
-    if (result.url) {
-      const li = document.createElement("li");
-      const link = document.createElement("a");
-      const title = document.createElement("strong");
-      const excerpt = document.createElement("p");
-      link.href = result.url;
-      link.classList.add(
-        "db",
-        "link",
-        "eggplant",
-        "hover-dragonfruit",
-        "hover-bg-snow-light",
-        "pv3",
-        "ph4"
-      );
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    const title = document.createElement("strong");
+    const excerpt = document.createElement("p");
+    link.href = result.url;
+    link.classList.add(
+      "db",
+      "link",
+      "eggplant",
+      "hover-dragonfruit",
+      "hover-bg-snow-light",
+      "pv3",
+      "ph4"
+    );
 
-      excerpt.classList.add("search-snippet");
-      excerpt.innerHTML = result._snippetResult.content.value;
-      title.innerText = result.title;
-      link.appendChild(title);
-      link.appendChild(excerpt);
-      li.appendChild(link);
-      return li;
-    }
+    excerpt.classList.add("search-snippet");
+    excerpt.innerHTML = result._snippetResult.content.value;
+    title.innerText = result.title;
+    link.appendChild(title);
+    link.appendChild(excerpt);
+    li.appendChild(link);
+    return li;
   });
   formattedResults.map((el) =>
     searchResultsContainer.insertAdjacentElement("beforeend", el)
