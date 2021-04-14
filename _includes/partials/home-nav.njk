@@ -53,14 +53,16 @@
     </nav>
     <nav class="dn db-l flex-grow-1" style="margin-left: 6px;">
       <ul class="list pa0 ma0 flex items-center justify-center">
-        <li class="ml-auto relative w-40-l">
-          <form>
-            <label for="search" class="clip">
-              Search Pusher documentation
-            </label>
+        <li class="ml-auto relative w-40-l search-wrap">
+          <label for="search" class="clip">
+            Search Pusher documentation
+          </label>
+          <input name="search" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" maxlength="200">
 
-            <input name="search" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" maxlength="200">
-          </form>
+          <div class="br2 mt2 ba b--smoke absolute left-0 right-0 dn bg-snow-light search-results-wrap">
+            <ul class="bg-white list ma0 pa0 overflow-y-auto bb b--smoke br2 br--top" style="top: 100%; max-height: 60vh;" id="search-results"></ul>
+            <footer class="f6 pv3 ph4 steel">Search powered by <a href="#" class="link eggplant hover-dragonfruit underline">Algolia</a></footer>
+          </div>
         </li>
         <li class="ml-auto">
           <a href="https://dashboard.pusher.com/accounts/sign_in" class="db maison f7 fw6 link eggplant hover-dragonfruit">
