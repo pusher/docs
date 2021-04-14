@@ -215,6 +215,15 @@ module.exports = (eleventyConfig) => {
       .substring(0, 8000);
   });
 
+  // Some pages are blank and exist just to show up
+  // in the navigation (e.g. beams/concepts/index.md)
+  // and we don’t want to index them in search
+  eleventyConfig.addCollection("algolia", (collectionApi) => {
+    return collectionApi
+      .getFilteredByTag("docs")
+      .filter((item) => item.url !== false);
+  });
+
   eleventyConfig.setUseGitIgnore(false);
 
   return {

@@ -1,7 +1,7 @@
 ---
 permalink: search/all.json
 ---
-{%- set posts = collections.docs | reverse -%}
+{%- set posts = collections.algolia -%}
 [
 {%- for post in posts -%}
   {
