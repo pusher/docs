@@ -15,10 +15,12 @@
     {% if not hideTOC and TOC != "" %}
     <div class="measure sticky top-2 basis-30-ns flex-grow-1-ns">
       <div class="relative search-wrap">
-        <label for="search" class="clip">
-          Search Pusher documentation
-        </label>
-        <input name="search" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" maxlength="200">
+        <form id="search-form" type="POST" action="/api/search">
+          <label for="search" class="clip">
+            Search Pusher documentation
+          </label>
+          <input name="t" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" maxlength="200">
+        </form>
 
         <div class="br2 mt2 ba b--smoke absolute left-0 right-0 dn bg-snow-light search-results-wrap">
           <ul class="bg-white list ma0 pa0 overflow-y-auto bb b--smoke br2 br--top" style="top: 100%; max-height: 60vh;" id="search-results"></ul>

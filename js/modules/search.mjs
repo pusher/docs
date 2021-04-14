@@ -5,7 +5,9 @@ const searchIndex = client.initIndex("docs");
 
 export default async () => {
   const searchBox = document.getElementById("search");
+  const searchForm = document.getElementById("search-form");
   searchBox.addEventListener("input", runSearch.debounce(250));
+  searchForm.addEventListener("submit", (e) => e.preventDefault());
 };
 
 const runSearch = async (event) => {
