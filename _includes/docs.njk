@@ -12,7 +12,6 @@
 
     </article>
     {% set TOC = content | toc | replace("∞", "") | safe %}
-    {% if not hideTOC and TOC != "" %}
     <div class="measure sticky top-2 basis-30-ns flex-grow-1-ns">
       <div class="relative search-wrap">
         <form id="search-form" type="POST" action="/api/search">
@@ -28,17 +27,15 @@
         </div>
       </div>
 
-      <div class="mt5 bg-snow-light ba b--smoke-light pa4 br2 nested-copy-seperator nested-code">
-        <header class="mb4 lh-title bb b--smoke">
-          <h4 class="f4 fw5 ma0">Contents</h4>
-        </header>
-        {{ TOC }}
-      </div>
+      {% if not hideTOC and TOC != "" %}
+        <div class="mt5 bg-snow-light ba b--smoke-light pa4 br2 nested-copy-seperator nested-code">
+          <header class="mb4 lh-title bb b--smoke">
+            <h4 class="f4 fw5 ma0">Contents</h4>
+          </header>
+          {{ TOC }}
+        </div>
+      {% endif %}
     </div>
-    {% else %}
-      <aside class="measure mt6 mt7-l top-2 mh5 basis-30-ns">
-      </aside>
-    {% endif %}
   </section>
 
 {% endblock %}
