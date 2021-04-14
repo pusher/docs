@@ -18,13 +18,13 @@ const runSearch = async (event) => {
 
   const { hits: results } = await searchIndex.search(searchTerm, {
     hitsPerPage: 10,
-    attributesToRetrieve: ["title", "url", "tags"],
+    attributesToRetrieve: ["title", "url", "_tags"],
     attributesToSnippet: ["content"],
     snippetEllipsisText: "…",
   });
 
   const formattedResults = results.map((result) => {
-    const productName = extractProductName(result.tags);
+    const productName = extractProductName(result._tags);
 
     // Create elements
     const li = document.createElement("li");
@@ -76,13 +76,8 @@ const runSearch = async (event) => {
   );
 };
 
-const extractProductName = (string) => {
-  const names = string.split(",");
-  if (names.length) {
-    return names.filter((str) => str !== "docs")[0];
-  } else {
-    return "";
-  }
+const extractProductName = (tags) => {
+  return tags.filter((tag) => tag === "channels" || tag === "beams")[0];
 };
 
 Function.prototype.debounce = function (delay) {
