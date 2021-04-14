@@ -13,15 +13,20 @@ export default async () => {
 const runSearch = async (event) => {
   const searchResultsContainer = document.getElementById("search-results");
   searchResultsContainer.textContent = "";
+
   const searchTerm = event.target.value;
   if (searchTerm.length < 2) return;
 
-  const { hits: results } = await searchIndex.search(searchTerm, {
+  const productToFilterBy = event.target.dataset.filter || false;
+  const alogliaArgs = {
     hitsPerPage: 10,
     attributesToRetrieve: ["title", "url", "_tags"],
     attributesToSnippet: ["content"],
     snippetEllipsisText: "…",
-  });
+  };
+  if (productToFilterBy) alogliaArgs.filters = productToFilterBy;
+
+  const { hits: results } = await searchIndex.search(searchTerm, alogliaArgs);
 
   const formattedResults = results.map((result) => {
     const productName = extractProductName(result._tags);

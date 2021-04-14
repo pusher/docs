@@ -19,7 +19,7 @@
           <label for="search" class="clip">
             Search Pusher documentation
           </label>
-          <input name="t" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" maxlength="200">
+          <input name="t" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" data-filter="{{ product | lower }}" maxlength="200">
         </form>
 
         <div class="br2 mt2 ba b--smoke absolute left-0 right-0 dn bg-snow-light search-results-wrap">
