@@ -18,16 +18,21 @@ const runSearch = async (event) => {
 
   const { hits: results } = await searchIndex.search(searchTerm, {
     hitsPerPage: 10,
-    attributesToRetrieve: ["title", "url"],
+    attributesToRetrieve: ["title", "url", "tags"],
     attributesToSnippet: ["content"],
     snippetEllipsisText: "…",
   });
 
   const formattedResults = results.map((result) => {
+    const productName = extractProductName(result.tags);
+
+    // Create elements
     const li = document.createElement("li");
     const link = document.createElement("a");
     const title = document.createElement("strong");
     const excerpt = document.createElement("p");
+    const product = document.createElement("span");
+
     link.href = result.url;
     link.classList.add(
       "db",
@@ -41,7 +46,26 @@ const runSearch = async (event) => {
 
     excerpt.classList.add("search-snippet");
     excerpt.innerHTML = result._snippetResult.content.value;
+
+    title.classList.add("flex", "items-center");
     title.innerText = result.title;
+
+    product.innerText = productName;
+    product.classList.add(
+      "ttu",
+      "ml-auto",
+      "channels",
+      "br2",
+      "pv1",
+      "ph2",
+      "bg-white",
+      "ba",
+      "b--smoke",
+      productName
+    );
+
+    // Put all the elements together
+    title.appendChild(product);
     link.appendChild(title);
     link.appendChild(excerpt);
     li.appendChild(link);
@@ -50,6 +74,15 @@ const runSearch = async (event) => {
   formattedResults.map((el) =>
     searchResultsContainer.insertAdjacentElement("beforeend", el)
   );
+};
+
+const extractProductName = (string) => {
+  const names = string.split(",");
+  if (names.length) {
+    return names.filter((str) => str !== "docs")[0];
+  } else {
+    return "";
+  }
 };
 
 Function.prototype.debounce = function (delay) {
