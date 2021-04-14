@@ -1,7 +1,7 @@
 import algoliasearch from "algoliasearch";
-const { ALGOLIA_SEARCH_API_KEY } = process.env;
+const { ALGOLIA_SEARCH_KEY } = process.env;
 
-const client = algoliasearch("BQ93464WAA", ALGOLIA_SEARCH_API_KEY);
+const client = algoliasearch("BQ93464WAA", ALGOLIA_SEARCH_KEY);
 const searchIndex = client.initIndex("docs");
 
 module.exports = async (req, res) => {

@@ -1,6 +1,6 @@
 import algoliasearch from "https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.esm.browser.js";
 
-const client = algoliasearch("BQ93464WAA", "c57a8a3916cb6b922ddee4ec56a561d2");
+const client = algoliasearch("BQ93464WAA", "8c5d4d4e0f5b07555c1188b7da8089e1");
 const searchIndex = client.initIndex("docs");
 
 export default async () => {
