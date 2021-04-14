@@ -9,7 +9,7 @@ permalink: search/all.json
     "date": "{{ page.date }}",
     "url": "{{ post.url }}",
     "content": {{ post.templateContent | algExcerpt | jsonify | safe }},
-    "tags": "{{ post.data.tags }}"
+    "_tags": [{%- for tag in post.data.tags -%}"{{ tag }}"{%- if not loop.last -%},{% endif %}{% endfor %}]
   }{% if not loop.last %},{% endif %}
 {% endfor %}
 ]
