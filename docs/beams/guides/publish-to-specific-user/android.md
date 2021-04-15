@@ -296,7 +296,7 @@ PushNotifications.setUserId("<USER_ID_GOES_HERE>", tokenProvider, new BeamsCallb
 
 When a user logs of your application, you will want to ensure that notifications are no longer sent to that users' device. You can do this by calling the `clearAllState` method in the SDK. This will disassociate the device from that user and put the SDK into a clean state.
 
-> Calling `clearAllState` will also clear any [Device Interests](docs/beams/concepts/device-interests) present on the device. If you would like to retain any Device Interests after logging out, you should re-subscribe to them.
+> Calling `clearAllState` will also clear any [Device Interests](/docs/beams/concepts/device-interests) present on the device. If you would like to retain any Device Interests after logging out, you should re-subscribe to them.
 
 {% snippets ['kotlin', 'java'] %}
 

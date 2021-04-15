@@ -10,7 +10,7 @@ eleventyNavigation:
 
 # Integrate Android SDK
 
-Once you have [properly configured FCM](/docs/beams/getting-started/sdk-quick-starts/android/configure-fcm/) you will need to integrate the Pusher & FCM SDKs into your project. In this guide we will assume that you are using Gradle and Android Studio.
+Once you have [properly configured FCM](/docs/beams/getting-started/android/configure-fcm/) you will need to integrate the Pusher & FCM SDKs into your project. In this guide we will assume that you are using Gradle and Android Studio.
 
 ## Add Firebase config file to your project
 
@@ -127,4 +127,4 @@ Synchronize Gradle by pressing the "Sync Now" button:
 ## Where Next?
 
 Now that you integrated the Android SDK into your project, you can
-[initialize Pusher Beams](/docs/beams/getting-started/sdk-quick-starts/android/init-beams/).
+[initialize Pusher Beams](/docs/beams/getting-started/android/init-beams/).

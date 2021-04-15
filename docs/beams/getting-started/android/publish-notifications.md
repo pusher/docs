@@ -12,7 +12,7 @@ eleventyNavigation:
 
 Push notifications are triggered by your servers to our Beams service. After a device using your Android application subscribes to an interest on our service, your server can then send a push notification to that device by publishing to that interest.
 
-Before you can send push notifications, make sure you have [configured your FCM Key](/docs/beams/getting-started/sdk-quick-starts/android/configure-fcm/), [integrated your app with the SDK](/docs/beams/getting-started/sdk-quick-starts/android/sdk-integration/), and [initialized Beams ](/docs/beams/getting-started/sdk-quick-starts/android/init-beams/)
+Before you can send push notifications, make sure you have [configured your FCM Key](/docs/beams/getting-started/android/configure-fcm/), [integrated your app with the SDK](/docs/beams/getting-started/android/sdk-integration/), and [initialized Beams ](/docs/beams/getting-started/android/init-beams/)
 
 ## Sending a notification
 

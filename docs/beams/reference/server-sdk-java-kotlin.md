@@ -81,7 +81,7 @@ Sends broadcast notifications to groups of subscribed devices using [Device Inte
 
 {% parameter 'interests', 'List&lt;String&gt;', true %}
 
-List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests).
+List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/device-interests).
 
 {% endparameter %}
 {% parameter 'publishRequest', 'Map&lt;String, Map&gt;', true %}

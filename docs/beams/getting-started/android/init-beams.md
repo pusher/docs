@@ -10,7 +10,7 @@ eleventyNavigation:
 
 # Initialize Beams
 
-After you have [added the required dependencies](/docs/beams/getting-started/sdk-quick-starts/android/sdk-integration/), it's time to start Pusher Beams in your project.
+After you have [added the required dependencies](/docs/beams/getting-started/android/sdk-integration/), it's time to start Pusher Beams in your project.
 
 ## Import Pusher Beams
 
@@ -32,7 +32,7 @@ PushNotifications.start(getApplicationContext(), "YOUR_INSTANCE_ID");
 
 ## Add a device interest
 
-Finally, add this line to subscribe to an [interest](/docs/beams/concepts/interests) so that your server can send notifications to this device.
+Finally, add this line to subscribe to an [interest](/docs/beams/concepts/device-interests) so that your server can send notifications to this device.
 
 ```java
 PushNotifications.addDeviceInterest("hello");
@@ -40,4 +40,4 @@ PushNotifications.addDeviceInterest("hello");
 
 ## Where Next?
 
-Now that you have initialized Pusher Beams, why not [send a notification](/docs/beams/getting-started/sdk-quick-starts/android/publish-notifications/)?
+Now that you have initialized Pusher Beams, why not [send a notification](/docs/beams/getting-started/android/publish-notifications/)?

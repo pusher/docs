@@ -12,7 +12,7 @@ eleventyNavigation:
 
 Push notifications are triggered by your servers to our Beams service. After a device using your iOS application subscribes to an interest on our service, your server can then send a push notification to that device by publishing to that interest.
 
-Before you can send push notifications, make sure you have [configured your APNs Key](/docs/beams/getting-started/sdk-quick-starts/ios/configure-apns/) and [integrated your app with the SDK](/docs/beams/getting-started/sdk-quick-starts/ios/sdk-integration/).
+Before you can send push notifications, make sure you have [configured your APNs Key](/docs/beams/getting-started/ios/configure-apns/) and [integrated your app with the SDK](/docs/beams/getting-started/ios/sdk-integration/).
 
 ## Sending a notification
 

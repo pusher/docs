@@ -43,4 +43,4 @@ Now go to the Pusher Beams instance in the [dashboard](https://dashboard.pusher.
 ## Where Next?
 
 Now that you have configured APNs you can
-[integrate our iOS SDK](/docs/beams/getting-started/sdk-quick-starts/ios/sdk-integration/).
+[integrate our iOS SDK](/docs/beams/getting-started/ios/sdk-integration/).

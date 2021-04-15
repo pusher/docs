@@ -57,4 +57,4 @@ This FCM Server Key can be saved to your Pusher Beams instance in the [dashboard
 ## Where Next?
 
 Now that you have configured FCM you can
-[integrate our Android SDK into your project](/docs/beams/getting-started/sdk-quick-starts/android/sdk-integration/).
+[integrate our Android SDK into your project](/docs/beams/getting-started/android/sdk-integration/).

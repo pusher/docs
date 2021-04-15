@@ -316,7 +316,7 @@ Pusher::PushNotifications.publish_to_interests(interests: ['hello'], payload: da
 
 ## Where next?
 
-- Configure Beams to [send notifications to Safari](/docs/beams/getting-started/sdk-quick-starts/web/configure-safari/) (optional)
+- Configure Beams to [send notifications to Safari](/docs/beams/getting-started/web/configure-safari/) (optional)
 - Read the [guide on publishing to a specific user](/docs/beams/guides/publish-to-specific-user/web) to learn about securely publishing to individual users
 - [Web SDK reference docs](/docs/beams/reference/web)
 - [Web publish format](/docs/beams/reference/publish-payloads#web-format)

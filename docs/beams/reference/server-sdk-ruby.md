@@ -52,7 +52,7 @@ Publish a new push notification to Pusher Beams with the given payload.
 
 {% parameter 'interests', 'Array', true %}
 
-List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/interests).
+List of interests to send the push notification to, ranging from 1 to 100 per publish request. See [Interests](/docs/beams/concepts/device-interests).
 
 {% endparameter %}
 {% parameter 'payload', 'Map' %}
@@ -96,7 +96,7 @@ Publish the given `publishRequest` to specified users.
 
 {% parameter 'users', 'Array', true %}
 
-Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/users).
+Array of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users/).
 
 {% endparameter %}
 {% parameter 'publishRequest', 'Map' %}
