@@ -1,0 +1,15 @@
+{% from "partials/channels-logo.njk" import channelsLogo %}
+{% from "partials/beams-logo.njk" import beamsLogo %}
+{% set bodyClasses = "flex flex-column flex-row-l min-vh-100" %}
+{% extends "base.njk" %}
+
+{% block container %}
+  <div class="flex-grow-1">
+    {% include "partials/home-nav.njk" %}
+    <section class="pa5 mw9 center">
+      <div class="f5 f4-ns measure">
+        {{ super() }}
+      </div>
+    </section>
+  </div>
+{% endblock %}
