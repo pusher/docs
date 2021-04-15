@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 module.exports = {
-  includeAnalytics: process.env.ELEVENTY_PRODUCTION === true,
+  includeAnalytics: process.env.VERCEL_ENV === "production",
 };
