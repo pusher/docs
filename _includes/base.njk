@@ -24,5 +24,9 @@
     </div>
 
     <script type="module" src="/js/application.mjs" rel="preload"></script>
+
+    {% if includeAnalytics %}
+      {% include "partials/analytics.njk" %}
+    {% endif %}
   </body>
 </html>
