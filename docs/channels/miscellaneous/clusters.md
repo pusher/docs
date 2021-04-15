@@ -11,7 +11,7 @@ eleventyNavigation:
 
 A "cluster" represents the physical location of the servers that handle requests from your Channels app. For example, the Channels cluster `mt1` is in Northern Virginia in the United States. When you create a Channels app, you can choose which cluster it exists in. You might choose this to achieve lower latency or to comply with data protection regulations.
 
-# What clusters exist?
+## What clusters exist?
 
 Channels has the following public clusters:
 
@@ -26,7 +26,7 @@ Channels has the following public clusters:
 
 If you require other locations, we can create dedicated Channels clusters in custom locations on request: [talk to us](https://pusher.com/contact).
 
-# How should I choose a cluster?
+## How should I choose a cluster?
 
 - **To achieve lower network latency.**
   - Depending on your use case, having your Channels app hosted close to its customers or your servers may help improve the latency when sending and receiving messages.
@@ -35,11 +35,11 @@ If you require other locations, we can create dedicated Channels clusters in cus
   - European data protection regulations specify that personal user data should not leave the EU borders.
   - For this use-case, Channels offers a cluster in `eu-west-1`, an AWS datacenter located in Ireland.
 
-# How do you configure the cluster option?
+## How do you configure the cluster option?
 
 Where it says `APP_CLUSTER` you'll need to insert the relevant cluster shortcode (e.g. `mt1` ).
 
-## On the client-side:
+### On the client-side:
 
 {% snippets ['js', 'swift', 'objc', 'java', 'laravelecho', 'c'] %}
 
@@ -112,7 +112,7 @@ public class Program
 
 {% endsnippets %}
 
-## On the server-side:
+### On the server-side:
 
 {% snippets ['rb', 'php', 'laravel', 'node', 'c', 'py', 'go', 'java'] %}
 
@@ -204,13 +204,13 @@ pusher.setCluster("APP_CLUSTER");
 
 {% endsnippets %}
 
-# Details
+## Details
 
 - Setting the `cluster` option will change the `host` parameter of the Channels library you are using. This happens only when the `host` option is not set, in which case, `cluster` is ignored.
 - For client libraries, the default host is `ws.pusherapp.com` (and `sockjs.pusherapp.com` for fallback transports). With `cluster` set, the host becomes `ws-cluster.pusher.com` (and `sockjs-cluster.pusher.com` respectively).
 - For server libraries, the default host is `api.pusherapp.com`. With `cluster` set, the host becomes `api-cluster.pusher.com`.
 
-# How to debug it?
+## How to debug it?
 
 - First make sure your app is created in the intended cluster and that all the Channels libraries you are using in your project are configured correctly.
 - Make sure your app makes requests to the correct endpoints. On the server-side, use a traffic sniffing tool like [tcpdump](http://www.tcpdump.org/). On the client-side, open your browser's developer tools and inspect the network requests.
