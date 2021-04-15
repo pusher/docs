@@ -1,0 +1,24 @@
+.tabbed-snippets pre {
+  white-space: pre-wrap;
+}
+
+.tabbed-snippets ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.tabbed-snippets li + li {
+  margin-top: 0 !important;
+}
+
+.tabbed-snippets pre:not(:first-of-type):not(.db) {
+  display: none;
+}
+
+.tabbed-snippets button {
+  border-bottom: 3px solid var(--transparent);
+}
+.tabbed-snippets button[aria-selected="true"] {
+  border-bottom-color: var(--dragonfruit);
+}

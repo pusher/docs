@@ -163,3 +163,7 @@
 .nested-measure-wide {
   width: 100%;
 }
+
+.nested-text-margin ul {
+  padding: 0;
+}

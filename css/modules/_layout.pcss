@@ -1,0 +1,35 @@
+:root {
+  --sidebar-width: 18rem;
+}
+
+.basis-30 {
+  flex-basis: 30%;
+}
+
+.basis-70 {
+  flex-basis: 70%;
+}
+@media (--breakpoint-large) {
+  .basis-30-l {
+    flex-basis: 30%;
+  }
+
+  .basis-70-l {
+    flex-basis: 70%;
+  }
+}
+
+.side-nav {
+  box-shadow: rgba(207, 211, 230, 0.5) 0 2px 4px;
+}
+
+@media (--breakpoint-large) {
+  .side-nav {
+    box-shadow: rgba(207, 211, 230, 0.5) 2px 0 4px;
+    width: var(--sidebar-width);
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-width);
+  }
+}
