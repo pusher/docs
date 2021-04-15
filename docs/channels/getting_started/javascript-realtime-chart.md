@@ -4,7 +4,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Use case quick starts
   key: Javascript realtime chart
-  order: q
+  order: 1
 ---
 
 # JavaScript realtime chart quick start
