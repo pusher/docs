@@ -1,4 +1,5 @@
 ---
+title: Readme
 layout: readme.njk
 ---
 
@@ -37,6 +38,14 @@ If you’ve just checked out the repo, you’ll need to generate the css. You ca
 ```bash
 yarn run css
 ```
+
+### Search
+
+Search is powered by Algolia, on every production build a refreshed index of all content is sent to them.
+
+For users without JS there is a fallback page which is powered by Vercel’s serverless functions.
+
+If you need to debug this you can run the project with `vercel dev` and it will hot reload any changes.
 
 ## How to add new pages
 
@@ -106,6 +115,106 @@ end
 ```
 
 {% endsnippets %}
+
+#### Conditionally showing content when the snippet language is changed
+
+You can change other content when the snippet changed to do this you must add a boolean to the snippet declaration and wrap in container
+
+{% raw %}
+
+````jinja2
+{% snippets ['js', 'swift', 'laravelecho'], true %}
+
+```js
+pusher.unsubscribe(channelName);
+```
+
+```swift
+[self.pusher unsubscribeFromChannel:channel];
+```
+
+```js
+Echo.leaveChannel(channelName);
+```
+
+{% endsnippets %}
+
+#### Parameters
+
+{% parameter 'channelName', 'string', true, 'js,laravelecho' %}
+
+The name of the channel to unsubscribe from.
+
+{% endparameter %}
+
+{% parameter 'channel', 'PTPusherChannel', true, 'swift', false %}
+
+The name of the channel to unsubscribe from.
+
+{% endparameter %}
+{% endmethodwrap %}
+````
+
+{% endraw %}
+
+### Parameter shortcode syntax
+
+#### Parameters
+
+{% parameter 'name', 'String', true %}
+
+The name of the parameter
+
+{% endparameter %}
+
+{% parameter 'type', 'String', false %}
+
+Can be either:
+
+- A string detailing the type like `object` or `string`
+- or `null` if you don’t want a type at all (Default)
+
+{% endparameter %}
+
+{% parameter 'required', 'Boolean or null', false %}
+
+Can be either:
+
+- `true` - will show 'required' styled appropriately
+- `false` - will show 'optional' styled appropriately
+- `null` - won’t show anything (Default)
+
+{% endparameter %}
+
+{% parameter 'language', 'String', false %}
+
+This is for when you want to show it conditionally, should match the tabbed snippet label, e.g. `js`.
+Defaults to `null`.
+
+{% endparameter %}
+
+{% parameter 'show', 'Boolean', false %}
+
+This is for when you want to show it conditionally, and controls whether it should be visible by default.
+Defaults to `true`.
+
+{% endparameter %}
+
+#### Example
+
+{% raw %}
+
+```jinja2
+
+{% parameter 'channel', 'PTPusherChannel', true, 'swift', false %}
+
+The name of the channel to unsubscribe from.
+
+{% endparameter %}
+
+```
+
+{% endraw %}
 
 ## Contribute
 
