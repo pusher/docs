@@ -1,13 +1,13 @@
 ---
-title: Safari Certificate Expiration
+title: Handling Safari certificate expiration
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides
-  key: Safari Certificate Expiration
+  key: Handling Safari certificate expiration
   order: 3
 ---
 
-# Safari Certificate Expiration
+# Handling Safari certificate expiration
 
 The certificate issued to you by Apple will expire after one year. You should replace this certificate before it expires otherwise new users will not be able to sign up for notifications and you will not be able to send notifications to any users.
 

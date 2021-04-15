@@ -6,5 +6,6 @@ eleventyNavigation:
   key: Sdk quick starts
   title: SDK quick starts
   order: 1
+  url: /docs/channels/getting_started/javascript/?ref=sdk-quick-starts
 permalink: false
 ---

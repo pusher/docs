@@ -1,9 +1,9 @@
 ---
-title: Existing service worker
+title: Using an existing service worker
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides
-  key: Existing service worker
+  key: Using an existing service worker
   order: 1
 ---
 

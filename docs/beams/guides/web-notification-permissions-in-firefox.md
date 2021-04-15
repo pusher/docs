@@ -1,9 +1,9 @@
 ---
-title: Web notification permissions in firefox
+title: Web notification permissions in Firefox
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides
-  key: Web notification permissions in firefox
+  key: Web notification permissions in Firefox
   order: 2
 ---
 
