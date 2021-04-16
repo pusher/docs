@@ -5,5 +5,6 @@ eleventyNavigation:
   parent: Channels
   key: Using channels
   order: 2
+  url: /docs/channels/using_channels/client-api-overview/
 permalink: false
 ---

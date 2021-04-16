@@ -1,5 +1,5 @@
 ---
-title: Server api - Docs - Pusher Docs
+title: Server API
 layout: channels.njk
 eleventyNavigation:
   parent: Channels
