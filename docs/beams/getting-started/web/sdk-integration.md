@@ -4,7 +4,7 @@ layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started Web
   key: SDK integration web
-  order: 3
+  order: 1
   title: 1. SDK integration
 ---
 

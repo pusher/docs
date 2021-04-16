@@ -4,7 +4,7 @@ layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started Web
   key: Safari configuration
-  order: 3
+  order: 2
   title: 2. Safari configuration
 ---
 
