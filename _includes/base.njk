@@ -7,7 +7,7 @@
     <title>{{ title }} - {{product }}{% if product %} -{% endif %} Pusher Docs</title>
     <meta
       name="description"
-      content="{{ description }}"
+      content="{{ description | default(meta.description) }}"
     />
   </head>
   <body class="relative {{ bodyClasses }}" data-analytics="{{env.includeAnalytics}}">
