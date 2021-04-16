@@ -28,7 +28,7 @@ The application key is a string which is globally unique to your application. It
 {% endparameter %}
 {% parameter 'options', 'Object', false %}
 
-See Channels `options` parameter [below](docs/channels/using_channels/connection/#channels-options-parameter).
+See Channels `options` parameter [below](/docs/channels/using_channels/connection/#channels-options-parameter).
 
 {% endparameter %}
 
