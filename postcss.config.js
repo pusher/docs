@@ -22,7 +22,7 @@ module.exports = {
             content: ["**/*.njk", "**/*.mjs", ".eleventy.js"],
             safelist: {
               standard: [/^toc-list/, /^flash-popup/],
-              deep: [/^search-snippet/, /^blockquote/],
+              deep: [/^search-snippet/, /^blockquote/, /^th/],
             },
           }),
           require("cssnano"),
