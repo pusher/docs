@@ -19,7 +19,7 @@ module.exports = {
     ...(is_prod_like
       ? [
           purgecss({
-            content: ["**/*.njk", "**/*.mjs", "./eleventy.js"],
+            content: ["**/*.njk", "**/*.mjs", ".eleventy.js"],
             safelist: {
               standard: [/^toc-list/, /^flash-popup/],
               deep: [/^search-snippet/, /^blockquote/],
