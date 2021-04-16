@@ -73,7 +73,7 @@ module.exports = (eleventyConfig) => {
       const alt =
         filtered.attrs[filtered.attrIndex("alt")][1] ||
         filtered.children[0].content;
-      return `<figure class="mh0 mv5 pa0 border-box bg-snow-light">
+      return `<figure class="mh0 mv5 pa0 border-box bg-snow-light mw6">
       <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
     } catch (e) {
