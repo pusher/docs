@@ -109,7 +109,9 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-pusher.trigger(channels, event, data, socketId);
+pusher.trigger(channels, event, data, socketId).catch((error) => {
+  console.log(error);
+});
 ```
 
 ```py
@@ -278,12 +280,6 @@ The data to be sent with the event. This will be converted to JSON by the librar
 {% parameter 'socket_id', null, false %}
 
 The socket ID of a client to be excluded from receiving the event. See [excluding recipients.](/docs/channels/server_api/excluding-event-recipients)
-
-{% endparameter %}
-
-{% parameter 'callback', 'Function' %}
-
-A callback function which is invoked when the call completes. The function has the signature `function( error, request, response )`.
 
 {% endparameter %}
 
@@ -818,12 +814,6 @@ The path to the resource endpoint to be queried.
 {% parameter 'params', 'String', false %}
 
 Additional parameters to be sent as query string parameters with the request. The names and values for these depend on the resource being queried. See examples below and the [HTTP API reference](/docs/channels/library_auth_reference/rest-api) for more information.
-
-{% endparameter %}
-
-{% parameter 'callback', 'Function', false %}
-
-The function to be called when the request has completed. The function signature for the callback is `function( error, request, response )`.
 
 {% endparameter %}
 
