@@ -142,7 +142,7 @@ None
 #### Example
 
 ```swift
-{setDeviceInterestsSwiftExample}
+try? self.beamsClient.setDeviceInterests(interests: ["donuts", "pizza", "gaming"])
 ```
 
 ### `.clearDeviceInterests`

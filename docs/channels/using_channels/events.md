@@ -31,10 +31,12 @@ channel.bind(eventName, callback);
 ```
 
 ```swift
-PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:@"chat"];
-[channel bindToEventNamed:@"new-message" handleWithBlock:^(PTPusherEvent *channelEvent) {
-  // channelEvent.data is a NSDictianary of the JSON object received
-}];
+let myChannel = pusher.subscribe("chat")
+myChannel.bind(eventName: "new-message", eventCallback: { (event: PusherEvent) -> Void in
+    if let data: String = event.data {
+        // `data` is a string that you can parse if necessary.
+    }
+})
 ```
 
 ```js
@@ -127,9 +129,12 @@ pusher.bind(eventName, callback);
 ```
 
 ```swift
-_binding = [self.pusher bindToEventNamed:@"new-comment" handleWithBlock:^(PTPusherEvent *event) {
-  // event.data is a NSDictianary of the JSON object received
-}];
+// `binding` is a unique string that can be used to unbind the event callback later
+let binding = pusher.bind(eventCallback: { (event: PusherEvent) -> Void in
+    if event.eventName == "new-comment" {
+      // Handle the global event
+    }
+})
 ```
 
 {% endsnippets %}
@@ -227,7 +232,7 @@ channel.unbind(eventName, callback);
 ```
 
 ```swift
-[self.pusher removeBinding:binding];
+channel.unbind(eventName: eventName, callbackId: binding)
 ```
 
 ```js
@@ -271,12 +276,16 @@ Represents the binding to be removed.
 
 ##### Example
 
-If you no longer want to receive events with a specific name, you can remove the binding. Removing a binding is as simple as storing a reference to the binding object, then passing that as an argument to `removeBinding:` at a later point.
+If you no longer want to receive events with a specific name, you can remove the binding. Removing a binding is as simple as storing a reference to the binding object, then passing that as an argument to `unbind(callbackId:)` at a later point.
 
 ```swift/2-3
-_binding = [self.pusher bindToEventNamed:@"new-message" target:self action:@selector(handleEvent:)];
+let binding = pusher.bind(eventCallback: { (event: PusherEvent) -> Void in
+    if event.eventName == "new-message" {
+      // Handle the global event
+    }
+})
 
-[self.pusher removeBinding:_binding];
+pusher.unbind(callbackId: binding)
 ```
 
 {% endparameter %}
@@ -394,7 +403,7 @@ var triggered = channel.trigger(eventName, data);
 ```
 
 ```swift
-[private triggerEventNamed:eventName data:data];
+channel.trigger(eventName: eventName, data: data)
 ```
 
 ```js
@@ -442,8 +451,8 @@ The object to be converted to JSON and distributed with the event.
 ##### Example
 
 ```swift
-PTPusherPrivateChannel *private = [self.pusher subscribeToPrivateChannelNamed:@"chat"];
-[private triggerEventNamed:@"myevent" data:@{@"foo": @"bar"}];
+let myPrivateChannel = pusher.subscribe("private-chat")
+myPrivateChannel.trigger(eventName: "myevent", data: ["foo": "bar"])
 ```
 
 {% endparameter %}

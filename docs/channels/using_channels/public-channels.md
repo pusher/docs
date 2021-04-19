@@ -22,7 +22,7 @@ var channel = pusher.subscribe(channelName);
 ```
 
 ```swift
-PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:channelName];
+let channel = pusher.subscribe(channelName)
 ```
 
 ```js
@@ -54,7 +54,7 @@ pusher.unsubscribe(channelName);
 ```
 
 ```swift
-[self.pusher unsubscribeFromChannel:channel];
+pusher.unsubscribe(channel.name)
 ```
 
 ```js

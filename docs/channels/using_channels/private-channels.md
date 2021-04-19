@@ -26,7 +26,7 @@ var privateChannel = pusher.subscribe("privateChannelName");
 ```
 
 ```swift
-PTPusherPrivateChannel *private = [self.pusher subscribeToPrivateChannelNamed:privateChannelName];
+let privateChannel = pusher.subscribe("private-my-channel")
 ```
 
 {% endsnippets %}
