@@ -33,7 +33,7 @@ var presenceChannel = pusher.subscribe(presenceChannelName);
 ```
 
 ```swift
-PTPusherPresenceChannel *presence = [self.pusher subscribeToPresenceChannelNamed:@"chat" delegate:self];
+let presence = pusher.subscribeToPresenceChannel(channelName: "presence-chat")
 ```
 
 ```js
