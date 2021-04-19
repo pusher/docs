@@ -20,7 +20,7 @@ After following this guide you will have published an event to your web app usin
 Include the [pusher-js](https://github.com/pusher/pusher-js) script tag on your page.
 
 ```html
-<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="https://js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
 ```
 
 ## Open a connection to Channels

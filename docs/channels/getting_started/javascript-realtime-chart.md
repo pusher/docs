@@ -28,7 +28,7 @@ We’ll make the chart UI using [Google Charts](https://developers.google.com/ch
   <body>
     <div id="chart_div" style="width: 100%; height: 500px;"></div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://js.pusher.com/${process.env.CURRENT_JS_VERSION}/pusher.min.js"></script>
+    <script src="https://js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
     <script>
       google.charts.load("current", { packages: ["corechart"] });
       google.charts.setOnLoadCallback(() => {

@@ -28,7 +28,7 @@ Copy-paste the following code into `index.html`. Replace `'APP_KEY'` and `'APP_C
 <html>
   <body>
     <div id="user_list"></div>
-    <script src="https://js.pusher.com/7.0.3/pusher.min.js"></script>
+    <script src="https://js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
     <script>
       Pusher.logToConsole = true;
       const pusher = new Pusher(
