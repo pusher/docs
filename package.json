@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "postcss css/style.pcss -o _site/style.min.css && ELEVENTY_PRODUCTION=true eleventy && yarn updateAlgoliaIndex",
+    "build": "postcss css/style.pcss -o _site/docs/static/style.min.css && ELEVENTY_PRODUCTION=true eleventy && yarn updateAlgoliaIndex",
     "css": "postcss css/style.pcss -o _tmp/style.min.css -w --verbose",
     "updateAlgoliaIndex": "node ./search/update-algolia-index.js"
   },

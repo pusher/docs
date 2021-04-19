@@ -24,7 +24,6 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addPassthroughCopy({ img: "/docs/static/img" });
-  eleventyConfig.addPassthroughCopy({ css: "/docs/static/css" });
   eleventyConfig.addPassthroughCopy({ js: "/docs/static/js" });
   eleventyConfig.addPassthroughCopy({ video: "/docs/static/video" });
 
