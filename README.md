@@ -1,6 +1,7 @@
 ---
 title: Readme
 layout: readme.njk
+permalink: docs/README/
 ---
 
 # Pusher docs readme

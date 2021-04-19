@@ -14,8 +14,8 @@ Pusher relies on Apple Push Notification service (APNs) to deliver push notifica
 
 <figure class="mh0 mv5 pa0 border-box">
   <video controls height="auto" style="max-width: 100%">
-    <source src="/video/configure-apns.webm" type="video/webm" />
-    <source src="/video/configure-apns.mp4" type="video/mp4" />
+    <source src="/docs/static/video/configure-apns.webm" type="video/webm" />
+    <source src="/docs/static/video/configure-apns.mp4" type="video/mp4" />
     Hey! Your browser does not support videos!
   </video>
 </figure>

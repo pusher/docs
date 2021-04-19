@@ -10,7 +10,7 @@ eleventyNavigation:
 # JavaScript realtime user list quick start
 
 <figure class="mh0 mv5 pa0 border-box">
-  <video src="/video/javascript-realtime-user-list.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
+  <video src="/docs/static/video/javascript-realtime-user-list.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
 </figure>
 
 After following this guide you will have a user list in a webpage that updates when users open and close the page. If you have any questions [get in touch](https://pusher.com/support).

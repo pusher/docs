@@ -20,8 +20,12 @@ const widont = (string) => {
 module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("./_tmp/style.min.css");
   eleventyConfig.addPassthroughCopy({
-    "./_tmp/style.min.css": "./style.min.css",
+    "./_tmp/style.min.css": "./docs/static/style.min.css",
   });
+
+  eleventyConfig.addPassthroughCopy({ img: "/docs/static/img" });
+  eleventyConfig.addPassthroughCopy({ js: "/docs/static/js" });
+  eleventyConfig.addPassthroughCopy({ video: "/docs/static/video" });
 
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
@@ -35,11 +39,6 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("widont", widont);
-
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addPassthroughCopy("video");
 
   /* Markdown Plugins */
   const markdownIt = require("markdown-it")({
@@ -74,7 +73,7 @@ module.exports = (eleventyConfig) => {
         filtered.attrs[filtered.attrIndex("alt")][1] ||
         filtered.children[0].content;
       return `<figure class="mh0 mv5 pa0 border-box bg-snow-light mw6">
-      <img class="db" src="${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
+      <img class="db" src="/docs/static${src}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
     </figure>`;
     } catch (e) {
       return `<span class="code radish">Failed to parse image, it could be the path to the image file is incorrect</span>`;
@@ -227,7 +226,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
 
   return {
-    templateFormats: ["md", "html", "njk", "mjs"],
+    templateFormats: ["md", "html", "njk"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",

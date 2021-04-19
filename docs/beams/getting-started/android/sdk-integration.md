@@ -22,8 +22,8 @@ Have you downloaded the `google-services.json` config file from your Firebase pr
 
   <figure class="mh0 mv5 pa0 border-box">
     <video controls height="auto" style="max-width: 100%">
-      <source src="/video/firebase_get_config_json.webm" type="video/webm" />
-      <source src="/video/firebase_get_config_json.mp4" type="video/mp4" />
+      <source src="/docs/static/video/firebase_get_config_json.webm" type="video/webm" />
+      <source src="/docs/static/video/firebase_get_config_json.mp4" type="video/mp4" />
       Hey! Your browser does not support videos!
     </video>
   </figure>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/style.min.css" rel="stylesheet" />
+    <link href="/docs/static/style.min.css" rel="stylesheet" />
     <title>{{ title }} - {{product }}{% if product %} -{% endif %} Pusher Docs</title>
     <meta
       name="description"
@@ -23,7 +23,7 @@
       {% include "partials/footer.njk" %}
     </div>
 
-    <script type="module" src="/js/application.mjs" rel="preload"></script>
+    <script type="module" src="/docs/static/js/application.mjs" rel="preload"></script>
 
     {% if env.includeAnalytics %}
       {% include "partials/analytics.njk" %}

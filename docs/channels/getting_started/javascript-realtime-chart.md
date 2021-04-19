@@ -10,7 +10,7 @@ eleventyNavigation:
 # JavaScript realtime chart quick start
 
 <figure class="mh0 mv5 pa0 border-box">
-  <video src="/video/javascript-realtime-chart.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
+  <video src="/docs/static/video/javascript-realtime-chart.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
 </figure>
 
 After following this guide you will have a chart in a webpage that you can publish new data-points to from your server. If you have any questions [get in touch](https://pusher.com/support).
