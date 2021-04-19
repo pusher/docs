@@ -34,6 +34,7 @@
     "string": "^3.3.3"
   },
   "dependencies": {
-    "algoliasearch": "^4.8.6"
+    "algoliasearch": "^4.8.6",
+    "isomorphic-dompurify": "^0.13.0"
   }
 }
