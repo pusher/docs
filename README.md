@@ -8,7 +8,7 @@ permalink: docs/README/
 
 An [Eleventy] powered static site using our custom [Tachyons] build with [Postcss] for styling.
 
-It’s deployed and hosted by [Vercel] when the `main` branch changes using their [Github integration] - https://docs.pusherplatform.vercel.app/
+It’s deployed and hosted by [Vercel] when the `main` branch changes using their [Github integration] - https://pusher-docs.vercel.app
 
 ## Running locally
 
