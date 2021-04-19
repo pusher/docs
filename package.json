@@ -30,11 +30,11 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.5",
-    "postcss-preset-env": "^6.7.0",
-    "string": "^3.3.3"
+    "postcss-preset-env": "^6.7.0"
   },
   "dependencies": {
     "algoliasearch": "^4.8.6",
-    "isomorphic-dompurify": "^0.13.0"
+    "isomorphic-dompurify": "^0.13.0",
+    "slugify": "^1.5.0"
   }
 }

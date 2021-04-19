@@ -4069,7 +4069,7 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-slugify@^1.4.7:
+slugify@^1.4.7, slugify@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.5.0.tgz#5f3c8e2a84105b54eb51486db1b468a599b3c9b8"
   integrity sha512-Q2UPZ2udzquy1ElHfOLILMBMqBEXkiD3wE75qtBvV+FsDdZZjUqPZ44vqLTejAVq+wLLHacOMcENnP8+ZbzmIA==
@@ -4197,11 +4197,6 @@ string-width@^4.1.0, string-width@^4.2.0:
     emoji-regex "^8.0.0"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.0"
-
-string@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
-  integrity sha1-XqIRzZLSKOGEKUmQpsyXs2anfLA=
 
 strip-ansi@^3.0.0:
   version "3.0.1"
