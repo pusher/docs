@@ -313,7 +313,7 @@ Currently, pusher-js itself does not support authenticating multiple channels in
 In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `authTransport: 'jsonp'`:
 
 ```html
-<script src="//js.pusher.com/7.0.3/pusher.min.js"></script>
+<script src="//js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
 <script>
   var pusher = new Pusher("MY_PUSHER_KEY", {
     authTransport: "jsonp",
