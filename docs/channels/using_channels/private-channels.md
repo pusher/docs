@@ -40,13 +40,13 @@ The name of the channel to subscribe to. Since it is a private channel the name 
 A `Channel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information on the `Channel` object.
 
 {% endparameter %}
-{% parameter 'privateChannelName', "String", true, 'swift', false %}
+{% parameter 'channelName', "String", true, 'swift', false %}
 
-The name of the channel to subscribe to. _This method will add the appropriate `private-` prefix to the channel name for you_.
+The name of the channel to subscribe to. Since it is a private channel the name must be prefixed with `private-`
 
 ##### Returns
 
-A channel cast to the correct `PTPusherChannel` subclass `PTPusherPrivateChannel` which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events).
+A `PusherChannel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events).
 
 {% endparameter %}
 {% endmethodwrap %}

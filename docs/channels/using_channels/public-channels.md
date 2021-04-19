@@ -71,7 +71,7 @@ The name of the channel to unsubscribe from.
 
 {% endparameter %}
 
-{% parameter 'channel', 'PTPusherChannel', true, 'swift', false %}
+{% parameter 'channelName', 'String', true, 'swift', false %}
 
 The name of the channel to unsubscribe from.
 

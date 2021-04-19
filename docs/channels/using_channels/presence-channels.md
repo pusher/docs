@@ -59,8 +59,6 @@ The name of the channel to subscribe to. Since it is a presence channel the name
 
 An object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
 
-> It is recommended to implement `PTPusherPresenceChannelDelegate` protocol, to receive notifications for members subscribing or unsubscribing from the presence channel.
-
 {% endparameter %}
 {% endmethodwrap %}
 

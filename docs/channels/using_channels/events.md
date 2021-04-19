@@ -79,9 +79,9 @@ channel.bind("new-comment", handler, context);
 ```
 
 {% endparameter %}
-{% parameter 'PTPusherChannel', 'String', true, 'swift', false %}
+{% parameter 'PusherChannel', 'String', true, 'swift', false %}
 
-Once you have created an instance of PTPusherChannel, you can set up event bindings. There is no need to wait for the PTPusher client connection to be established.
+Once you have created an instance of `PusherChannel`, you can set up event bindings. There is no need to wait for the `PusherSwift` client connection to be established.
 
 When you bind to events on a single channel, you will only receive events with that name if they are sent over this channel.
 
@@ -163,9 +163,9 @@ pusher.bind(eventName, callback);
 
 A function to be called whenever the event is triggered.
 {% endparameter %}
-{% parameter 'PTPusher', 'PTPusher', true, 'swift', false %}
+{% parameter 'PusherSwift', 'PusherSwift', true, 'swift', false %}
 
-Once you have created an instance of the `PTPusher` client, you can set up event bindings. There is no need to wait for the connection to be established.
+Once you have created an instance of the `PusherSwift` client, you can set up event bindings. There is no need to wait for the connection to be established.
 
 When you bind to events on the client, you will receive all events with that name, regardless of the channel from which they originated.
 
@@ -270,7 +270,7 @@ channel.unbind();
 ```
 
 {% endparameter %}
-{% parameter 'binding', 'PTPusherEventBinding', true, 'swift', false %}
+{% parameter 'binding', 'String', false, 'swift', false %}
 
 Represents the binding to be removed.
 
