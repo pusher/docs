@@ -147,29 +147,71 @@ pusher channels generate auth-server --app-id APP_ID
 
 ## Implementing the auth endpoint for a presence channel
 
-{% snippets ['rb', 'php', 'php', 'php', 'bash', 'js', 'c', 'py', 'go'] %}
+{% snippets ['rb', 'Drupal', 'laravel', 'Wordpress', 'js', 'c', 'py', 'go'] %}
 
 ```rb
-class PusherController < ApplicationController def auth if current_user response = Pusher.authenticate(params[:channel_name], params[:socket_id], { user_id: current_user.id, # => required user_info: { # => optional - for example name: current_user.name, email: current_user.email } }) render json: response else render text: 'Forbidden', status: '403' end end end
+class PusherController < ApplicationController
+  def auth
+    if current_user
+      response = Pusher.authenticate(params[:channel_name], params[:socket_id], {
+        user_id: current_user.id, # => required
+        user_info: { # => optional - for example
+          name: current_user.name,
+          email: current_user.email
+        }
+      })
+      render json: response
+    else
+      render text: 'Forbidden', status: '403'
+    end
+  end
+end
 ```
 
 ```php
-global $user; if ($user->uid) { $presence_data = array('name' => $user->name); echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $user->uid, $presence_data); } else { header('', true, 403); echo( "Forbidden" ); }
+global $user;
+if ($user->uid) {
+  $presence_data = array('name' => $user->name);
+  echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $user->uid, $presence_data);
+} else {
+  header('', true, 403);
+  echo( "Forbidden" );
+}
 ```
 
 ```php
-// More information: https://laravel.com/docs/master/broadcasting#authorizing-channels // // The user will have already been authenticated by Laravel. In the // below callback, we can check whether the user is _authorized_ to // subscribe to the channel. // // In routes/channels.php Broadcast::channel('user.{userId}', function ($user, $userId) { if ($user->id === $userId) { return array('name' => $user->name); } });
+// More information: https://laravel.com/docs/master/broadcasting#authorizing-channels
+//
+// The user will have already been authenticated by Laravel. In the
+// below callback, we can check whether the user is _authorized_ to
+// subscribe to the channel.
+//
+// In routes/channels.php
+Broadcast::channel('user.{userId}', function ($user, $userId) {
+  if ($user->id === $userId) {
+    return array('name' => $user->name);
+  }
+});
 ```
 
 ```php
-if ( is_user_logged_in() ) { global $current_user; get_currentuserinfo(); $presence_data = array('name' => $current_user->display_name); echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $current_user->ID, $presence_data); } else { header('', true, 403); echo( "Forbidden" ); }
-```
-
-```bash
-npm install pusher npm install express npm install body-parser npm install cors
+if ( is_user_logged_in() ) {
+  global $current_user;
+  get_currentuserinfo();
+  $presence_data = array('name' => $current_user->display_name);
+  echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $current_user->ID, $presence_data);
+} else {
+  header('', true, 403);
+  echo( "Forbidden" );
+}
 ```
 
 ```js
+// npm install pusher
+// npm install express
+// npm install body-parser
+// npm install cors
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -200,15 +242,58 @@ app.listen(port);
 ```
 
 ```c
-using PusherServer; public class MyController : Controller { public ActionResult Auth(string channel_name, string socket_id) { var channelData = new PresenceChannelData() { user_id: "unique_user_id", user_info: new { name = "Mr Channels", twitter_id = "@pusher" } }; var auth = pusher.Authenticate( channelName, socketId, channelData ); var json = auth.ToJson(); return new ContentResult { Content = json, ContentType = "application/json" }; } }
+using PusherServer;
+
+public class MyController : Controller {
+  public ActionResult Auth(string channel_name, string socket_id) {
+    var channelData = new PresenceChannelData() {
+      user_id: "unique_user_id",
+      user_info: new {
+        name = "Mr Channels",
+        twitter_id = "@pusher"
+      }
+    };
+    var auth = pusher.Authenticate( channelName, socketId, channelData );
+    var json = auth.ToJson();
+    return new ContentResult { Content = json, ContentType = "application/json" };
+  }
+}
 ```
 
 ```py
-@app.route("/pusher/auth", methods=['POST']) def pusher_authentication(): # pusher_client is obtained through pusher_client = pusher.Pusher( ... ) auth = pusher_client.authenticate( channel=request.form['channel_name'], socket_id=request.form['socket_id'], custom_data={ u'user_id': u'1', u'user_info': { u'twitter': u'@pusher' } } ) return json.dumps(auth)
+@app.route("/pusher/auth", methods=['POST'])
+def pusher_authentication():
+
+  # pusher_client is obtained through pusher_client = pusher.Pusher( ... )
+  auth = pusher_client.authenticate(
+    channel=request.form['channel_name'],
+    socket_id=request.form['socket_id'],
+    custom_data={
+      u'user_id': u'1',
+      u'user_info': {
+        u'twitter':
+        u'@pusher'
+      }
+    }
+  )
+  return json.dumps(auth)
 ```
 
 ```go
-params, _ := ioutil.ReadAll(req.Body) presenceData := pusher.MemberData{ UserId: "1", UserInfo: map[string]string{ "twitter": "pusher", }, } response, err := pusherClient.AuthenticatePresenceChannel(params, presenceData) if err != nil { panic(err) } fmt.Fprintf(res, response)
+params, _ := ioutil.ReadAll(req.Body)
+presenceData := pusher.MemberData{
+  UserId: "1",
+  UserInfo: map[string]string{
+    "twitter": "pusher",
+  },
+}
+response, err := pusherClient.AuthenticatePresenceChannel(params, presenceData)
+
+if err != nil {
+  panic(err)
+}
+
+fmt.Fprintf(res, response)
 ```
 
 {% endsnippets %}
