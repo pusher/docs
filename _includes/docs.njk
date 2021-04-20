@@ -1,3 +1,6 @@
+
+{%- set issueBodyTemplate -%}Hello there, I spotted an issue on https://pusher.com{{ page.url }}{%- endset -%}
+
 {% extends "./base.njk" %}
 
 {% block header %}
@@ -35,6 +38,8 @@
           {{ TOC }}
         </div>
       {% endif %}
+
+      <p class="measure mt4 f6 ph4 slate">Spotted something that isn’t quite right? <a class="link dragonfruit hover-dragonfruit-light underline" href="https://github.com/pusher/docs/issues/new?title={{ title | urlencode }}page&amp;body={{ issueBodyTemplate | urlencode }}" target="_blank" rel="noreferrer">Create an issue</a> on&nbsp;GitHub</a>.</p>
     </div>
   </section>
 
