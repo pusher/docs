@@ -17,7 +17,7 @@ export default () => {
         const allToggles = snippetsContainer.querySelectorAll("button");
 
         allToggles.forEach((toggle) => {
-          toggle.setAttribute("aria-selected", e.target === toggle);
+          toggle.setAttribute("aria-pressed", e.target === toggle);
         });
 
         snippets.forEach((snippet, i) => {
