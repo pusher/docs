@@ -45,6 +45,12 @@ var channel = pusher.subscribe("my-channel");
 
 Every published event has an "event name". The event you will publish will have the event name `my-event`. For your web app to do something when it receives an event called `my-event`, your web app must first "bind" a function to this event name. Do this using the channel’s `bind` method:
 
+```js
+channel.bind("my-event", (data) => { 
+  // Method to be dispatched on trigger.
+});
+```
+
 ## Trigger events from your server
 
 In the examples below we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below a server library deals with the server communication.
