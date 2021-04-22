@@ -3,7 +3,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const slugify = require("slugify");
-const slugifyCustom = (s) => slugify(s);
+const slugifyCustom = (s) => slugify(s, { lower: true });
 const hash = (s) =>
   s.split("").reduce((a, b) => {
     a = (a << 5) - a + b.charCodeAt(0);
