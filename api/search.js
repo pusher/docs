@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Search results for "${sanitizedSearchTerm}"</title>
-          <link href="/style.min.css" rel="stylesheet" />
+          <link href="/docs/static/style.min.css" rel="stylesheet" />
         </head>
         <body class="pa5 mw7 center">
           <a class="flex items-center link eggplant hover-dragonfruit" href="/">
