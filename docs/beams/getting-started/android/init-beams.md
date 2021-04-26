@@ -4,7 +4,7 @@ layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started android
   key: Init beams android
-  title: 3. Initialisze Beams
+  title: 3. Initialize Beams
   order: 3
 ---
 

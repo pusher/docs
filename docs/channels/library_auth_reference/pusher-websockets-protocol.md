@@ -93,7 +93,19 @@ The precise timeouts before sending a ping and how long to wait for a pong MAY b
 The following example code is taken from the `pusher-js` library. This function is called whenever a message is received
 
 ```js
-function resetActivityCheck() { if (self._activityTimer) { clearTimeout(self._activityTimer); } // Send ping after inactivity self._activityTimer = setTimeout(function() { self.send_event('pusher:ping', {}) // Wait for pong response self._activityTimer = setTimeout(function() { self.socket.close(); }, (self.options.pong_timeout || Pusher.pong_timeout)) }, (self.options.activity_timeout || Pusher.activity_timeout)) }
+function resetActivityCheck() {
+  if (self._activityTimer) {
+    clearTimeout(self._activityTimer);
+  }
+  // Send ping after inactivity
+  self._activityTimer = setTimeout(function() {
+    self.send_event('pusher:ping', {})
+    // Wait for pong response
+    self._activityTimer = setTimeout(function() {
+      self.socket.close();
+    }, (self.options.pong_timeout || Pusher.pong_timeout))
+  }, (self.options.activity_timeout || Pusher.activity_timeout))
+}
 ```
 
 ## Connection closure
