@@ -1,12 +1,12 @@
 {% from "partials/channels-logo.njk" import channelsLogo %}
 {% from "partials/beams-logo.njk" import beamsLogo %}
-{% set bodyClasses = "flex flex-column flex-row-l min-vh-100" %}
+{% set isHome = true %}
 {% extends "base.njk" %}
 
 {% block container %}
   <div class="flex-grow-1">
     {% include "partials/home-nav.njk" %}
-    <section class="pa5 mw9 center">
+    <section class="pa5 mw9 center mt6 mt0-l">
       <header class="mt6 mt7-l mb5">
         <h1 class="f2 f1-ns fw5 ma0 lh-title">Documentation</h1>
       </header>

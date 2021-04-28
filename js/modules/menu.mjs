@@ -20,7 +20,6 @@ export default () => {
     docsMenuButtons.forEach((docsMenuButton) => {
       docsMenuButton.addEventListener("click", (e) => {
         docsMenu.classList.toggle("open");
-        document.body.classList.toggle("overflow-hidden");
       });
     });
   }

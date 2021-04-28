@@ -1,16 +1,25 @@
-<header class="relative z-1 bg-white flex items-center justify-between" style="height: 88px; box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px;">
+<header class="fixed left-0 right-0 z-2 bg-white flex items-center justify-between" style="height: 88px; box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px;">
   <div class="ph5 mh2-xl flex items-center justify-between w-100">
     <div class="flex items-center">
-      <h1 class="mv0 mr5">
-        <a class="flex items-center link eggplant hover-dragonfruit" href="https://pusher.com/" title="Pusher">
-            {% include "partials/pusher-logo.njk" %}
+      <h1 class="flex items-end mv0 mr5">
+        <a class="link eggplant hover-dragonfruit f4" href="https://pusher.com/" title="Pusher">
+          {% include "partials/pusher-logo.njk" %}
+        </a>
+        <a class="link eggplant hover-dragonfruit f4" href="/docs" title="Pusher documentation">
+          Docs
         </a>
       </h1>
     </div>
 
+    {% if isHome %}
     <button class="bn focus-b--starflower-light hover-b--smoke-light active-b--smoke-dark pointer bg-white eggplant hover-slate focus-bg-snow pa2 menu-toggle dn-l nr2" type="button" title="Show navigation menu" style="margin-top: 3px;">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 22" class="db" width="25" height="24" role="img" aria-labelledby="svg-4d9d6677"><path fill="currentColor" d="M0 2a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 11a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 20a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2z"/><title id="svg-4d9d6677">Show navigation menu</title></svg>
     </button>
+    {% else %}
+    <button class="bn focus-b--starflower-light hover-b--smoke-light active-b--smoke-dark pointer bg-white eggplant hover-slate focus-bg-snow pa2 docs-menu-toggle dn-l nr2" type="button" title="Show table of contents" style="margin-top: 3px;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 22" width="25" height="24" role="img" aria-labelledby="svg-4d9d6677"><path fill="currentColor" d="M0 2a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 11a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 20a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2z"/><title id="svg-4d9d6677">Show table of contents</title></svg>
+    </button>
+    {% endif %}
 
     <nav class="dn pv4 bg-black br4 relative" id="menu">
       <button class="bn focus-b--starflower-light hover-b--smoke-light active-b--smoke-dark pointer bg-black silver hover-smoke focus-bg-snow focus-black pa2 menu-toggle absolute top-0 right-0 ma2 z-1" type="button" title="Hide navigation menu">
@@ -71,7 +80,7 @@
           </a>
         </li>
         <li class="ml5 pl2-xl">
-          <a href="https://dashboard.pusher.com/accounts/sign_up" rel="noreferrer" class="sans-serif f7 lh-title tc nowrap bg-dragonfruit hover-bg-dragonfruit-light focus-bg-dragonfruit-light active-bg-dragonfruit-dark pointer white pv3 ph4 fw6 dib no-underline br2">
+          <a href="https://dashboard.pusher.com/accounts/sign_up{% if product %}?product={{ product | lower }}{% endif %}" rel="noreferrer" class="sans-serif f7 lh-title tc nowrap bg-dragonfruit hover-bg-dragonfruit-light focus-bg-dragonfruit-light active-bg-dragonfruit-dark pointer white pv3 ph4 fw6 dib no-underline br2">
             Sign&nbsp;up
           </a>
         </li>

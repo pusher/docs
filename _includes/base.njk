@@ -10,17 +10,21 @@
       content="{{ description | default(meta.description) }}"
     />
   </head>
-  <body class="relative {{ bodyClasses }}" data-analytics="{{env.includeAnalytics}}">
+  <body class="relative min-vh-100" data-analytics="{{env.includeAnalytics}}">
 
     {% block header %}
     {% endblock %}
 
+    <div class="relative flex flex-column flex-row-l">
+    {% block nav %}
+    {% endblock %}
     <div class="flex-grow-1 flex flex-column justify-between {{ contentWrapClasses }} z-0">
       {% block container %}
         {{ content | safe }}
       {% endblock %}
     
       {% include "partials/footer.njk" %}
+    </div>
     </div>
 
     <script type="module" src="/docs/static/js/application.mjs" rel="preload"></script>

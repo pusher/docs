@@ -28,3 +28,12 @@
 @import "./modules/_tables.pcss";
 @import "./modules/_toc-list.pcss";
 @import "./modules/_variables.pcss";
+
+/* Because we have a sticky header we need to offset */
+/* the anchors so the title isn‘t behind the header */
+:target::before {
+  content: "";
+  display: block;
+  height: 120px;
+  margin: -120px 0 0;
+}
