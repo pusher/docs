@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/docs/static/style.min.css" rel="stylesheet" />
     <title>{{ title }} - {{product }}{% if product %} -{% endif %} Pusher Docs</title>
-    <meta
-      name="description"
-      content="{{ description | default(meta.description) }}"
-    />
+
+    {% metagen
+        desc=description or meta.desc,
+        url=url + page.url,
+        img=meta.img,
+        img_alt=meta.img_alt,
+        twitter_card_type=meta.twitter_card_type,
+        twitter_handle=meta.twitter_handle,
+        name=meta.name
+    %}
   </head>
-  <body class="relative min-vh-100" data-analytics="{{env.includeAnalytics}}">
+  <body class="relative min-vh-100">
 
     {% block header %}
     {% endblock %}
