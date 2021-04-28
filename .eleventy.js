@@ -2,7 +2,9 @@ const fs = require("fs");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const metagen = require("eleventy-plugin-metagen");
 const slugify = require("slugify");
+
 const slugifyCustom = (s) =>
   slugify(s, { lower: true, remove: /[*+~.()'"!:@]/g });
 const hash = (s) =>
@@ -40,6 +42,8 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("widont", widont);
+
+  eleventyConfig.addPlugin(metagen);
 
   /* Markdown Plugins */
   const markdownIt = require("markdown-it")({

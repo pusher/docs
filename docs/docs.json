@@ -1,3 +1,12 @@
 {
-  "tags": ["docs"]
+  "tags": ["docs"],
+  "meta": {
+    "desc": "Welcome to Pusher. Our hosted APIs are flexible, scalable, and easy to integrate. Get to know our products by getting started or exploring our API documentation.",
+    "url": "https://pusher.com/docs",
+    "img": "https://pusher.com/static/8f1b29e4-fbb8-45ee-bab8-81d40fe12bbd_Pusher-48333c4c0f6ec81dc890e6805a7180f5.png",
+    "img_alt": "Powering realtime experiences for mobile and web",
+    "twitter_card_type": "summary_large_image",
+    "twitter_handle": "pusher",
+    "name": "Pusher"
+  }
 }
