@@ -103,7 +103,7 @@ List<String> interests = Arrays.asList("donuts", "pizza");
 
 Map<String, Map> publishRequest = new HashMap();
 
-Map<String, String> apsAlert = new Hashmap();
+Map<String, String> apsAlert = new HashMap();
 apsAlert.put("title", "hello");
 apsAlert.put("body", "Hello world");
 Map<String, Map> alert = new HashMap();
