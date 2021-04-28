@@ -4,7 +4,11 @@
 {% extends "./base.njk" %}
 
 {% block header %}
-  {% include "partials/nav.njk" %}
+  {% include "partials/top-nav.njk" %}
+{% endblock %}
+
+{% block nav %}
+  {% include "partials/side-nav.njk" %}
 {% endblock %}
 
 {% block container %}
@@ -15,21 +19,7 @@
 
     </article>
     {% set TOC = content | toc | replace("∞", "") | safe %}
-    <div class="measure sticky top-2 basis-30-ns flex-grow-1-ns">
-      <div class="relative search-wrap">
-        <form id="search-form" type="POST" action="/api/search">
-          <label for="search" class="clip">
-            Search Pusher documentation
-          </label>
-          <input name="t" id="search" type="search" value="" placeholder="Search documentation" class="sans-serif black f7 input-reset br2 ba b--smoke hover-b--silver focus-b--starflower focus-bs-starflower pa3 lh-solid h3 w-100" data-filter="{{ product | lower }}" maxlength="200">
-        </form>
-
-        <div class="br2 mt2 ba b--smoke absolute left-0 right-0 dn bg-snow-light search-results-wrap">
-          <ul class="bg-white list ma0 pa0 overflow-y-auto bb b--smoke br2 br--top" style="top: 100%; max-height: 60vh;" id="search-results"></ul>
-          <footer class="f6 pv3 ph4 steel">Search powered by <a href="https://www.algolia.com/" class="link eggplant hover-dragonfruit underline">Algolia</a></footer>
-        </div>
-      </div>
-
+    <div class="measure sticky basis-30-ns flex-grow-1-ns" style="top: 88px;">
       {% if not hideTOC and TOC != "" %}
         <div class="mt5 bg-snow-light ba b--smoke-light pa4 br2 nested-copy-seperator nested-code">
           <header class="mb4 lh-title bb b--smoke">

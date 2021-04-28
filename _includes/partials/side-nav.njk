@@ -1,20 +1,8 @@
 {% from "partials/channels-logo.njk" import channelsLogo %}
 {% from "partials/beams-logo.njk" import beamsLogo %}
 
-<header class="side-nav bg-white pa5 fixed-l overflow-scroll z-1 top-0 bottom-0">
-  <div class="flex items-center justify-between w-100">
-    <h1 class="ma0">
-      <a class="link eggplant f4 flex items-end" href="/">
-        {% include "partials/pusher-logo.njk" %}
-        Docs
-      </a>
-    </h1>
-
-    <button class="bn focus-b--starflower-light hover-b--smoke-light active-b--smoke-dark pointer bg-white eggplant hover-slate focus-bg-snow pa2 docs-menu-toggle dn-l nr2" type="button" title="Show navigation menu" style="margin-top: 3px;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 22" class="db" width="25" height="24" role="img" aria-labelledby="svg-4d9d6677"><path fill="currentColor" d="M0 2a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 11a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2zM0 20a2 2 0 012-2h21a2 2 0 110 4H2a2 2 0 01-2-2z"/><title id="svg-4d9d6677">Show navigation menu</title></svg>
-    </button>
-  </div>
-  <nav class="mt5 docs-nav dn db-l bg-white left-0 right-0 ph5 ph0-l z-1 overflow-scroll overflow-visible-l bottom-0" id="docs-menu">
+<header class="side-nav pa5 relative fixed-l overflow-scroll-l z-1 z-0 bottom-0-l">
+  <nav class="docs-nav dn db-l bg-white top-0 left-0 right-0 ph5 ph0-l z-1 overflow-scroll overflow-visible-l bottom-0" id="docs-menu">
     {% set navPages = collections.all | eleventyNavigation(product) %}
     {% macro renderNavListItem(entry, level) -%}
     <li class="{{ 'mt5' if level == 0 }} {{ 'bg-snow-light br1 br--bottom' if (entry.url == page.url and level != 0) }}">
