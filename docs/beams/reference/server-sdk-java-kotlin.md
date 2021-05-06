@@ -19,14 +19,14 @@ The Beams Java/Kotlin server SDK is available on Maven Central.
     <dependency>
       <groupId>com.pusher</groupId>
       <artifactId>push-notifications-server-java</artifactId>
-      <version>1.1.0</version>
+      <version>1.1.1</version>
     </dependency>
 </dependencies>
 ```
 
 ```groovy
 dependencies {
-  compile 'com.pusher:push-notifications-server-java:1.1.0'
+  compile 'com.pusher:push-notifications-server-java:1.1.1'
 }
 ```
 
