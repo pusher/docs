@@ -99,7 +99,7 @@ The event data for this event is as follows:
 { "name": "channel_vacated", "channel": "my-channel" }
 ```
 
-## Presence events
+### Presence events
 
 Notify your application whenever a user subscribes to or unsubscribes from a [Presence channel](/docs/channels/using_channels/presence-channels).
 
@@ -133,7 +133,7 @@ The event data for this event is as follows:
 }
 ```
 
-## Client events
+### Client events
 
 Notify your application whenever a client event is sent.
 
