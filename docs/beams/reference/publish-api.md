@@ -114,7 +114,7 @@ Array of user IDs to send the push notification to, ranging from 1 to 1000 per p
 The payload to be sent to APNs. The full set of options for the APNs section of the `notify` call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
 {% endparameter %}
-{% parameter 'apns', 'object', null %}
+{% parameter 'fcm', 'object', null %}
 
 The payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
 
