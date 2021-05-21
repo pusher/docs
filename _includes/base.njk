@@ -6,8 +6,10 @@
     <link href="/docs/static/style.min.css" rel="stylesheet" />
     <title>{{ title }} - {{product }}{% if product %} -{% endif %} Pusher Docs</title>
 
+    {%- set metaDesc -%}{{ content | extractFirstPara }}{%- endset -%}
+
     {% metagen
-        desc=description or meta.desc,
+        desc=metaDesc or meta.desc,
         url=url + page.url,
         img=meta.img,
         img_alt=meta.img_alt,

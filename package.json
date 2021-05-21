@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "algoliasearch": "^4.8.6",
-    "isomorphic-dompurify": "^0.13.0"
+    "isomorphic-dompurify": "^0.13.0",
+    "node-html-parser": "^3.3.0"
   }
 }
