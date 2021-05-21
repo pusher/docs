@@ -51,18 +51,18 @@ If you need to debug this you can run the project with `vercel dev` and it will 
 ## How to add new pages
 
 1. Add a new [Markdown] file in the relevant directory.
-2. Add YAML front matter to the top
+2. Add YAML front matter to the top, you can add a description, which will be used for the page meta but by default it will extract the first 160 characters of the first paragraph.
    For example:
 
 ```yml
 ---
 title: Connection — Channels — Pusher Docs
 layout: channels.njk
+description: Optionally set this to override generated one
 eleventyNavigation:
   parent: Using Channels
   key: Connection
 ---
-
 ```
 
 3. Write up your docs, you can use [Markdown], HTML or [Nunjucks]. Although it’s best to keep it simple and stick to [Markdown] where possible.
