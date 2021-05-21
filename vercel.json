@@ -159,6 +159,16 @@
       "permanent": true
     },
     {
+      "source": "/docs/ios-quick-start",
+      "destination": "/docs/channels/getting_started/ios",
+      "permanent": true
+    },
+    {
+      "source": "/docs/javascript-quick-start",
+      "destination": "/docs/channels/getting_started/javascript",
+      "permanent": true
+    },
+    {
       "source": "/docs/libraries",
       "destination": "/docs/channels/channels_libraries/libraries",
       "permanent": true
