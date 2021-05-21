@@ -9,7 +9,7 @@
     {%- set metaDesc -%}{{ content | extractFirstPara }}{%- endset -%}
 
     {% metagen
-        desc=metaDesc or meta.desc,
+        desc=description or metaDesc or meta.desc,
         url=url + page.url,
         img=meta.img,
         img_alt=meta.img_alt,
