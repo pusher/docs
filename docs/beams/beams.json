@@ -1,4 +1,3 @@
 {
-  "tags": ["beams", "docs"],
-  "description": "Beams is a cross-platform push notifications API designed for developers who need to deliver critical transactional information in realtime, without complex integrations and maintenance."
+  "tags": ["beams", "docs"]
 }
