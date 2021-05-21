@@ -4,6 +4,7 @@ const pluginTOC = require("eleventy-plugin-toc");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const metagen = require("eleventy-plugin-metagen");
 const slugify = require("slugify");
+const { parse } = require("node-html-parser");
 
 const slugifyCustom = (s) =>
   slugify(s, { lower: true, remove: /[*+~.()'"!:@]/g });
@@ -41,9 +42,18 @@ module.exports = (eleventyConfig) => {
     wrapperClass: "toc-list",
   });
 
-  eleventyConfig.addFilter("widont", widont);
-
   eleventyConfig.addPlugin(metagen);
+
+  eleventyConfig.addFilter("widont", widont);
+  eleventyConfig.addFilter("extractFirstPara", (content) => {
+    const paragraphs = content.match(/<p>(.*?)<\/p>/);
+    if (paragraphs) {
+      const text = parse(paragraphs[0]).text.substr(0, 160);
+      return text.slice(-1) === "."
+        ? text
+        : text.substr(0, text.lastIndexOf(" ")) + "…";
+    }
+  });
 
   /* Markdown Plugins */
   const markdownIt = require("markdown-it")({
