@@ -330,7 +330,7 @@ Pusher::PushNotifications.publish_to_interests(interests: ['hello'], payload: da
 - **Clear your browser cache**
   Ensure that your latest code changes have been loaded in your browser by performing a hard refresh (`ctrl/cmd + shift + r`)
 - **Check if "Do Not Disturb" is enabled**
-  Go to your OS settings and ensure that the "Do Not Disturb" option is disabled.
+  Go to your OS settings and ensure that the "Do Not Disturb" option is disabled. Also ensure that the notifications settings at the app level is allowed.
 - **Check your browser notification permissions**
   Go to the settings page in your browser and ensure that the notifications permission is enabled for your site and that browser notifications have not been disabled globally.
 - **Make sure your project is HTTPS / localhost**
