@@ -47,6 +47,7 @@ The following libraries are updated and supported by Pusher.
 | PHP     | Pusher     | [Docs](https://github.com/pusher/pusher-http-php#installation)                 | [pusher/pusher-http-php](https://github.com/pusher/pusher-http-php)       |
 | Python  | Pusher     | [Docs](https://github.com/pusher/pusher-http-python#installation)              | [pusher/pusher-http-python](http://github.com/pusher/pusher-http-python)  |
 | Ruby    | Pusher     | [Docs](https://github.com/pusher/pusher-http-ruby#installation--configuration) | [pusher/pusher-http-ruby](https://github.com/pusher/pusher-http-ruby)     |
+| Swift [[BETA](https://pusher.com/docs/lab#beta-features)] | Pusher  | [Docs](https://github.com/pusher/pusher-http-swift#installation)  | [pusher/pusher-http-swift](https://github.com/pusher/pusher-http-swift) |
 
 # Community libraries
 
