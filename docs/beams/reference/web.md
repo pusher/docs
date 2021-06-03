@@ -299,7 +299,7 @@ const beamsClient = new PusherPushNotifications.Client({
 // The user will now not be subscribed to any interests
 beamsClient.clearDeviceInterests()
   .then(() => console.log('Device interests have been cleared'))
-  .catch(e => console.error('Could not clear device interests', e);
+  .catch(e => console.error('Could not clear device interests', e));
 ```
 
 ### `.getUserId`
