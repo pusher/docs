@@ -160,7 +160,7 @@ beamsClient.start()
   .then(deviceId => {
     console.log(deviceId) // Will log something like web-1234-1234-1234-1234
   })
-  .catch(e => console.error('Could not get device id', e);
+  .catch(e => console.error('Could not get device id', e));
 ```
 
 ### `.addDeviceInterest`
@@ -188,7 +188,7 @@ const beamsClient = new PusherPushNotifications.Client({
 
 beamsClient.start()
   .then(() => beamsClient.addDeviceInterest('donuts'))
-  .catch(e => console.error('Could not add device interest', e);
+  .catch(e => console.error('Could not add device interest', e));
 ```
 
 ### `.removeDeviceInterest`
@@ -215,7 +215,7 @@ const beamsClient = new PusherPushNotifications.Client({
 
 beamsClient.start()
   .then(() => beamsClient.removeDeviceInterest('donuts'))
-  .catch(e => console.error('Could not remove device interest', e);
+  .catch(e => console.error('Could not remove device interest', e));
 ```
 
 ### `.getDeviceInterests`
@@ -245,7 +245,7 @@ beamsClient.getDeviceInterests()
   .then(interests => {
     console.log(interests) // Will log something like ["a", "b", "c"]
   })
-  .catch(e => console.error('Could not get device interests', e);
+  .catch(e => console.error('Could not get device interests', e));
 ```
 
 ### `.setDeviceInterests`
@@ -274,7 +274,7 @@ const beamsClient = new PusherPushNotifications.Client({
 // The user will now be subscribed to "a", "b" & "c" only
 beamsClient.setDeviceInterests(['a', 'b', 'c'])
   .then(() => console.log('Device interests have been set'))
-  .catch(e => console.error('Could not set device interests', e);
+  .catch(e => console.error('Could not set device interests', e));
 ```
 
 ### `.clearDeviceInterests`
@@ -329,7 +329,7 @@ beamsClient.getUserId()
   .then(userId => {
     console.log(userId) // Will log the current user id
   })
-  .catch(e => console.error('Could not get user id', e);
+  .catch(e => console.error('Could not get user id', e));
 ```
 
 ### `.setUserId`
@@ -367,7 +367,7 @@ const beamsClient = new PusherPushNotifications.Client({
 beamsClient.start()
   .then(() => beamsClient.setUserId('<USER_ID_HERE>', tokenProvider))
   .then(() => console.log('User ID has been set'))
-  .catch(e => console.error('Could not authenticate with Beams:', e);
+  .catch(e => console.error('Could not authenticate with Beams:', e));
 ```
 
 ### `.clearAllState`
@@ -387,7 +387,7 @@ A Promise that resolves when the state has been cleared
 ```js
 beamsClient.clearAllState()
   .then(() => console.log('Beams state has been cleared'))
-  .catch(e => console.error('Could not clear Beams state', e);
+  .catch(e => console.error('Could not clear Beams state', e));
 ```
 
 ### `.stop`
@@ -407,7 +407,7 @@ A Promise that resolves when the SDK has been stopped
 ```js
 beamsClient.stop()
   .then(() => console.log('Beams SDK has been stopped'))
-  .catch(e => console.error('Could not stop Beams SDK', e);
+  .catch(e => console.error('Could not stop Beams SDK', e));
 ```
 
 ### `.getRegistrationState`
