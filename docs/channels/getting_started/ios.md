@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # iOS quick start
 
-Getting started with Channels is very easy. However, if you have any questions [get in touch](https://pusher.com/support). This guide uses the [PusherSwift client API](https://github.com/pusher/pusher-websocket-swift) and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript](/docs/channels/getting_started/javascript) and [Android](/docs/channels/getting_started/android).
+Getting started with Channels is very easy. However, if you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new). This guide uses the [PusherSwift client API](https://github.com/pusher/pusher-websocket-swift) and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript](/docs/channels/getting_started/javascript) and [Android](/docs/channels/getting_started/android).
 
 ## Get your free API keys
 

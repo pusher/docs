@@ -241,4 +241,4 @@ For an open source example application built on pusher-websocket-java, see [the 
 
 ## Don't see your platform?
 
-We'd love to see client and server libraries for other languages. Make sure to [let us know](https://pusher.com/support) if you come up with anything so we can highlight it here.
+We'd love to see client and server libraries for other languages. Make sure to [let us know](https://support.pusher.com/hc/en-us/requests/new) if you come up with anything so we can highlight it here.

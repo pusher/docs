@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Android quick start
 
-Getting started with Channels is very easy. However, if you have any questions [get in touch](https://pusher.com/support). This guide uses the [pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) library and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript client.](/docs/channels/getting_started/javascript)
+Getting started with Channels is very easy. However, if you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new). This guide uses the [pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) library and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript client.](/docs/channels/getting_started/javascript)
 
 ## Get your free API keys
 
