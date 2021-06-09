@@ -237,7 +237,7 @@ also see [iOS](#ios)
 
 For an open source example application built on libPusher, see [the Github repo](http://github.com/pusher/pusher-test-iOS) and [the App Store](https://itunes.apple.com/us/app/pusher-diagnostics/id622538006)
 
-For an open source example application built on pusher-websocket-java, see [the Github repo](http://github.com/pusher/pusher-test-android) and [the Play Store](https://play.google.com/store/apps/details?id=com.pusher.testapp)
+For an open source example application built on pusher-websocket-java, see [the Github repo](http://github.com/pusher/pusher-test-android)
 
 ## Don't see your platform?
 
