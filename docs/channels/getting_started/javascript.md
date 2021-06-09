@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # JavaScript quick start
 
-After following this guide you will have published an event to your web app using Channels. If you have any questions [get in touch](https://pusher.com/support).
+After following this guide you will have published an event to your web app using Channels. If you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
 ## Get your free API keys
 
@@ -181,4 +181,4 @@ If there isn’t an example in a language that you are familiar with then have a
 
 ## Where next?
 
-If you published an event and it triggered your `alert(...)` call, well done! If you had any trouble, [get in touch](https://pusher.com/support). Otherwise, you could look at the more advanced features of the JavaScript client library.
+If you published an event and it triggered your `alert(...)` call, well done! If you had any trouble, [get in touch](https://support.pusher.com/hc/en-us/requests/new). Otherwise, you could look at the more advanced features of the JavaScript client library.

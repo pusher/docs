@@ -13,7 +13,7 @@ eleventyNavigation:
   <video src="/docs/static/video/javascript-realtime-chart.mp4" alt="Video of JavaScript realtime chart" autoPlay muted loop="loop" height="auto" style="max-width: 100%"></video>
 </figure>
 
-After following this guide you will have a chart in a webpage that you can publish new data-points to from your server. If you have any questions [get in touch](https://pusher.com/support).
+After following this guide you will have a chart in a webpage that you can publish new data-points to from your server. If you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
 # Get your free API keys
 
@@ -148,6 +148,6 @@ Finally, go back to your browser to see the realtime data appearing in the chart
 
 # Where next?
 
-- If you had any trouble, [get in touch](https://pusher.com/support).
+- If you had any trouble, [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 - For the core concepts, read [Understanding Pusher Channels](/docs/channels).
 - For the features this quick start uses, see [connections](/docs/channels/using_channels/connection) , [publish/subscribe over channels](/docs/channels/using_channels/channels) , and [the JavaScript client library](/docs/channels/using_channels/client-api-overview).

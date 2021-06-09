@@ -73,6 +73,6 @@ We have a [Channels Diagnostics application](http://pusher-diagnostics.herokuapp
 
 ## Where next?
 
-If you're experiencing a client-side problem then you can visit <a href="https://test.pusher.com" target="_blank">test.pusher.com </a> and see what the logs generated there say. If there appears to be a problem then please copy the output and send this attached to a [support request](https://pusher.com/support) to our support team.
+If you're experiencing a client-side problem then you can visit <a href="https://test.pusher.com" target="_blank">test.pusher.com </a> and see what the logs generated there say. If there appears to be a problem then please copy the output and send this attached to a [support request](https://support.pusher.com/hc/en-us/requests/new) to our support team.
 
-If you're experiencing any other type of problem related to Channels then please [give us a shout](https://pusher.com/support), and we'll check whether there is a problem we can help you with.
+If you're experiencing any other type of problem related to Channels then please [give us a shout](https://support.pusher.com/hc/en-us/requests/new), and we'll check whether there is a problem we can help you with.

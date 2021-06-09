@@ -43,7 +43,7 @@ POST /apps/[app_id]/events
 
 Triggers an event on one or more channels.
 
-The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter you will receive a 413 error code. If you have a use case which requires a larger messages size please [get in touch](https://pusher.com/support).
+The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter you will receive a 413 error code. If you have a use case which requires a larger messages size please [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
 > **Note:** a previous version of this resource is now considered deprecated but is detailed [here](/docs/channels/library_auth_reference/rest-api-deprecated).
 
