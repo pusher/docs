@@ -32,7 +32,7 @@ The library MUST offer the following features to be considered feature-complete 
 
 ### Triggering multiple events
 
-- The library MUST allow a developer to [trigger multiple events, each on a specific channel](/docs/channels/library_auth_reference/rest-api/#post-event-trigger-an-event).
+- The library MUST allow a developer to [trigger multiple events, each on a specific channel](/docs/channels/library_auth_reference/rest-api/#post-batch-events-trigger-multiple-events).
 - A specific connection MAY be excluded from receiving a triggered event by providing the socket identifier for its connection when defining the events to trigger.
 - Triggering multiple events if one or more of those events specify multiple channels MUST be prevented in the library API or MUST result in an error if a developer attempts it.
 
@@ -55,14 +55,14 @@ The [Pusher Experimental program](/docs/lab#experimental-program) defines some a
 - The library MUST provide a method to [fetch a list of occupied channels](/docs/channels/library_auth_reference/rest-api/#get-channels-fetch-info-for-multiple-channels).
   - The returned list of channels MAY be filtered to return only those channels whose name begins with a specific a prefix.
   - The user_count MAY be returned for occupied presence channels.
-- The library MUST provide a method to [fetch information on a specific occupied channel](/docs/channels/library_auth_reference/rest-api/#get-channels-fetch-info-for-multiple-channels).
+- The library MUST provide a method to [fetch information on a specific occupied channel](/docs/channels/library_auth_reference/rest-api/#get-channel-fetch-info-for-one-channel).
   - The subscription_count MAY be returned for a channel, if requested by a developer.
   - The user_count MAY be returned for a presence channel, if requested by a developer.
-- The library MUST provide a method to [fetch a list of users subscribed to a specific presence channel](/docs/channels/library_auth_reference/rest-api/#get-channels-fetch-info-for-multiple-channels).
+- The library MUST provide a method to [fetch a list of users subscribed to a specific presence channel](/docs/channels/library_auth_reference/rest-api/#get-users).
 
 ## Interfaces
 
-The library MUST provide the following top-level API (tailored for the platform language) to support the required [features](#Features):
+The library MUST provide the following top-level API (tailored for the platform language) to support the required [features](#features):
 
 ```swift
 // Initializer for the top-level API object.
