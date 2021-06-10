@@ -166,7 +166,7 @@ func authenticate(channelName: String,
 
 ## Tests and code coverage
 
-The library MUST include a standardised set of unit tests, covering its critical functionality. The exact implementation SHOULD be dictated based on development language best practices.
+The library MUST include a standardised set of unit tests, covering its critical functionality. The exact implementation SHOULD be dictated based on development language best practices. The test cases are self descriptive, however implementation examples can be found in the [Channels Swift server library](https://github.com/pusher/pusher-http-swift/tree/main/Tests/PusherTests).
 
 ### Triggering events
 
