@@ -41,7 +41,7 @@ Typically beta features will remain beta for no longer than two business quarter
 
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
-| Beams   | Safari web push notifications | 26 Mar 2021 | 26 May 2021    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
+| Beams   | Safari web push notifications | 20 Jun 2021 | 30 Sep 2021    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
 
 ## Communication
 
