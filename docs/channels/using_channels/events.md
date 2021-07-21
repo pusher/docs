@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Events
 
-Events are the primary method of packaging messages in the Channels system. they form the basis of all communication.
+Events are the primary method of packaging messages in the Channels system. They form the basis of all communication.
 
 They are essentially 'named messages' which means you can set up 'handlers' in your client code to deal with the various types. As such they are used for 'client-side' routing, and should not be used as filters (channels can do this much more efficiently on the server side).
 
