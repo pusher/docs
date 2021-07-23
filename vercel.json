@@ -4,202 +4,202 @@
   ],
   "redirects": [
     {
-      "source": "/docs/beams/concepts/interests",
+      "source": "/docs/beams/concepts/interests/",
       "destination": "/docs/beams/concepts/device-interests/",
       "permanent": true
     },
     {
-      "source": "/docs/beams/guides/handle-notifications",
+      "source": "/docs/beams/guides/handle-notifications/",
       "destination": "/docs/beams/guides/handle-incoming-notifications/ios/",
       "permanent": true
     },
     {
-      "source": "/docs/beams/guides/handle-incoming-notifications",
+      "source": "/docs/beams/guides/handle-incoming-notifications/",
       "destination": "/docs/beams/guides/handle-incoming-notifications/io/",
       "permanent": true
     },
     {
-      "source": "/docs/beams/guides/publishing-to-users",
+      "source": "/docs/beams/guides/publishing-to-users/",
       "destination": "/docs/beams/guides/publish-to-specific-user/ios/",
       "permanent": true
     },
     {
-      "source": "/docs/beams/guides/publish-to-specific-user",
+      "source": "/docs/beams/guides/publish-to-specific-user/",
       "destination": "/docs/beams/guides/publish-to-specific-user/ios/",
       "permanent": true
     },
     {
-      "source": "/docs/push_notifications/overview",
+      "source": "/docs/push_notifications/overview/",
       "destination": "/docs/beams/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_connect",
+      "source": "/docs/client_api_guide/client_connect/",
       "destination": "/docs/channels/using_channels/connection/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_authorized_connections",
+      "source": "/docs/client_api_guide/client_authorized_connections/",
       "destination": "/docs/channels/using_channels/authorized-connections/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_channels",
+      "source": "/docs/client_api_guide/client_channels/",
       "destination": "/docs/channels/using_channels/channels/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_public_channels",
+      "source": "/docs/client_api_guide/client_public_channels/",
       "destination": "/docs/channels/using_channels/public-channels/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_private_channels",
+      "source": "/docs/client_api_guide/client_private_channels/",
       "destination": "/docs/channels/using_channels/private-channels/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_encrypted_channels",
+      "source": "/docs/client_api_guide/client_encrypted_channels/",
       "destination": "/docs/channels/using_channels/encrypted-channels/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_presence_channels",
+      "source": "/docs/client_api_guide/client_presence_channels/",
       "destination": "/docs/channels/using_channels/presence-channels/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_events",
+      "source": "/docs/client_api_guide/client_events/",
       "destination": "/docs/channels/using_channels/events/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide/client_global_configuration",
+      "source": "/docs/client_api_guide/client_global_configuration/",
       "destination": "/docs/channels/using_channels/global-config/",
       "permanent": true
     },
     {
-      "source": "/docs/server_api_guide/interact_rest_api",
+      "source": "/docs/server_api_guide/interact_rest_api/",
       "destination": "/docs/channels/server_api/http-api/",
       "permanent": true
     },
     {
-      "source": "/docs/server_api_guide/server_excluding_recipients",
+      "source": "/docs/server_api_guide/server_excluding_recipients/",
       "destination": "/docs/channels/server_api/excluding-event-recipients/",
       "permanent": true
     },
     {
-      "source": "/docs/pusher_cli/overview",
+      "source": "/docs/pusher_cli/overview/",
       "destination": "/docs/channels/pusher_cli/overview/",
       "permanent": true
     },
     {
-      "source": "/docs/pusher_cli/installation",
+      "source": "/docs/pusher_cli/installation/",
       "destination": "/docs/channels/pusher_cli/installation/",
       "permanent": true
     },
     {
-      "source": "/docs/pusher_cli/documentation",
+      "source": "/docs/pusher_cli/documentation/",
       "destination": "/docs/channels/pusher_cli/documentation/",
       "permanent": true
     },
     {
-      "source": "/docs/android_quick_start",
+      "source": "/docs/android_quick_start/",
       "destination": "/docs/channels/getting_started/android/",
       "permanent": true
     },
     {
-      "source": "/docs/auth_signatures",
+      "source": "/docs/auth_signatures/",
       "destination": "/docs/channels/library_auth_reference/auth-signatures/",
       "permanent": true
     },
     {
-      "source": "/docs/authenticating_users",
+      "source": "/docs/authenticating_users/",
       "destination": "/docs/channels/server_api/authenticating-users/",
       "permanent": true
     },
     {
-      "source": "/docs/client_api_guide",
+      "source": "/docs/client_api_guide/",
       "destination": "/docs/channels/using_channels/client-api-overview/",
       "permanent": true
     },
     {
-      "source": "/docs/clusters",
+      "source": "/docs/clusters/",
       "destination": "/docs/channels/miscellaneous/clusters/",
       "permanent": true
     },
     {
-      "source": "/docs/debugging",
+      "source": "/docs/debugging/",
       "destination": "/docs/channels/getting_started/debugging/",
       "permanent": true
     },
     {
-      "source": "/docs/device_compatibility",
+      "source": "/docs/device_compatibility/",
       "destination": "/docs/channels/using_channels/device-compatibility/",
       "permanent": true
     },
     {
-      "source": "/docs/fallbacks",
+      "source": "/docs/fallbacks/",
       "destination": "/docs/channels/using_channels/websocket-fallbacks/",
       "permanent": true
     },
     {
-      "source": "/docs/integrations",
+      "source": "/docs/integrations/",
       "destination": "/docs/channels/miscellaneous/integrations/",
       "permanent": true
     },
     {
-      "source": "/docs/ios_quick_start",
+      "source": "/docs/ios_quick_start/",
       "destination": "/docs/channels/getting_started/ios/",
       "permanent": true
     },
     {
-      "source": "/docs/javascript_quick_start",
+      "source": "/docs/javascript_quick_start/",
       "destination": "/docs/channels/getting_started/javascript/",
       "permanent": true
     },
     {
-      "source": "/docs/ios-quick-start",
+      "source": "/docs/ios-quick-start/",
       "destination": "/docs/channels/getting_started/ios/",
       "permanent": true
     },
     {
-      "source": "/docs/javascript-quick-start",
+      "source": "/docs/javascript-quick-start/",
       "destination": "/docs/channels/getting_started/javascript/",
       "permanent": true
     },
     {
-      "source": "/docs/libraries",
+      "source": "/docs/libraries/",
       "destination": "/docs/channels/channels_libraries/libraries/",
       "permanent": true
     },
     {
-      "source": "/docs/pusher_protocol",
+      "source": "/docs/pusher_protocol/",
       "destination": "/docs/channels/library_auth_reference/pusher-websockets-protocol/",
       "permanent": true
     },
     {
-      "source": "/docs/server_api_guide",
+      "source": "/docs/server_api_guide/",
       "destination": "/docs/channels/server_api/overview/",
       "permanent": true
     },
     {
-      "source": "/docs/security",
-      "destination": "https://pusher.com/security/",
+      "source": "/docs/security/",
+      "destination": "https://pusher.com/security",
       "permanent": true
     },
     {
-      "source": "/docs/channels/miscellaneous/security",
-      "destination": "https://pusher.com/security/",
+      "source": "/docs/channels/miscellaneous/security/",
+      "destination": "https://pusher.com/security",
       "permanent": true
     },
     {
-      "source": "/docs/rest_api",
+      "source": "/docs/rest_api/",
       "destination": "/docs/channels/library_auth_reference/rest_api/",
       "permanent": true
     },
     {
-      "source": "/docs/webhooks",
+      "source": "/docs/webhooks/",
       "destination": "/docs/channels/server_api/webhooks/",
       "permanent": true
     }
