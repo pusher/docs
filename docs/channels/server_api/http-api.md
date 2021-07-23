@@ -936,7 +936,8 @@ if (res.status === 200) {
 ```
 
 ```py
-# pusher_client is obtained through pusher_client = pusher.Pusher( ... ) channel = pusher_client.channel_info(u'presence-chatroom', [u"user_count"])
+# pusher_client is obtained through pusher_client = pusher.Pusher( ... )
+channel = pusher_client.channel_info(u'presence-chatroom', [u"user_count"])
 ```
 
 ```go
