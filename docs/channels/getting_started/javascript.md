@@ -1,5 +1,5 @@
 ---
-title: "Pusher Channels Docs | JavaScript Quick Start Guide"
+title: Pusher Channels Docs | JavaScript Quick Start Guide
 description: Use our JavaScript quick start guide to get set up with Channels and publish the first event to your web app.
 layout: channels.njk
 eleventyNavigation:
