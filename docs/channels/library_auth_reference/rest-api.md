@@ -1,5 +1,6 @@
 ---
-title: Rest API
+title: Pusher Channels Docs | HTTP API Reference
+description: Consult all API methods for querying the state of your application and details of the authentication mechanism for Pusher Channels.
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

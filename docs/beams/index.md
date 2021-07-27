@@ -1,5 +1,6 @@
 ---
-title: Beams - Pusher Docs
+title: Pusher Beams Docs
+description: Beams is a specialist hosted API service for quickly and reliably sending push notifications to all users of your mobile and web apps.
 layout: beams.njk
 eleventyNavigation:
   parent: Docs

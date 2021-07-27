@@ -1,5 +1,6 @@
 ---
-title: Installation
+title: Pusher Channels Docs | CLI Installation
+description: The Pusher Command Line Interface is a great way to improve your development experience. This document takes you through the methods for installation.
 layout: channels.njk
 eleventyNavigation:
   parent: Pusher cli

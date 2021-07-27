@@ -1,5 +1,6 @@
 ---
-title: Pusher websockets protocol
+title: Pusher Channels protocol
+description: This documentation describes the current JSON based protocol used by clients to communicate with Channels, mainly over a WebSocket connection.
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

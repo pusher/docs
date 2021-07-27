@@ -1,5 +1,6 @@
 ---
-title: HTTP API
+title: Pusher Channels Docs | Interacting with our HTTP API
+description: Channels provides a HTTP API as the main point of interaction with your servers.
 layout: channels.njk
 eleventyNavigation:
   parent: Server api

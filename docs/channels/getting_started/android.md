@@ -1,5 +1,6 @@
 ---
-title: Android quick start
+title: Pusher Channels Docs | Android Quick Start Guide
+description: Get up and running with Channels in your Android app using our Quick Start Guide. Learn how to install a library, create a connection and trigger events.
 layout: channels.njk
 eleventyNavigation:
   parent: Sdk quick starts
