@@ -160,7 +160,7 @@ Once you have created a Beams auth endpoint you need to setup the Beams client S
 When the Beams SDK tries to authenticate a device it will verify the user's identity by requesting a Beams Token from your application backend. The SDK will do this using the `TokenProvider` that you pass to `setUserId`. You can authenticate the request using cookies sent by the browser, or if necessary, you can manually set query parameters and headers to be sent with the request.
 
 ```js
-const tokenProvider = new PusherPushNotifications.TokenProvider({
+const beamsTokenProvider = new PusherPushNotifications.TokenProvider({
   url: "YOUR_BEAMS_AUTH_URL_HERE",
   queryParams: {
     someQueryParam: "parameter-content", // URL query params your auth endpoint needs
