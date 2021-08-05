@@ -476,11 +476,6 @@ The absolute/relative URL of your Beams auth endpoint. See [Publish to a specifi
 A key/value mapping of the query parameters you would like to be used when the SDK makes a request to your Beams auth endpoint.
 
 {% endparameter %}
-{% parameter 'queryParams', 'Object', false %}
-
-A key/value mapping of the query parameters you would like to be used when the SDK makes a request to your Beams auth endpoint.
-
-{% endparameter %}
 {% parameter 'headers', 'Object', false %}
 
 A key/value mapping of the HTTP request headers you would like to be used when the SDK makes a request to your Beams auth endpoint.
