@@ -7,4 +7,5 @@ eleventyNavigation:
   title: Android
   url: /docs/beams/getting-started/android/configure-fcm/?ref=android
   order: 1
+permalink: false
 ---
