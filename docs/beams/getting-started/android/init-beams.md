@@ -1,5 +1,6 @@
 ---
-title: Init beams
+title: Pusher Beams Docs | Initializing Beams
+description: Start using Pusher Beams. Find out how to import your Beams SDK, connect to Pusher and start sending notifications to all your users' devices.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started android

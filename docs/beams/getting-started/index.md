@@ -1,5 +1,5 @@
 ---
-title: Getting started — Beams — Pusher Docs
+title: Pusher Beams Docs | Getting Started
 layout: beams.njk
 eleventyNavigation:
   parent: Beams

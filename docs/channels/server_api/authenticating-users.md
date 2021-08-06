@@ -1,5 +1,5 @@
 ---
-title: A Channels connection is the fundamental means of communication with the service. It is a bi-directional connection which receives and emits messages.
+title: Pusher Channels Docs | How to authenticate users
 description: Find out how to implement auth endpoints in your app and ensure that only authenticated users can access sensitive info in private and presence channels.
 layout: channels.njk
 eleventyNavigation:

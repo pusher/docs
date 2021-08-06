@@ -1,5 +1,6 @@
 ---
-title: Publish notifications
+title: Pusher Beams Docs | Publish notifications to iOS devices
+description: Use Pusher Beams to publish push notifications triggered by your server to iOS user devices.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS

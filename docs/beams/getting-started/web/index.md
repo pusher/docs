@@ -1,5 +1,6 @@
 ---
-title: Web - Docs - Pusher Docs
+title: Pusher Beams Docs | Web Notifications
+permalink: false
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started

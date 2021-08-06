@@ -1,5 +1,6 @@
 ---
-title: SDK integration
+title: Pusher Beams Docs | iOS Integration
+description: Find out how to setting up your iOS application with Pusher Beams, subscribe devices and publish interest-based notifications to iOS users.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS
