@@ -7,4 +7,5 @@ eleventyNavigation:
   url: /docs/beams/getting-started/web/sdk-integration/?ref=web
   title: Web
   order: 3
+permalink: false
 ---
