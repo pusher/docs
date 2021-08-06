@@ -91,11 +91,6 @@ The body shown when the notification is displayed to the user.
 URL of the image shown as the notification icon when the notification is displayed.
 
 {% endparameter %}
-{% parameter 'icon', 'String', false %}
-
-URL of the image shown as the notification icon when the notification is displayed.
-
-{% endparameter %}
 {% parameter 'deep_link', 'String', false %}
 
 If provided, this URL will be opened in a new tab when the notification is clicked.
