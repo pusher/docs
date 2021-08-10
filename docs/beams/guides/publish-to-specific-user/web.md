@@ -107,7 +107,7 @@ app.get("/pusher/beams-auth", function (req, res) {
   const userId = ""; // get it from your auth system
   const userIDInQueryParam = req.query["user_id"];
   if (userId != userIDInQueryParam) {
-    res.send(401, "Inconsistent request");
+    res..status(401).send("Inconsistent request");
   } else {
     const beamsToken = beamsClient.generateToken(userId);
     res.send(JSON.stringify(beamsToken));
