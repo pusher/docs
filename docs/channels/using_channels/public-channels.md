@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Public channels
 
-Public channels should be used for publicly accessible data as they do not require any form authorisation in order to be subscribed to.
+Public channels should be used for publicly accessible data as they do not require any form of authorisation in order to be subscribed to.
 
 You can subscribe and unsubscribe from channels at any time. There's no need to wait for the Channels to finish connecting first.
 
