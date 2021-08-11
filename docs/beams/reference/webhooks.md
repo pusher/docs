@@ -9,7 +9,7 @@ eleventyNavigation:
 
 # Webhook Reference
 
-Webhooks will are sent as `POST` requests with a JSON body. The request body contains a generic wrapper around the following event-specific payloads:
+Webhooks are sent as `POST` requests with a JSON body. The request body contains a generic wrapper around the following event-specific payloads:
 
 ## `v1.PublishToUsersAttempt`
 
