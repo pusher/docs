@@ -12,7 +12,7 @@ eleventyNavigation:
 
 This is the API used by our Android, iOS and Web SDKs to report back notification events.
 
-> We want everyone to use our official Android, iOS and Web SDKs. If your use case requires this documentation, please contact us [betterbeams@pusher.com](mailto:betterbeams@pusher.com)
+> We highly recommend that you use our official Android, iOS and Web SDKs. If your use case requires this documentation, please contact us [betterbeams@pusher.com](mailto:betterbeams@pusher.com)
 
 ## Reporting a notification acknowledgment
 
