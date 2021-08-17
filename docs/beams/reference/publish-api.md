@@ -1,5 +1,6 @@
 ---
-title: Publish API
+title: Pusher Beams Docs | Publishing notifications to your users
+description: Set up the Publish API in your Beams app and send targeted or broadcast notifications to all of your app users.
 layout: beams.njk
 eleventyNavigation:
   parent: Api

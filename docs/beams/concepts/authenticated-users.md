@@ -1,5 +1,6 @@
 ---
-title: Authenticated users
+title: Pusher Beams Docs | Authenticated Users
+description: The Authenticated Users features allows you to send secure, personalized, transactional notifications for account and social updates.
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

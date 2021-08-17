@@ -1,5 +1,6 @@
 ---
-title: Insights
+title: Pusher Beams Docs | Insights
+description: Beams tracks the lifecycle of the push notifications you send and produces analytics to will help you send the most engaging notifications to your users.
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

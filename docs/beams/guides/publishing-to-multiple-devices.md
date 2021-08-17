@@ -1,5 +1,6 @@
 ---
-title: Publishing to multiple devices
+title: Pusher Beams Docs | Publish notifications to many devices
+description: Use the Device Interests feature with Pusher Beams to easily publish a notification to multiple devices.
 layout: beams.njk
 eleventyNavigation:
   parent: Guides

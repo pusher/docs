@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Pusher Channels Docs | Command Line Interface
+description: The Pusher CLI is a tool designed to make your development experience even easier and can speed up certain workflows and aid debugging.
 layout: channels.njk
 eleventyNavigation:
   parent: Pusher cli

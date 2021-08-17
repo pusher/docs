@@ -1,5 +1,6 @@
 ---
-title: Android
+title: Pusher Beams Docs | Publish notification to an Android user
+description: Use the Authenticated Users feature with Beams to send targeted notifications to specific users. Find out how to associate Android users with their devices.
 layout: beams.njk
 eleventyNavigation:
   parent: Publish to specific user

@@ -1,5 +1,6 @@
 ---
-title: iOS
+title: Pusher Beams Docs | Handling incoming iOS notifications
+description: Use Beams to send iOS notifications and trigger callback code in your app when a notification is recieved so that you can respond in your application.
 layout: beams.njk
 eleventyNavigation:
   parent: Handle incoming notifications

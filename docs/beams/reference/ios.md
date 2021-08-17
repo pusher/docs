@@ -1,5 +1,6 @@
 ---
-title: iOS
+title: Pusher Beams Docs | Swift Client SDK
+description: Find out how to register devices, add device interests and send valuable notifications to iOS devices with our Swift client SDK. 
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks

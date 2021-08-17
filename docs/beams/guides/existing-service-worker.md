@@ -1,5 +1,6 @@
 ---
-title: Using an existing service worker
+title: Pusher Beams Docs | Service Workers
+description: Find out how to import the service worker into an existing service worker file and intialize the Beams SDK for push notifications in your web app.
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides

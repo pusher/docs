@@ -1,5 +1,6 @@
 ---
-title: Logging
+title: Pusher Channels Docs | Logging
+description: Libraries must detect and log important events as it is essential for usability. Our guide gives a recommendation of best practices on logging with Channels.
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference

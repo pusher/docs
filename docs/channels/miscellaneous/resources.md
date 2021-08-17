@@ -1,9 +1,11 @@
 ---
-title: Resources
+title: Pusher Channels Docs | Other resources
+description: A collection of useful resources from other users and writers on the web to help you get set up with Channels.
 layout: channels.njk
 eleventyNavigation:
-  parent: Resources
+  parent: Miscellaneous
   key: Resources
+  order: 3
 ---
 
 # Channels resources on the web

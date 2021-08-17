@@ -1,5 +1,6 @@
 ---
-title: Authorized connections — Channels — Pusher Docs
+title: Pusher Channels Docs | Authorized Connections
+description: Our Authorized Connections feature allows you to authorize every single connection to your Channels app so your connection limit is protected from attackers.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

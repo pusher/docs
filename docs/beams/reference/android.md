@@ -1,5 +1,6 @@
 ---
-title: Android
+title: Pusher Beams Docs | Kotlin & Java Client SDKs for Android
+description: Get set up with our Kotlin/Java SDKs and start sending valuable push notifications to your Android users.
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks

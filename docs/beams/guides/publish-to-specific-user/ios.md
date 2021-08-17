@@ -1,5 +1,6 @@
 ---
-title: iOS
+title: Pusher Beams Docs | Publish notification to an iOS user
+description: Use Beams' Authenticated Users feature to send personalised notifications to specific users. Find out how to associate iOS users with their devices.
 layout: beams.njk
 eleventyNavigation:
   parent: Publish to specific user

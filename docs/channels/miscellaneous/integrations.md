@@ -1,5 +1,6 @@
 ---
-title: Integrations
+title: Pusher Channels Docs | Integrations
+description: Our third party integrations mean you can make the most out of building your apps with Channels. Including Librato, Datadog and Metrics.
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous

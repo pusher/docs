@@ -1,5 +1,6 @@
 ---
-title: Android
+title: Pusher Beams Docs | Handling incoming Android notifications
+description: Trigger callback code in your app when a push notification arrives on a user’s Android device and respond to the arrival of the notification in your app.
 layout: beams.njk
 eleventyNavigation:
   parent: Handle incoming notifications
