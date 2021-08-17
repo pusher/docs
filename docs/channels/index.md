@@ -1,5 +1,6 @@
 ---
-title: Channels — Pusher Docs
+title: Pusher Channels Docs
+description: Channels provides realtime communication between servers, apps and devices. Build live charts, user lists, maps, multiplayer gaming, and other UI updates.
 layout: channels.njk
 hideTOC: true
 eleventyNavigation:

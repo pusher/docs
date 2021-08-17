@@ -1,5 +1,6 @@
 ---
-title: Public channels
+title: Pusher Channels Docs | How to set up public channels
+description: Public channels are used for publicly accessible data and do not require any form of authorisation in order to be subscribed to.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

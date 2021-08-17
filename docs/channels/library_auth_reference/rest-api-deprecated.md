@@ -1,5 +1,6 @@
 ---
-title: Rest api deprecated
+title: Pusher Channels Docs | Deprecated HTTP API Reference Methods
+description: The methods described in this documentation are considered deprecated and have been replaced by the new methods listed in our API reference.
 layout: channels.njk
 eleventyNavigation:
   key: Rest api deprecated

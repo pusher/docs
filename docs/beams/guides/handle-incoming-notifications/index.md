@@ -6,4 +6,5 @@ eleventyNavigation:
   key: Handle incoming notifications
   url: /docs/beams/guides/handle-incoming-notifications/android/?ref=handle-incoming-notifications
 order: 1
+permalink: false
 ---

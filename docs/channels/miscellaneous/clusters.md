@@ -1,5 +1,6 @@
 ---
-title: Clusters
+title: Pusher Channels Docs | Cluster Configuration
+description: Channels has 8 public clusters worldwide. Find out how to choose the location which works best for you and achieve lower network latency.
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous

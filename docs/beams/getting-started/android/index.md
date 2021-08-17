@@ -1,5 +1,6 @@
 ---
-title: Android - Docs - Pusher Docs
+title: Pusher Beams Docs | Android SDK Integration
+permalink: false
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started

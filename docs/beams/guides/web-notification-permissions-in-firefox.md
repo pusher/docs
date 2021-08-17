@@ -1,5 +1,6 @@
 ---
-title: Web notification permissions in Firefox
+title: Pusher Beams Docs | Firefox Web Notification Permissions
+description: Mozilla have firm guidelines for user experience of web push notifications. This guide covers the Firefox specific requirements to requesting push permission.
 layout: beams.njk
 eleventyNavigation:
   parent: Web push guides

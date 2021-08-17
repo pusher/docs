@@ -1,5 +1,6 @@
 ---
-title: iOS - Docs - Pusher Docs
+title: Pusher Beams Docs | iOS Notifications
+permalink: false
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started

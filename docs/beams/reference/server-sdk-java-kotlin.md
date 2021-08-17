@@ -1,5 +1,6 @@
 ---
-title: Server SDK java kotlin
+title: Pusher Beams Docs | Java & Kotlin Server SDK
+description: The Beams Java/Kotlin server SDK is available on Maven Central. Follow this guide to begin sending notifications from your Java or Kotlin app.
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

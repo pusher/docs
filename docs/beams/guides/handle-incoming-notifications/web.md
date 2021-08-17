@@ -1,5 +1,6 @@
 ---
-title: Web
+title: Pusher Beams Docs | Handling incoming web notifications
+description: The Beams web SDK will always display a browser notification when one arrives to the device and interaction will open a new tab based on the deep link provided.
 layout: beams.njk
 eleventyNavigation:
   parent: Handle incoming notifications

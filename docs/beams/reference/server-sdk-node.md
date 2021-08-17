@@ -1,5 +1,6 @@
 ---
-title: Server SDK Node.js
+title: Pusher Beams Docs | Node.js Server SDK
+description: Get set up with the Node.js server SDK for Beams and start sending notifications to your users. This SDK includes a typings file for TypeScript compatibility.
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

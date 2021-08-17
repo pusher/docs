@@ -1,5 +1,6 @@
 ---
-title: Configure APNS
+title: Pusher Beams Docs | APNs Configuration
+description: This guide will show you how to configure APNs in your app using Pusher Beams and send push notifications to iOS devies.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started iOS

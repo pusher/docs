@@ -1,5 +1,6 @@
 ---
-title: Global config
+title: Pusher Channels Docs | Global Configuration
+description: Define system-wide default configuration settings for interaction with the Channels API in your app.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

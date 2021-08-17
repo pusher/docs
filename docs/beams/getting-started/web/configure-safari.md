@@ -1,5 +1,6 @@
 ---
-title: SDK integration
+title: Pusher Beams Docs | Build web notifications for Safari users
+description: Use our Safari configuration guide to set up push notifications for your Safari web browser users with the Beams Web SDK.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started Web

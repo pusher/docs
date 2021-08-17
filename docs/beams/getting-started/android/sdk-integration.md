@@ -1,5 +1,6 @@
 ---
-title: SDK integration
+title: Pusher Beams Docs | Android SDK Integration
+description: Integrate the Pusher and FCM SDKs into your project so you can start sending push notifications to your Android users.
 layout: beams.njk
 eleventyNavigation:
   parent: Beams getting started android

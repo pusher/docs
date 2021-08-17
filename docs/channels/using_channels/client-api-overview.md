@@ -1,5 +1,6 @@
 ---
-title: Client API overview
+title: Pusher Channels Docs | Client API Overview
+description: The Client API Overview provides information on how to perform specific actions using our client libraries.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

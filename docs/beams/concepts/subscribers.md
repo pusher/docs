@@ -1,5 +1,6 @@
 ---
-title: Subscribers
+title: Pusher Beams Docs | What are subscribers in Beams?
+description: Push notification gateways provide a token for each device you want to publish to. The device registers its token with Beams and is counted as a subscriber.
 layout: beams.njk
 eleventyNavigation:
   parent: Concepts

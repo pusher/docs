@@ -1,5 +1,6 @@
 ---
-title: Private channels
+title: Pusher Channels Docs | How to build private channels
+description: Use Pusher to build private channels which restrict access to authorized users only, providing your app with a secure medium for publishing messages.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

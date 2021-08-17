@@ -1,5 +1,6 @@
 ---
-title: Server SDK Go
+title: Pusher Beams Docs | Go Server SDK
+description: Install the Go Server SDK and start sending notifications to your Go app users. Learn how to install the SDK and publish notifications to groups or individuals.
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

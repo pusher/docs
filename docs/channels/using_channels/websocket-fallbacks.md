@@ -1,5 +1,6 @@
 ---
-title: Websocket fallbacks
+title: Pusher Channels Docs | WebSocket Fallbacks
+description: Some networks still cause problems when using WebSockets, so pusher-js provides fallback mechanisms to allow realtime connectivity in almost any circumstances.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

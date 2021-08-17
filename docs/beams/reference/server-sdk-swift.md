@@ -1,5 +1,6 @@
 ---
-title: Server SDK Swift
+title: Pusher Beams Docs | Swift Server SDK
+description: Begin publishing push notifications to groups and individual users of your server side Swift app with the Beams SDK.
 layout: beams.njk
 eleventyNavigation:
   parent: Server sdks

@@ -1,5 +1,6 @@
 ---
-title: Events
+title: Pusher Channels Docs | What is an event?
+description: Events are the primary method of packaging messages in the Channels system. They form the basis of all communication. Read about binding and triggering events.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels
