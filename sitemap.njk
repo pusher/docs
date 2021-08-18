@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
     {% for page in collections.docs %}
        {% if not page.permalink %}
         <url>
-            <loc>{{ docs.url }}{{ page.url | url }}</loc>
+            <loc>{{ url }}{{ page.url }}</loc>
             <lastmod>{{ page.date.toISOString() }}</lastmod>
             <changefreq>{{ page.data.changeFreq if page.data.changeFreq else "never" }}</changefreq>
         </url>
