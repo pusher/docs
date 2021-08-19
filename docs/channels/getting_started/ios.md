@@ -115,7 +115,7 @@ let _ = myChannel.bind(eventName: "my-event", callback: { (data: Any?) -> Void i
 
 In the examples below we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below a [server library](/docs/channels/channels_libraries/libraries) deals with the server communication.
 
-{% snippets ['rb', 'js', 'php', 'c', 'go', 'py', 'java', 'bash'] %}
+{% snippets ['rb', 'js', 'php', 'c', 'py', 'go', 'java', 'bash'] %}
 
 ```rb
 # First, run 'gem install pusher'
