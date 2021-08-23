@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Ruby Server SDK
 description: The Pusher Beams Ruby server SDK is available on RubyGems. Install the SDK to start sending valuable push notifications to your users.
 layout: beams.njk

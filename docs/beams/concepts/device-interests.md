@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Device Interests
 description: The Device Interests feature targets groups of devices. These notifications are public broadcast and are great for topic subscribers and news updates.
 layout: beams.njk

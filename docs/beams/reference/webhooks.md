@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Webhook Reference
 description: Webhooks with Beams will are sent as POST requests with a JSON body. The request body contains a generic wrapper around event-specific payloads.
 layout: beams.njk

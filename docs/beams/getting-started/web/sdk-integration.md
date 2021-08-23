@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Web SDK Integration
 description: This guide will take you through installing and initializing the Beams Web SDK in your application so you can send push notifications to your web users.
 layout: beams.njk

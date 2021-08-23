@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Readme
 layout: readme.njk
 permalink: docs/README/
@@ -48,14 +49,15 @@ For users without JS there is a fallback page which is powered by Vercel’s ser
 
 If you need to debug this you can run the project with `vercel dev` and it will hot reload any changes.
 
-## How to add new pages
+## How to add / update new pages
 
-1. Add a new [Markdown] file in the relevant directory.
-2. Add YAML front matter to the top, you can add a description, which will be used for the page meta but by default it will extract the first 160 characters of the first paragraph.
+1. Add a new [Markdown] file in the relevant directory or edit an existing one.
+2. Add YAML front matter to the top. This should include an approved title and description and the creation date. If making a change be sure to update the date.
    For example:
 
 ```yml
 ---
+date: 2021-08-23
 title: Connection — Channels — Pusher Docs
 layout: channels.njk
 description: Optionally set this to override generated one

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs
 description: Beams is a professional hosted API service for quickly and reliably sending push notifications to all users of your mobile and web apps.
 layout: beams.njk

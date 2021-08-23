@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Swift Client SDK
 description: Find out how to register devices, add device interests and send valuable notifications to iOS devices with our Swift client SDK. 
 layout: beams.njk

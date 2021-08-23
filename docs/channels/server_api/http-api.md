@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | Interacting with our HTTP API
 description: Channels provides a HTTP API as the main point of interaction with your servers.
 layout: channels.njk

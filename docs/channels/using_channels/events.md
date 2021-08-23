@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | What is an event?
 description: Events are the primary method of packaging messages in the Channels system. They form the basis of all communication. Read about binding and triggering events.
 layout: channels.njk

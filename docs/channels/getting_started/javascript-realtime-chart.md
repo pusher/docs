@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Docs | How to build a realtime chart in JavaScript
 description: Follow this quick start guide to build a chart in a webpage that you can use to publish new data-points from your server and display live updates.
 layout: channels.njk

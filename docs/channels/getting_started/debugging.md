@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | Debugging
 description: Check out our useful debug tools to help you get to the bottom of problems with your application.
 layout: channels.njk

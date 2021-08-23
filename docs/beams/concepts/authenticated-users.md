@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Authenticated Users
 description: The Authenticated Users features allows you to send secure, personalized, transactional notifications for account and social updates.
 layout: beams.njk

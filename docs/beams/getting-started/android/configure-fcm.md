@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Configuring FCM
 description: Learn how to get set up with Firebase Cloud Messaging credentials and deliver event driven notifications to your Android user devices with Pusher Beams.
 layout: beams.njk

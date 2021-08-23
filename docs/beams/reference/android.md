@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Kotlin & Java Client SDKs for Android
 description: Get set up with our Kotlin/Java SDKs and start sending valuable push notifications to your Android users.
 layout: beams.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Channels libraries
 layout: channels.njk
 eleventyNavigation:

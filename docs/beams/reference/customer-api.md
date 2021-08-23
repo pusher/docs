@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Deleting a user
 description: Our Customer API allows you to quickly and easily delete unsubscribed users from your user base and discontinue notifications to their devices.
 layout: beams.njk

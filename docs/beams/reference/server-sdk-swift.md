@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Swift Server SDK
 description: Begin publishing push notifications to groups and individual users of your server side Swift app with the Beams SDK.
 layout: beams.njk

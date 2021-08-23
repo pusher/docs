@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | CLI Functionality
 description: This document explains the functionality that is currently available in the Pusher Command Line Interface tool including generating a key, logging in and usage.
 layout: channels.njk

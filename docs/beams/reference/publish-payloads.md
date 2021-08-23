@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Publish platform formats for payloads
 description: Each platform (APNS, FCM and Web) supports different options when publishing notifications. This guide describes the formats expected by each platform.
 layout: beams.njk

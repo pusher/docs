@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Lab | Experimental and Beta Features
 description: We continue to bring cutting edge features to our realtime APIs. Find out what we're working on and get involved with beta testing in the Pusher Lab.
 layout: other.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Webhooks
 description: Configure Beams to send webhooks to your server when important events occur, and trigger different behaviours depending on the status of your notifications.
 layout: beams.njk

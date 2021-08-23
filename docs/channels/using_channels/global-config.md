@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | Global Configuration
 description: Define system-wide default configuration settings for interaction with the Channels API in your app.
 layout: channels.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | Client API Overview
 description: The Client API Overview provides information on how to perform specific actions using our client libraries.
 layout: channels.njk

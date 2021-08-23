@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Protocol
 description: This documentation describes the current JSON based protocol used by clients to communicate with Channels, mainly over a WebSocket connection.
 layout: channels.njk

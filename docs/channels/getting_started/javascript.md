@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | JavaScript Quick Start Guide
 description: Use our JavaScript quick start guide to get set up with Channels and publish the first event to your web app.
 layout: channels.njk

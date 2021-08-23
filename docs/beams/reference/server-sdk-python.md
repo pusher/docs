@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Python Server SDK
 description: The Beams Python server SDK is available on PyPi. Install the SDK to start sending push notifications to your Python app users.
 layout: beams.njk

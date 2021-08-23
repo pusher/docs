@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Documentation
 description: Explore our comprehensive docs and get started building realtime messaging for all your apps today with Channels and Beams.
 layout: home.njk

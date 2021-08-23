@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Publish notifications to a specific user
 description: Beams' Authenticated Users feature allows you to send notifications to individual users of your application via your existing identification system.
 layout: beams.njk

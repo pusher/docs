@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | WebSocket Fallbacks
 description: Some networks still cause problems when using WebSockets, so pusher-js provides fallback mechanisms to allow realtime connectivity in almost any circumstances.
 layout: channels.njk

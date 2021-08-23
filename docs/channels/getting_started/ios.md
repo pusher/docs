@@ -1,4 +1,5 @@
 ---
+date: 2021-08-19
 title: Pusher Channels Docs | iOS Quick Start Guide
 description: Get started publishing realtime events to your iOS apps with our quick start guide.
 layout: channels.njk
