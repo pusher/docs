@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | Generating the authentication string
 description: This guide is designed for library makers who wish to implement the signing mechanism in use by private channels.
 layout: channels.njk

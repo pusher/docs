@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Initializing Beams
 description: Start using Pusher Beams. Find out how to import your Beams SDK, connect to Pusher and start sending notifications to all your users' devices.
 layout: beams.njk

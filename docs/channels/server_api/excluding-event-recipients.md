@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | How to exclude event recipients
 description: In some situations, you may want to stop the client that broadcasts a realtime event from receiving it. Check out our docs to find out how.
 layout: channels.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Android SDK Integration
 description: Integrate the Pusher and FCM SDKs into your project so you can start sending push notifications to your Android users.
 layout: beams.njk

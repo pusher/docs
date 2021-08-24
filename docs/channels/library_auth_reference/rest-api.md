@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | HTTP API Reference
 description: Consult all API methods for querying the state of your application and details of the authentication mechanism for Pusher Channels.
 layout: channels.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Docs | Build a realtime user list in JavaScript
 description: Learn how to use Pusher Channels to build a live user list in a webpage which updates when users open and close the page.
 layout: channels.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | What is a connection?
 description: A Channels connection is the fundamental means of communication with the service. It is a bi-directional connection which receives and emits messages.
 layout: channels.njk

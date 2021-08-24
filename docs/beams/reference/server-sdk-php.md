@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | PHP Server SDK
 description: Install the PHP Server SDK and start sending push notifications to your users. Learn how to install using composer and publish notificaitons from your PHP app.
 layout: beams.njk

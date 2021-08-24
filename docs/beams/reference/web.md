@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Web SDK
 description: Install the Beams Web SDK using npm/yarn and send valuable browser notifications to your Safari, Firefox, Opera, Chrome and Edge.
 layout: beams.njk

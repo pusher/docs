@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | What are channels?
 description: The channels in your application provide ways of filtering data and controlling access to information streams. Creating a channel is easy!
 layout: channels.njk

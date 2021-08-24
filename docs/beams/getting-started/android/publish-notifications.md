@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Publish notifications to Android devices
 description: Trigger push notifications from your server to Android app users through our Beams service by publishing to their device's subscribed interests.
 layout: beams.njk

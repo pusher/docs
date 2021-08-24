@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | What are active devices in Beams?
 description: We consider a device to be active if you’ve asked us to send it one or more notifications within a given period.
 layout: beams.njk

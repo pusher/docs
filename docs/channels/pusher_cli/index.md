@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher cli - Docs - Pusher Docs
 layout: channels.njk
 eleventyNavigation:

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels | Server Library Reference Specification
 description: This documentation describes the language and platform-agnostic requirements for a Pusher Channels server library, as expected by Pusher.
 layout: channels.njk

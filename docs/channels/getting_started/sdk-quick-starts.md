@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: SDK quick starts
 layout: channels.njk
 eleventyNavigation:

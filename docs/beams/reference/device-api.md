@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Device API
 description: The Device API is used by our Android, iOS and Web SDKs to register new devices and collect information such as device metadata, tokens, user IDs and interests.
 layout: beams.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Channels Docs | End-to-end Encryption
 description: The data published to E2EE channels is encrypted and cannot be read by any unauthorised party, including Pusher. E2EE channels also provide full authenticity.
 layout: channels.njk

@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Reporting API
 description: The reporting API is used by our Android, iOS and Web SDKs to report back notification events such as which devices have received or opened notifications.
 layout: beams.njk

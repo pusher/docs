@@ -1,4 +1,5 @@
 ---
+date: 2021-08-01
 title: Pusher Beams Docs | Expiration of your Safari certificate
 description: Before your Apple-issued certificate expires you will need to update the certificate for your existing Website Push ID to continue sending Beams notifications.
 layout: beams.njk
