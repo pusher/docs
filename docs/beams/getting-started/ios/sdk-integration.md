@@ -68,9 +68,9 @@ Run `carthage bootstrap` to build the framework and drag the built `PushNotifica
 
 In the project navigator, select your project, and click on the <em>Signing & Capabilities</em> tab. [Enable Push Notifications](http://help.apple.com/xcode/mac/current/#/devdfd3d04a1) by clicking on the "+ Capability" button.
 
-Enable <em>Remote notifications</em> and <em>Background processing</em> in the <em>Background Modes</em> section.
+Enable <em>Remote notifications</em> in the <em>Background Modes</em> section.
 
-![Screenshot from xCode showing Remote Notifications and Background processing checked](./img/capabilities.png)
+![Screenshot from xCode showing Remote Notifications checked](./img/capabilities.png)
 
 ## Register with APNs
 
