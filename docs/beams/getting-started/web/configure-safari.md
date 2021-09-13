@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2021-09-03
 title: Pusher Beams Docs | Build web notifications for Safari users
 description: Use our Safari configuration guide to set up push notifications for your Safari web browser users with the Beams Web SDK.
 layout: beams.njk
@@ -171,7 +171,6 @@ Safari uses the `web` key of the publish payload therefore you can trigger notif
 - It is not possible to update the icon or website name for users that have already allowed notifications. If you change your website name or icon at a later date then only new users will receive the new name and icon. This is a limitation with Safari rather than Beams.
 - You can’t send data or run JavaScript in response to receiving notifications as you can in other browsers. This is a limitation with Safari rather than Beams.
 - Not all the publish payload keys have an effect in Safari. You can find out more in the [publish payload format docs](/docs/beams/reference/publish-payloads#web-format).
-- Safari device counts are not currently displayed on the dashboard and Safari devices do not currently contribute to your subscriber count. Safari devices will contribute to your device count when the feature is out of beta or sooner.
 
 ## Certificate expiration
 
