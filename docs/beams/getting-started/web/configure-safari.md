@@ -1,5 +1,5 @@
 ---
-date: 2021-09-03
+date: 2021-09-13
 title: Pusher Beams Docs | Build web notifications for Safari users
 description: Use our Safari configuration guide to set up push notifications for your Safari web browser users with the Beams Web SDK.
 layout: beams.njk
