@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2021-08-27
 title: Pusher Channels Docs | End-to-end Encryption
 description: The data published to E2EE channels is encrypted and cannot be read by any unauthorised party, including Pusher. E2EE channels also provide full authenticity.
 layout: channels.njk
@@ -187,6 +187,10 @@ Library support is limited to those listed below. If you want to use encrypted c
 [pusher-http-ruby](https://github.com/pusher/pusher-http-ruby)
 
 - Supported from version 1.4.0 onwards.
+
+[pusher-http-java](https://github.com/pusher/pusher-http-java)
+
+- Supported from version 1.3.0 onwards.
 
 [Client events](/docs/channels/using_channels/events) are not currently supported.
 
