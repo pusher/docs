@@ -53,7 +53,7 @@ The authentication flow for Beams can be integrated directly with your existing 
 
 - A user can be associated with a maximum of **100** devices per platform at any given time.
   - Devices can be immediately disassociated from users by calling `.stop` in the client SDK when a user logs out of your application.
-  - Devices will be disassociated automatically when the app is uninstalled and the push gateway invalidates the device token (this process can some time).
+  - Devices will be disassociated automatically when the app is uninstalled and the push gateway invalidates the device token (this process can take some time).
 - User ids are limited to 164 unicode characters.
 
 # Where Next?
