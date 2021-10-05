@@ -27,7 +27,7 @@ Typically experimental features will remain experimental for no longer than one 
 
 | Product  | Feature               | Last update | Review by date | Resources                                                                        | Status |
 | -------- | --------------------- | ----------- | -------------- | -------------------------------------------------------------------------------- | ------ |
-| Channels | HTTP publish API info | 18 Feb 2021 | 31 Aug 2021    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
+| Channels | HTTP publish API info | 18 Feb 2021 | 31 Dec 2021    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
 
 [trigger example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
 [trigger batch example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
@@ -43,7 +43,7 @@ Typically beta features will remain beta for no longer than two business quarter
 
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
-| Beams   | Safari web push notifications | 20 Jun 2021 | 30 Sep 2021    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
+| Beams   | Safari web push notifications | 20 Jun 2021 | 31 Oct 2021    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
 
 ## Communication
 
