@@ -83,6 +83,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+To track notification opening, you will need to call `handleNotification` in your `userNotificationCenter` `didReceive` handler. Go [here](/docs/beams/guides/handle-incoming-notifications/ios#handling-notifications-and-notification-related-actions) to learn more about handling a user's response to a notification.
+
+```swift
+func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+  let userInfo = response.notification.request.content.userInfo
+  self.beamsClient.handleNotification(userInfo: userInfo)
+
+  // Handle the user interation
+
+  completionHandler()
+}
+```
+
 #### content-available
 
 This delivery tracking technique requires that we set the `content-available` flag when publishing to APNs. If you want to disable this behaviour please set the `disable_delivery_tracking` flag when publishing to Beams:
