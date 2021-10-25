@@ -1,5 +1,5 @@
 {
-  "name": "pusher-docs",
+  "name": "@pusher/docs",
   "version": "1.0.0",
   "main": "index.html",
   "repository": "git@github.com:pusher/docs.git",
