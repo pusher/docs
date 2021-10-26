@@ -166,6 +166,10 @@ Library support is limited to those listed below. If you want to use encrypted c
 
 - Supported from version 8.0
 
+[pusher-websocket-dotnet](https://github.com/pusher/pusher-websocket-dotnet)
+
+- Supported from version 2.1.0
+
 ### Server
 
 [pusher-http-node](https://github.com/pusher/pusher-http-node)
