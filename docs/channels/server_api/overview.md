@@ -88,7 +88,7 @@ class MyEvent implements ShouldBroadcast
 
   public $message;
 
-  public function __construct($messsage)
+  public function __construct($message)
   {
       $this->message = $message;
   }
