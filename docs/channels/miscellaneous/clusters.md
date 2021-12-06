@@ -1,7 +1,7 @@
 ---
-date: 2021-08-01
+date: 2021-12-06
 title: Pusher Channels Docs | Cluster Configuration
-description: Channels has 8 public clusters worldwide. Find out how to choose the location which works best for you and achieve lower network latency.
+description: Channels has 9 public clusters worldwide. Find out how to choose the location which works best for you and achieve lower network latency.
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous
@@ -25,6 +25,7 @@ Channels has the following public clusters:
 - `ap2` in Mumbai
 - `ap3` in Tokyo
 - `ap4` in Sydney
+- `sa1` in São Paulo
 
 If you require other locations, we can create dedicated Channels clusters in custom locations on request: [talk to us](https://pusher.com/contact).
 
