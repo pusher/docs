@@ -25,6 +25,7 @@ Channels has the following public clusters:
 - `ap2` in Mumbai
 - `ap3` in Tokyo
 - `ap4` in Sydney
+- `sa1` in São Paulo
 
 If you require other locations, we can create dedicated Channels clusters in custom locations on request: [talk to us](https://pusher.com/contact).
 
