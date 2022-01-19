@@ -81,7 +81,7 @@ In recent WebSocket drafts ping & pong are supported as part of the protocol. Un
 
 If the WebSocket draft supports protocol level ping-pong, then on receipt of a ping message, the client MUST respond with a pong message.
 
-If the client does not support protocol level pings and advertises (on connect) that it implements a protocol version >= 5 then the client MUST respond to a `pusher:ping` event with a `pusher.pong` event.
+If the client does not support protocol level pings and advertises (on connect) that it implements a protocol version >= 5 then the client MUST respond to a `pusher:ping` event with a `pusher:pong` event.
 
 Clients SHOULD send a ping to Pusher Channels when the connection has been inactive for some time in order to check that the connection is alive. They MUST then wait some time for receipt of a pong message before closing the connection / reconnecting. Clients SHOULD send a protocol ping if supported (sending a `pusher:ping` event will also work).
 
