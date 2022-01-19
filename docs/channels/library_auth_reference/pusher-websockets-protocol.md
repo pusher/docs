@@ -89,8 +89,10 @@ Clients MAY use platform specific APIs to trigger a ping check at an appropriate
 
 The precise timeouts before sending a ping and how long to wait for a pong MAY be configurable by the user of the library, but sensible defaults SHOULD be specified. The recommended values are:
 
-- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s  
-  If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server.
+- Activity timeout before sending ping: 120s
+-  Time to wait for pong response before closing: 30s  
+
+If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server.
 
 The following example code is taken from the `pusher-js` library. This function is called whenever a message is received
 
