@@ -167,7 +167,7 @@ When the client has connected to the Channel service a `pusher:connection_establ
 { "event": "pusher:connection_established", "data": String }
 ```
 
-Where the `data` field is a JSON-encoded hash of following format:
+Where the `data` field is a JSON-encoded string of following format:
 
 ```json
 { "socket_id": String "activity_timeout": Number }
