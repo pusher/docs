@@ -60,7 +60,7 @@ let instanceId = "YOUR_INSTANCE_ID_HERE"
 let secretKey = "YOUR_SECRET_KEY_HERE"
 
 // PushNotifications instance.
-let beamsClient = PushNotifications(instanceId: instanceId, secretKey: secretKey
+let beamsClient = PushNotifications(instanceId: instanceId, secretKey: secretKey)
 ```
 
 ### `publishToInterests(interests, publishRequest)`
