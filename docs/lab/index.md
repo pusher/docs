@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2022-02-16
 title: Pusher Lab | Experimental and Beta Features
 description: We continue to bring cutting edge features to our realtime APIs. Find out what we're working on and get involved with beta testing in the Pusher Lab.
 layout: other.njk
@@ -27,11 +27,13 @@ Typically experimental features will remain experimental for no longer than one 
 
 | Product  | Feature               | Last update | Review by date | Resources                                                                        | Status |
 | -------- | --------------------- | ----------- | -------------- | -------------------------------------------------------------------------------- | ------ |
-| Channels | HTTP publish API info | 18 Feb 2021 | 31 Dec 2021    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
+| Channels | HTTP publish API info | 16 Feb 2022 | 31 Mar 2022    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
+| Beams | WEB support in Flutter SDK  | 16 Feb 2022 | 31 May 2022    | [SDK repository] | Active |
 
 [trigger example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
 [trigger batch example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
 [http api reference]: /docs/channels/library_auth_reference/rest-api#events
+[sdk repository]: https://github.com/pusher/flutter_pusher_beams
 
 ## Beta program
 
@@ -43,7 +45,7 @@ Typically beta features will remain beta for no longer than two business quarter
 
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
-| Beams   | Safari web push notifications | 20 Jun 2021 | 31 Oct 2021    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
+| Beams   | Safari web push notifications | 09 Sep 2021 | 31 May 2022    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
 
 ## Communication
 
