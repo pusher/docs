@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2022-02-16
 title: Pusher Channels | API Libraries
 description: We have over 40 SDKs to get you started with Pusher Channels, so you can build on any platform. Find all of our client and server libraries here.
 layout: channels.njk
@@ -37,6 +37,7 @@ The following libraries are updated and supported by Pusher.
 | JavaScript                          | Pusher                                           | [Docs](/docs/channels/getting_started/javascript)                    | [pusher/pusher-js](https://github.com/pusher/pusher-js)                               |
 | .NET                                | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-dotnet)            | [pusher/pusher-websocket-dotnet](https://github.com/pusher/pusher-websocket-dotnet)   |
 | Unity                               | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-unity)             | [pusher/pusher-websocket-unity](https://github.com/pusher/pusher-websocket-unity)     |
+| Flutter                               | Pusher                                           | [Docs](https://github.com/pusher/pusher-channels-flutter#table-of-contents)             | [pusher/pusher-channels-flutter](https://github.com/pusher/pusher-channels-flutter)     |
 
 ## Official server libraries
 

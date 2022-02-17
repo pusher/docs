@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2022-02-16
 title: Pusher Beams Docs | SDKs
 description: Sending and receiving push notifications using Pusher Beams requires SDKs/libraries. Check out our comprehensive list of libraries and get started with Beams.
 layout: beams.njk
@@ -23,6 +23,7 @@ Sending and receiving push notifications using Pusher Beams requires SDKs/librar
 | Android          | Pusher     | [Docs](/docs/beams/reference/android) | [pusher/push-notifications-android](https://github.com/pusher/push-notifications-android) |
 | iOS              | Pusher     | [Docs](/docs/beams/reference/ios)     | [pusher/push-notifications-swift](https://github.com/pusher/push-notifications-swift)     |
 | Web (JavaScript) | Pusher     | [Docs](/docs/beams/reference/web)     | [pusher/push-notifications-web](https://github.com/pusher/push-notifications-web)         |
+| Flutter | Pusher     | [Docs](https://github.com/pusher/push-notifications-flutter#table-of-contents)     | [pusher/flutter_pusher_beams](https://github.com/pusher/push-notifications-flutter)         |
 
 ## Server SDKs
 
