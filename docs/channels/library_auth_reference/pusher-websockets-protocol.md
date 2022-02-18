@@ -89,7 +89,7 @@ Clients MAY use platform specific APIs to trigger a ping check at an appropriate
 
 The precise timeouts before sending a ping and how long to wait for a pong MAY be configurable by the user of the library, but sensible defaults SHOULD be specified. The recommended values are:
 
-- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s  
+- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s
   If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server.
 
 The following example code is taken from the `pusher-js` library. This function is called whenever a message is received
@@ -183,6 +183,45 @@ var pusher = new Pusher("APP_KEY");
 ```
 
 ![Connection and connection event](./img/connect.png)
+
+
+#### `pusher:signin` (Client -> Pusher Channels)
+
+The `pusher:signin` event is generated on the client and sent to Pusher Channels to associate the connection with the user id referred to by the authentication signature. It fails if the connection is already associated with a different user id.
+
+A `pusher:signin` event will result in either a `pusher:signin_success` or a `pusher:error` event being sent back from Pusher Channels to the client. The `pusher:error` event will contain relevant information for why the operation failed.
+
+```json
+{ "event": String, "data": { "auth": String, "user_data": String } }
+```
+
+- data.auth (String)
+  - The authentication signature. The value will be generated on the application server.
+- data.user_data (String)
+  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user id. It may be populated with additional user information according to the applications needs.
+
+#### Example JSON
+
+```json
+{
+  "event": "pusher:signin",
+  "data": {
+    "auth": "<APP_KEY>::user::<server_generated_signature>",
+    "user_data": "{ \"id\": \"<user_id>\", \"name\": \"Phil Leggetter\", \"twitter\": \"@leggetter\", \"blogUrl\":\"http://blog.pusher.com\" }"
+  }
+}
+```
+
+#### `pusher:signin_success` (Pusher Channels -> Client)
+
+When the client sends a `pusher:signin` event that is processed succesfully, a `pusher:signin_success` event is triggered. Once this event has been triggered, the connection has access to features that require a user to be authenticated.
+
+```json
+{ "event": "pusher:signin_success", "data": { "user_data": String } }
+```
+
+- data.user_data (String)
+  - A JSON-encoded hash generated at the application server and validated at the Pusher Channels server. It contains at least an `id` field as a `String` containing the user id.
 
 ## System Events
 
@@ -527,7 +566,7 @@ The `pusher:subscription_succeeded` event is triggered following the receipt of 
 { "event": "pusher:subscription_succeeded", "members": Object }
 ```
 
-- members (Object) \* The members object contains information on the members that are subscribed to the presence channel.  
+- members (Object) \* The members object contains information on the members that are subscribed to the presence channel.
   The `members` object interface is as follows:
 
 ```js
