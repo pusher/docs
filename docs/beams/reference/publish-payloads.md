@@ -14,7 +14,7 @@ eleventyNavigation:
 
 Each platform supports different options when publishing notifications via the `publishToUsers` and `publishToInterests` methods. These are the formats expected by each platform.
 
-# FCM format
+## FCM format
 
 The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream)
 
@@ -35,7 +35,7 @@ publishToUsers(["SOME_USER"], {
 });
 ```
 
-# APNs format
+## APNs format
 
 The full set of options for the APNs section of the `notify` call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1)
 
@@ -56,7 +56,7 @@ publishToUsers(["SOME_USER"], {
 });
 ```
 
-# Web format
+## Web format
 
 Pusher Beams offers a bespoke format for sending web notifications that works across all supported browsers.
 
@@ -76,7 +76,7 @@ Arbritrary object containing any custom metadata you would like to send with the
 
 {% endparameter %}
 
-## Notification object format
+### Notification object format
 
 {% parameter 'title', 'String', false %}
 
