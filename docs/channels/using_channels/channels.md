@@ -43,6 +43,8 @@ Channel names should only include lower and uppercase letters, numbers and the f
 foo-bar_1234@=,.;
 ```
 
+`#` is a reserved character for internal use by Pusher Channels. Applications can't create channel names containing `#`.
+
 ## Accessing channels
 
 If a channel has been subscribed to already it is possible to access channels by name, through the `pusher.channel` function:
