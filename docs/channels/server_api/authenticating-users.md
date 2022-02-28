@@ -13,7 +13,7 @@ eleventyNavigation:
 
 Pusher provides mechanisms for both authenticating and authorizing users. Our definition of this is that the former identifies who a user is, while the latter controls access by a given user to certain resources.
 
-Since your servers are the authority on who your users are, and what they can access, our clients libraries are able to make callbacks to endpoints of your choice to supply signed authentication and authorization tokens for the bearing user.
+Since your servers are the authority on who your users are, and what they can access, our client libraries are able to make callbacks to endpoints of your choice to supply signed authentication and authorization tokens for the bearing user.
 
 This page discusses implementing a user authentication endpoint using the Pusher Channels server libraries. If you're looking for information on implemeting a user authorization endpoint, check the [Authorizing users page](/docs/channels/server_api/authorizing-users).
 

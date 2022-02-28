@@ -6,19 +6,19 @@ layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Private channels
-  order: 6
+  order: 7
 ---
 
 # Private channels
 
-Private channels should be used when access to the channel needs to be restricted in some way. In order for a user to subscribe to a private channel permission must be authorized. The authentication occurs via a HTTP Request to a configurable authentication url when the `subscribe` method is called with a `private-` channel name. In the JavaScript client library the HTTP Request is executed via AJAX (see [Authenticating Users](/docs/channels/server_api/authenticating-users)).
+Private channels should be used when access to the channel needs to be restricted in some way. In order for a user to subscribe to a private channel permission must be authorized. The authorization occurs via a HTTP Request to a configurable authorization url when the `subscribe` method is called with a `private-` channel name. In the JavaScript client library the HTTP Request is executed via AJAX (see [Authorizing Users](/docs/channels/server_api/authorizing-users)).
 
 > - Private channels must be prefixed with `private-`. See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions)
 > - Private channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users)
 
 ## Subscribe
 
-When a subscription takes place the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
+When a subscription takes place the [user authorization process](/docs/channels/server_api/authorizing-users) will be triggered.
 
 {% methodwrap %}
 {% snippets ['js', 'swift'], true %}
