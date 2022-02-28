@@ -19,7 +19,7 @@ Channels libraries are divided into 2 categories:
 - **Client**
   Client libraries predominantly consume messages using a [WebSocket interface](/docs/channels/library_auth_reference/pusher-websockets-protocol). Think of them as _subscribers_ , although it's possible to publish messages using [Client Events](/docs/channels/using_channels/events#triggering-client-events).
 - **Server**
-  Server libraries publish messages, request information using [our HTTP API](/docs/channels/library_auth_reference/rest-api), [authenticate](/docs/channels/server_api/authenticating-users) channel subscriptions, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as _publishers_, although it's possible to subscribe to messages using [Client Event Webhooks](/docs/channels/server_api/webhooks#client-events).
+  Server libraries publish messages, request information using [our HTTP API](/docs/channels/library_auth_reference/rest-api), [authenticate](/docs/channels/server_api/authenticating-users) users, [authorize](/docs/channels/server_api/authorizing-users) users, and handle [Webhook](/docs/channels/server_api/webhooks) calls. Think of them as _publishers_, although it's possible to subscribe to messages using [Client Event Webhooks](/docs/channels/server_api/webhooks#client-events).
 
 ## Official libraries
 

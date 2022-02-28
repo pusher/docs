@@ -14,7 +14,7 @@ eleventyNavigation:
 
 Describes a language and platform-agnostic specification for implementing a Pusher Channels server library.
 
-Changes to this specification are handled by incrementing an integer version number. The current version is 
+Changes to this specification are handled by incrementing an integer version number. The current version is
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
@@ -44,9 +44,13 @@ The [Pusher Experimental program](/docs/lab#experimental-program) defines some a
 
 - The library MAY allow a developer to fetch channel attribute information for the channel(s) that are being published to when triggering single or multiple events.
 
-### Private and presence channel subscription authentication
+### User authentication
 
-- The library MUST provide a helper method for generating authentication tokens for user subscriptions to private and presence channels, according to the [HTTP API docs](/docs/channels/library_auth_reference/auth-signatures).
+- The library MUST provide a helper method for generating authentication tokens for user authentication, according to the [HTTP API docs](/docs/channels/library_auth_reference/auth-signatures).
+
+### Private and presence channel subscription authorization
+
+- The library MUST provide a helper method for generating authorization tokens for user subscriptions to private and presence channels, according to the [HTTP API docs](/docs/channels/library_auth_reference/auth-signatures).
 
 ### Webhook verification
 
@@ -117,17 +121,26 @@ trigger(eventsJSON: [[String: Any]],
 func verifyWebhook(requestHeaders: [String: String],
                    callback: Result<Webhook, PusherError>)
 
-// Generate an authentication token for a private or presence channel
+// Generate an authentication token for a user.
+//
+// socketId: The socket identifier of the connected client.
+// userDataJSON: user data JSON with at least an id field with a non empty string as value.
+// Async callback: A list of channel summaries, or an error.
+func authenticateUser(socketId: String,
+                      userDataJSON: [String: Any]?,
+                      callback: Result<AuthenticationToken, PusherError>)
+
+// Generate an authorization token for a private or presence channel
 // subscription attempt from a connected client.
 //
 // channelName: The name of the channel being subscribed to.
 // socketId: The socket identifier of the connected client.
 // userDataJSON: user data JSON for a presence channel subscription attempt.
 // Async callback: A list of channel summaries, or an error.
-func authenticate(channelName: String,
-                  socketId: String,
-                  userDataJSON: [String: Any]?,
-                  callback: Result<AuthenticationToken, PusherError>)
+func authorizeChannel(channelName: String,
+                      socketId: String,
+                      userDataJSON: [String: Any]?,
+                      callback: Result<AuthorizationToken, PusherError>)
 ```
 
 - The method parameters SHOULD be encapsulated into public containing types for typed languages where this is more in keeping with best practices for the development language.

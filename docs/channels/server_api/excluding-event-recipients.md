@@ -6,7 +6,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Server api
   key: Excluding event recipients
-  order: 5
+  order: 6
 ---
 
 # Excluding event recipients

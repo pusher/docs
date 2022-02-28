@@ -1,16 +1,16 @@
 ---
 date: 2021-08-01
-title: Pusher Channels Docs | Generating the authentication string
+title: Pusher Channels Docs | Generating authentication and authorization strings
 description: This guide is designed for library makers who wish to implement the signing mechanism in use for user authentication and by private channels.
 layout: channels.njk
 eleventyNavigation:
   parent: Library auth reference
-  key: Auth signatures
-  title: Authentication signatures
+  key: Authentication and authorization signatures
+  title: Authentication and authorization signatures
   order: 1
 ---
 
-# Generating the authentication string
+# Generating authentication and authorization strings
 
 This guide is designed for library makers who wish to implement the signing mechanism in use for [user authentication](/docs/channels/using_channels/user-authentitcation) and by [private channels](/docs/channels/using_channels/private-channels). Visit those pages for information about integration and an overview of the technique.
 
@@ -79,9 +79,9 @@ puts auth = "278d425bdf160c739803:#{signature}"
 # => 278d425bdf160c739803:4708d583dada6a56435fb8bc611c77c359a31eebde13337c16ab43aa6de336ba
 ```
 
-The auth response should be a JSON object with
+The authentication response should be a JSON object with
 - an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':' as follows
-- a `user_data` property with a string containing the JSON encoded object. It should be exactly the same as the one included in the auth signature
+- a `user_data` property with a string containing the JSON encoded object. It should be exactly the same as the one included in the authentication signature
 
 ```json
 {
@@ -119,7 +119,7 @@ puts auth = "278d425bdf160c739803:#{signature}"
 # => 278d425bdf160c739803:58df8b0c36d6982b82c3ecf6b4662e34fe8c25bba48f5369f135bf843651c3a4
 ```
 
-The auth response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':' as follows:
+The authorization response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':' as follows:
 
 ```json
 {
@@ -140,9 +140,9 @@ For user authentication, as outlined in the example above, the response from the
 
 ## Encrypted channels
 
-[Encrypted channels](/docs/channels/using_channels/encrypted-channels) require an additional `shared_secret` key in the auth response, which is populated with the per-channel shared key to use for decryption. The key is base64 encoded, it must be decoded before use.
+[Encrypted channels](/docs/channels/using_channels/encrypted-channels) require an additional `shared_secret` key in the authorization response, which is populated with the per-channel shared key to use for decryption. The key is base64 encoded, it must be decoded before use.
 
-This value is not part of the signature for the auth token, it is independent of the value in the `auth` key.
+This value is not part of the signature for the authorization token, it is independent of the value in the `auth` key.
 
 For example:
 
@@ -155,7 +155,7 @@ For example:
 
 ## Presence channels
 
-[Presence channels](/docs/channels/using_channels/presence-channels) require extra user data to be passed back to the client along with the auth string. These data need to be part of the signature as a valid JSON string. For presence channels, the signature is a HMAC SHA256 hex digest of the following string:
+[Presence channels](/docs/channels/using_channels/presence-channels) require extra user data to be passed back to the client along with the authorization string. These data need to be part of the signature as a valid JSON string. For presence channels, the signature is a HMAC SHA256 hex digest of the following string:
 
 ```js
 <socket_id>:<channel_name>:<JSON encoded user data>
@@ -183,7 +183,7 @@ puts auth = "278d425bdf160c739803:#{signature}"
 # => 278d425bdf160c739803:afaed3695da2ffd16931f457e338e6c9f2921fa133ce7dac49f529792be6304c
 ```
 
-The auth response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':'. A `channel_data` property should also be present composed of the data for the channel as a **string** (_note: double-encoded JSON_):
+The authorization response should be a JSON string with a an `auth` property with a value composed of the application key and the authentication signature separated by a colon ':'. A `channel_data` property should also be present composed of the data for the channel as a **string** (_note: double-encoded JSON_):
 
 ```json
 {
