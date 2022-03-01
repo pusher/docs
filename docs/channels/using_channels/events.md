@@ -19,7 +19,7 @@ Events can be seen as a notification of something happening on your system, and 
 
 ## Binding to events
 
-Most **binding** and **triggering** behaviour is attached to channels the client is subscribed to, though it is also possible to bind to all events on the Channels connection regardless of the channel.
+Most **binding** and **triggering** behaviour is attached to channels the client is subscribed to (see binding on the channel below). It is also possible to bind to the user object to handle messages addressed to the authenticated user. All published messages can be bound to in aggregate via the connection object itself. This aggregated binding triggers for both channel messages and user messages (for the currently authenticated user).
 
 ### Binding on the channel
 
@@ -115,6 +115,20 @@ channel.listen("new-price", (data) => {
 ```
 
 {% endparameter %}
+{% endmethodwrap %}
+
+### Binding on the user object
+
+It is possible to bind to events on the `pusher.user` object. That means you will receive events sent to the user that has authenticated on that connection. Check the [User authentication docs](/docs/channels/using_channels/user-authentication) for more information on authenticating the user and the [Sending events to users docs](/docs/channels/server_api/server-to-user-messages) for more information on how to send events to specific users based on user id.
+
+{% methodwrap %}
+{% snippets ['js'], true %}
+
+```js
+pusher.user.bind(eventName, callback);
+```
+
+{% endsnippets %}
 {% endmethodwrap %}
 
 ### Binding on the client
