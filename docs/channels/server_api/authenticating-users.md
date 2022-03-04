@@ -79,7 +79,7 @@ The destination of the authentication requests can be configured.
 {% snippets ['js'], true %}
 
 ```js
-new Pusher("app_key", { userAuth: { endpoint: "/pusher_user_auth.php"}));
+new Pusher("app_key", { userAuthentication: { endpoint: "/pusher_user_auth.php"}));
 ```
 
 {% endsnippets %}
@@ -94,11 +94,11 @@ The default value for this is `/pusher/user-auth`,
 
 ### CSRF-protected authentication endpoint
 
-If the endpoint is protected by a CSRF filter, then you can pass in a CSRF token via the `userAuth` hash under `headers`.
+If the endpoint is protected by a CSRF filter, then you can pass in a CSRF token via the `userAuthentication` hash under `headers`.
 
 ```js
 var pusher = new Pusher("app_key", {
-  userAuth: {
+  userAuthentication: {
     endpoint: "/pusher_auth.php",
     headers: { "X-CSRF-Token": "SOME_CSRF_TOKEN" },
   },
@@ -112,7 +112,7 @@ As an example, in Rails, you can inject the CSRF token into Javacript like this 
 ```erb
 <script>
   var pusher = new Pusher("app_key", {
-    userAuth: {
+    userAuthentication: {
       endpoint: "/pusher/user-auth",
       headers: { "X-CSRF-Token": "<%= form_authenticity_token %>" },
     },
@@ -122,13 +122,13 @@ As an example, in Rails, you can inject the CSRF token into Javacript like this 
 
 ## Using JSONP in pusher-js
 
-In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `userAuth.transport: 'jsonp'`:
+In the browser, if your authentication endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `userAuthentication.transport: 'jsonp'`:
 
 ```html
 <script src="//js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
 <script>
   var pusher = new Pusher("MY_PUSHER_KEY", {
-    userAuth: {
+    userAuthentication: {
       transport: "jsonp",
       endpoint: "http://myserver.com/pusher_jsonp_user_auth",
     },

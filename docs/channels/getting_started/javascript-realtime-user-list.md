@@ -38,7 +38,7 @@ Copy-paste the following code into `index.html`. Replace `'APP_KEY'` and `'APP_C
         {
           cluster: "APP_CLUSTER", // Replace with 'cluster' from dashboard
           forceTLS: true,
-          channelAuth: {
+          channelAuthorization: {
             endpoint: "http://localhost:5000/pusher/auth",
           }
         }

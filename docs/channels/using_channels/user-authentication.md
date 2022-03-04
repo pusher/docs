@@ -19,14 +19,14 @@ This page discusses how to use the user authentication functionality from the Pu
 
 We authenticate a user once per connection session. Authenticating a user gives your application access to user based features such as sending events to a user based on user id or terminating a user's connections immediately.
 
-Authentication happens when your application calls the `signin` method. It's behaviour depends on the configuration provided to the Pusher object constructor through the `userAuth` parameter object. Below are the available configuration options with their default values. Check the [Connection page](/docs/channels/using_channels/connection) for an overview of the parameters.
+Authentication happens when your application calls the `signin` method. It's behaviour depends on the configuration provided to the Pusher object constructor through the `userAuthentication` parameter object. Below are the available configuration options with their default values. Check the [Connection page](/docs/channels/using_channels/connection) for an overview of the parameters.
 
 
 {% snippets ['js'], true %}
 
 ```js
 const pusher = new Pusher(APP_KEY, {
-  userAuth: {
+  userAuthentication: {
     endpoint: "/pusher/user-auth",
     transport: "ajax",
     params: {},

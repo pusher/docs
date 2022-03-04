@@ -332,7 +332,7 @@ The destination of the authentication and authorization requests can be configur
 {% snippets ['js', 'objc', 'java', 'laravelecho'], true %}
 
 ```js
-new Pusher("app_key", { channelAuth: { endpoint: "/pusher_auth.php"}  });
+new Pusher("app_key", { channelAuthorization: { endpoint: "/pusher_auth.php"}  });
 ```
 
 ```objc
@@ -381,11 +381,11 @@ It is up to you to configure the request to handle whatever authentication mecha
 
 ### CSRF-protected authorization endpoint
 
-If the endpoint is protected by a CSRF filter, then you can pass in a CSRF token via the `channelAuth` hash under `headers`.
+If the endpoint is protected by a CSRF filter, then you can pass in a CSRF token via the `channelAuthorization` hash under `headers`.
 
 ```js
 var pusher = new Pusher("app_key", {
-  channelAuth: {
+  channelAuthorization: {
     endpoint: "/pusher_auth.php",
     headers: { "X-CSRF-Token": "SOME_CSRF_TOKEN" },
   },
@@ -399,7 +399,7 @@ As an example, in Rails, you can inject the CSRF token into Javacript like this 
 ```erb
 <script>
   var pusher = new Pusher("app_key", {
-    channelAuth: {
+    channelAuthorization: {
       endpoint: "/pusher/auth",
       headers: { "X-CSRF-Token": "<%= form_authenticity_token %>" },
     },
@@ -413,13 +413,13 @@ Currently, pusher-js itself does not support authorizing multiple channels in on
 
 ## Using JSONP in pusher-js
 
-In the browser, if your authorization endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `channelAuth.transport: 'jsonp'`:
+In the browser, if your authorization endpoint is on a different domain to the web application, you need to work around [the browser's same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). For modern browsers, you should use [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ; however, for older clients, pusher-js also supports [JSONP](https://en.wikipedia.org/wiki/JSONP). To enable this, set `channelAuthorization.transport: 'jsonp'`:
 
 ```html
 <script src="//js.pusher.com/{{ env.pusherJSVersion }}/pusher.min.js"></script>
 <script>
   var pusher = new Pusher("MY_PUSHER_KEY", {
-    channelAuth: {
+    channelAuthorization: {
       transport: "jsonp",
       endpoint: "http://myserver.com/pusher_jsonp_auth",
     },
