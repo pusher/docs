@@ -33,6 +33,9 @@ A JSON object with the following keys:
 
 Array of interests to send the push notification to, ranging from 1 to 100 per publish request.
 
+> Where multiple interests are provided, the notification will be delivered to devices subscribed to any of the interests.
+Beams will also only deliver one notification to any devices that may be subscribed to multiple interests in the publish request.
+
 {% endparameter %}
 {% parameter 'webhookUrl', 'String', false %}
 
@@ -59,6 +62,7 @@ The payload to be sent to the web push gateway. The Beams web push format refere
 {% endparameter %}
 
 > Each interest name can be up to 164 characters. Each character in the name must be an ASCII upper- or lower-case letter, a number, or one of `_-=@,.;`.
+
 
 ### Response Body
 
