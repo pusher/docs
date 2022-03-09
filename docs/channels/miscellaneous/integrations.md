@@ -54,7 +54,7 @@ This is a list of metrics sent to our integrations. An aggregate per `app_id` is
 
 | Provided metrics                               |
 | ---------------------------------------------- |
-| Messages sent over time                        |
+| Messages count sent over time                  |
 | API Requests sent over time                    |
 | Webhooks sent over time                        |
 | Presence events sent over time                 |
@@ -64,7 +64,6 @@ This is a list of metrics sent to our integrations. An aggregate per `app_id` is
 | Average message size                           |
 | Maximum message size                           |
 | 95th percentile message size                   |
-| Messages count sent over time                  |
 | Median message size                            |
 | Concurrent connections per second              |
 | Non-secure connections per 5 seconds           |
