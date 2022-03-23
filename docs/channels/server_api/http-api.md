@@ -989,7 +989,7 @@ For more information see the [Go HTTP library README](https://github.com/pusher/
 
 A list of users present on a presence channel can be retrieved by querying the `/channels/[channel_name]/users` resource where the `channel_name` is replaced with a valid presence channel name.
 
-For full parameter information see the [HTTP API presence users reference.](/docs/channels/library_auth_reference/rest-api#method-get-users)
+For full parameter information see the [HTTP API presence users reference.](/docs/channels/library_auth_reference/rest-api/#get-users)
 
 {% methodwrap %}
 {% snippets ['rb', 'c', 'php', 'node', 'py', 'go'], true %}
