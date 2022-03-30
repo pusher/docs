@@ -22,7 +22,7 @@ How to terminate all connections established by a given user knowing their user 
 {% snippets ['js'], true %}
 
 ```js
-pusher.kickUser("user-id");
+pusher.terminateUserConnections("user-id");
 ```
 
 {% endsnippets %}
