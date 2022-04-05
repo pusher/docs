@@ -1,5 +1,5 @@
 ---
-date: 2022-02-16
+date: 2022-04-05
 title: Pusher Lab | Experimental and Beta Features
 description: We continue to bring cutting edge features to our realtime APIs. Find out what we're working on and get involved with beta testing in the Pusher Lab.
 layout: other.njk
@@ -46,6 +46,7 @@ Typically beta features will remain beta for no longer than two business quarter
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
 | Beams   | Safari web push notifications | 09 Sep 2021 | 31 May 2022    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
+| Channels   | Cache channels | 05 Apr 2022 | 31 July 2022    | [Cache channels docs](/docs/channels/using_channels/cache-channels/) | Active |
 
 ## Communication
 
