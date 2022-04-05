@@ -11,6 +11,8 @@ eleventyNavigation:
 
 # Cache channels
 
+> Cache channels is in beta. [Learn more](https://pusher.com/docs/lab)
+
 A cache channel remembers the last triggered event, and sends this as the first event to new subscribers.
 
 When an event is triggered on a cache channel, Pusher Channels caches this event, and when a client subscribes to a cache channel, if a cached value exists, this is sent to the client as the first event on that channel. This behavior helps developers to provide the initial state without adding additional logic to fetch it from elsewhere.
