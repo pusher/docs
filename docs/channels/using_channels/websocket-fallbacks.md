@@ -6,7 +6,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Websocket fallbacks
-  order: 11
+  order: 12
 ---
 
 # Websocket fallbacks

@@ -6,7 +6,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Device compatibility
-  order: 12
+  order: 13
 ---
 
 # Device compatibility

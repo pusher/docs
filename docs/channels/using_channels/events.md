@@ -1,12 +1,12 @@
 ---
-date: 2021-08-01
+date: 2022-04-05
 title: Pusher Channels Docs | What is an event?
 description: Events are the primary method of packaging messages in the Channels system. They form the basis of all communication. Read about binding and triggering events.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Events
-  order: 9
+  order: 10
 ---
 
 # Events
@@ -371,6 +371,16 @@ channel.bind("pusher:subscription_error", (error) => {
     // Retry?
   }
 });
+```
+
+{% endparameter %}
+
+{% parameter 'pusher:cache_miss', 'Event', null %}
+
+When a client subscribes to a [cache channel](/docs/channels/using_channels/cache-channels), you can bind to the `pusher:cache_miss` event to let the client know if there is no cached message.
+
+```js
+channel.bind("pusher:cache_miss", () => {});
 ```
 
 {% endparameter %}
