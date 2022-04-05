@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2022-04-05
 title: Pusher Channels Docs | Webhooks
 description: Webhooks augment the behaviour of your apps with custom callbacks. They allow your server to be notified about events occurring within Channels and respond.
 layout: channels.njk
@@ -99,6 +99,16 @@ The event data for this event is as follows:
 
 ```json
 { "name": "channel_vacated", "channel": "my-channel" }
+```
+
+#### cache_miss
+
+Channels will send a `cache_miss` webhook event whenever one or more than one client subscribe to an empty cache channel (i.e. the cached message has expired or no message has been triggered yet).
+
+The event data for this event is as follows:
+
+```json
+{ "name": "cache_miss", "channel": "channel-name" }
 ```
 
 ### Presence events

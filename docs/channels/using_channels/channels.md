@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2022-04-05
 title: Pusher Channels Docs | What are channels?
 description: The channels in your application provide ways of filtering data and controlling access to information streams. Creating a channel is easy!
 layout: channels.njk
@@ -31,6 +31,7 @@ There are 4 types of channels at the moment:
 - [Private channels](/docs/channels/using_channels/private-channels) should have a `private-` prefix. They introduce a mechanism which lets your server control access to the data you are broadcasting
 - [Private encrypted channels](/docs/channels/using_channels/encrypted-channels) should have a `private-encrypted-` prefix. They extend the auth mechanism of private channels, adding encryption of the data payloads so that not even Pusher can get access to it without authentication.
 - [Presence channels](/docs/channels/using_channels/presence-channels) should have a `presence-` prefix and are an extension of private channels. They let you 'register' user information on subscription, and let other members of the channel know who's online
+- [Cache channels](/docs/channels/using_channels/cache-channels) remembers last published message and delivers it to clients when they subscribe. Cache channel is available in public, private, and private-encrypted modes.
 
 ## Channel Naming Conventions
 
