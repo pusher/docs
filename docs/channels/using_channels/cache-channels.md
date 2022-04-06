@@ -44,7 +44,7 @@ var cacheChannel = Echo.join(cacheChannelName);
 
 The name of the channel to subscribe to. Since it is a cache channel the name must be prefixed with `cache-`.
 
-Other types of channels can also use the cache feature. For private channels, the channel name must be prefixed with `private-cache-`, for encrypted channel, it must be prefixed with `private-encrypted-cache-`, and for presence channel, it must be prefixed with `presence-cache-`. In this case, when subscribing the [user authorization process](/docs/channels/server_api/authorizing-users) will be triggered.
+Other types of channels can also use the cache feature. For private channels, the channel name must be prefixed with `private-cache-`, for encrypted channel, it must be prefixed with `private-encrypted-cache-`, and for presence channel, it must be prefixed with `presence-cache-`.
 
 | Channel type | Cache channel version |
 | ----------- | ----------- |
