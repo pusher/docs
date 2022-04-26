@@ -19,7 +19,7 @@ Events can be seen as a notification of something happening on your system, and 
 
 ## Binding to events
 
-Most **binding** and **triggering** behaviour is attached to channels the client is subscribed to, though it is also possible to bind to all events on the Channels connection regardless of the channel.
+Most **binding** and **triggering** behaviour is attached to channels the client is subscribed to (see binding on the channel below). It is also possible to bind to the user object to handle messages addressed to the authenticated user. All published messages can be bound to in aggregate via the connection object itself. This aggregated binding triggers for both channel messages and user messages (for the currently authenticated user).
 
 ### Binding on the channel
 
@@ -115,6 +115,20 @@ channel.listen("new-price", (data) => {
 ```
 
 {% endparameter %}
+{% endmethodwrap %}
+
+### Binding on the user object
+
+It is possible to bind to events on the `pusher.user` object. That means you will receive events sent to the user that has authenticated on that connection. Check the [User authentication docs](/docs/channels/using_channels/user-authentication) for more information on authenticating the user and the [Sending events to users docs](/docs/channels/server_api/server-to-user-messages) for more information on how to send events to specific users based on user id.
+
+{% methodwrap %}
+{% snippets ['js'], true %}
+
+```js
+pusher.user.bind(eventName, callback);
+```
+
+{% endsnippets %}
 {% endmethodwrap %}
 
 ### Binding on the client
@@ -337,9 +351,9 @@ This is particularly useful for private and presence channels if you are using [
 
 {% parameter 'pusher:subscription_error', 'Event', null %}
 
-Sometimes things go wrong so we have exposed a `pusher:subscription_error` event that is triggered when an authentication request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authenticated.
+Sometimes things go wrong so we have exposed a `pusher:subscription_error` event that is triggered when an authorization request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authorized.
 
-The event is triggered either when the authentication endpoint returns a HTTP status code that is not 200 or if there is a problem parsing the JSON that the endpoint returned.
+The event is triggered either when the authorization endpoint returns a HTTP status code that is not 200 or if there is a problem parsing the JSON that the endpoint returned.
 
 **Note:** if the library is unable to create a websocket connection at all, this event will **not** be emitted. In order to catch events at the connection level you must bind to `error` events on the connection as described [here](/docs/channels/using_channels/connection#binding-to-connection-events)
 
@@ -356,7 +370,7 @@ An error object with the following properties:
 - `error` (String)
   Human readable details of error that occurred.
 - `status` (Number)
-  The [HTTP Status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authentication call.
+  The [HTTP Status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) of the error response from the authorization call.
 
 {% endparameter %}
 
@@ -397,11 +411,11 @@ _It is important that you apply additional care when using client events, since 
 
 > Note that you cannot trigger client events from the debug console.
 
-Client events have a number of **enforced restrictions** to ensure that the user subscribing to the channel is an authenticated user and so that client events can be clearly identified:
+Client events have a number of **enforced restrictions** to ensure that the user subscribing to the channel is an authorized user and so that client events can be clearly identified:
 
 - **Client events must be enabled for the application**. You can do this in the _Settings_ tab for your app within the Channels dashboard
 - The user must be subscribed to the channel that the event is being triggered on
-- Client events can only be triggered on [private](/docs/channels/using_channels/private-channels) and [presence](/docs/channels/using_channels/presence-channels) channels because they require authentication
+- Client events can only be triggered on [private](/docs/channels/using_channels/private-channels) and [presence](/docs/channels/using_channels/presence-channels) channels because they require authorization
 - Client events must be prefixed by `client-`. Events with any other prefix will be rejected by the Channels server, as will events sent to channels to which the client is not subscribed.
 - You can only trigger a client event once a subscription has been successfully registered with Channels. You can ensure this is the case using the `pusher:subscription_succeeded` [event](#pusher-subscription-succeeded).
 - Client events are not delivered to the originator of the event. For more information see [Message Routing](#message-routing).
@@ -561,7 +575,7 @@ setInterval(() => {
 
 {% conditionalContent 'js' %}
 
-When you bind to client events on presence channels, your bound callback will be called with a metadata object as the second argument. This metadata object contains a `user_id` key, the value of which is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a metadata object as the second argument. This metadata object contains a `user_id` key, the value of which is the `user_id` of the client that triggered the event, as taken from the [authorization token](/docs/channels/server_api/authorizing-users) generated by your server for that client.
 
 ```js
 const channel = pusher.subscribe("presence-chat");
@@ -582,7 +596,7 @@ The `user_id` field is useful for displaying the author of an event. You should 
 {% endconditionalContent %}
 {% conditionalContent 'java', false %}
 
-When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` key, accessible by calling `getUserId()` on the event. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` key, accessible by calling `getUserId()` on the event. The value of this is the `user_id` of the client that triggered the event, as taken from the [authorization token](/docs/channels/server_api/authorizing-users) generated by your server for that client.
 
 ```java
 channel.bind("client-my-event", new SubscriptionEventListener() {
@@ -598,7 +612,7 @@ The `getUserId()` method is useful for displaying the author of an event. You sh
 {% endconditionalContent %}
 {% conditionalContent 'swift', false %}
 
-When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` property. The value of this is the `user_id` of the client that triggered the event, as taken from the [auth token](/docs/channels/server_api/authenticating-users) generated by your server for that client.
+When you bind to client events on presence channels, your bound callback will be called with a `PusherEvent` object as the only argument. This object has a `userId` property. The value of this is the `user_id` of the client that triggered the event, as taken from the [authorization token](/docs/channels/server_api/authorizing-users) generated by your server for that client.
 
 ```swift
 channel.bind(eventName: "client-my-event", eventCallback: {(event: PusherEvent) in

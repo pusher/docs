@@ -38,14 +38,16 @@ Copy-paste the following code into `index.html`. Replace `'APP_KEY'` and `'APP_C
         {
           cluster: "APP_CLUSTER", // Replace with 'cluster' from dashboard
           forceTLS: true,
-          authEndpoint: "http://localhost:5000/pusher/auth",
+          channelAuthorization: {
+            endpoint: "http://localhost:5000/pusher/auth",
+          }
         }
       );
       if (!document.cookie.match("(^|;) ?user_id=([^;]*)(;|$)")) {
-        // Primitive auth! This 'user_id' cookie is read by your auth endpoint,
+        // Primitive authorization! This 'user_id' cookie is read by your authorization endpoint,
         // and used as the user_id in the subscription to the 'presence-quickstart'
         // channel. This is then displayed to all users in the user list.
-        // In your production app, you should use a secure auth system.
+        // In your production app, you should use a secure authorization system.
         document.cookie = "user_id=" + prompt("Your initials:");
       }
       const channel = pusher.subscribe("presence-quickstart");
@@ -94,20 +96,20 @@ Copy-paste the following code into `index.html`. Replace `'APP_KEY'` and `'APP_C
 </html>
 ```
 
-This page will only work with an "auth endpoint" at `http://localhost:5000/pusher/auth`. The auth endpoint provides the `user_id` for each user. You'll create this auth endpoint next.
+This page will only work with an "authorization endpoint" at http://localhost:5000/pusher/auth. The authorization endpoint determines if a user can access a given channel and, in this case, also includes the user id in its reponse. You'll create this authorization endpoint next. Read more about it on the [Authorizing users page](/docs/channels/server_api/authorizing-users).
 
-# Create your auth endpoint server
 
-Your server should provide an endpoint `/pusher/auth` which reads the request's cookies to identify the user, then provides an auth token containing the user's `user_id`. Each example below uses one of the [official Pusher Channels server SDKs](/docs/channels/channels_libraries/libraries).
+# Create your authorization endpoint server
+
+Your server should provide an endpoint `/pusher/auth` which reads the request's cookies to identify the user, then provides an authorization token containing the user's `user_id`. Each example below uses one of the [official Pusher Channels server SDKs](/docs/channels/channels_libraries/libraries).
 
 ```js
 // server.js
 
-// First, run 'npm install pusher express body-parser cookie-parser'
+// First, run 'npm install pusher express cookie-parser'
 // Then run this file with 'node server.js'
 const path = require("path");
 const express = require("express");
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const Pusher = require("pusher");
 const pusher = new Pusher({
@@ -118,9 +120,9 @@ const pusher = new Pusher({
   useTLS: true,
 });
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./index.html"));
 });
@@ -131,8 +133,8 @@ app.post("/pusher/auth", (req, res) => {
   // the client should provide a proof of identity, like a session cookie.
   const user_id = req.cookies.user_id;
   const presenceData = { user_id };
-  const auth = pusher.authenticate(socketId, channel, presenceData);
-  res.send(auth);
+  const authResponse = pusher.authorizeChannel(socketId, channel, presenceData);
+  res.send(authResponse);
 });
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}!`));

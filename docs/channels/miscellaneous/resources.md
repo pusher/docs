@@ -25,7 +25,7 @@ These two Backbone mixins aim to make working with Channels even easier. It keep
 
 **In this tutorial:**
 
-- Apex _ Force _ Java \* Visualforce  
+- Apex _ Force _ Java \* Visualforce
   Apex provides a complete set of features for building business applications – including data models and objects to manage data, a workflow engine for managing collaboration of that data between users, a user interface model to handle forms and other interactions, and a Web services API for programmatic access and integration. You can now do this in realtime, using Pusher Channels.
 
 By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pat-patterson).
@@ -34,22 +34,22 @@ By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pa
 
 **In this tutorial:**
 
-- JavaScript _ library _ Connection states  
+- JavaScript _ library _ Connection states
   Channels has a rich JavaScript client that handles the nitty gritty of WebSocket connections. It emits events to expose the connection's status. With this functionality, you can tell your users whether the realtime features of your site are available and, if they are not, if and when they might become available.
 
-** [Check authentication signatures](http://www.leggetter.co.uk/pusher/help/auth_checker/) **
+** [Check authorization signatures](http://www.leggetter.co.uk/pusher/help/auth_checker/) **
 
 **In the helper:**
 
-- Publisher _ HTTP API _ JavaScript _ Private _ Presence  
-  A utility written in JavaScript that lets you check what your authentication message and JSON should be given a `channel_name`, `socket_id` and optionally some `channel_data`. This can be helpful if your are having trouble authenticating subscription to a private or presence channel.
+- Publisher _ HTTP API _ JavaScript _ Private _ Presence
+  A utility written in JavaScript that lets you check what your authorization message and JSON should be given a `channel_name`, `socket_id` and optionally some `channel_data`. This can be helpful if your are having trouble authorizing subscription to a private or presence channel.
 
 ** [Catch Authentication Errors](https://blog.pusher.com/2011/8/10/catching-your-private-and-presence-authentication-errors) **
 
 **In the blog post:**
 
-- JavaScript _ Authentication _ Private Channels \* Presence Channels  
-  A short blog post showing how to catch errors which occur when calling authentication endpoints to authenticate a private or presence channel subscription when using the Channels JavaScript library.
+- JavaScript _ Authentication _ Private Channels \* Presence Channels
+  A short blog post showing how to catch errors which occur when calling authorization endpoints to authorize a private or presence channel subscription when using the Channels JavaScript library.
 
 [Implement Live Web Chat With ASP.NET MVC 4, Pusher Channels and jQuery (Part 1)](http://www.geekbeing.com/2012/05/18/implement-live-web-chat-part-1/)
 
@@ -61,7 +61,7 @@ By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pa
 
 **In the blog post:**
 
-- JavaScript _ Authentication _ Private Channels _ Presence Channels _ Ruby  
+- JavaScript _ Authentication _ Private Channels _ Presence Channels _ Ruby
   This post shows how to use the JSONp authentication using the Channels JavaScript library and shows how to execute the callback in in Ruby.
 
 [Adding Channels to Truestory (Rails tutorial)](http://blog.new-bamboo.co.uk/2010/5/12/integrating-pusher-into-a-complex-app-in-one-day) <br /> By [Oliver](http://new-bamboo.co.uk)
@@ -72,9 +72,9 @@ By [Pat Patterson](http://blogs.developerforce.com/developer-relations/author/pa
 
 [Pushing events to your iPhone using WebSockets and Pusher](http://lukeredpath.co.uk/blog/pushing-events-to-your-iphone-using-websockets-and-pusher.html "Pushing events to your iPhone using WebSockets and Pusher") <br /> By [Luke Redpath](http://lukeredpath.co.uk/ "Luke Redpath")
 
-[Basic private channel authentication using PHP](https://gist.github.com/1180618)
+[Basic private channel authorization using PHP](https://gist.github.com/1180618)
 
 **In the code:**
 
-- PHP _ Code _ Authentication \* Private Channels  
-  A simple example of how to implement an authentication endpoint in PHP which authenticates a private channel subscription. The code sample uses the [PHP Channels Server library](/docs/channels/channels_libraries/libraries) to generate the authentication signature and JSON.
+- PHP _ Code _ authorization \* Private Channels
+  A simple example of how to implement an authorization endpoint in PHP which authorizes a private channel subscription. The code sample uses the [PHP Channels Server library](/docs/channels/channels_libraries/libraries) to generate the authorization signature and JSON.

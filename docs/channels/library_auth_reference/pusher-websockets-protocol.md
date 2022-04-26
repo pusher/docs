@@ -89,7 +89,7 @@ Clients MAY use platform specific APIs to trigger a ping check at an appropriate
 
 The precise timeouts before sending a ping and how long to wait for a pong MAY be configurable by the user of the library, but sensible defaults SHOULD be specified. The recommended values are:
 
-- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s  
+- Activity timeout before sending ping: 120s \* Time to wait for pong response before closing: 30s
   If the client supports protocol version 7, the server will send an `activity_timeout` value in the data hash of the `pusher:connection_established` event (see <a href="#connection-events">Connection Events</a> ). The client SHOULD set the timeout before sending a ping to be the minimum of the value it has chosen though configuration and the value supplied by the server.
 
 The following example code is taken from the `pusher-js` library. This function is called whenever a message is received
@@ -184,6 +184,47 @@ var pusher = new Pusher("APP_KEY");
 
 ![Connection and connection event](./img/connect.png)
 
+
+#### `pusher:signin` (Client -> Pusher Channels)
+
+The `pusher:signin` event is generated on the client and sent to Pusher Channels to associate the connection with the user id referred to by the authentication signature. It fails if the connection is already associated with a different user id.
+
+A `pusher:signin` event will result in either a `pusher:signin_success` or a `pusher:error` event being sent back from Pusher Channels to the client. The `pusher:error` event will contain relevant information for why the operation failed.
+
+```json
+{ "event": String, "data": { "auth": String, "user_data": String } }
+```
+
+- data.auth (String)
+  - The authentication signature. The value will be generated on the application server.
+- data.user_data (String)
+  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user id. It may be populated with additional user information according to the applications needs.
+
+#### Example JSON
+
+```json
+{
+  "event": "pusher:signin",
+  "data": {
+    "auth": "<APP_KEY>::user::<server_generated_signature>",
+    "user_data": "{ \"id\": \"<user_id>\", \"name\": \"Phil Leggetter\", \"twitter\": \"@leggetter\", \"blogUrl\":\"http://blog.pusher.com\" }"
+  }
+}
+```
+
+For more information see [authenticating users](/docs/channels/server_api/authenticating-users).
+
+#### `pusher:signin_success` (Pusher Channels -> Client)
+
+When the client sends a `pusher:signin` event that is processed succesfully, a `pusher:signin_success` event is triggered. Once this event has been triggered, the connection has access to features that require a user to be authenticated.
+
+```json
+{ "event": "pusher:signin_success", "data": { "user_data": String } }
+```
+
+- data.user_data (String)
+  - A JSON-encoded hash generated at the application server and validated at the Pusher Channels server. It contains at least an `id` field as a `String` containing the user id.
+
 ## System Events
 
 #### `pusher:error` (Pusher Channels -> Client)
@@ -221,7 +262,7 @@ Where the `data` members are as follows:
 - data.channel (String)
   - The name of the channel that is being subscribed to.
 - data.auth (String) [optional]
-  - If the channel is a presence or private channel then the subscription needs to be authenticated. The authentication signature should be provided on this property if required. The value will be generated on the application server. For more information see [authentication signatures](/docs/channels/library_auth_reference/auth-signatures).
+  - If the channel is a presence or private channel then the subscription needs to be authorized. The authorization string should be provided on this property if required. The value will be generated on the application server. For more information see [auth signatures](/docs/channels/library_auth_reference/auth-signatures).
 - data.channel_data (String) [optional]
   - This property should be populated with additional information about the channel if the channel is a presence channel. The JSON for the `channel_data` will be generated on the application server and should be encoded as a string and assigned to this property. The format of the object is as follows:
 
@@ -238,7 +279,7 @@ Where the `data` members are as follows:
 }
 ```
 
-For more information see [authenticating users](/docs/channels/server_api/authenticating-users).
+For more information see [authorizing users](/docs/channels/server_api/authorizing-users).
 
 From the API users point of view the subscription is made the moment that the `subscribe` method is called. However, the actual moment within the client library that a `pusher:subscribe` event is triggered depends on the type of channel that is being subscribed to.
 
@@ -249,17 +290,17 @@ var channel = pusher.subscribe("public-channel");
 
 #### Public channel subscription
 
-Since no authentication must take place when subscribing to a public channel the `pusher:subscribe` event can be sent from the client to Pusher Channels as soon as the call to `subscribe` is made.
+Since no authorization must take place when subscribing to a public channel the `pusher:subscribe` event can be sent from the client to Pusher Channels as soon as the call to `subscribe` is made.
 
 ![Subscribing to a public channel](./img/subscribe.png)
 
 #### Private and Presence channel subscription
 
-Private, Encrypted and Presence channels require authentication so an additional call needs to be made to the application server hosting the web application in order to make sure the current user can subscribe to the given channel.
+Private, Encrypted and Presence channels require authorization so an additional call needs to be made to the application server hosting the web application in order to make sure the current user can subscribe to the given channel.
 
 ![Subscribing to a private channel](./img/subscribe-private-channel.png)
 
-For more information on authentication of channels see the [Authenticating Users docs](/docs/channels/server_api/authenticating-users).
+For more information on authorization of channel subscription see the [Authorizing users docs](/docs/channels/server_api/authorizing-users).
 
 #### `pusher:unsubscribe` (Client -> Pusher Channels)
 
@@ -304,7 +345,7 @@ Channel events are associated with a single channel.
 - data (String)
   - The data associated with the event. It is strongly recommended that this be a JSON-serialized hash (e.g. `{'{"hello":"world", "foo": {"bar": 1000}}'}` ), although it is possible to send any type of payload, for example a simple string.
 - user_id (optional, String)
-  - The `user_id` key is only present if this is a client event on a [presence channel](/docs/channels/using_channels/presence-channels). The value is the `user_id` of the client that triggered the event. This value is taken from the [auth token](/docs/channels/server_api/authenticating-users#implementing_presence_endpoints) generated by your server for that client's subscription to this channel.
+  - The `user_id` key is only present if this is a client event on a [presence channel](/docs/channels/using_channels/presence-channels). The value is the `user_id` of the client that triggered the event. This value is taken from the [authorization token](/docs/channels/server_api/authorizing-users) generated by your server for that client's subscription to this channel.
 
 > Note: The following code shows how to receive an event and not how to trigger one
 
@@ -406,7 +447,7 @@ Where the `data` field is a JSON-encoded hash of following format:
 - data.user_id (String)
   - The ID of a user who has just subscribed to the presence channel.
 - data.user_info (Object)
-  - An object containing information about that user who has just subscribed to the channel. The contents of the `user_info` property depends on what the application server replied with when the presence channel was authenticated.
+  - An object containing information about that user who has just subscribed to the channel. The contents of the `user_info` property depends on what the application server replied with when the access to the presence channel was authorized.
 
 #### Example JSON
 
@@ -418,7 +459,7 @@ Where the `data` field is a JSON-encoded hash of following format:
 }
 ```
 
-For more about the `user_info` object literal see `user_info` in the [authenticating users](/docs/channels/server_api/authenticating-users) section.
+For more about the `user_info` object literal see `user_info` in the [authenticating and authorizing users](/docs/channels/server_api/authenticating-users) section.
 
 #### pusher_internal:member_removed (Pusher Channels -> Client)
 
@@ -445,7 +486,7 @@ Where the `data` field is a JSON-encoded hash of following format:
 
 ## Triggering Channel Client Events
 
-It is possible to trigger events from a client when the application that the client has connected to has had client events enabled, the event name must be prefixed with `client-` and the channel must be an authenticated channel (private or presence). For more information on this see the [Triggering Client Events docs](/docs/channels/using_channels/events#trigger-events).
+It is possible to trigger events from a client when the application that the client has connected to has had client events enabled, the event name must be prefixed with `client-` and the channel must be an authorized channel (private or presence). For more information on this see the [Triggering Client Events docs](/docs/channels/using_channels/events#trigger-events).
 
 > Client events are not currently prohibited in encrypted channels by the protocol, but existing Pusher WebSocket libraries are not capable of encryption and so omit the functionality to trigger client events in encrypted channels.
 
@@ -503,11 +544,11 @@ A `Channel` represents a source of data from Pusher Channels and a subscription.
 
 #### PrivateChannel
 
-A `PrivateChannel` inherits from `Channel` and represents an authenticated subscription for channel data from Pusher Channels.
+A `PrivateChannel` inherits from `Channel` and represents an authorized subscription for channel data from Pusher Channels.
 
 #### PresenceChannel
 
-A `PresenceChannel` represents and authenticated subscription and thus inherits from `PrivateChannel`. Additional presence-only events can be subscribed to on the `PresenceChannel` object that notify the library user of the members that are subscribed to the channel and when members are subscribe or unsubscribe from the channel.
+A `PresenceChannel` represents an authorized subscription and thus inherits from `PrivateChannel`. Additional presence-only events can be subscribed to on the `PresenceChannel` object that notify the library user of the members that are subscribed to the channel and when members are subscribe or unsubscribe from the channel.
 
 ## Client Only Events
 
@@ -527,7 +568,7 @@ The `pusher:subscription_succeeded` event is triggered following the receipt of 
 { "event": "pusher:subscription_succeeded", "members": Object }
 ```
 
-- members (Object) \* The members object contains information on the members that are subscribed to the presence channel.  
+- members (Object) \* The members object contains information on the members that are subscribed to the presence channel.
   The `members` object interface is as follows:
 
 ```js

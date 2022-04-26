@@ -221,7 +221,7 @@ The name of the channel to unsubscribe from.
 
 ## Contribute
 
-Contributions welcome
+Contributions welcome!
 
 [eleventy]: https://www.11ty.io
 [tachyons]: http://tachyons.io/

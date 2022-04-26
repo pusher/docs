@@ -6,7 +6,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Encrypted channels
-  order: 7
+  order: 8
 ---
 
 # End-to-end encrypted channels

@@ -6,26 +6,26 @@ layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Presence channels
-  order: 8
+  order: 9
 ---
 
 # Presence channels
 
 Presence channels build on the security of Private channels and expose the additional feature of an **awareness of who is subscribed to that channel**. This makes it extremely easy to build chat room and "who's online" type functionality to your application. Think chat rooms, collaborators on a document, people viewing the same web page, competitors in a game, that kind of thing.
 
-Presence channels are subscribed to from the client API in the same way as [private channels](/docs/channels/using_channels/private-channels#subscribe) but the channel name must be prefixed with `presence-`. As with private channels a HTTP Request is made to a configurable authentication URL to determine if the current user has permissions to access the channel (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ). The main difference is that within the response to the HTTP authentication request the developer can provide additional information about that user, which can then be used within your application.
+Presence channels are subscribed to from the client API in the same way as [private channels](/docs/channels/using_channels/private-channels#subscribe) but the channel name must be prefixed with `presence-`. As with private channels a HTTP Request is made to a configurable authorization URL to determine if the current user has permissions to access the channel (see [Authorizing Users](/docs/channels/server_api/authorizing-users) ). The main difference is that within the response to the HTTP authorization request the developer can provide additional information about that user, which can then be used within your application.
 
 Information on users subscribing to, and unsubscribing from a channel can then be accessed by [binding to events on the presence channel](/docs/channels/using_channels/presence-channels#events) and the current state of users subscribed to the channel is available via the <a href="/docs/channels/using_channels/presence-channels#accessing-channel-members"> <inlinecode>channel.members</inlinecode> property </a> .
 
 > Presence channels must be prefixed with `presence-` . See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions).
 
-> Presence channel subscriptions must be authenticated. See [Authenticating Users](/docs/channels/server_api/authenticating-users).
+> Presence channel subscriptions must be authorized. See [Authorizing Users](/docs/channels/server_api/authorizing-users).
 
 > Presence channels have some limits associated with them: 100 members maximum, 1KB limit for user object, and maximum 128 characters for user id. If you use a numeric user id, remember that the maximum size integer that is representable in JavaScript is 2^53.
 
 ## Subscribe
 
-When subscribing the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
+When subscribing the [user authorization process](/docs/channels/server_api/authorizing-users) will be triggered.
 
 {% methodwrap %}
 {% snippets ['js', 'swift', 'laravelecho'], true %}
@@ -114,7 +114,7 @@ A `member` object with a `member.id` and `member.info` property.
 var me = presenceChannel.members.me;
 ```
 
-Once a user has had their subscription request authenticated (see [Authenticating Users](/docs/channels/server_api/authenticating-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
+Once a user has had their subscription request authorized (see [Authorizing Users](/docs/channels/server_api/authorizing-users) ) and the subscription has succeeded (see [pusher:subscription_succeeded](/docs/channels/using_channels/presence-channels#pusher-subscription-succeeded) ) it is possible to access information about the local user on the presence channel.
 
 The `me` property represents a `member` object and has an `id` and `info` property. For more information on the `member` object see [Presence channel events section](/docs/channels/using_channels/presence-channels#events).
 

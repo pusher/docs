@@ -1,17 +1,17 @@
 ---
 date: 2021-08-01
 title: Pusher Channels Docs | How to set up public channels
-description: Public channels are used for publicly accessible data and do not require any form of authorisation in order to be subscribed to.
+description: Public channels are used for publicly accessible data and do not require any form of authorization in order to be subscribed to.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels
   key: Public channels
-  order: 5
+  order: 6
 ---
 
 # Public channels
 
-Public channels should be used for publicly accessible data as they do not require any form of authorisation in order to be subscribed to.
+Public channels should be used for publicly accessible data as they do not require any form of authorization in order to be subscribed to.
 
 You can subscribe and unsubscribe from channels at any time. There's no need to wait for the Channels to finish connecting first.
 
@@ -42,7 +42,6 @@ The name of the channel to subscribe to.
 {% endparameter %}
 
 #### Returns
-
 A channel object which events can be bound to. See [binding to events](/docs/channels/using_channels/events).
 
 ## Unsubscribe

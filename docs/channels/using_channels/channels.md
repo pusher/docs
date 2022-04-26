@@ -7,7 +7,7 @@ eleventyNavigation:
   parent: Using channels
   key: Channels info
   title: Channels
-  order: 4
+  order: 5
 ---
 
 # Channels
@@ -29,7 +29,7 @@ There are 4 types of channels at the moment:
 
 - [Public channels](/docs/channels/using_channels/public-channels) can be subscribed to by anyone who knows their name
 - [Private channels](/docs/channels/using_channels/private-channels) should have a `private-` prefix. They introduce a mechanism which lets your server control access to the data you are broadcasting
-- [Private encrypted channels](/docs/channels/using_channels/encrypted-channels) should have a `private-encrypted-` prefix. They extend the auth mechanism of private channels, adding encryption of the data payloads so that not even Pusher can get access to it without authentication.
+- [Private encrypted channels](/docs/channels/using_channels/encrypted-channels) should have a `private-encrypted-` prefix. They extend the authorization mechanism of private channels, adding encryption of the data payloads so that not even Pusher can get access to it without authorization.
 - [Presence channels](/docs/channels/using_channels/presence-channels) should have a `presence-` prefix and are an extension of private channels. They let you 'register' user information on subscription, and let other members of the channel know who's online
 - [Cache channels](/docs/channels/using_channels/cache-channels) remembers last published message and delivers it to clients when they subscribe. Cache channel is available in public, private, and private-encrypted modes.
 
@@ -42,6 +42,8 @@ Channel names should only include lower and uppercase letters, numbers and the f
 ```bash
 foo-bar_1234@=,.;
 ```
+
+`#` is a reserved character for internal use by Pusher Channels. Applications can't create channel names containing `#`.
 
 ## Accessing channels
 
