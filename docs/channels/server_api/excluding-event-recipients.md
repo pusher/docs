@@ -108,7 +108,8 @@ const express = require("express");
 const Pusher = require("pusher");
 
 const app = express.createServer(express.logger());
-app.use(express.bodyParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const pusher = new Pusher({
   appId: APP_ID,

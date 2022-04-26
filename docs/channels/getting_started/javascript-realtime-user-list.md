@@ -106,11 +106,10 @@ Your server should provide an endpoint `/pusher/auth` which reads the request's 
 ```js
 // server.js
 
-// First, run 'npm install pusher express body-parser cookie-parser'
+// First, run 'npm install pusher express cookie-parser'
 // Then run this file with 'node server.js'
 const path = require("path");
 const express = require("express");
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const Pusher = require("pusher");
 const pusher = new Pusher({
@@ -121,9 +120,9 @@ const pusher = new Pusher({
   useTLS: true,
 });
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./index.html"));
 });

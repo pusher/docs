@@ -32,10 +32,9 @@ If you don't see your language listed, you can [implement your own authenticatio
 
 ```js
 // First install the dependencies:
-// npm install pusher express body-parser cors
+// npm install pusher express cors
 
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const Pusher = require("pusher");
 const pusher = new Pusher({
@@ -47,8 +46,8 @@ const pusher = new Pusher({
 });
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/user-auth", (req, res) => {
   const socketId = req.body.socket_id;

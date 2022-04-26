@@ -83,10 +83,9 @@ if ( is_user_logged_in() ) {
 
 ```js
 // First install the dependencies:
-// npm install pusher express body-parser cors
+// npm install pusher express cors
 
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const Pusher = require("pusher");
 const pusher = new Pusher({
@@ -98,8 +97,8 @@ const pusher = new Pusher({
 });
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/auth", (req, res) => {
   const socketId = req.body.socket_id;
@@ -224,11 +223,9 @@ if ( is_user_logged_in() ) {
 ```js
 // npm install pusher
 // npm install express
-// npm install body-parser
 // npm install cors
 
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const Pusher = require("pusher");
 const pusher = new Pusher({
@@ -239,8 +236,8 @@ const pusher = new Pusher({
   useTLS: true,
 });
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/auth", function (req, res) {
   const socketId = req.body.socket_id;
