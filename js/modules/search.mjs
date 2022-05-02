@@ -12,7 +12,7 @@ export default async () => {
   searchForm.addEventListener("submit", (e) => e.preventDefault());
 
   // This is done here like this instead of in CSS or with a focusout event,
-  // because focusout and blur events happen after before the click event.
+  // because focusout and blur events happen before the click event.
   // Therefore, the clicked link would disappear before it could actually be clicked.
   // This way we only hide the search results if a mousedown happens outside of
   // the search results box.
