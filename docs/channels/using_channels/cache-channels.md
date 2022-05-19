@@ -103,7 +103,7 @@ See the [events docs](/docs/channels/using_channels/events) for information on h
 
 We do not add any attribute like `age` to your messages. You can add a timestamp attribute to your message if it is important to you to track that.
 
-### How long does the message stays in cache?
+### How long does the message stay in cache?
 
 The time to live (TTL) of an event stored in cache is "up to" 30 minutes. If you do not publish any event, the cached event expires after TTL has elapsed. Please note that TTL is "Up to 30 minutes", which means that in some cases cache messages may expire sooner.
 
