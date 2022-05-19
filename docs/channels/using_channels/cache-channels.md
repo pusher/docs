@@ -101,16 +101,16 @@ See the [events docs](/docs/channels/using_channels/events) for information on h
 
 ### How to determine cache age?
 
-We do not add any attribute like `age` to your messages. You can add a timestamp attribute to your message if it is important to you to track that.
+We do not add any attribute like `age` to your messages. You can add a timestamp attribute to your message if it is important for you to track that.
 
-### How long message stays in cache?
+### How long does the message stay in cache?
 
 The time to live (TTL) of an event stored in cache is "up to" 30 minutes. If you do not publish any event, the cached event expires after TTL has elapsed. Please note that TTL is "Up to 30 minutes", which means that in some cases cache messages may expire sooner.
 
-### Where data is stored?
+### Where is data stored?
 
 The cached messages are temporarily stored in memory in the same cluster you selected for your application. We do not make a backup or snapshot of this data and do not distribute it to other regions. See [cluster configuration](/docs/channels/miscellaneous/clusters) to find out how you can comply with data protection regulations when using Pusher Channels.
 
 ### Are client events also supported?
 
-No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events on cache channels like regular channels, but they we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Please contact our [support team](https://support.pusher.com/hc/en-us/requests/new).
+No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events on cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Please contact our [support team](https://support.pusher.com/hc/en-us/requests/new).
