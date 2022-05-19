@@ -101,7 +101,7 @@ See the [events docs](/docs/channels/using_channels/events) for information on h
 
 ### How to determine cache age?
 
-We do not add any attribute like `age` to your messages. You can add a timestamp attribute to your message if it is important to you to track that.
+We do not add any attribute like `age` to your messages. You can add a timestamp attribute to your message if it is important for you to track that.
 
 ### How long does the message stay in cache?
 
