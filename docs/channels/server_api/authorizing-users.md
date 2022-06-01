@@ -52,7 +52,7 @@ end
 ```php
 global $user;
 if ($user->uid) {
-  echo $pusher->socket_auth($_POST['channel_name'], $_POST['socket_id']);
+  echo $pusher->authorizeChannel($_POST['channel_name'], $_POST['socket_id']);
 } else {
   header('', true, 403);
   echo "Forbidden";
@@ -74,7 +74,7 @@ Broadcast::channel('user.{userId}', function ($user, $userId) {
 
 ```php
 if ( is_user_logged_in() ) {
-  echo $pusher->socket_auth($_POST['channel_name'], $_POST['socket_id']);
+  echo $pusher->authorizeChannel($_POST['channel_name'], $_POST['socket_id']);
 } else {
   header('', true, 403);
   echo "Forbidden";
@@ -484,7 +484,7 @@ global $user;
     if ($user->uid)
     {
       $pusher = new Pusher(APP_KEY, APP_SECRET, APP_ID);
-      $auth = $pusher->socket_auth($_GET['channel_name'], $_GET['socket_id']);
+      $auth = $pusher->authorizeChannel($_GET['channel_name'], $_GET['socket_id']);
 
       $callback = str_replace('\\', '', $_GET['callback']);
       header('Content-Type: application/javascript');
@@ -501,7 +501,7 @@ global $user;
 if ( is_user_logged_in() )
     {
       $pusher = new Pusher(APP_KEY, APP_SECRET, APP_ID);
-      $auth = $pusher->socket_auth($_GET['channel_name'], $_GET['socket_id']);
+      $auth = $pusher->authorizeChannel($_GET['channel_name'], $_GET['socket_id']);
 
       $callback = str_replace('\\', '', $_GET['callback']);
       header('Content-Type: application/javascript');

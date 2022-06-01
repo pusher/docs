@@ -28,7 +28,7 @@ You can start with an authentication endpoint that authenticates every request i
 
 If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).
 
-{% snippets ['node'] %}
+{% snippets ['node', 'Drupal', 'Wordpress'] %}
 
 ```js
 // First install the dependencies:
@@ -58,8 +58,29 @@ app.post("/pusher/user-auth", (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port);
-
 ```
+
+```php
+global $user;
+if ($user->uid) {
+  $user_data = ['id' => (string) $user->uid];
+  echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
+} else {
+  header('', true, 403);
+  echo "Forbidden";
+}
+```
+
+```php
+if ( is_user_logged_in() ) {
+  $user_data = ['id' => (string) get_current_user_id()];
+  echo $pusher->authorizeChannel($_POST['socket_id'], $user_data);
+} else {
+  header('', true, 403);
+  echo "Forbidden";
+}
+```
+
 {% endsnippets %}
 
 

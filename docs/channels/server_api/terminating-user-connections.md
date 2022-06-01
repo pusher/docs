@@ -19,10 +19,14 @@ In some situations, you may want to terminate a user's connections. For example,
 How to terminate all connections established by a given user knowing their user id is shown below. This should be done by your application server using one of our server SDKs. Note that this only terminates the user's active connections. This means that, if nothing else is done, the user will be able to reconnect.
 
 {% methodwrap %}
-{% snippets ['js'], true %}
+{% snippets ['js', 'php'], true %}
 
 ```js
 pusher.terminateUserConnections("user-id");
+```
+
+```php
+$pusher->terminateUserConnections('user-id');
 ```
 
 {% endsnippets %}

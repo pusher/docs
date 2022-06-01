@@ -75,7 +75,7 @@ end
 ```
 
 ```php
-pusher = new Pusher(APP_KEY, APP_SECRET, APP_ID);
+$pusher = new Pusher(APP_KEY, APP_SECRET, APP_ID);
 $update_info = update_object($_POST['id'], $_POST['updated_value']);
 $pusher->trigger(
   'my-channel', 'my-event', $update_info, array('socket_id' => $_POST['socket_id'])
