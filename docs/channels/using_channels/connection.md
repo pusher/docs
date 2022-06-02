@@ -81,11 +81,13 @@ Default values are:
 
 ```js
 var pusher = new Pusher("app_key", {
-  endpoint: "/pusher/user-auth",
-  transport: "ajax",
-  params: {},
-  headers: {},
-  customHandler: null,
+  userAuthentication: {
+    endpoint: "/pusher/user-auth",
+    transport: "ajax",
+    params: {},
+    headers: {},
+    customHandler: null,
+  },
 });
 ```
 
@@ -156,11 +158,13 @@ Default values are:
 
 ```js
 var pusher = new Pusher("app_key", {
-  endpoint: "/pusher/auth",
-  transport: "ajax",
-  params: {},
-  headers: {},
-  customHandler: null,
+  channelAuthorization: {
+    endpoint: "/pusher/auth",
+    transport: "ajax",
+    params: {},
+    headers: {},
+    customHandler: null,
+  },
 });
 ```
 
