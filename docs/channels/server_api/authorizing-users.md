@@ -19,7 +19,7 @@ This page discusses implementing a user authorization endpoint using the Pusher 
 
 > Pusher Channels originally supported pure authorization in private channels. With these authorization tokens it was not evident who the bearer was, but their token allowed them access to certain private channels. In presence channels, we added user info to the authorization token to provide extra information about who was connected (so that it could be distributed to other members of a channel). These tokens function as authentication and authorization within the scope of the presence channel.
 >
-> We now support [User authentication](docs/channels/server_api/authenticating-users) to extend this scheme and to add more functionality. We’ve made this backwards compatible with the old presence channel authorization mechanism, but we do encourage users to adopt the newer styles that will be used in future to add additional features.
+> We now support [User authentication](/docs/channels/server_api/authenticating-users) to extend this scheme and to add more functionality. We’ve made this backwards compatible with the old presence channel authorization mechanism, but we do encourage users to adopt the newer styles that will be used in future to add additional features.
 >
 > Note that in libraries that haven't been updated yet, the authorization function is still called `authenticate`.
 
