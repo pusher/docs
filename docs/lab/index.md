@@ -47,6 +47,7 @@ Typically beta features will remain beta for no longer than two business quarter
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
 | Beams   | Safari web push notifications | 09 Sep 2021 | 31 May 2022    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
 | Channels   | Cache channels | 05 Apr 2022 | 31 July 2022    | [Cache channels docs](/docs/channels/using_channels/cache-channels/) | Active |
+| Channels   | Subscription count event | 18 July 2022 | 31 Oct 2022    | [Subscription count docs](/docs/channels/using_channels/events/) | Active |
 
 ## Communication
 
