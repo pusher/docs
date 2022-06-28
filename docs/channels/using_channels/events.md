@@ -122,10 +122,18 @@ channel.listen("new-price", (data) => {
 It is possible to bind to events on the `pusher.user` object. That means you will receive events sent to the user that has authenticated on that connection. Check the [User authentication docs](/docs/channels/using_channels/user-authentication) for more information on authenticating the user and the [Sending events to users docs](/docs/channels/server_api/server-to-user-messages) for more information on how to send events to specific users based on user id.
 
 {% methodwrap %}
-{% snippets ['js'], true %}
+{% snippets ['js', 'java'], true %}
 
 ```js
 pusher.user.bind(eventName, callback);
+```
+
+```java
+pusher.user().bind(eventName, new SubscriptionEventListener() {
+    public void onEvent(final PusherEvent event) {
+        // ...
+    }
+});
 ```
 
 {% endsnippets %}
