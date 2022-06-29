@@ -196,6 +196,10 @@ Library support is limited to those listed below. If you want to use encrypted c
 
 - Supported from version 1.3.0 onwards.
 
+[pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet)
+
+- Supported from version 4.5.0 onwards.
+
 [Client events](/docs/channels/using_channels/events) are not currently supported.
 
 ## Key rotation
