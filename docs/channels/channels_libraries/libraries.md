@@ -38,6 +38,7 @@ The following libraries are updated and supported by Pusher.
 | .NET                                | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-dotnet)            | [pusher/pusher-websocket-dotnet](https://github.com/pusher/pusher-websocket-dotnet)   |
 | Unity                               | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-unity)             | [pusher/pusher-websocket-unity](https://github.com/pusher/pusher-websocket-unity)     |
 | Flutter                               | Pusher                                           | [Docs](https://github.com/pusher/pusher-channels-flutter#table-of-contents)             | [pusher/pusher-channels-flutter](https://github.com/pusher/pusher-channels-flutter)     |
+| React Native                          | Pusher                                           | [Docs](https://github.com/pusher/pusher-websocket-react-native#table-of-contents)       | [pusher/pusher-websocket-react-native](https://github.com/pusher/pusher-websocket-react-native)    |
 
 ## Official server libraries
 
