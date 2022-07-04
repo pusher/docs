@@ -39,7 +39,7 @@ const pusher = new Pusher(APP_KEY, {
 ```java
 PusherOptions options =
   new PusherOptions()
-    .setUserAuthenticator(new HttpUserAuthenticator("/pusher/user-auth"));
+    .setUserAuthenticator(new HttpUserAuthenticator("https://example.com/pusher/user-auth"));
 
 Pusher pusher = new Pusher(APP_KEY, options);
 ```
