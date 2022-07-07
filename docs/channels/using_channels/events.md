@@ -403,9 +403,9 @@ channel.bind("pusher:cache_miss", () => {});
 
 Provides the number of connections that are currently subscribed to a channel.
 
-If you would like to use it, please enable subscription counting on your [Channels dashboard](https://dashboard.pusher.com) app settings page. Once activated, the event will be broadcast on all types of channels, including public, private and presence channels.
+To enable the Subscription Count feature, navigate to the [**Channels dashboard**](https://dashboard.pusher.com) for your app > **App Settings** and switch the toggle on. Once activated, the event will be broadcast on channel types, including public, private, and presence channels.
 
-Pusher broadcasts the event to all clients connected to a channel whenever a new client subscribes or unsubscribes. On channels with more than 100 connected clients, the event is only sent every 30 seconds, as long as there is activity (subscribe or unsubscribe) on the channel.
+Pusher broadcasts the event to all clients connected to a channel whenever a new client subscribes or unsubscribes. On channels with more than 100 connected clients, the event is sent every 30 seconds as long as there is activity (subscribe or unsubscribe) on the channel.
 
 ```js
 channel.bind("pusher:subscription_count", (data) => {
