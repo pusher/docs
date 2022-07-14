@@ -652,3 +652,4 @@ The `userId` property is useful for displaying the author of an event. You shoul
 
 - [Connection status events](/docs/channels/using_channels/connection#connection-status-events)
 - [Presence events](/docs/channels/using_channels/presence-channels#events)
+ 
