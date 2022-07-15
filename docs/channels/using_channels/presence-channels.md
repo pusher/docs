@@ -257,4 +257,4 @@ When you bind to client events on presence channels, your bound callback will be
 
 Presence channels provide information about members, including the number of members. However, it is currently limited to channels with less than 100 members.
 
-If you are interested in knowing the total number of members in large channels, and do not need to know who has joined or left, you can use the [subscription counting event](/docs/channels/using_channels/events/#subscription_count).
+If you are interested in knowing the total number of members in large channels, and do not need to know who has joined or left, you can use the [subscription counting event](/docs/channels/using_channels/events/#subscription_count) feature instead of using a Presence channel.
