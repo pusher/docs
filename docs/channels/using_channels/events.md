@@ -13,17 +13,17 @@ eleventyNavigation:
 
 Events are the primary method of packaging messages in the Channels system. They form the basis of all communication.
 
-They are essentially 'named messages' which means you can set up 'handlers' in your client code to deal with the various types. As such they are used for 'client-side' routing, and should not be used as filters (channels can do this much more efficiently on the server side).
+They are essentially 'named messages' which means you can set up 'handlers' in your client code to deal with the various types. As such they are used for client-side routing, and should not be used as filters (channels can do this much more efficiently on the server side).
 
-Events can be seen as a notification of something happening on your system, and they are often named in the past tense. For example: `message-created`, `todo-finished`.
+Events can be seen as a notification of something happening on your system, and they are often named in the past tense. For example, `message-created`, `todo-finished`.
 
 ## Binding to events
 
-Most **binding** and **triggering** behaviour is attached to channels the client is subscribed to (see binding on the channel below). It is also possible to bind to the user object to handle messages addressed to the authenticated user. All published messages can be bound to in aggregate via the connection object itself. This aggregated binding triggers for both channel messages and user messages (for the currently authenticated user).
+Most **binding** and **triggering** behaviour is attached to channels to which the client is subscribed to (refer to Binding on the channel section). It is also possible to bind to the user object to handle messages addressed to the authenticated user. All published messages can be bound to in aggregate via the connection object itself. This aggregated binding triggers for both channel messages and user messages (for the currently authenticated user).
 
 ### Binding on the channel
 
-Events can be bound to directly on a channel which means you will only received an event if it is sent on that specific channel.
+Events can be bound to directly on a channel. This means you will only receive an event if it is sent on that specific channel.
 
 {% methodwrap %}
 {% snippets ['js', 'swift', 'laravelecho'], true %}
@@ -99,7 +99,7 @@ A function to be called whenever the event is triggered.
 
 ##### Example
 
-The following might be an example of a stock tracking app where several channels are opened for different companies:
+Here's an example of a stock tracking app where several channels are opened for different companies:
 
 ```js
 window.Echo = new Echo({
@@ -119,7 +119,7 @@ channel.listen("new-price", (data) => {
 
 ### Binding on the user object
 
-It is possible to bind to events on the `pusher.user` object. That means you will receive events sent to the user that has authenticated on that connection. Check the [User authentication docs](/docs/channels/using_channels/user-authentication) for more information on authenticating the user and the [Sending events to users docs](/docs/channels/server_api/server-to-user-messages) for more information on how to send events to specific users based on user id.
+You can bind to events on the `pusher.user` object. That means you will receive events sent to the user that has authenticated on that connection. Refer to [User authentication](/docs/channels/using_channels/user-authentication) for more information on authenticating users. Refer to [Sending events to users](/docs/channels/server_api/server-to-user-messages) for more information on how to send events to specific users based on user ID.
 
 {% methodwrap %}
 {% snippets ['js', 'java'], true %}
@@ -143,7 +143,7 @@ pusher.user().bind(eventName, new SubscriptionEventListener() {
 
 You can also bind to events regardless of the channel the event is broadcast to. By using the `pusher.bind()` method rather than `channel.bind()`, you can listen for an event on all the channels that you are currently subscribed to.
 
-The following is an example of an app that binds to a `new-comment` event from all channels that we're currently subscribed to:
+Here's an example of an app that binds to a `new-comment` event from all channels that we're currently subscribed to:
 
 {% methodwrap %}
 {% snippets ['js', 'swift'], true %}
@@ -185,7 +185,7 @@ pusher.bind(eventName, callback);
 {% endparameter %}
 {% parameter 'callback', 'Function', true, 'js' %}
 
-A function to be called whenever the event is triggered.
+This function is called whenever the event is triggered.
 {% endparameter %}
 {% parameter 'PusherSwift', 'PusherSwift', true, 'swift', false %}
 
@@ -206,7 +206,7 @@ pusher.bind_global(callback);
 
 {% parameter 'callback', 'Function', true %}
 
-A function to be called whenever the event is triggered. Your callback will be passed the parameters:
+This function is called whenever the event is triggered. Your callback will be passed the parameters:
 
 - `eventName` (String) The name of the received event
 - `data` (Object) The payload of the received event
@@ -246,7 +246,7 @@ channel.bind_global(callback);
 
 ## Unbinding from events
 
-It's possible to remove a binding to an event on a channel.
+It is possible to remove a binding to an event on a channel.
 
 {% methodwrap %}
 {% snippets ['js', 'swift', 'laravelecho'], true %}
@@ -266,7 +266,7 @@ channel.stopListening(eventName);
 {% endsnippets %}
 {% parameter 'eventName', 'String', true, 'js' %}
 
-The name of the event that the binding is to be removed from.
+The name of the event from which your want to remove the binding.
 
 {% endparameter %}
 {% parameter 'callback', 'Function', true, 'js' %}
@@ -315,7 +315,7 @@ pusher.unbind(callbackId: binding)
 {% endparameter %}
 {% parameter 'eventName', 'String', true, 'laravelecho', false %}
 
-The name of the event that the binding is to be removed from.
+The name of the event from which your want to remove the binding.
 
 ##### Example
 
@@ -341,29 +341,30 @@ channel.stopListening("new-price");
 
 ## Channel events
 
-Some events are triggered by Channels and to clearly indicate this, these are prefixed with `pusher:`.
+Some events are triggered by Channels. To clearly indicate this, these are prefixed with `pusher:`.
 
 {% parameter 'pusher:subscription_succeeded', 'Event', null %}
 
-Once you have subscribed to a channel you can bind to the `pusher:subscription_succeeded` event so that you know when the subscription has been registered within Channels.
+Once you have subscribed to a channel, you can bind to the `pusher:subscription_succeeded` event. That way you know when the subscription has been registered within Channels.
 
 ```js
 channel.bind("pusher:subscription_succeeded", () => {});
 ```
 
-This is particularly useful for private and presence channels if you are using [client events](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once a successful subscription has occurred.
+This is particularly useful for private and presence channels if you are using [client events](/docs/channels/using_channels/events#triggering-client-events) because you can only trigger an event once you have a successful subscription.
 
-> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events).
+> For example, if the channel is a **Presence Channel** a `members` event argument is also passed to the `pusher:subscription_succeeded` event handler. The presence channel also introduces a number of other events that can be bound to. For more information, refer to [Events in Presence Channels](/docs/channels/using_channels/presence-channels#events).
 
 {% endparameter %}
 
 {% parameter 'pusher:subscription_error', 'Event', null %}
 
-Sometimes things go wrong so we have exposed a `pusher:subscription_error` event that is triggered when an authorization request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authorized.
+Sometimes things go wrong so we have exposed a `pusher:subscription_error` event. It is triggered when an authorization request for a **private** or **presence** channels fails. This event is bound to on the channel that is to be authorized.
 
 The event is triggered either when the authorization endpoint returns a HTTP status code that is not 200 or if there is a problem parsing the JSON that the endpoint returned.
 
-**Note:** if the library is unable to create a websocket connection at all, this event will **not** be emitted. In order to catch events at the connection level you must bind to `error` events on the connection as described [here](/docs/channels/using_channels/connection#binding-to-connection-events)
+>**NOTE:** 
+>If the library is unable to create a websocket connection at all, this event will **not** be emitted. To catch events at the connection level, you must bind to `error` events on the connection as described in [Binding to connection events](/docs/channels/using_channels/connection#binding-to-connection-events)
 
 ```js
 channel.bind("pusher:subscription_error", (error) => {});
@@ -407,17 +408,39 @@ channel.bind("pusher:cache_miss", () => {});
 
 {% endparameter %}
 
+{% parameter 'pusher:subscription_count', 'Event', null %}
+
+Provides the number of connections that are currently subscribed to a channel.
+
+To enable the Subscription Count feature, navigate to the [**Channels dashboard**](https://dashboard.pusher.com) for your app > **App Settings** and switch the toggle on. Once activated, the event will be broadcast on all channel types except Presence channels.
+
+Pusher broadcasts the event to all clients connected to a channel whenever a new client subscribes or unsubscribes. On channels with more than 100 connected clients, the event is sent every 30 seconds as long as there is activity (subscribe or unsubscribe) on the channel.
+
+```js
+channel.bind("pusher:subscription_count", (data) => {
+    console.log(data.subscription_count);
+    console.log(channel.subscription_count);
+});
+```
+
+{% endparameter %}
+
+>**NOTE:*
+>This Subscription Count Event is available for all channel types except Presence channels.
+
 ### Additional presence events
 
-Presence comes with a number of presence specific events. For more information please see the [presence events docs](/docs/channels/using_channels/presence-channels#events).
+Presence comes with a number of presence-specific events. For more information, refer to [Events in Presence Channels](/docs/channels/using_channels/presence-channels#events).
 
 ## Triggering client events
 
-Not all traffic needs to go via your conventional web server when using Channels. Some actions may not need validation or persistence and can go directly via the socket to all the other clients connected to the channel.
+Not all traffic needs to go via your conventional web server when using Channels. Some actions may not need validation or persistence. They can go directly via the socket to all the other clients connected to the channel.
 
-_It is important that you apply additional care when using client events, since these originate from other users, and could be subject to tampering by a malicious user of your site._
+>**IMPORTANT:**
+>Apply additional care when using client events, since these originate from other users, and could be subject to tampering by a malicious user of your site.
 
-> Note that you cannot trigger client events from the debug console.
+>**NOTE:**
+>You cannot trigger client events from the debug console.
 
 Client events have a number of **enforced restrictions** to ensure that the user subscribing to the channel is an authorized user and so that client events can be clearly identified:
 
@@ -448,7 +471,7 @@ channel.whisper(eventName, data);
 
 {% parameter 'eventName', 'String', true, 'js' %}
 
-The name of the event to be triggered. A client event must have a name prefixed with `client-` or it will be rejected by the server.
+The name of the event which will be triggered. A client event must have a name prefixed with `client-`. Otherwise, it will be rejected by the server.
 
 {% endparameter %}
 {% parameter 'data', 'Object', false, 'js' %}
@@ -475,7 +498,7 @@ channel.bind("pusher:subscription_succeeded", () => {
 
 {% parameter 'eventName', 'String', true, 'swift', false %}
 
-The name of the event to be triggered. If the event name is not prefixed with `client-` the library will prepend it.
+The name of the event which will be triggered. If the event name is not prefixed with `client-`, the library will prepend it.
 
 {% endparameter %}
 {% parameter 'data', 'Object', false, 'swift', false %}
@@ -493,7 +516,7 @@ myPrivateChannel.trigger(eventName: "myevent", data: ["foo": "bar"])
 
 {% parameter 'eventName', 'String', true, 'laravelecho', false %}
 
-The name of the event to be triggered. A client event must have a name prefixed with `client-` or it will be rejected by the server.
+The name of the event which will be triggered. A client event must have a name prefixed with `client-`. Otherwise, it will be rejected by the server.
 
 {% endparameter %}
 {% parameter 'data', 'Object', false, 'laravelecho', false %}
@@ -523,11 +546,11 @@ channel.listen("pusher:subscription_succeeded", () => {
 
 ## Message routing
 
-When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in the page on [excluding event recipients](/docs/channels/server_api/excluding-event-recipients).
+When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in [Excluding event recipients](/docs/channels/server_api/excluding-event-recipients).
 
 ## Best practice when sending client events
 
-As well as the obvious security implications of sending messages from clients, and in particular web browsers, it's also important to consider what events are sent and when. If the destination client is also a web browser there is only so much data that web browser can handle so there only the required information should be sent at the right time. With this in mind we've come up with a few best practice guidelines to follow when trigger client events.
+Apart from the obvious security implications of sending messages from clients, and in particular web browsers, it's also important to consider what events are sent and when. If the destination client is also a web browser, there is only so much data that web browser can handle. Only the required information should be sent at the right time. With this in mind, we've come up with a few best practice for you to follow when triggering client events.
 
 ### Rate limit your events
 
@@ -537,9 +560,9 @@ This is not a system issue, it is a client issue. 100 clients in a channel sendi
 
 ### When to trigger events
 
-The obvious things that result in events being triggered from a client application with a user interface are user actions such as mouse movement or key presses. In this scenario we still need to consider limiting how much information we send. Quite frequently a UI event **should not** lead directly to a client event being published into Channels.
+The obvious things that result in events being triggered from a client application with a user interface are user actions. For example, mouse movement or key presses. In this scenario, we still need to consider limiting how much information we send. Quite frequently a UI event **should not** lead directly to a client event being published into Channels.
 
-For example, if you have bound the the `mousemove` event and a user is wildly waving their pointer around the screen it's not a good idea to translate each mouse move event into a client event. Instead you should define an interval at which the mouse position should be sent and if the mouse position has moved when the next interval fires send a single client event. The time interval may need to be tuned to suit your requirements.
+For example, if you have bound the the `mousemove` event and a user is wildly waving their pointer around the screen, it's not a good idea to translate each mouse move event into a client event. Instead, you should define an interval at which the mouse position should be sent and if the mouse position has moved when the next interval fires send a single client event. The time interval may need to be tuned to suit your requirements.
 
 ##### Example
 
@@ -640,3 +663,4 @@ The `userId` property is useful for displaying the author of an event. You shoul
 
 - [Connection status events](/docs/channels/using_channels/connection#connection-status-events)
 - [Presence events](/docs/channels/using_channels/presence-channels#events)
+ 

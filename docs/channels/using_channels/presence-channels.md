@@ -252,3 +252,9 @@ channel.leaving((member) => {
 ## user_id in client events
 
 When you bind to client events on presence channels, your bound callback will be called with a metadata object which contains a `user_id` key. [See the client events docs for more detail](/docs/channels/using_channels/events#user-id-in-client-events).
+
+## Subscription counting
+
+Presence channels provide information about members, including the number of members. However, it is currently limited to channels with less than 100 members.
+
+If you are interested in knowing the total number of members in large channels, and do not need to know who has joined or left, you can use the [subscription counting event](/docs/channels/using_channels/events/#subscription_count) feature instead of using a Presence channel.
