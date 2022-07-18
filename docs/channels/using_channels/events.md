@@ -418,7 +418,7 @@ channel.bind("pusher:subscription_count", (data) => {
 {% endparameter %}
 
 >**NOTE:*
->This Subscription Count Event is available for all channel types, except Presence channels.
+>This Subscription Count Event is available for all channel types except Presence channels.
 
 ### Additional presence events
 
