@@ -51,7 +51,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/user-auth", (req, res) => {
   const socketId = req.body.socket_id;
-  const user = {id: 12345}; // Replace this with code to retrieve the actual user id
+  const user = {id: "12345"}; // Replace this with code to retrieve the actual user id
   const authResponse = pusher.authenticateUser(socketId, user);
   res.send(authResponse);
 });
@@ -89,7 +89,7 @@ if ( is_user_logged_in() ) {
 - **Unsuccessful** responses from an authentication endpoint should serve a `403 Forbidden` HTTP status.
 - **Successful** responses from an authentication endpoint should carry a `200 OK` HTTP status and a body of the form
   ```json
-  { "auth": "$AUTHORIZATION_STRING", "user_info": "$USER_INFO" }
+  { "auth": "$AUTHORIZATION_STRING", "user_data": "$USER_DATA" }
   ```
 ## Client-side: setting the authentication endpoint
 
