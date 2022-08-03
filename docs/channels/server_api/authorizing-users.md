@@ -21,6 +21,8 @@ This page discusses implementing a user authorization endpoint using the Pusher 
 >
 > We now support [User authentication](/docs/channels/server_api/authenticating-users) to extend this scheme and to add more functionality. We’ve made this backwards compatible with the old presence channel authorization mechanism, but we do encourage users to adopt the newer styles that will be used in future to add additional features.
 >
+> One of the results of using User Authentication is that providing user information in presence channel authorization is optional, if User Authentication already provides such information.
+>
 > Note that in libraries that haven't been updated yet, the authorization function is still called `authenticate`.
 
 
@@ -31,6 +33,9 @@ Pusher Channels will only allow a connection to subscribe to a [private channel]
 ![Authorization Process](./img/private-channel-auth-process.png)
 
 You can start with an authorization endpoint that authorizes every request it receives. You can do that with [pusher-channels-auth-example](https://github.com/pusher/pusher-channels-auth-example) , or by copy-pasting one of the examples below. (If you don't see your language listed, you can [implement your own authorization endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).)
+
+**User info in presence channels:**
+
 
 #### Implementing the authorization endpoint for a private channel
 
