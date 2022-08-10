@@ -15,10 +15,10 @@ Presence channels build on the security of Private channels and expose the addit
 
 Presence channels are subscribed to from the client API in the same way as [private channels](/docs/channels/using_channels/private-channels#subscribe) but the channel name must be prefixed with `presence-`. As with private channels a HTTP Request is made to a configurable authorization URL to determine if the current user has permissions to access the channel (see [Authorizing Users](/docs/channels/server_api/authorizing-users) ).
 
-Each member of the presence channel has a set of user information `user_info` that is shared with other members of the presence channel to identify this user. This information about the authorized user can come from two places:
+Each member of the presence channel has a user object containing the `id` of the user and a `user_info` field with more information about that user (e.g. name). That user object is shared with other members of the presence channel to identify this user. This user object can come from two places:
 
-- If the user is signed in with pusher by using the `signin` method on the client, the user information (`user_info`) provided during user authentication will be shared with other members in presence channels to identify this user. See more about providing `user_info` in [Authenticating Users](/docs/channels/server_api/authenticating-users).
-- You can always provide user information `user_info` during the authorization step of a presence channel which will override any user information coming from User Authentication.
+- If the user is signed in with pusher by using the `signin` method on the client, the user object provided during user authentication will be shared with other members in presence channels to identify this user. See more about providing the user object (`user_data`) in [Authenticating Users](/docs/channels/server_api/authenticating-users).
+- You can always provide the user object during the authorization step of a presence channel which will override the user object coming from User Authentication.
 
 Information on users subscribing to, and unsubscribing from a channel can then be accessed by [binding to events on the presence channel](/docs/channels/using_channels/presence-channels#events) and the current state of users subscribed to the channel is available via the <a href="/docs/channels/using_channels/presence-channels#accessing-channel-members"> <inlinecode>channel.members</inlinecode> property </a> .
 

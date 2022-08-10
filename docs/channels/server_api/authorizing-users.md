@@ -21,7 +21,7 @@ This page discusses implementing a user authorization endpoint using the Pusher 
 >
 > We now support [User authentication](/docs/channels/server_api/authenticating-users) to extend this scheme and to add more functionality. We’ve made this backwards compatible with the old presence channel authorization mechanism, but we do encourage users to adopt the newer styles that will be used in future to add additional features.
 >
-> One of the results of using User Authentication is that providing user information in presence channel authorization is optional, if User Authentication already provides such information.
+> One of the results of using User Authentication is that providing the user object in presence channel authorization is optional, if the user is already signed-in using User Autentication.
 >
 > Note that in libraries that haven't been updated yet, the authorization function is still called `authenticate`.
 
