@@ -24,7 +24,9 @@ We authenticate a user once per connection session. Authenticating a user gives 
 
 When your client calls the `signin` method on a established conenction, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
 
-You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Your server can also add more user data to the authentication token by adding other properties to the user object.
+You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
+
+- `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
 
 If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).
 
@@ -51,7 +53,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/user-auth", (req, res) => {
   const socketId = req.body.socket_id;
-  const user = {id: "12345"}; // Replace this with code to retrieve the actual user id
+  
+  // Replace this with code to retrieve the actual user id and info
+  const user = {
+    id: "12345",
+    user_info: {
+      name: "John Smith",
+    }
+  };
   const authResponse = pusher.authenticateUser(socketId, user);
   res.send(authResponse);
 });
@@ -63,7 +72,12 @@ app.listen(port);
 ```php
 global $user;
 if ($user->uid) {
-  $user_data = ['id' => (string) $user->uid];
+  $user_data = [
+    'id' => (string) $user->uid,
+    'user_info' => [
+      'name': $user->name,
+    ]
+  ];
   echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
 } else {
   header('', true, 403);
@@ -73,7 +87,12 @@ if ($user->uid) {
 
 ```php
 if ( is_user_logged_in() ) {
-  $user_data = ['id' => (string) get_current_user_id()];
+  $user_data = [
+    'id' => (string) get_current_user_id(),
+    'user_info' => [
+        'name': (string) get_current_user()->name
+      ]
+    ];
   echo $pusher->authorizeChannel($_POST['socket_id'], $user_data);
 } else {
   header('', true, 403);
@@ -171,13 +190,15 @@ app.get("/pusher/user-auth", (req, res) => {
   const socketId = query.socket_id;
   const callback = query.callback;
 
-  const userInfo = {
+  const user = {
     id: "some_id",
-    name: "John Smith",
+    user_info: {
+      name: "John Smith",
+    }
   };
 
   const auth = JSON.stringify(
-    pusher.authenticateUser(socketId, userInfo)
+    pusher.authenticateUser(socketId, user)
   );
   const cb = callback.replace(/\\"/g,"") + "(" + auth + ");";
 
