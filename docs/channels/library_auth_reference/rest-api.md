@@ -218,7 +218,7 @@ Returns a hash describing the state of the channel. The occupied status is alway
     POST /apps/[app_id]/users/[user_id]/terminate_connections
 ```
 
-Terminates all connections established by the given user. The user is allowed to reconnect again if nothing else is done. Check [the documentation on terminating user connections](/docs/channels/server_api/terminating_connect) to prevent users from reconnecting.
+Terminates all connections established by the given user. The user is allowed to reconnect again if nothing else is done. Check [the documentation on terminating user connections](/docs/channels/server_api/terminating-user-connections) to prevent users from reconnecting.
 
 ##### Request
 
