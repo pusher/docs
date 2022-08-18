@@ -32,6 +32,8 @@ $pusher->terminateUserConnections('user-id');
 {% endsnippets %}
 {% endmethodwrap %}
 
+>Note that this will only terminate connections that have successfully completed the [user authentication flow](/docs/channels/server_api/authenticating-users). Connnections for users subscribed to presence channels but that have not been authenticated via this flow will not be terminated.
+
 ## Banning users
 
 As mentioned, the example above only terminates the user's active connections. In order to disallow a user to reconnect, your application needs to reject further attempts to authenticate as that user. This is easily done, because, as described in the [user authentication documentation](/docs/channels/server_api/authenticating-users), it is your application that is in control of user authentication. Therefore, banning a user is a two step process that must be done in your application server.
