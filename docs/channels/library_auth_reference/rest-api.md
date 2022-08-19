@@ -12,17 +12,17 @@ eleventyNavigation:
 
 # HTTP API Reference
 
-This document lists all API methods, and details the authentication mechanism. Unless you're writing a library you may wish to consult the [server API overview](/docs/channels/server_api/overview) instead.
+This document lists all API methods, and details the authentication mechanism. Unless you're writing a library, you may wish to refer to the [Server API overview](/docs/channels/server_api/overview) instead.
 
 ## General
 
-The API is hosted at [http://api-CLUSTER.pusher.com](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (for instance, mt1). The API may be accessed via HTTP or HTTPS.
+The API is hosted at [http://api-CLUSTER.pusher.com](http://api-CLUSTER.pusher.com) , where CLUSTER is replaced with your own apps cluster (e.g., mt1). The API may be accessed via HTTP or HTTPS.
 
-All requests MUST be authenticated, as described [below](#generating-authentication-signatures).
+All requests MUST be authenticated, as described in the [Generating authentication signatures](#generating-authentication-signatures) section.
 
 Parameters MUST be submitted in the query string for GET requests. For POST requests, parameters MAY be submitted in the query string, but SHOULD be submitted in the POST body as a JSON hash (while setting `Content-Type:application/json` ).
 
-HTTP status codes are used to indicate the success or otherwise of requests. The following status are common:
+HTTP status codes are used to indicate the success or otherwise of requests. The following statuses are common:
 
 | Code | Description                                                        |
 | ---- | ------------------------------------------------------------------ |
@@ -45,11 +45,11 @@ POST /apps/[app_id]/events
 
 Triggers an event on one or more channels.
 
-The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter you will receive a 413 error code. If you have a use case which requires a larger messages size please [get in touch](https://support.pusher.com/hc/en-us/requests/new).
+The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter, you will receive a 413 error code. If you have a use case which requires a larger messages size, please [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
-> **Note:** a previous version of this resource is now considered deprecated but is detailed [here](/docs/channels/library_auth_reference/rest-api-deprecated).
+> **NOTE:** A previous version of this resource is now considered deprecated but is detailed in the [Depricated](/docs/channels/library_auth_reference/rest-api-deprecated) section.
 
-> **Note:** For POST requests we recommend including parameters in the JSON body. If using the query string, arrays should be sent as `channels[]=channel1&amp;channels[]=channel2;` this is more verbose than the JSON representation.
+> **NOTE:** For POST requests, we recommend including parameters in the JSON body. If using the query string, send arrays as `channels[]=channel1&amp;channels[]=channel2;`. This is more verbose than the JSON representation.
 
 ##### Request
 
@@ -59,7 +59,7 @@ The event data should not be larger than 10KB. If you attempt to POST an event w
 | data      | Event data (required) - limited to 10KB                                                                                                                                                                                                                  |
 | channels  | Array of one or more channel names - limited to 100 channels                                                                                                                                                                                             |
 | channel   | Channel name if publishing to a single channel (can be used instead of channels)                                                                                                                                                                         |
-| socket_id | Excludes the event from being sent to a specific connection (see [excluding recipients](/docs/channels/server_api/excluding-event-recipients) )                                                                                                          |
+| socket_id | Excludes the event from being sent to a specific connection (refer to [Excluding recipients](/docs/channels/server_api/excluding-event-recipients) )                                                                                                          |
 | info      | [[EXPERIMENTAL]](/docs/lab#experimental-program) A comma separated list of attributes which should be returned for each unique channel triggered to. If this parameter is present, the request will count as two "messages" for the purposes of billing. |
 
 **[[EXPERIMENTAL]](/docs/lab#experimental-program) Available info attributes**
@@ -67,7 +67,7 @@ The event data should not be larger than 10KB. If you attempt to POST an event w
 | Attribute          | Type    | Applicable channels | Description                                                                                                                                                                                                                               |
 | ------------------ | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | user_count         | Integer | Presence            | Number of **distinct** users currently subscribed to each channel (a single user may be subscribed many times, but will only count as one)                                                                                                |
-| subscription_count | Integer | All                 | Number of **connections** currently subscribed to each channel. This attribute is not available by default; please enable it in the app settings page of your [Channels dashboard](https://dashboard.pusher.com) if you'd like to use it. |
+| subscription_count | Integer | All                 | Number of **connections** currently subscribed to each channel. This attribute is not available by default. To enable it, navigate to your[Channels dashboard](https://dashboard.pusher.com), find the app you are working on and click **App Settings**. |
 
 ##### Successful response
 
@@ -86,7 +86,7 @@ If the `info` parameter is sent, then it returns a hash of unique channels that 
 }
 ```
 
-> **Note:** the counts are computed independently of broadcasting the message to connections. This means the counts do not necessarily match the number of subscribers/users that were published to.
+> **NOTE:** the counts are computed independently of broadcasting the message to connections. This means the counts do not necessarily match the number of subscribers/users that were published to.
 
 ### POST batch events (trigger multiple events)
 
@@ -137,7 +137,7 @@ The event has been received and will be send asynchronously to all sockets. Resp
 }
 ```
 
-> **Note:** the counts are computed independently of broadcasting the message to connections. This means the counts do not necessarily match the number of subscribers/users that were published to.
+> **NOTE:** the counts are computed independently of broadcasting the message to connections. This means the counts do not necessarily match the number of subscribers/users that were published to.
 
 ## Channels
 
