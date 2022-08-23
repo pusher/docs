@@ -1,5 +1,5 @@
 ---
-date: 2022-04-05
+date: 2022-08-23
 title: Pusher Lab | Experimental and Beta Features
 description: We continue to bring cutting edge features to our realtime APIs. Find out what we're working on and get involved with beta testing in the Pusher Lab.
 layout: other.njk
@@ -27,8 +27,8 @@ Typically experimental features will remain experimental for no longer than one 
 
 | Product  | Feature               | Last update | Review by date | Resources                                                                        | Status |
 | -------- | --------------------- | ----------- | -------------- | -------------------------------------------------------------------------------- | ------ |
-| Channels | HTTP publish API info | 16 Feb 2022 | 31 July 2022    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
-| Beams | WEB support in Flutter SDK  | 16 Feb 2022 | 31 July 2022    | [SDK repository] | Active |
+| Channels | HTTP publish API info | 16 Feb 2022 | 01 Dec 2022    | - [Trigger example] <br/> - [Trigger batch example] <br/> - [HTTP API reference] | Active |
+| Beams | WEB support in Flutter SDK  | 16 Feb 2022 | 01 Dec 2022    | [SDK repository] | Active |
 
 [trigger example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
 [trigger batch example]: /docs/channels/server_api/http-api#example-fetch-subscriber-and-user-counts-at-the-time-of-publish
@@ -45,9 +45,9 @@ Typically beta features will remain beta for no longer than two business quarter
 
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
-| Beams   | Safari web push notifications | 09 Sep 2021 | 31 July 2022    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
-| Channels   | Cache channels | 05 Apr 2022 | 31 July 2022    | [Cache channels docs](/docs/channels/using_channels/cache-channels/) | Active |
-| Channels   | Subscription count event | 18 July 2022 | 31 Oct 2022    | [Subscription count docs](/docs/channels/using_channels/events/) | Active |
+| Beams   | Safari web push notifications | 09 Sep 2021 | 01 Dec 2022    | [Safari configuration guide](/docs/beams/getting-started/web/configure-safari/) | Active |
+| Channels   | Cache channels | 05 Apr 2022 | 01 Dec 2022    | [Cache channels docs](/docs/channels/using_channels/cache-channels/) | Active |
+| Channels   | Subscription count event | 18 July 2022 | 01 Dec 2022    | [Subscription count docs](/docs/channels/using_channels/events/) | Active |
 
 ## Communication
 
