@@ -170,6 +170,7 @@ Safari uses the `web` key of the publish payload therefore you can trigger notif
 - [Insights](/docs/beams/concepts/insights) do not currently work in Safari. We are planning to add open rate support, but acknowledgements are not technically possible due to Safari limitations. This means you will not receive the corresponding`UserNotificationAcknowledgement` and `UserNotificationOpen`[webhooks](https://pusher.com/docs/beams/concepts/webhooks) for Safari devices. Please bear in mind that you will still receive the`PublishToUsersAttempt` webhook.
 - It is not possible to update the icon or website name for users that have already allowed notifications. If you change your website name or icon at a later date then only new users will receive the new name and icon. This is a limitation with Safari rather than Beams.
 - You can’t send data or run JavaScript in response to receiving notifications as you can in other browsers. This is a limitation with Safari rather than Beams.
+- Safari does not support Web Push Notifications on iOS or iPadOS devices. Safari only supports notifications on desktop devices. This is a limitation with Safari rather than Beams. 
 - Not all the publish payload keys have an effect in Safari. You can find out more in the [publish payload format docs](/docs/beams/reference/publish-payloads#web-format).
 
 ## Certificate expiration
