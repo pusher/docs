@@ -12,7 +12,7 @@ eleventyNavigation:
 
 # HTTP API Reference
 
-This document lists all API methods and details the authentication mechanism. Unless you're writing a library, you may wish to refer to the [Server API overview](/docs/channels/server_api/overview) instead.
+This document lists all API methods and details the authentication mechanism. Unless you're writing a library, you may wish to refer to the [Server API overview](/docs/channels/server_api/overview) instead. 
 
 ## General
 
