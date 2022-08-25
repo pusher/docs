@@ -67,7 +67,7 @@ The event data should not be larger than 10KB. If you attempt to POST an event w
 | Attribute          | Type    | Applicable channels | Description                                                                                                                                                                                                                               |
 | ------------------ | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | user_count         | Integer | Presence            | Number of **distinct users** currently subscribed to each channel (a single user may be subscribed many times, but will only count as one)                                                                                                |
-| subscription_count | Integer | All                 | Number of **connections** currently subscribed to each channel. This attribute is not available by default. To enable it, navigate to your[Channels dashboard](https://dashboard.pusher.com), find the app you are working on, and click **App Settings**. |
+| subscription_count | Integer | All   (except Presence channels)              | Number of **connections** currently subscribed to each channel. This attribute is not available by default. To enable it, navigate to your[Channels dashboard](https://dashboard.pusher.com), find the app you are working on, and click **App Settings**. |
 
 ##### Successful response
 
@@ -119,7 +119,7 @@ Event object:
 | Attribute          | Type    | Applicable channels | Description                                                                                                                                                                                                                              |
 | ------------------ | ------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | user_count         | Integer | Presence            | Number of **distinct users** currently subscribed to the channel (a single user may be subscribed many times, but will only count as one)                                                                                                |
-| subscription_count | Integer | All                 | Number of **connections** currently subscribed to the channel. This attribute is not available by default. To enable it, navigate to your [Channels dashboard](https://dashboard.pusher.com), click the app you are working on, navigate to **App Settings** and **Enable subscription count** toggle.  |
+| subscription_count | Integer | All  (except Presence channels)              | Number of **connections** currently subscribed to the channel. This attribute is not available by default. To enable it, navigate to your [Channels dashboard](https://dashboard.pusher.com), click the app you are working on, navigate to **App Settings** and **Enable subscription count** toggle.  |
 
 ##### Successful response
 
