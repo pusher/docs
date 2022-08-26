@@ -414,7 +414,7 @@ Provides the number of connections that are currently subscribed to a channel.
 
 To enable the Subscription Count feature, navigate to the [**Channels dashboard**](https://dashboard.pusher.com) for your app > **App Settings** and switch the toggle on. Once activated, the event will be broadcast on all channel types except Presence channels.
 
-Pusher broadcasts the event to all clients connected to a channel whenever a new client subscribes or unsubscribes. On channels with more than 100 connected clients, the event is sent every 30 seconds as long as there is activity (subscribe or unsubscribe) on the channel.
+Pusher broadcasts the event to all clients connected to a channel whenever a new client subscribes or unsubscribes. On channels with more than 100 connected clients, the event is sent every 5 seconds as long as there is activity (subscribe or unsubscribe) on the channel.
 
 ```js
 channel.bind("pusher:subscription_count", (data) => {
