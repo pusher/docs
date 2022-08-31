@@ -111,6 +111,10 @@ The time to live (TTL) of an event stored in cache is up to 30 minutes. If you d
 
 Cached messages are temporarily stored in memory in the same cluster you selected for your application. Pusher does not create a backup or a snapshot of this data. And we do not distribute it to other regions. Refer to [Cluster configuration](/docs/channels/miscellaneous/clusters) to find out how you can comply with data protection regulations when using Pusher Channels.
 
+### Can I retrieve the cached data from my application?
+
+Yes. You can query the cached data from the HTTP API. The response contains the data as well as the remaining time to live of the cached message. Check the Channel Information section on the [HTTP API documentation page](/docs/channels/server_api/http-api/#channel-information).
+
 ### Are client events also supported?
 
 No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contect our [support team](https://support.pusher.com/hc/en-us/requests/new).

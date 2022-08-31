@@ -199,6 +199,8 @@ Fetch one or some attributes for a given channel.
 | ------------------ | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | user_count         | Integer | Presence            | Number of **distinct users** currently subscribed to this channel (a single user may be subscribed many times, but will only count as one)                                                                                                |
 | subscription_count | Integer | All  (except Presence channels)               | Number of **connections** currently subscribed to this channel. This attribute is not available by default. To enable it, navigate to your [Channels dashboard](https://dashboard.pusher.com), click the app you are working on, navigate to **App Settings** and **Enable subscription count** toggle. |
+| cache              | Object  | Cache               | Cached data and TTL (in seconds) for this channel or null in case the cache is empty.
+
 
 Requesting an attribute which is not available for the requested channel will return an error (for example requesting a the `user_count` for a public channel).
 
@@ -207,7 +209,7 @@ Requesting an attribute which is not available for the requested channel will re
 Returns a hash describing the state of the channel. The occupied status is always reported, as well as any requested attributes.
 
 ```json
-{ "occupied": true, "user_count": 42, "subscription_count": 42 }
+{ "occupied": true, "user_count": 42, "subscription_count": 42, "cache": { "data": "event data", ttl: 60 } }
 ```
 
 ## Users
