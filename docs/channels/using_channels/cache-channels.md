@@ -15,11 +15,11 @@ eleventyNavigation:
 
 A cache channel remembers the last triggered event, and sends this as the first event to new subscribers.
 
-When an event is triggered on a cache channel, Pusher Channels caches this event, and when a client subscribes to a cache channel, if a cached value exists, this is sent to the client as the first event on that channel. This behavior helps developers to provide the initial state without adding additional logic to fetch it from elsewhere.
+When an event is triggered on a cache channel, Pusher Channels caches this event. Then when a client subscribes to a cache channel, if a cached value exists, it's sent to the client as the first event on that channel. This behavior helps developers provide the initial state without adding additional logic to fetch it from elsewhere.
 
-> Cache channels must be prefixed with `cache-` . See [channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions).
+> Cache channels must be prefixed with `cache-` . Refer to [Channel naming conventions](/docs/channels/using_channels/channels#channel-naming-conventions).
 
-> Private cache channel subscriptions must be authorized. See [Authorizing Users](/docs/channels/server_api/authorizing-users).
+> Private cache channel subscriptions must be authorized. Refer to [Authorizing users](/docs/channels/server_api/authorizing-users).
 
 ## Subscribe
 
@@ -42,9 +42,9 @@ var cacheChannel = Echo.join(cacheChannelName);
 
 {% parameter 'cacheChannelName', 'String', true, 'js,laravelecho' %}
 
-The name of the channel to subscribe to. Since it is a cache channel the name must be prefixed with `cache-`.
+The name of the channel to subscribe to. Because it's a cache channel, the channel name must be prefixed with `cache-`.
 
-Other types of channels can also use the cache feature. For private channels, the channel name must be prefixed with `private-cache-`, for encrypted channel, it must be prefixed with `private-encrypted-cache-`, and for presence channel, it must be prefixed with `presence-cache-`.
+Other types of channels can also use the cache feature. For private channels, prefix the channel name with `private-cache-`. For encrypted channels, prefix it with `private-encrypted-cache-`. For presence channels, use the `presence-cache-` prefix.
 
 | Channel type | Cache channel version |
 | ----------- | ----------- |
@@ -56,28 +56,28 @@ Other types of channels can also use the cache feature. For private channels, th
 
 ##### Returns
 
-An object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
+An object to which you can bind events. Refer to [Binding to events](/docs/channels/using_channels/events#binding-to-events) for more information.
 
 {% endparameter %}
 {% endmethodwrap %}
 
 ## Unsubscribe
 
-See [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe).
+Refer to [unsubscribing from channels](/docs/channels/using_channels/public-channels#unsubscribe).
 
 ## Events
 
-See [binding to events](/docs/channels/using_channels/events#binding-to-events) for general information about how to bind to events on a channel object.
+Refer to [Binding to events](/docs/channels/using_channels/events#binding-to-events) for general information about how to bind to events on a channel object.
 
 ## Handling cache misses
 
-Cache channel is a feature added to public, private, and presence channels and all its behaviors are similar to regular channels. In addition to the fact that a cache channel remembers the last triggered event, it provides two ways for developers to deal with cache misses.
+Cache channel is a feature which can be added to public, private, and presence channels. All its behaviors are similar to regular channels. In addition to the fact that a cache channel remembers the last triggered event, it provides two ways for developers to deal with cache misses.
 
 ### cache_miss webhook event
 
-When a client subscribes to a cache channel and there is no value available, Pusher Channels will notify your server by sending a `cache_miss` event to your webhook destination. When your server receives a `cache_miss` webhook, you can decide to trigger a new event on this channel, so it will re-populate the cache.
+When a client subscribes to a cache channel and there is no value available, Pusher Channels will notify your server by sending a `cache_miss` event to your webhook destination. When your server receives a `cache_miss` webhook, you can decide to trigger a new event on this channel. It will re-populate the cache.
 
-See the [webhooks docs](/docs/channels/server_api/webhooks/#cache_miss) for information on how you can configure this on your dashboard.
+Refer to [the Cache_miss webhooks](/docs/channels/server_api/webhooks/#cache_miss) for more information on how you can configure this on your dashboard.
 
 ### pusher:cache_miss client event
 
@@ -93,9 +93,9 @@ channel.bind("pusher:cache_miss", () => {
 
 {% endparameter %}
 
-See the [events docs](/docs/channels/using_channels/events) for information on how you can use events.
+Refer to [Events](/docs/channels/using_channels/events) for more information on how you can use events.
 
-> Which approach is better? The answer depends on your implementation. In most scenarios, relying on the webhook event is more efficient, because Pusher handles de-duplication when multiple clients are subscribed to an empty channel. So your server does not have to deal with requests per client when they subscribe to a channel with empty cache.
+> Which approach is better? The answer depends on your implementation. In most scenarios, relying on the webhook event is more efficient. Because Pusher handles de-duplication when multiple clients are subscribed to an empty channel. So your server does not have to deal with requests per client when they subscribe to a channel with empty cache.
 
 ## FAQ
 
@@ -105,12 +105,16 @@ We do not add any attribute like `age` to your messages. You can add a timestamp
 
 ### How long does the message stay in cache?
 
-The time to live (TTL) of an event stored in cache is "up to" 30 minutes. If you do not publish any event, the cached event expires after TTL has elapsed. Please note that TTL is "Up to 30 minutes", which means that in some cases cache messages may expire sooner.
+The time to live (TTL) of an event stored in cache is up to 30 minutes. If you do not publish any event, the cached event expires after TTL has elapsed. > NOTE: TTL is up to 30 minutes. This means that in some cases, cache messages might expire sooner.
 
 ### Where is data stored?
 
-The cached messages are temporarily stored in memory in the same cluster you selected for your application. We do not make a backup or snapshot of this data and do not distribute it to other regions. See [cluster configuration](/docs/channels/miscellaneous/clusters) to find out how you can comply with data protection regulations when using Pusher Channels.
+Cached messages are temporarily stored in memory in the same cluster you selected for your application. Pusher does not create a backup or a snapshot of this data. And we do not distribute it to other regions. Refer to [Cluster configuration](/docs/channels/miscellaneous/clusters) to find out how you can comply with data protection regulations when using Pusher Channels.
+
+### Can I retrieve the cached data from my application?
+
+Yes. You can query the cached data from the HTTP API. The response contains the data as well as the remaining time to live of the cached message. Check the Channel Information section on the [HTTP API documentation page](/docs/channels/server_api/http-api/#channel-information).
 
 ### Are client events also supported?
 
-No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events on cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Please contact our [support team](https://support.pusher.com/hc/en-us/requests/new).
+No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contect our [support team](https://support.pusher.com/hc/en-us/requests/new).
