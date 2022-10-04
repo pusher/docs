@@ -11,11 +11,13 @@ eleventyNavigation:
 
 # Flutter quick start
 
-Getting started with Channels is very easy. However, if you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new). This guide uses the [pusher-channels-flutter](https://github.com/pusher/pusher-channels-flutter) library and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript client](/docs/channels/getting_started/javascript), and building for apps with our [Java client](/docs/channels/getting_started/android) for Android and [Swift client](/docs/channels/getting_started/ios) for IOS.
+This guide uses the [pusher-channels-flutter](https://github.com/pusher/pusher-channels-flutter) library and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript client](/docs/channels/getting_started/javascript), and building for apps with our [Java client](/docs/channels/getting_started/android) for Android and [Swift client](/docs/channels/getting_started/ios) for IOS.
+
+If you have any questions, [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
 ## Get your free API keys
 
-[Create an account](https://dashboard.pusher.com/accounts/sign_up), then create a Channels app. Go to the "Keys" page for that app, and make a note of your `app_id`, `key`, `secret` and `cluster`.
+[Create an account](https://dashboard.pusher.com/accounts/sign_up) and then create a Channels app. To get API keys, from the Pusher Dashboard, navigate to **App Keys**. Copy your `app_id`, `key`, `secret`, and `cluster`.
 
 ## Install the library
 
@@ -27,7 +29,7 @@ flutter pub add pusher_channels_flutter
 
 ## Create a connection
 
-Open a connection to Channels using the `key` and `cluster` you noted down earlier.
+Open a connection to Channels using the `key` and `cluster` you copied earlier.
 
 ```dart
 await pusher.init(
@@ -39,7 +41,7 @@ await pusher.connect();
 
 ### Subscribe to a public channel
 
-You will soon publish an event to a channel called `my-channel`, and your app will receive this event. But to receive this event, your app first needs to subscribe to the `my-channel` channel. Do this with `pusher.subscribe`:
+Before your web app can receive the event you publish, your web app needs to subscribe to the `my-channel` channel channel. Do this with `pusher.subscribe`.
 
 ```dart
 final myChannel = await pusher.subscribe(
@@ -50,7 +52,7 @@ final myChannel = await pusher.subscribe(
 
 ## Listen for events
 
-Once you have created an instance of `Channel`, you can set up event listener.
+Once you have created an instance of `Channel`, set up event listener.
 
 ```dart
 void onEvent(PusherEvent event) {
@@ -58,11 +60,11 @@ void onEvent(PusherEvent event) {
 }
 ```
 
-It is possible to listen to events on any channel or globally. You can find the complete list of available parameters and listeners [here](https://github.com/pusher/pusher-channels-flutter#table-of-contents).
+It is possible to listen to events on any channel or globally. Check out the complete [list of available parameters and listeners](https://github.com/pusher/pusher-channels-flutter#table-of-contents).
 
 ## Trigger events from your server
 
-In the examples below we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below a server library deals with the server communication.
+In the examples below, we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below, a server library deals with the server communication.
 
 {% snippets ['rb', 'js', 'php', 'c', 'py', 'go', 'java', 'bash'] %}
 
@@ -165,7 +167,7 @@ func main(){
 
 ```java
 /*
-  First, add this Maven dependency:
+  Add this Maven dependency:
 
   <dependency>
     <groupId>com.pusher</groupId>
@@ -186,8 +188,8 @@ $ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "m
 
 {% endsnippets %}
 
-If there isn’t an example in a language that you are familiar with then have a look on our server libraries page to see if anyone has created one in your language.
+If there isn’t an example in a language that you are familiar with then refer to [Channels server libraries](/docs/channels/channels_libraries/libraries) page to check if anyone has created one in your language.
 
 ## Where next?
 
-Check out the source code of a [sample application here](https://github.com/pusher/pusher-channels-flutter/tree/master/example) to see how the Flutter library for Pusher can be used to build multi-platform applications for Web, IOS, and Android.
+To see how the Flutter library for Pusher can be used to build multi-platform applications for Web, IOS, and Android, refer to the source code of a [sample application](https://github.com/pusher/pusher-channels-flutter/tree/master/example).
