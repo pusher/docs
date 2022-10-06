@@ -21,6 +21,6 @@ Before you can send push notifications, make sure you have done the [configurati
 The following guides show you how to send notifications to Android and iOS devices.
 
 - [Sending a notification to Android devices](/docs/beams/getting-started/android/publish-notifications/)
-- [Sending a notification to iOS devices](/docs/beams/getting-started/iOS/publish-notifications/)
+- [Sending a notification to iOS devices](/docs/beams/getting-started/ios/publish-notifications/)
 
 If you are targeting both platforms, you should use our guide to [send notifications to multiple devices](/docs/beams/guides/publishing-to-multiple-devices/).
