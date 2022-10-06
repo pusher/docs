@@ -118,7 +118,7 @@ The destination of the authentication requests can be configured.
 {% snippets ['js'], true %}
 
 ```js
-new Pusher("app_key", { userAuthentication: { endpoint: "/pusher_user_auth.php"}));
+new Pusher("app_key", { userAuthentication: { endpoint: "/pusher_user_auth.php"}});
 ```
 
 {% endsnippets %}
