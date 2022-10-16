@@ -15,14 +15,14 @@ Pusher provides mechanisms for both authenticating and authorizing users. Our de
 
 Since your servers are the authority on who your users are, and what they can access, our [client libraries are able to make calls to endpoints of your choice](/docs/channels/using_channels/user-authentication) to supply signed authentication and authorization tokens for the bearing user.
 
-This page discusses implementing a user authentication endpoint using the Pusher Channels server libraries. If you're looking for information on implemeting a user authorization endpoint, check the [Authorizing users page](/docs/channels/server_api/authorizing-users).
+This page discusses implementing a user authentication endpoint using the Pusher Channels server libraries. If you're looking for information on implementing a user authorization endpoint, check the [Authorizing users page](/docs/channels/server_api/authorizing-users).
 
 
 ## User authentication
 
 We authenticate a user once per connection session. Authenticating a user gives your application access to user based features such as sending events to a user based on user id on terminating a user's connections immediately.
 
-When your client calls the `signin` method on a established conenction, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
+When your client calls the `signin` method on a established connection, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
 
 You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
 
@@ -146,7 +146,7 @@ var pusher = new Pusher("app_key", {
 
 > Note that you should change the name of the CSRF token key to the convention you prefer.
 
-As an example, in Rails, you can inject the CSRF token into Javacript like this using ERB
+As an example, in Rails, you can inject the CSRF token into Javascript like this using ERB
 
 ```erb
 <script>
