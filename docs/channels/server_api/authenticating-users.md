@@ -27,6 +27,7 @@ When your client calls the `signin` method on a established connection, the Chan
 You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
 
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
+- `watchlist` which is an array of user ids. These user ids represent the circle of interest for the user (e.g. friends) for which the user will get notified about their online status. Read more on that in [Watchlist Online Status](/docs/channels/using_channels/watchlist-online-status)
 
 User `id` values should only include lower and uppercase letters, numbers and the following punctuation `_ - = @ , . ;` As an example this is a valid user id:
 
@@ -62,10 +63,11 @@ app.post("/pusher/user-auth", (req, res) => {
 
   // Replace this with code to retrieve the actual user id and info
   const user = {
-    id: "12345",
+    id: "some_id",
     user_info: {
       name: "John Smith",
-    }
+    },
+    watchlist: ['another_id_1', 'another_id_2']
   };
   const authResponse = pusher.authenticateUser(socketId, user);
   res.send(authResponse);
@@ -82,7 +84,8 @@ if ($user->uid) {
     'id' => (string) $user->uid,
     'user_info' => [
       'name': $user->name,
-    ]
+    ],
+    'watchlist': $user->watchlist
   ];
   echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
 } else {
@@ -97,7 +100,8 @@ if ( is_user_logged_in() ) {
     'id' => (string) get_current_user_id(),
     'user_info' => [
         'name': (string) get_current_user()->name
-      ]
+      ],
+      'watchlist' => get_current_user()->watchlist
     ];
   echo $pusher->authorizeChannel($_POST['socket_id'], $user_data);
 } else {
@@ -200,7 +204,8 @@ app.get("/pusher/user-auth", (req, res) => {
     id: "some_id",
     user_info: {
       name: "John Smith",
-    }
+    },
+    watchlist: ['another_id_1', 'another_id_2']
   };
 
   const auth = JSON.stringify(
