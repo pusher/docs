@@ -11,11 +11,13 @@ eleventyNavigation:
 
 # iOS quick start
 
-Getting started with Channels is very easy. However, if you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new). This guide uses the [PusherSwift client API](https://github.com/pusher/pusher-websocket-swift) and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript](/docs/channels/getting_started/javascript) and [Android](/docs/channels/getting_started/android).
+This guide uses the [PusherSwift client API](https://github.com/pusher/pusher-websocket-swift) and a selection of [Server API libraries](/docs/channels/channels_libraries/libraries). We also have a guide for our [JavaScript](/docs/channels/getting_started/javascript) and [Android](/docs/channels/getting_started/android).
+
+If you have any questions [get in touch](https://support.pusher.com/hc/en-us/requests/new). 
 
 ## Get your free API keys
 
-[Create an account](https://dashboard.pusher.com/accounts/sign_up), and make a note of your `app_id`, `app_key`, `app_secret` and `app_cluster`.
+[Create an account](https://dashboard.pusher.com/accounts/sign_up). To get API keys, from the Pusher Dashboard, navigate to **App Keys**. Make a note of your `app_id`, `key`, `secret`, and `cluster`.
 
 ## Install the library
 
@@ -71,7 +73,7 @@ self.pusher = [[Pusher alloc] initWithAppKey:@"YOUR_APP_KEY" options:options];
 
 {% endsnippets %}
 
-For detailed information see the [connection docs](/docs/channels/using_channels/connection) and the [PusherSwift documentation](https://github.com/pusher/pusher-websocket-swift/blob/master/README.md).
+For detailed information, refer to [Connection](/docs/channels/using_channels/connection) and the [PusherSwift documentation](https://github.com/pusher/pusher-websocket-swift/blob/master/README.md).
 
 ### Subscribe to a public channel
 
@@ -89,7 +91,7 @@ PusherChannel *myChannel = [pusher subscribeWithChannelName:@"my-channel"];
 
 ## Listen for events
 
-Once you have created a channel instance, you can set up event bindings. There is no need to wait for the connection to be established. The following example just receives and prints a hello world message.
+Once you have created a channel instance, you can set up event bindings. There is no need to wait for the connection to be established. The following example just receives and prints a "Hello, World!" message.
 
 {% snippets ['swift', 'objc'] %}
 
@@ -114,7 +116,7 @@ let _ = myChannel.bind(eventName: "my-event", callback: { (data: Any?) -> Void i
 
 ## Trigger events from your server
 
-In the examples below we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example below a [server library](/docs/channels/channels_libraries/libraries) deals with the server communication.
+In the examples below, we trigger an event named `my-event` to Channels on a channel called `my-channel`. For each example, a [server library](/docs/channels/channels_libraries/libraries) deals with the server communication.
 
 {% snippets ['rb', 'js', 'php', 'c', 'py', 'go', 'java', 'bash'] %}
 
@@ -217,7 +219,7 @@ func main(){
 
 ```java
 /*
-  First, add this Maven dependency:
+  Add this Maven dependency:
 
   <dependency>
     <groupId>com.pusher</groupId>
@@ -238,8 +240,8 @@ $ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "m
 
 {% endsnippets %}
 
-If there isn’t an example in a language that you are familiar with then have a look on our [server libraries](/docs/channels/channels_libraries/libraries) page to see if anyone has created one in your language.
+If there isn’t an example in a language that you are familiar with then refer to [Channels server libraries](/docs/channels/channels_libraries/libraries) page to check if anyone has created one in your language.
 
 ## Where next?
 
-Find out about all the cool stuff you can do with [channels](/docs/channels/using_channels/channels). Learn how to [exclude event recipients](/docs/channels/server_api/excluding-event-recipients) when publishing events.
+Find out about all the cool stuff you can do with [Channels](/docs/channels/using_channels/channels). Learn how to [exclude event recipients](/docs/channels/server_api/excluding-event-recipients) when publishing events.

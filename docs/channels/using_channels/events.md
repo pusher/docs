@@ -425,8 +425,8 @@ channel.bind("pusher:subscription_count", (data) => {
 
 {% endparameter %}
 
->**NOTE:*
->This Subscription Count Event is available for all channel types except Presence channels.
+>**NOTE:**
+>This Subscription Count event is available for all channel types except Presence channels.
 
 ### Additional presence events
 
@@ -474,7 +474,7 @@ channel.whisper(eventName, data);
 The name of the event which will be triggered. A client event must have a name prefixed with `client-`. Otherwise, it will be rejected by the server.
 
 {% endparameter %}
-{% parameter 'data', 'Object', false, 'js' %}
+{% parameter 'data', 'Object', true, 'js' %}
 
 The object to be converted to JSON and distributed with the event.
 

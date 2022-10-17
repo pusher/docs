@@ -33,10 +33,13 @@ A JSON object with the following keys:
 
 Array of interests to send the push notification to, ranging from 1 to 100 per publish request.
 
+> Where multiple interests are provided, the notification will be delivered to devices subscribed to any of the interests.
+Beams will also only deliver one notification to any devices that may be subscribed to multiple interests in the publish request.
+
 {% endparameter %}
 {% parameter 'webhookUrl', 'String', false %}
 
-A URL to which we will send webhooks at key points throughout the publishing process. E.g when the publish finishes.
+A URL to which we will send webhooks at key points throughout the publishing process. E.g., when the publish finishes.
 
 {% endparameter %}
 
@@ -49,16 +52,17 @@ The payload to be sent to APNs. The full set of options for the APNs section of 
 {% endparameter %}
 {% parameter 'fcm', 'object', null %}
 
-The payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
+The payload to be sent to FCM. The full set of options is described in Google docs under [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
 
 {% endparameter %}
 {% parameter 'web', 'object', null %}
 
-The payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format).
+The payload to be sent to the web push gateway. Refer to [Beams web push format reference](/docs/beams/reference/publish-payloads#web-format).
 
 {% endparameter %}
 
 > Each interest name can be up to 164 characters. Each character in the name must be an ASCII upper- or lower-case letter, a number, or one of `_-=@,.;`.
+
 
 ### Response Body
 
@@ -80,7 +84,7 @@ Unique string used to identify this publish request.
 | Bad request          | 400         | Request body size is too large (max 10KiB).                     |
 | Bad request          | 400         | Failed to read body as a JSON object.                           |
 | Unauthorized         | 401         | Incorrect API Key.                                              |
-| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. More details [here](https://support.pusher.com/hc/en-us/articles/360020196398-What-happens-when-I-hit-my-Beams-plan-limits-) |
+| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. Refer to [Beams plan limits article](https://support.pusher.com/hc/en-us/articles/360020196398-What-happens-when-I-hit-my-Beams-plan-limits-)in our Support knowledge base. |
 | Instance not found   | 404         | Could not find the instance.                                    |
 | Unprocessable Entity | 422         | JSON does not our match schema.                                 |
 | Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |
@@ -113,17 +117,17 @@ Array of user IDs to send the push notification to, ranging from 1 to 1000 per p
 
 {% parameter 'apns', 'object', null %}
 
-The payload to be sent to APNs. The full set of options for the APNs section of the `notify` call is described in Apple's [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, see Apple's [“Creating the Remote Notification Payload”](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+The payload to be sent to APNs. The full set of options for the APNs section of the `notify` call is described in Apple docs [Payload Key Reference](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1). For further examples, visit Apple docs [Creating the Remote Notification Payload](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
 {% endparameter %}
 {% parameter 'fcm', 'object', null %}
 
-The payload to be sent to FCM. The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
+The payload to be sent to FCM. The full set of options is described in Google docs under [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream).
 
 {% endparameter %}
 {% parameter 'web', 'object', null %}
 
-The payload to be sent to the web push gateway. The Beams web push format reference can be found [here](/docs/beams/reference/publish-payloads#web-format).
+The payload to be sent to the web push gateway. Refer to the [Beams web push format reference](/docs/beams/reference/publish-payloads#web-format).
 
 {% endparameter %}
 
@@ -147,7 +151,7 @@ Unique string used to identify this publish request.
 | Bad request          | 400         | Request body size is too large (max 200KiB).                    |
 | Bad request          | 400         | Failed to read body as a JSON object.                           |
 | Unauthorized         | 401         | Incorrect API Key.                                              |
-| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. More details [here](https://support.pusher.com/hc/en-us/articles/360020196398-What-happens-when-I-hit-my-Beams-plan-limits-) |
+| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. Refer to [Beams plan limits article](https://support.pusher.com/hc/en-us/articles/360020196398-What-happens-when-I-hit-my-Beams-plan-limits-)in our Support knowledge base. |
 | Instance not found   | 404         | Could not find the instance.                                    |
 | Unprocessable Entity | 422         | JSON does not our match schema.                                 |
 | Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |

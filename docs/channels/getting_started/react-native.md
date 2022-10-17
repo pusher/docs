@@ -39,10 +39,10 @@ Open a connection to Channels using the `key` and `cluster` you noted down earli
 ```typescript
 const pusher = Pusher.getInstance();
 
-await pusher.init(
+await pusher.init({
   apiKey: API_KEY,
   cluster: API_CLUSTER
-);
+});
 
 await pusher.connect();
 ```
@@ -52,12 +52,12 @@ await pusher.connect();
 You will soon publish an event to a channel called `my-channel`, and your app will receive this event. But to receive this event, your app first needs to subscribe to the `my-channel` channel. Do this with `pusher.subscribe`:
 
 ```typescript
-let myChannel = await pusher.subscribe(
-  channelName: "my-channel"
+let myChannel = await pusher.subscribe({
+  channelName: "my-channel",
   onEvent: (event: PusherEvent) => {
     console.log(`onEvent: ${event}`);
   };
-);
+});
 ```
 
 ## Listen for events
