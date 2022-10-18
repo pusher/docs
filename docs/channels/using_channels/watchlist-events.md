@@ -68,3 +68,9 @@ The events associated with Watchlist Online Status are:
 - `online`
 - `offline`
 
+A user is considered `online` if that user is authenticated on at least one connection. A user can be authenticated on many connections and is still considered online. If a user is not authenticated on any connections, the user is considered offline.
+
+Here is a sequence diagram to elaborate the flow with different scenarios.
+
+
+![Watchlist Online - Status Sequence Diagram](./img/watchlist-online-status.png)
