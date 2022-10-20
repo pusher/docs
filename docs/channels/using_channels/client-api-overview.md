@@ -50,5 +50,5 @@ var pusher = new Pusher("YOUR_APP_KEY");
 - [Events](/docs/channels/using_channels/events)
 - [Presence Channels](/docs/channels/using_channels/presence-channels)
 - [User Authentication](/docs/channels/using_channels/authorized-connections)
-- [Watchlist Events](/docs/channels/using_channels/watchlist-events)
+- [Watchlist events](/docs/channels/using_channels/watchlist-events)
 - [Global config](/docs/channels/using_channels/global-config)
