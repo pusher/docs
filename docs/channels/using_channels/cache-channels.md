@@ -117,4 +117,4 @@ Yes. You can query the cached data from the HTTP API. The response contains the 
 
 ### Are client events also supported?
 
-No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contect our [support team](https://support.pusher.com/hc/en-us/requests/new).
+No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contact our [support team](https://support.pusher.com/hc/en-us/requests/new).

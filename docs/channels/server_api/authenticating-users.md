@@ -146,7 +146,7 @@ var pusher = new Pusher("app_key", {
 
 > Note that you should change the name of the CSRF token key to the convention you prefer.
 
-As an example, in Rails, you can inject the CSRF token into Javacript like this using ERB
+As an example, in Rails, you can inject the CSRF token into Javascript like this using ERB
 
 ```erb
 <script>

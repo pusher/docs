@@ -212,7 +212,7 @@ In order to rotate your encryption keys, change the master encryption key you pa
 
 Your clients will respond to any failure to decrypt an event by making one request per failed event to refresh their key. This is not guaranteed to work if you have multiple instances of your server running, because it will take some time for them to roll out. During the roll-out there may be a mix of keys in operation, for both encryption and decryption.
 
-During this period, clients may fail to decypt some events, even after requesting a new key (if, for example, that request is served by a server which is not yet updated). In this case, the client libraries provide a callback which you can register to be notified about events which failed.
+During this period, clients may fail to decrypt some events, even after requesting a new key (if, for example, that request is served by a server which is not yet updated). In this case, the client libraries provide a callback which you can register to be notified about events which failed.
 
 Once the key rotation is complete, all servers and clients will converge on the new keys, and events will flow without loss again.
 
