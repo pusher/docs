@@ -588,8 +588,6 @@ var events = new List[]{
   ITriggerResult result = await pusher.TriggerAsync(events);
 ```
 
-For more information see the [pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) README.
-
 ```js
 const events = [
   {
