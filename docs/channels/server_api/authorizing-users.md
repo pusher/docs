@@ -15,13 +15,13 @@ Pusher provides mechanisms for both authenticating and authorizing users. Our de
 
 Since your servers are the authority on who your users are, and what they can access, our clients libraries are able to make callbacks to endpoints of your choice to supply signed authentication and authorization tokens for the bearing user.
 
-This page discusses implementing a user authorization endpoint using the Pusher Channels server libraries. If you're looking for information on implemeting a user authentication endpoint, check the [Authenticating users page](/docs/channels/server_api/authenticating-users).
+This page discusses implementing a user authorization endpoint using the Pusher Channels server libraries. If you're looking for information on implementing a user authentication endpoint, check the [Authenticating users page](/docs/channels/server_api/authenticating-users).
 
 > Pusher Channels originally supported pure authorization in private channels. With these authorization tokens it was not evident who the bearer was, but their token allowed them access to certain private channels. In presence channels, we added user info to the authorization token to provide extra information about who was connected (so that it could be distributed to other members of a channel). These tokens function as authentication and authorization within the scope of the presence channel.
 >
 > We now support [User authentication](/docs/channels/server_api/authenticating-users) to extend this scheme and to add more functionality. We’ve made this backwards compatible with the old presence channel authorization mechanism, but we do encourage users to adopt the newer styles that will be used in future to add additional features.
 >
-> One of the results of using User Authentication is that providing the user object in presence channel authorization is optional, if the user is already signed-in using User Autentication.
+> One of the results of using User Authentication is that providing the user object in presence channel authorization is optional, if the user is already signed-in using User Authentication.
 >
 > Note that in libraries that haven't been updated yet, the authorization function is still called `authenticate`.
 
@@ -106,7 +106,7 @@ app.use(cors());
 app.post("/pusher/auth", (req, res) => {
   const socketId = req.body.socket_id;
   const channel = req.body.channel_name;
-  const authReponse = pusher.authorizeChannel(socketId, channel);
+  const authResponse = pusher.authorizeChannel(socketId, channel);
   res.send(authResponse);
 });
 
@@ -364,11 +364,11 @@ The default value for this is `/pusher/auth`.
 
 {% conditionalContent 'objc', false %}
 
-In order to connect to a private or presence channel using libPusher, you first need to configure your server authorisation URL.
+In order to connect to a private or presence channel using libPusher, you first need to configure your server authorization URL.
 
 When you attempt to connect to a private or presence channel, libPusher will make a form-encoded POST request to the above URL, passing along the `socket_id` and `channel_name` as parameters. Prior to sending the request, the `PTPusherDelegate` will be notified. The delegate function is passed an `operation` parameter, which allows you to access the `NSMutableURLRequest` instance that will be sent.
 
-It is up to you to configure the request to handle whatever authentication mechanism you are using. In this example, we set a custom header with a token which the server will use to authenticate the user before proceeding with authorisation.
+It is up to you to configure the request to handle whatever authentication mechanism you are using. In this example, we set a custom header with a token which the server will use to authenticate the user before proceeding with authorization.
 
 ```objc
 - (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withAuthOperation:(PTPusherChannelAuthorizationOperation *)operation {
@@ -394,7 +394,7 @@ var pusher = new Pusher("app_key", {
 
 > Note that you should change the name of the CSRF token key to the convention you prefer.
 
-As an example, in Rails, you can inject the CSRF token into Javacript like this using ERB
+As an example, in Rails, you can inject the CSRF token into Javascript like this using ERB
 
 ```erb
 <script>

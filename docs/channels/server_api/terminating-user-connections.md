@@ -32,7 +32,7 @@ $pusher->terminateUserConnections('user-id');
 {% endsnippets %}
 {% endmethodwrap %}
 
->Note that this will only terminate connections that have successfully completed the [user authentication flow](/docs/channels/server_api/authenticating-users). Connnections for users subscribed to presence channels but that have not been authenticated via this flow will not be terminated.
+>Note that this will only terminate connections that have successfully completed the [user authentication flow](/docs/channels/server_api/authenticating-users). Connections for users subscribed to presence channels but that have not been authenticated via this flow will not be terminated.
 
 ## Banning users
 
