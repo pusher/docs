@@ -585,7 +585,7 @@ var events = new List[]{
   new Event(){ EventName = "my-event-2", Channel = "my-channel-2", Data = "my name is bob" },
 }
 
-  ITriggerResult result = await pusher.TriggerAsync(events);
+ITriggerResult result = await pusher.TriggerAsync(events);
 ```
 
 ```js
