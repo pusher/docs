@@ -27,7 +27,7 @@ When your client calls the `signin` method on a established connection, the Chan
 You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
 
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
-- `watchlist` which is an array of user ids. These user ids represent the circle of interest for the user (e.g. friends) for which the user will get notified about their online status. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 1000 user ids in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
+- `watchlist` which is an array of user ids. These user ids represent the circle of interest for the user (e.g. friends) for which the user will get notified about their online status. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user ids in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
 
 
 
