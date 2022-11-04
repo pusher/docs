@@ -198,7 +198,7 @@ A `pusher:signin` event will result in either a `pusher:signin_success` or a `pu
 - data.auth (String)
   - The authentication signature. The value will be generated on the application server.
 - data.user_data (String)
-  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user id. It can also have the following optional fields:
+  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user ID. It can also have the following optional fields:
     - `user_info` (optional) in which you can provide more information about the user. This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
     - `watchlist` (optional) which is an array of user ids. These user ids represent the circle of interest for the user (e.g. friends) for which the user will get notified about their online status. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user ids in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
 
