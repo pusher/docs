@@ -29,7 +29,7 @@ Providing a `watchlist` for a user is optional. However, in order to receive Wat
 
 ## Enable Watchlist events
 
-For Watchlist events to work, you must enable them for your application. To do that, go to the Channels dashboard, navigate to your app, then choose App Settings, and turn on the "Watchlist events" toggle.
+For Watchlist events to work, you must enable them for your application. To do that, go to the Channels dashboard, navigate to your app and **App Settings**, and turn on the **Watchlist events** toggle.
 
 ## Subscribe to Watchlist events
 
