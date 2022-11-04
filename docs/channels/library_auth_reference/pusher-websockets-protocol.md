@@ -624,7 +624,7 @@ Indicates an error resulting in the connection being closed by Pusher Channels, 
 Any other type of error.
 
 - `4301`: Client event rejected due to rate limit
-- `4302`: Watchlist limit exceeded. Only the first 100 user ids are accepted.
+- `4302`: Watchlist limit exceeded. Only the first 100 user IDs are accepted.
 
 ## CHANGELOG
 
