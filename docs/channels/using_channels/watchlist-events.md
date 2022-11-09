@@ -13,7 +13,7 @@ eleventyNavigation:
 
 ## What is a Watchlist?
 
-A watchlist is a property associated with a user and provided during user authentication. A watchlist is an array of user IDs. These user IDs in the watchlist represent the circle of interest for the user (e.g., friends). Users then get notified about the online status of users they "watch".
+A Watchlist is a property associated with a user and provided during user authentication. A Watchlist is an array of user IDs which represent the circle of interest for the user (e.g., friends or followers). Users can be notified about the status (online/offline) of users they "watch".
 
 ## Using Watchlist events
 
@@ -56,13 +56,13 @@ pusher.user.watchlist.bind('offline', watchlistEventHandler);
 
 ## Watchlist Online Status
 
-Watchlist Online Status is a feature that allows a user to get notified about the online status of their `watchlist`. It indicates whether a user ID is online or offline for each user ID in the `watchlist`.
+The Online Status feature notifies a user about the status of the users in their `watchlist`. It indicates whether a user ID is online or offline for each user ID in the `watchlist`.
 
-Once the user is authenticated, the user will receive events indicating the current online status of each user in the `watchlist`. From that moment forward, the user will receive events for any further changes to the online status of users in the `watchlist`.
+Once the user is authenticated, they will receive events indicating the current online status of peers in their `watchlist`. The user will continue to receive events for any further changes to the online status of users in the `watchlist`.
 
-Getting notified about users from the Watchlist going online and offline is important for many use cases to drive engagement.
+Receiving notifications about who in your circle is online or offline is useful in many scenarios.
 
-The events associated with Watchlist Online Status are:
+Events associated with Online Status for Watchlists are:
 
 - `online`
 - `offline`
