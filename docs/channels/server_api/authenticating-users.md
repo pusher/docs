@@ -24,10 +24,10 @@ We authenticate a user once per connection session. Authenticating a user gives 
 
 When your client calls the `signin` method on a established connection, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
 
-You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
+You can start with an authentication endpoint that authenticates every request it receives. Do so by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll need to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
 
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
-- `watchlist` which is an array of user IDs. These user IDs represent the circle of interest for the user (e.g., friends) for which the user will get notified about their online status. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user IDs in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
+- `watchlist` which is an array of user IDs. These user IDs represent a circle of interest (e.g., friends or followers) whose online/offline presence can be exposed to the user. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user IDs in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
 
 
 
