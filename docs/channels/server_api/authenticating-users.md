@@ -24,8 +24,8 @@ We authenticate a user once per connection session. Authenticating a user gives 
 
 When your client calls the `signin` method on a established connection, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
 
-You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:415
-1
+You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
+
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
 
 User `id` values should only include lower and uppercase letters, numbers and the following punctuation `_ - = @ , . ;` As an example this is a valid user id:
