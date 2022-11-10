@@ -28,6 +28,12 @@ You can start with an authentication endpoint that authenticates every request i
 
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
 
+User `id` values should only include lower and uppercase letters, numbers and the following punctuation `_ - = @ , . ;` As an example this is a valid user id:
+
+```bash
+foo-bar_1234@=,.;
+```
+
 If you don't see your language listed, you can [implement your own authentication endpoint](/docs/channels/library_auth_reference/auth-signatures) or [get in touch](https://pusher.com/support).
 
 {% snippets ['node', 'Drupal', 'Wordpress'] %}
@@ -53,7 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.post("/pusher/user-auth", (req, res) => {
   const socketId = req.body.socket_id;
-  
+
   // Replace this with code to retrieve the actual user id and info
   const user = {
     id: "12345",
