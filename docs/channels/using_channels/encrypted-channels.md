@@ -1,7 +1,7 @@
 ---
 date: 2021-08-27
 title: Pusher Channels Docs | End-to-end Encryption
-description: The data published to E2EE channels is encrypted and cannot be read by any unauthorised party, including Pusher. E2EE channels also provide full authenticity.
+description: The data published to E2EE channels is encrypted and cannot be read by any unauthorized party, including Pusher. E2EE channels also provide full authenticity.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels
@@ -126,7 +126,7 @@ This feature hides the sensitive `data` field of your messages. However, by desi
 
 **Only Private channels are supported**
 
-Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publically accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
+Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publicly accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
 
 - **Channel names are not encrypted.**
   Pusher needs to inspect the message's channel name to determine which clients to send it to.
@@ -212,7 +212,7 @@ In order to rotate your encryption keys, change the master encryption key you pa
 
 Your clients will respond to any failure to decrypt an event by making one request per failed event to refresh their key. This is not guaranteed to work if you have multiple instances of your server running, because it will take some time for them to roll out. During the roll-out there may be a mix of keys in operation, for both encryption and decryption.
 
-During this period, clients may fail to decypt some events, even after requesting a new key (if, for example, that request is served by a server which is not yet updated). In this case, the client libraries provide a callback which you can register to be notified about events which failed.
+During this period, clients may fail to decrypt some events, even after requesting a new key (if, for example, that request is served by a server which is not yet updated). In this case, the client libraries provide a callback which you can register to be notified about events which failed.
 
 Once the key rotation is complete, all servers and clients will converge on the new keys, and events will flow without loss again.
 

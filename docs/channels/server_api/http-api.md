@@ -20,7 +20,7 @@ Many of our libraries allow requests to be made asynchronously. Please consult t
 
 ## Publishing events
 
-Because it is such a fundamental part of the service, most of our libraries have special methods for triggering events. Behind the scenes this is just a simple call to our HTTP API. We recommend using serialised JSON to keep message sizes down.
+Because it is such a fundamental part of the service, most of our libraries have special methods for triggering events. Behind the scenes this is just a simple call to our HTTP API. We recommend using serialized JSON to keep message sizes down.
 
 Please bear in mind the following when publishing events:
 
@@ -585,10 +585,8 @@ var events = new List[]{
   new Event(){ EventName = "my-event-2", Channel = "my-channel-2", Data = "my name is bob" },
 }
 
-  ITriggerResult result = await pusher.TriggerAsync(events);
+ITriggerResult result = await pusher.TriggerAsync(events);
 ```
-
-For more information see the [pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) README.
 
 ```js
 const events = [
@@ -799,7 +797,7 @@ For more information see the [pusher-http-php](https://github.com/pusher/pusher-
 {% endconditionalContent %}
 {% conditionalContent 'c', false %}
 
-The Channels Server library contains a specific wrapper that allows a consuming application to make a simple call specifying the type to deserialise to when making a GET request. `object` has been used above because as yet there isn't a defined class that the information can be serialized into.
+The Channels Server library contains a specific wrapper that allows a consuming application to make a simple call specifying the type to deserialize to when making a GET request. `object` has been used above because as yet there isn't a defined class that the information can be serialized into.
 
 For more information see the [pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) README.
 
@@ -882,7 +880,7 @@ For more information see the [pusher-http-php](https://github.com/pusher/pusher-
 
 {% conditionalContent 'c', false %}
 
-The Channels Server library contains a specific wrapper that allows a consuming application to make a simple call specifying the type to deserialise to when requesting Channel Information.
+The Channels Server library contains a specific wrapper that allows a consuming application to make a simple call specifying the type to deserialize to when requesting Channel Information.
 
 For more information see the [pusher-http-dotnet](https://github.com/pusher/pusher-http-dotnet) README.
 
