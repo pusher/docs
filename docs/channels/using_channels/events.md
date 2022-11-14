@@ -139,6 +139,21 @@ pusher.user().bind(eventName, new SubscriptionEventListener() {
 {% endsnippets %}
 {% endmethodwrap %}
 
+### Binding on the user's Watchlist
+
+You can bind to events on the `pusher.user.watchlist` object. That means you will receive events about the Watchlist of the user authenticated on that connection. Refer to [User authentication](/docs/channels/using_channels/user-authentication) for more information on authenticating users. Refer to [Watchlist events](/docs/channels/server_api/watchlist-events) for more information on how to provide the user's Watchlist and how to enable Watchlist events.
+
+{% methodwrap %}
+{% snippets ['js', 'java'], true %}
+
+```js
+pusher.user.watchlist.bind(eventName, callback);
+```
+
+{% endsnippets %}
+{% endmethodwrap %}
+
+
 ### Binding on the client
 
 You can also bind to events regardless of the channel the event is broadcast to. By using the `pusher.bind()` method rather than `channel.bind()`, you can listen for an event on all the channels that you are currently subscribed to.

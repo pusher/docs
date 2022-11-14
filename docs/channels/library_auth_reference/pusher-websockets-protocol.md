@@ -198,7 +198,11 @@ A `pusher:signin` event will result in either a `pusher:signin_success` or a `pu
 - data.auth (String)
   - The authentication signature. The value will be generated on the application server.
 - data.user_data (String)
-  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user id. It may be populated with additional user information according to the applications needs.
+  - A JSON-encoded hash generated at the application server. It must contain at least an `id` field as a `String` containing the user ID. It can also have the following optional fields:
+    - `user_info` (optional) in which you can provide more information about the user. This information will be shared with other members of Presence channels that this user is authorized to join. Read more on that in [Presence channels](/docs/channels/using_channels/presence-channels)
+    - `watchlist` (optional) which is an array of user IDs. These user IDs represent the circle of interest for the user (e.g., friends) for which the user will get notified about their online status. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user IDs in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
+
+> Note: If the provided Watchlist exceeds the limit of 100, the first 100 user IDs will be accepted and the sign-in operation will succeed with `pusher:signin_success` event. In addition to that, an `pusher:error` event will be sent with code `4302` indicating the accepted user IDs.
 
 #### Example JSON
 
@@ -620,6 +624,7 @@ Indicates an error resulting in the connection being closed by Pusher Channels, 
 Any other type of error.
 
 - `4301`: Client event rejected due to rate limit
+- `4302`: Watchlist limit exceeded. Only the first 100 user IDs are accepted.
 
 ## CHANGELOG
 
