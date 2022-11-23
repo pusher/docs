@@ -37,7 +37,7 @@ The client-side can subscribe to Watchlist events by using [Client SDKs](/docs/c
 
 
 {% methodwrap %}
-{% snippets ['js', 'java'], true %}
+{% snippets ['js'], true %}
 
 ```js
 pusher.signin();
