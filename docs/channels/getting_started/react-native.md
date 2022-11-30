@@ -56,7 +56,7 @@ let myChannel = await pusher.subscribe({
   channelName: "my-channel",
   onEvent: (event: PusherEvent) => {
     console.log(`onEvent: ${event}`);
-  };
+  }
 });
 ```
 
