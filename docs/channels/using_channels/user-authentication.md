@@ -31,6 +31,8 @@ const pusher = new Pusher(APP_KEY, {
     transport: "ajax",
     params: {},
     headers: {},
+    paramsProvider: null,
+    headersProvider: null,
     customHandler: null,
   },
 });
@@ -65,6 +67,38 @@ pusher.signin();
 {% endmethodwrap %}
 
 This will cause the client library to call the user authentication endpoint on your application server or to use your custom handler if that was provided to retrieve a signed authentication token and user information. These are then sent to Pusher servers for sign in. A successful sign in will result in the client receiving a `pusher:signin_success` event. In case of error, the client receives a `pusher:error` event.
+
+## Additional headers and parameters in the user authentication request
+
+Depending on your application's needs, you might need to add more information to the user authentication request made to your server's endpoint. This can be done by adding extra parameters or headers to the request. These are set up when initializing the Pusher object.
+
+{% methodwrap %}
+{% snippets ['js'], true %}
+
+```js
+const pusher = new Pusher(APP_KEY, {
+  userAuthentication: {
+
+    // Parameters to be added to every request
+    params: { param1: 'example-1' },
+
+    // Headers to be added to every request
+    headers: { header1: 'example-2' },
+
+    // This function is called on every request and the parameters returned are
+    // added to the request
+    paramsProvider: () => { return { param2: 'example-3' }; },
+
+    // This function is called on every request and the headers returned are
+    // added to the request
+    headersProvider: () => { return { header2: 'example-4' }; },
+  },
+});
+```
+
+{% endsnippets %}
+{% endmethodwrap %}
+
 
 ## Events
 
