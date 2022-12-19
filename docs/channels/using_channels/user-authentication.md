@@ -78,10 +78,20 @@ Depending on your application's needs, you might need to add more information to
 ```js
 const pusher = new Pusher(APP_KEY, {
   userAuthentication: {
-    params: { param1: 'example-1' }, // Parameters to be added to every request
-    headers: { header1: 'example-2' }, // Headers to be added to every request
-    paramsProvider: () => { return { param2: 'example-3' }; }, // This function is called on every request and the parameters returned are added to the request
-    headersProvider: () => { return { header2: 'example-4' }; }, // This function is called on every request and the headers returned are added to the request
+
+    // Parameters to be added to every request
+    params: { param1: 'example-1' },
+
+    // Headers to be added to every request
+    headers: { header1: 'example-2' },
+
+    // This function is called on every request and the parameters returned are
+    // added to the request
+    paramsProvider: () => { return { param2: 'example-3' }; },
+
+    // This function is called on every request and the headers returned are
+    // added to the request
+    headersProvider: () => { return { header2: 'example-4' }; },
   },
 });
 ```
