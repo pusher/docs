@@ -320,7 +320,7 @@ Disables stats collection, so that connection metrics are not submitted to Pushe
 
 Specifies which transports should be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
 
-Note: if you intend to use secure websockets, or wss, you can not simply specify wss in enabledTransports, you must also specify ws in enabledTransports as well as set the forceTLS option to true.
+Note: if you intend to use secure websockets, or `wss`, you can not simply specify `wss` in enabledTransports, you must also specify `ws` in enabledTransports as well as set the forceTLS option to true.
 
 
 {% endparameter %}
