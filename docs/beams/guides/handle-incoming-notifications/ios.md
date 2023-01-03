@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+You must ensure your code calls the completion handler once it has completed responding to the notification arrival, as per the [Apple didReceiveRemoteNotification documentation](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application). 
+
 ### Notification delivery for iOS 13 and above
 
 Apple has changed the way that remote notifications are delivered when an app is running in the background (i.e. opened but minimised by the user) in iOS 13 and above.
