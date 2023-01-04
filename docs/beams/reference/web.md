@@ -1,7 +1,7 @@
 ---
 date: 2021-08-01
 title: Pusher Beams Docs | Web SDK
-description: Install the Beams Web SDK using npm/yarn and send valuable browser notifications to your Safari, Firefox, Opera, Chrome and Edge.
+description: Install the Beams Web SDK using npm/Yarn and send valuable browser notifications to your Safari, Firefox, Opera, Chrome and Edge.
 layout: beams.njk
 eleventyNavigation:
   parent: Client sdks
@@ -16,9 +16,9 @@ eleventyNavigation:
 
 The Beams Web SDK is available on npm [here](https://www.npmjs.com/package/@pusher/push-notifications-web).
 
-### npm/yarn
+### npm/Yarn
 
-You can install this SDK by using npm/yarn:
+You can install this SDK by using npm/Yarn:
 
 {% snippets ['bash', 'bash'] %}
 
