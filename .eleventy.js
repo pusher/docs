@@ -54,6 +54,7 @@ module.exports = (eleventyConfig) => {
         : text.substr(0, text.lastIndexOf(" ")) + "…";
     }
   });
+  eleventyConfig.addGlobalData("currentYear", new Date().getFullYear());
 
   /* Markdown Plugins */
   const markdownIt = require("markdown-it")({
