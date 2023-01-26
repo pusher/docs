@@ -39,7 +39,7 @@ Typically beta features will remain beta for no longer than two business quarter
 
 | Product | Feature                       | Last update | Review by date | Resources                                                                       | Status |
 | ------- | ----------------------------- | ----------- | -------------- | ------------------------------------------------------------------------------- | ------ |
-| Beams | WEB support in Flutter SDK| Jan 26 2023 | 03 Apr 2023 | [SDK GitHub repository](https://github.com/pusher/push-notifications-flutter?_gl=1*q1wcgy*_gcl_aw*R0NMLjE2NjkwMjA3NTAuQ2owS0NRaUE0T3liQmhDekFSSXNBSWNmbjlsdkFxTXZtVHlZdUNmTF9nNGE2RGwxTlY1cl83Z0JtVUNYVDdZMFRtcTNsMzRPMUl1b3p6SWFBbGNjRUFMd193Y0I.) | Active |
+| No active beta features at this moment.|
 
 ## Communication
 
