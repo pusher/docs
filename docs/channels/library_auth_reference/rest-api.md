@@ -47,7 +47,7 @@ Triggers an event on one or more channels.
 
 The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter, you will receive a 413 error code. If you have a use case that requires a larger message size, [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
-> **NOTE:** A previous version of this resource is now considered deprecated but is detailed in the [Depricated](/docs/channels/library_auth_reference/rest-api-deprecated) section.
+> **NOTE:** A previous version of this resource is now considered deprecated but is detailed in the [Deprecated](/docs/channels/library_auth_reference/rest-api-deprecated) section.
 
 > **NOTE:** For POST requests, we recommend including parameters in the JSON body. If using the query string, send arrays as `channels[]=channel1&amp;channels[]=channel2;`. This is more verbose than the JSON representation.
 

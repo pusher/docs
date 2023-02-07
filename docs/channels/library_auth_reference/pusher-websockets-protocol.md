@@ -220,7 +220,7 @@ For more information see [authenticating users](/docs/channels/server_api/authen
 
 #### `pusher:signin_success` (Pusher Channels -> Client)
 
-When the client sends a `pusher:signin` event that is processed succesfully, a `pusher:signin_success` event is triggered. Once this event has been triggered, the connection has access to features that require a user to be authenticated.
+When the client sends a `pusher:signin` event that is processed successfully, a `pusher:signin_success` event is triggered. Once this event has been triggered, the connection has access to features that require a user to be authenticated.
 
 ```json
 { "event": "pusher:signin_success", "data": { "user_data": String } }

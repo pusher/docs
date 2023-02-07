@@ -72,7 +72,7 @@ See [notification object format](/docs/beams/reference/publish-payloads#-notific
 {% endparameter %}
 {% parameter 'data', 'Object', false %}
 
-Arbritrary object containing any custom metadata you would like to send with the notification. **Cannot contain the key "pusher"**.
+Arbitrary object containing any custom metadata you would like to send with the notification. **Cannot contain the key "pusher"**.
 
 {% endparameter %}
 
