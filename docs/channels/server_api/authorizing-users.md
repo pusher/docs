@@ -140,7 +140,7 @@ def pusher_authentication():
 ```go
 func pusherAuth(res http.ResponseWriter, req *http.Request) {
   params, _ := ioutil.ReadAll(req.Body)
-  response, err := pusherClient.AuthenticatePrivateChannel(params)
+  response, err := pusherClient.AuthorizePrivateChannel(params)
 
   if err != nil {
     panic(err)
@@ -297,18 +297,18 @@ def pusher_authentication():
 ```go
 params, _ := ioutil.ReadAll(req.Body)
 presenceData := pusher.MemberData{
-  UserId: "1",
+  UserID: "1",
   UserInfo: map[string]string{
     "twitter": "pusher",
   },
 }
-response, err := pusherClient.AuthenticatePresenceChannel(params, presenceData)
+response, err := pusherClient.AuthorizePresenceChannel(params, presenceData)
 
 if err != nil {
   panic(err)
 }
 
-fmt.Fprintf(res, response)
+fmt.Fprintf(res, string(response))
 ```
 
 {% endsnippets %}
