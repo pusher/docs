@@ -483,8 +483,6 @@ pusherClient.TriggerMulti([]string{"my-channel-1", "my-channel-2", "my-channel-3
 
 ### Example: Fetch subscriber and user counts at the time of publish
 
-**[[EXPERIMENTAL]](/docs/lab#experimental-program)**
-
 For the channels that were published to, you can request for the number of subscribers or users to be returned in the response body.
 
 This is currently only supported in the PHP, Node.js and Go SDKs.
@@ -623,8 +621,6 @@ pusherClient.TriggerBatch([]pusher.Event{
 {% endsnippets %}
 
 ### Example: Fetch subscriber and user counts at the time of batch publish
-
-**[[EXPERIMENTAL](/docs/lab#experimental-program)]**
 
 For the channels that were published to, you can request for the number of subscribers or users to be returned in the response body.
 
