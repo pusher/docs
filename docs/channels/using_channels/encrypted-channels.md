@@ -19,7 +19,9 @@ Clients subscribing to encrypted channels must perform the same [HTTP authentica
 
 After enabling this feature, you can verify that it is working by visiting the debug console for the app where you enabled the feature and seeing the ciphertext. You'll know that it is working if the messages you send over the channel are unreadable in the debug console.
 
-> We really appreciate any feedback you might have around using encrypted channels so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support) -- please let us know if you would like support added to an additional library. We can be contacted by [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new).
+>**NOTE:** Encrypting messages increases their data content size.
+
+While you get started using encrypted channels, let us know what you think. We really appreciate any feedback you might have so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support). If you would like to use additional libraries, reach out to our Support team by email or [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new).
 
 ## Authenticate
 
