@@ -32,7 +32,7 @@ Click the Android icon.
 
 ![Screenshot of selecting Android](./img/fcm_click_android.jpg)
 
-Supply your app’s package name, then click the <em>Register app<em> button.
+Supply your app’s package name, then click the <em>Register app</em> button.
 
 ![Screenshot of firebase name](./img/fcm_add_firebase.jpg)
 
