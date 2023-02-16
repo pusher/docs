@@ -21,8 +21,6 @@ After enabling this feature, you can verify that it is working by visiting the d
 
 >**NOTE:** Encrypting messages increases their data content size.
 
-While you get started using encrypted channels, let us know what you think. We really appreciate any feedback you might have so we can continue to make improvements. In particular, encrypted channels are currently supported in a limited number of [client and server libraries](/docs/channels/using_channels/encrypted-channels#library-support). If you would like to use additional libraries, reach out to our Support team by email or [email](mailto:support@pusher.com) or through our [support form](https://support.pusher.com/hc/en-us/requests/new).
-
 ## Authenticate
 
 Encrypted channel subscriptions must be authenticated in the exact same way as private channels. See [Authenticating Users](/docs/channels/server_api/authenticating-users).
