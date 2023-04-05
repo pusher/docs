@@ -134,6 +134,8 @@ Public and presence channels cannot currently be encrypted. Public channels will
 - **Event names are not encrypted.**
   Pusher needs to inspect the message's event name to restrict namespaces (for example, only Pusher can publish events with the prefix `pusher:`).
 
+- It is not possible to publish to multiple encrypted channels in a single API request (using the `channels` parameter). Publishes to encrypted channels should be made individually, using the `channel` parameter. 
+
 - Client libraries do not support triggering events to `private-encrypted-` channels.
   We may lift this restriction in future, please get in touch if this would be valuable to you.
 
