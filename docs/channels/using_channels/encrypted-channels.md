@@ -124,7 +124,7 @@ You can bind to the following `pusher:` events on an encrypted channel:
 
 This feature hides the sensitive `data` field of your messages. However, by design, there are many things which this feature does not do, and it is important that you are aware of these. They include:
 
-**Only Private channels are supported**
+- **Only Private channels are supported**
 
 Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publicly accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
 
