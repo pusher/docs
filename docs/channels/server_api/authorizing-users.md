@@ -43,6 +43,7 @@ You can start with an authorization endpoint that authorizes every request it re
 class PusherController < ApplicationController
   def auth
     if current_user
+      # This authenticates every user. Don't do this in production!
       response = Pusher.authenticate(params[:channel_name], params[:socket_id])
       render json: response
     else
@@ -77,6 +78,7 @@ Broadcast::channel('user.{userId}', function ($user, $userId) {
 
 ```php
 if ( is_user_logged_in() ) {
+  // Make sure you check user is authorized in your `is_user_logged_in` check.
   echo $pusher->authorizeChannel($_POST['channel_name'], $_POST['socket_id']);
 } else {
   header('', true, 403);
@@ -106,6 +108,7 @@ app.use(cors());
 app.post("/pusher/auth", (req, res) => {
   const socketId = req.body.socket_id;
   const channel = req.body.channel_name;
+  // This authenticates every user. Don't do this in production!
   const authResponse = pusher.authorizeChannel(socketId, channel);
   res.send(authResponse);
 });
@@ -118,6 +121,7 @@ app.listen(port);
 using PusherServer;
 public class MyController : Controller {
   public ActionResult Auth(string channel_name, string socket_id) {
+    // This authenticates every user. Don't do this in production!
     var auth = pusher.Authenticate( channel_name, socketId );
     var json = auth.ToJson();
     return new ContentResult { Content = json, ContentType = "application/json" };
@@ -129,6 +133,7 @@ public class MyController : Controller {
 @app.route("/pusher/auth", methods=['POST'])
 def pusher_authentication():
 
+  # This authenticates every user. Don't do this in production!
   # pusher_client is obtained through pusher.Pusher( ... )
   auth = pusher_client.authenticate(
     channel=request.form['channel_name'],
@@ -140,6 +145,7 @@ def pusher_authentication():
 ```go
 func pusherAuth(res http.ResponseWriter, req *http.Request) {
   params, _ := ioutil.ReadAll(req.Body)
+  // This authenticates every user. Don't do this in production!
   response, err := pusherClient.AuthorizePrivateChannel(params)
 
   if err != nil {
@@ -170,6 +176,7 @@ pusher channels generate auth-server --app-id APP_ID
 class PusherController < ApplicationController
   def auth
     if current_user
+    #  This authenticates every user. Don't do this in production!
       response = Pusher.authenticate(params[:channel_name], params[:socket_id], {
         user_id: current_user.id, # => required
         user_info: { # => optional - for example
@@ -216,6 +223,7 @@ if ( is_user_logged_in() ) {
   global $current_user;
   get_currentuserinfo();
   $presence_data = array('name' => $current_user->display_name);
+  // Make sure you check user is authorized in your `is_user_logged_in` check.
   echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $current_user->ID, $presence_data);
 } else {
   header('', true, 403);
@@ -249,6 +257,7 @@ app.post("/pusher/auth", function (req, res) {
     user_id: "unique_user_id",
     user_info: { name: "Mr Channels", twitter_id: "@pusher" },
   };
+  // This authenticates every user. Don't do this in production!
   const authResponse = pusher.authorizeChannel(socketId, channel, presenceData);
   res.send(authResponse);
 });
@@ -268,6 +277,7 @@ public class MyController : Controller {
         twitter_id = "@pusher"
       }
     };
+    //  This authenticates every user. Don't do this in production!
     var auth = pusher.Authenticate( channelName, socketId, channelData );
     var json = auth.ToJson();
     return new ContentResult { Content = json, ContentType = "application/json" };
@@ -280,6 +290,7 @@ public class MyController : Controller {
 def pusher_authentication():
 
   # pusher_client is obtained through pusher_client = pusher.Pusher( ... )
+  # This authenticates every user. Don't do this in production!
   auth = pusher_client.authenticate(
     channel=request.form['channel_name'],
     socket_id=request.form['socket_id'],
@@ -302,6 +313,7 @@ presenceData := pusher.MemberData{
     "twitter": "pusher",
   },
 }
+//  This authenticates every user. Don't do this in production!
 response, err := pusherClient.AuthorizePresenceChannel(params, presenceData)
 
 if err != nil {
