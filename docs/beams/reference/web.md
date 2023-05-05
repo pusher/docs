@@ -20,7 +20,7 @@ The Beams Web SDK is available on npm [here](https://www.npmjs.com/package/@push
 
 You can install this SDK by using npm/Yarn:
 
-{% snippets ['bash', 'bash'] %}
+{% snippets ['npm', 'yarn'] %}
 
 ```bash
 npm install @pusher/push-notifications-web
