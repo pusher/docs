@@ -105,7 +105,7 @@ if ( is_user_logged_in() ) {
       ],
       'watchlist' => get_current_user()->watchlist
     ];
-  echo $pusher->authorizeChannel($_POST['socket_id'], $user_data);
+  echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
 } else {
   header('', true, 403);
   echo "Forbidden";
