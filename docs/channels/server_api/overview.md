@@ -194,7 +194,6 @@ pusher channels apps trigger --app-id APP_ID --channel "my-channel" --event "my-
 
 {% endsnippets %}
 
-> Note! If you created your app in a different cluster to the default `us-east-1`, you **must** configure the `cluster` option as well. [See how](/docs/channels/miscellaneous/clusters).
 
 # The Guide
 
