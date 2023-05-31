@@ -151,7 +151,7 @@ The full set of options is described in the [payload reference docs](/docs/beams
 
 ## Send notifications from your server
 
-Now you can send notfications from your backend using one of the [Beams server SDKs](/docs/beams/reference/all-libraries#server-sdks) :
+Now you can send notifications from your backend using one of the [Beams server SDKs](/docs/beams/reference/all-libraries#server-sdks) :
 
 {% snippets ['php', 'go', 'node', 'py', 'java', 'kotlin', 'rb'] %}
 

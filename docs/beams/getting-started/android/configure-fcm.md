@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2023-02-10
 title: Pusher Beams Docs | Configuring FCM
 description: Learn how to get set up with Firebase Cloud Messaging credentials and deliver event driven notifications to your Android user devices with Pusher Beams.
 layout: beams.njk
@@ -16,18 +16,6 @@ Pusher relies on Firebase Cloud Messaging (FCM) to deliver push notifications to
 
 Head over to the [Pusher dashboard](https://dashboard.pusher.com/beams) and create a new instance of Beams. After that, you can either follow the interactive quick start over there, or return here to follow the documentation steps.
 
-### Visual walkthrough
-
-To help you find your way around, this video mirrors the steps listed below.
-
-<figure class="mh0 mv5 pa0 border-box">
-  <video controls height="auto" style="max-width: 100%">
-    <source src="/docs/static/video/new_firebase_app.webm" type="video/webm" />
-    <source src="/docs/static/video/new_firebase_app.mp4" type="video/mp4" />
-    Hey! Your browser does not support videos!
-  </video>
-</figure>
-
 ## Open Firebase Console
 
 The first step is to go your [Firebase console](https://console.firebase.google.com). Sign up if you haven‘t already.
@@ -36,21 +24,35 @@ The first step is to go your [Firebase console](https://console.firebase.google.
 
 > If you are using a pre-existing Firebase app, you can jump ahead to [Get Your FCM Server Key](#get-your-fcm-server-key). Otherwise you will create one now.
 
-To create a new app, you will need to supply the name and region.
+Add a project if you haven’t already. Then create a new app, by clicking the <em>Add app</em> button.
 
-Then from your app’s Overview page, click on the Android logo and write your Android application‘s package name to register your app in Firebase.
+![Screenshot of adding FCM app](./img/fcm_add_app.jpg)
+
+Click the Android icon.
+
+![Screenshot of selecting Android](./img/fcm_click_android.jpg)
+
+Supply your app’s package name, then click the <em>Register app</em> button.
+
+![Screenshot of firebase name](./img/fcm_add_firebase.jpg)
 
 ## Download the Firebase Configuration File
 
-Once the app is registered, you should click the button to download google-services.json.
+Once the app is registered, you should click the button to download the google-services.json.
 
 Keep a note of the file‘s location, as eventually you will add it to your Android app‘s project on your computer.
+
+![Screenshot of downloading config](./img/fcm_download_config.jpg)
 
 ## Get your FCM Server Key
 
 Go to your Firebase project‘s settings page, and then go to the Cloud Messaging tab.
 
-Now you can copy the FCM Server Key by clicking on the clipboard button.
+You will need to enable the <em>Legacy Cloud Messaging API</em>, not the <em>Firebase Cloud Messaging API</em>.
+
+![Screenshot of copying key](./img/fcm_key.jpg)
+
+Now you can copy the FCM Server Key.
 
 > If you are following the quick start guide in the Pusher Beams dashboard, return to it now with your FCM Server Key.
 

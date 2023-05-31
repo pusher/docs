@@ -24,9 +24,12 @@ We authenticate a user once per connection session. Authenticating a user gives 
 
 When your client calls the `signin` method on a established connection, the Channels client library requests an authentication token from your server. By default, the Pusher Channels client library expects this endpoint to be at `/pusher/user-auth`, but this can be configured by the client.
 
-You can start with an authentication endpoint that authenticates every request it receives. You can do that by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll have to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
+You can start with an authentication endpoint that authenticates every request it receives. Do so by copy-pasting one of the examples below. Note, however, that in order to make this useful, you'll need to change the example to use the actual user id and information of the correct user. The user object passed to the `authenticateUser` method must include an `id` field with a non-empty string. Other possible optional fields are:
 
 - `user_info` in which you can provide more information about the user (e.g. name). This information will be shared with other members of presence channels that this user is authorized to join. Read more on that in [Presence Channels](/docs/channels/using_channels/presence-channels)
+- `watchlist` which is an array of user IDs. These user IDs represent a circle of interest (e.g., friends or followers) whose online/offline presence can be exposed to the user. Read more on that in [Watchlist events](/docs/channels/using_channels/watchlist-events). Each user can have a default maximum of 100 user IDs in their Watchlist. If you'd like to request an increase for these limits, [contact support](https://support.pusher.com/).
+
+
 
 User `id` values should only include lower and uppercase letters, numbers and the following punctuation `_ - = @ , . ;` As an example this is a valid user id:
 
@@ -62,10 +65,11 @@ app.post("/pusher/user-auth", (req, res) => {
 
   // Replace this with code to retrieve the actual user id and info
   const user = {
-    id: "12345",
+    id: "some_id",
     user_info: {
       name: "John Smith",
-    }
+    },
+    watchlist: ['another_id_1', 'another_id_2']
   };
   const authResponse = pusher.authenticateUser(socketId, user);
   res.send(authResponse);
@@ -82,7 +86,8 @@ if ($user->uid) {
     'id' => (string) $user->uid,
     'user_info' => [
       'name': $user->name,
-    ]
+    ],
+    'watchlist': $user->watchlist
   ];
   echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
 } else {
@@ -97,9 +102,10 @@ if ( is_user_logged_in() ) {
     'id' => (string) get_current_user_id(),
     'user_info' => [
         'name': (string) get_current_user()->name
-      ]
+      ],
+      'watchlist' => get_current_user()->watchlist
     ];
-  echo $pusher->authorizeChannel($_POST['socket_id'], $user_data);
+  echo $pusher->authenticateUser($_POST['socket_id'], $user_data);
 } else {
   header('', true, 403);
   echo "Forbidden";
@@ -200,7 +206,8 @@ app.get("/pusher/user-auth", (req, res) => {
     id: "some_id",
     user_info: {
       name: "John Smith",
-    }
+    },
+    watchlist: ['another_id_1', 'another_id_2']
   };
 
   const auth = JSON.stringify(

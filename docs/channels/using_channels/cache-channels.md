@@ -11,8 +11,6 @@ eleventyNavigation:
 
 # Cache channels
 
-> Cache channels is in beta. [Learn more](https://pusher.com/docs/lab)
-
 A cache channel remembers the last triggered event, and sends this as the first event to new subscribers.
 
 When an event is triggered on a cache channel, Pusher Channels caches this event. Then when a client subscribes to a cache channel, if a cached value exists, it's sent to the client as the first event on that channel. This behavior helps developers provide the initial state without adding additional logic to fetch it from elsewhere.
@@ -117,4 +115,4 @@ Yes. You can query the cached data from the HTTP API. The response contains the 
 
 ### Are client events also supported?
 
-No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contect our [support team](https://support.pusher.com/hc/en-us/requests/new).
+No, [client events](/docs/channels/using_channels/events/#triggering-client-events) are not currently supported. You can use client events in cache channels like regular channels, but we do not cache client events. If you find this feature useful for client events, we'd love to hear about it. Contact our [support team](https://support.pusher.com/hc/en-us/requests/new).

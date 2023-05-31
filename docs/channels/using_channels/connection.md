@@ -116,6 +116,23 @@ For more information see the [authenticating users docs](/docs/channels/server_a
 Additional parameters to be sent when the user authentication endpoint is called. When using ajax authentication the parameters are passed as additional `POST` parameters. When using jsonp authentication the parameters are passed as `GET` parameters. This can be useful with web application frameworks that guard against [CSRF (Cross-site request forgery)](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 {% endparameter %}
+{% parameter 'userAuthentication.paramsProvider', 'Object' %}
+
+Additional parameters to be sent when the user authentication endpoint is called. Its use case is the same as the `userAuthentication.params` parameter's, but it is a function that is called on every authentication request. This allows for the parameters to be computed or retrieved as needed at the moment of the request.
+
+```js
+var pusher = new Pusher("app_key", {
+  userAuthentication: {
+    paramsProvider: () => {
+      return {
+        "exampleparam": "example_value",
+      };
+    },
+  },
+});
+```
+
+{% endparameter %}
 {% parameter 'userAuthentication.headers', 'Object' %}
 
 **Only applied when using ajax as authentication `transport`**
@@ -127,6 +144,25 @@ var pusher = new Pusher("app_key", {
   userAuthentication: {
     headers: {
       "X-CSRF-Token": "some_csrf_token",
+    },
+  },
+});
+```
+
+{% endparameter %}
+{% parameter 'userAuthentication.headersProvider', 'Object' %}
+
+**Only applied when using ajax as authentication `transport`**
+
+Provides the ability to pass additional HTTP Headers to the user authentication endpoint when authenticating a user. Its use case is the same as the `userAuthentication.headers` parameter's, but it is a function that is called on every authentication request. This allows for the headers to be computed or retrieved as needed at the moment of the request.
+
+```js
+var pusher = new Pusher("app_key", {
+  userAuthentication: {
+    headersProvider: () => {
+      return {
+        "X-CSRF-Token": "some_csrf_token",
+      };
     },
   },
 });
@@ -193,6 +229,24 @@ For more information see the [authorizing users docs](/docs/channels/server_api/
 Additional parameters to be sent when the channel authorization endpoint is called. When using ajax authorization the parameters are passed as additional `POST` parameters. When using jsonp authorization the parameters are passed as `GET` parameters. This can be useful with web application frameworks that guard against [CSRF (Cross-site request forgery)](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 {% endparameter %}
+{% parameter 'channelAuthorization.paramsProvider', 'Object' %}
+
+Additional parameters to be sent when the channel authorization endpoint is called. Its use case is the same as the `channelAuthorization.params` parameter's, but it is a function that is called on every authorization request. This allows for the parameters to be computed or retrieved as needed at the moment of the request.
+
+```js
+var pusher = new Pusher("app_key", {
+  channelAuthorization: {
+    paramsProvider: () => {
+      return {
+        "exampleparam": "example_value",
+      };
+    },
+  },
+});
+```
+
+{% endparameter %}
+
 {% parameter 'channelAuthorization.headers', 'Object' %}
 
 **Only applied when using ajax as authorization `transport`**
@@ -204,6 +258,25 @@ var pusher = new Pusher("app_key", {
   channelAuthorization: {
     headers: {
       "X-CSRF-Token": "some_csrf_token",
+    },
+  },
+});
+```
+
+{% endparameter %}
+{% parameter 'channelAuthorization.headersProvider', 'Object' %}
+
+**Only applied when using ajax as authorization `transport`**
+
+Provides the ability to pass additional HTTP Headers to the channel authorization endpoint when authorizing a channel. Its use case is the same as the `channelAuthorization.headers` parameter's, but it is a function that is called on every authorization request. This allows for the headers to be computed or retrieved as needed at the moment of the request.
+
+```js
+var pusher = new Pusher("app_key", {
+  channelAuthorization: {
+    headersProvider: () => {
+      return {
+        "X-CSRF-Token": "some_csrf_token",
+      };
     },
   },
 });
@@ -246,6 +319,9 @@ Disables stats collection, so that connection metrics are not submitted to Pushe
 {% parameter 'enabledTransports', 'Array' %}
 
 Specifies which transports should be used by Channels to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`,` xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
+
+Note: if you intend to use secure websockets, or `wss`, you can not simply specify `wss` in enabledTransports, you must also specify `ws` in enabledTransports as well as set the forceTLS option to true.
+
 
 {% endparameter %}
 {% parameter 'disabledTransports', 'Array' %}

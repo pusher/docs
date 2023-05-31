@@ -22,7 +22,7 @@ The Beams Node.js server SDK is available on NPM [here](https://www.npmjs.com/pa
 
 You can install this SDK by using NPM or Yarn:
 
-{% snippets ['npm', 'yarn'] %}
+{% snippets ['npm', 'Yarn'] %}
 
 ```bash
 npm install @pusher/push-notifications-server --save

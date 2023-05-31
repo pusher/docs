@@ -1,7 +1,7 @@
 ---
 date: 2021-08-01
 title: Pusher Channels Docs | Device Compatibility
-description: Channels connections are designed to work with a very wide array of devices through a range of client libraries. Read about compatibile devices in our docs.
+description: Channels connections are designed to work with a very wide array of devices through a range of client libraries. Read about compatible devices in our docs.
 layout: channels.njk
 eleventyNavigation:
   parent: Using channels

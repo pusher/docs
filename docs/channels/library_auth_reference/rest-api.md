@@ -47,7 +47,7 @@ Triggers an event on one or more channels.
 
 The event data should not be larger than 10KB. If you attempt to POST an event with a larger data parameter, you will receive a 413 error code. If you have a use case that requires a larger message size, [get in touch](https://support.pusher.com/hc/en-us/requests/new).
 
-> **NOTE:** A previous version of this resource is now considered deprecated but is detailed in the [Depricated](/docs/channels/library_auth_reference/rest-api-deprecated) section.
+> **NOTE:** A previous version of this resource is now considered deprecated but is detailed in the [Deprecated](/docs/channels/library_auth_reference/rest-api-deprecated) section.
 
 > **NOTE:** For POST requests, we recommend including parameters in the JSON body. If using the query string, send arrays as `channels[]=channel1&amp;channels[]=channel2;`. This is more verbose than the JSON representation.
 
@@ -60,9 +60,9 @@ The event data should not be larger than 10KB. If you attempt to POST an event w
 | channels  | Array of one or more channel names - limited to 100 channels                                                                                                                                                                                             |
 | channel   | Channel name if publishing to a single channel (can be used instead of channels)                                                                                                                                                                         |
 | socket_id | Excludes the event from being sent to a specific connection (refer to [Excluding recipients](/docs/channels/server_api/excluding-event-recipients) )                                                                                                          |
-| info      | [[EXPERIMENTAL]](/docs/lab#experimental-program) A comma-separated list of attributes that should be returned for each unique channel triggered to. If this parameter is present, the request will count as two "messages" for billing. |
+| info      | A comma-separated list of attributes that should be returned for each unique channel triggered to. If this parameter is present, the request will count as two "messages" for billing. |
 
-**[[EXPERIMENTAL]](/docs/lab#experimental-program) Available info attributes**
+Available info attributes:
 
 | Attribute          | Type    | Applicable channels | Description                                                                                                                                                                                                                               |
 | ------------------ | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +73,6 @@ The event data should not be larger than 10KB. If you attempt to POST an event w
 
 The event has been received and will be sent asynchronously to all sockets. Response is an empty JSON hash.
 
-[[EXPERIMENTAL]](/docs/lab#experimental-program)
 If the `info` parameter is sent, then it returns a hash of unique channels that were triggered to. The hash maps from channel name to a hash of attributes for that channel (may be empty).
 
 ```json
@@ -112,9 +111,9 @@ Event object:
 | data      | Event data (required) - limited to 10KB                                                                                                                                                                                             |
 | channel   | Channel name (required)                                                                                                                                                                                                             |
 | socket_id | Excludes the event from being sent to a specific connection (refer to [Excluding event recipients](/docs/channels/server_api/excluding-event-recipients) )                                                                                     |
-| info      | [[EXPERIMENTAL]](/docs/lab#experimental-program) A comma-separated list of attributes which should be returned for the channel. If this parameter is present, the request will count as two "messages" for billing. |
+| info      | A comma-separated list of attributes which should be returned for the channel. If this parameter is present, the request will count as two "messages" for billing. |
 
-**[[EXPERIMENTAL]](/docs/lab#experimental-program) Available info attributes**
+Available info attributes:
 
 | Attribute          | Type    | Applicable channels | Description                                                                                                                                                                                                                              |
 | ------------------ | ------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -125,7 +124,7 @@ Event object:
 
 The event has been received and will be sent asynchronously to all sockets. Response is an empty JSON hash.
 
-[[EXPERIMENTAL]](/docs/lab#experimental-program) If the `info` parameter is sent with any events, then it returns a list of attributes for the channels published to. The attributes at index `i` will correspond to the channel that event at index `i` in the request body was published to.
+If the `info` parameter is sent with any events, then it returns a list of attributes for the channels published to. The attributes at index `i` will correspond to the channel that event at index `i` in the request body was published to.
 
 ```json
 {

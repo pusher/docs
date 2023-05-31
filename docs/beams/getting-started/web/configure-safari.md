@@ -12,8 +12,6 @@ eleventyNavigation:
 
 # Safari configuration (optional)
 
-> Beams Safari notifications are in beta. [Learn more](https://pusher.com/docs/lab)
-
 > You should have already integrated the Beams Web SDK before following this guide. If you have not yet integrated the Web SDK, first follow [this guide](/docs/beams/getting-started/web/sdk-integration).
 
 ## Prerequisites
@@ -28,27 +26,7 @@ eleventyNavigation:
 
 ## Ensure you are using the correct SDK version
 
-While Beams Safari support is in beta, you must use the `2.0.0-beta` release of the [Beams Web SDK](https://github.com/pusher/push-notifications-web).
-
-This is available via the CDN:
-
-```html
-<script src="https://js.pusher.com/beams/2.0.0-beta.1/push-notifications-cdn.js"></script>
-```
-
-It is also available via NPM or Yarn:
-
-{% snippets ['npm', 'Yarn'] %}
-
-```bash
-npm install @pusher/push-notifications-web@beta-safari
-```
-
-```bash
-yarn add @pusher/push-notifications-web@beta-safari
-```
-
-{% endsnippets %}
+Check out the latest version under [Web Client SDK](https://pusher.com/docs/beams/reference/web/).
 
 ## Create a certificate signing request (CSR)
 
