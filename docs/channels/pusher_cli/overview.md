@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2023-06-02
 title: Pusher Channels Docs | Command Line Interface
 description: The Pusher CLI is a tool designed to make your development experience even easier and can speed up certain workflows and aid debugging.
 layout: channels.njk
@@ -19,7 +19,8 @@ Pusher CLI is a tool that is designed to make your experience while developing P
 - Subscribe to channels and see events
 - Trigger events on a given channel
 - Run a demo authorization server (that by default just authorizes all clients!) to make debugging private channel using apps easier
-- Generate client and server code with your keys prefilled.
+- Generate client and server code with your keys prefilled
+- Programmatically deploy Pusher serverless [functions](https://pusher.com/docs/channels/using_channels/functions/).
 
 ## How do I get and use it?
 

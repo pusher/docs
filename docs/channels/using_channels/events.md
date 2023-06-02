@@ -1,5 +1,5 @@
 ---
-date: 2022-04-05
+date: 2023-02-01
 title: Pusher Channels Docs | What is an event?
 description: Events are the primary method of packaging messages in the Channels system. They form the basis of all communication. Read about binding and triggering events.
 layout: channels.njk
@@ -562,6 +562,10 @@ channel.listen("pusher:subscription_succeeded", () => {
 ## Message routing
 
 When you trigger a client event, the event will not be fired in the client which calls `trigger`. This is similar to the case described in [Excluding event recipients](/docs/channels/server_api/excluding-event-recipients).
+
+## Functions
+
+Through [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/), you can programmatically respond to any realtime event on Pusher Channels using serverless [functions](https://pusher.com/docs/channels/using_channels/functions/). Use Pusher functions to modify, filter, change, and re-route live events without the need to build or maintain your own server infrastructure. 
 
 ## Best practice when sending client events
 
