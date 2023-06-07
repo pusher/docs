@@ -1,5 +1,5 @@
 ---
-date: 2022-04-05
+date: 2023-06-02
 title: Pusher Channels Docs | Webhooks
 description: Webhooks augment the behaviour of your apps with custom callbacks. They allow your server to be notified about events occurring within Channels and respond.
 layout: channels.njk
@@ -14,6 +14,8 @@ eleventyNavigation:
 Webhooks allow your server to be notified about events occurring within Channels.
 
 You can activate webhooks in your [account dashboard](https://dashboard.pusher.com) on a per app basis. For general information on webhooks, see the [webhooks.org Wiki](https://webhooks.pbworks.com/w/page/13385124/FrontPage).
+
+Depending on your use case, there are scenarios where using [functions](/docs/channels/using_channels/functions/) instead of webhooks is a better option.
 
 ## Webhook format
 
