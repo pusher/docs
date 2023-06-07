@@ -50,7 +50,7 @@ The event handler will be invoked on an event **before** the event gets publishe
 
 Here’s an example of a function which modifies the event before it's published:
 
-```
+```js
 exports.handler = async function (pusher)  {
     var data = pusher.data
     // modify data
@@ -67,7 +67,7 @@ exports.handler = async function (pusher)  {
 
 Here’s an example of a function that does extra work after the event is published:
 
-```
+```js
 const axios = require("axios");
 
 exports.handler = async (pusher) => {
