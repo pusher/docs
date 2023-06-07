@@ -565,7 +565,7 @@ When you trigger a client event, the event will not be fired in the client which
 
 ## Functions
 
-Through [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/), you can programmatically respond to any realtime event on Pusher Channels using serverless [functions](https://pusher.com/docs/channels/using_channels/functions/). Use Pusher functions to modify, filter, change, and re-route live events without the need to build or maintain your own server infrastructure. 
+Through [Pusher CLI](/docs/channels/pusher_cli/overview/), you can programmatically respond to any realtime event on Pusher Channels using serverless [functions](/docs/channels/using_channels/functions/). Use Pusher functions to modify, filter, change, and re-route live events without the need to build or maintain your own server infrastructure. 
 
 ## Best practice when sending client events
 

@@ -23,9 +23,9 @@ There are two ways you can use functions:
 
 ## Manage functions
 
-To deploy functions on Channel events, you’ll need to use the Pusher CLI. Check out the [How to install the Pusher CLI](https://pusher.com/docs/channels/pusher_cli/installation/) and [How to set up the Pusher CLI](https://pusher.com/docs/channels/pusher_cli/documentation/) articles for more information.
+To deploy functions on Channel events, you’ll need to use the Pusher CLI. Check out the [How to install the Pusher CLI](/docs/channels/pusher_cli/installation/) and [How to set up the Pusher CLI](/docs/channels/pusher_cli/documentation/) articles for more information.
 
-Through the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/), you can edit, update, delete, and list all functions per app using the `--app-id` flag or use it to manage secret or plaintext configuration variables.
+Through the [Pusher CLI](/docs/channels/pusher_cli/overview/), you can edit, update, delete, and list all functions per app using the `--app-id` flag or use it to manage secret or plaintext configuration variables.
 
 ## Write functions
 
@@ -80,7 +80,7 @@ exports.handler = async (pusher) => {
 
 ## Deploy a function
 
-A function may be deployed using the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/) by providing a path to the directory holding the `index.js` file as an argument. Flags are required to specify the app ID, function name, the events the function should handle and the function's mode (synchronous or asynchronous). The events flag takes a comma separated list of regular expressions, each of which can match multiple event names.
+A function may be deployed using the [Pusher CLI](/docs/channels/pusher_cli/overview/) by providing a path to the directory holding the `index.js` file as an argument. Flags are required to specify the app ID, function name, the events the function should handle and the function's mode (synchronous or asynchronous). The events flag takes a comma separated list of regular expressions, each of which can match multiple event names.
 
 The `mode` indicates if the function is synchronous or asynchronous, and defaults to `asynchronous` if the flag isn’t supplied.
     
@@ -104,7 +104,7 @@ To edit existing functions, you’ll need to know the function name.
 
 ### Update functions
 
-To update an existing function, edit the JavaScript code locally and then redeploy it using the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/). This can also be used to change the other parameters (events, name, mode, etc.)
+To update an existing function, edit the JavaScript code locally and then redeploy it using the [Pusher CLI](/docs/channels/pusher_cli/overview/). This can also be used to change the other parameters (events, name, mode, etc.)
 
 ```
 pusher channels apps functions update "my-function" ./myfunction \
@@ -161,13 +161,13 @@ exports.handler = async function (pusher) {
 
 ### View config variables
 
-To view config variables, use the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/).
+To view config variables, use the [Pusher CLI](/docs/channels/pusher_cli/overview/).
 
 `pusher channels apps functions configs list --app-id <YOUR_APP_ID>`
 
 ### Update config variables
 
-To update an existing config variable, use the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/).
+To update an existing config variable, use the [Pusher CLI](/docs/channels/pusher_cli/overview/).
 
 ```
 pusher channels apps functions configs update MYSECRET \
@@ -178,7 +178,7 @@ pusher channels apps functions configs update MYSECRET \
 
 ### Delete config variables
 
-To delete a config variable, use the [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/).
+To delete a config variable, use the [Pusher CLI](/docs/channels/pusher_cli/overview/).
 
 Once you delete it, the config variable will no longer be available to any of your existing Pusher functions.
 
@@ -186,7 +186,7 @@ Once you delete it, the config variable will no longer be available to any of yo
 
 ## Invoke functions
 
-To test your function you can invoke it using [Pusher CLI](https://pusher.com/docs/channels/pusher_cli/overview/). This sends a test event and returns the function output.
+To test your function you can invoke it using [Pusher CLI](/docs/channels/pusher_cli/overview/). This sends a test event and returns the function output.
 
 If the function is synchronous, the following command waits and outputs the value returned from the function:
 

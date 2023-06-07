@@ -20,7 +20,7 @@ Pusher CLI is a tool that is designed to make your experience while developing P
 - Trigger events on a given channel
 - Run a demo authorization server (that by default just authorizes all clients!) to make debugging private channel using apps easier
 - Generate client and server code with your keys prefilled
-- Programmatically deploy Pusher serverless [functions](https://pusher.com/docs/channels/using_channels/functions/).
+- Programmatically deploy Pusher serverless [functions](/docs/channels/using_channels/functions/).
 
 ## How do I get and use it?
 
