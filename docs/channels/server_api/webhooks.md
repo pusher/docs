@@ -103,7 +103,7 @@ The event data for this event is as follows:
 { "name": "channel_vacated", "channel": "my-channel" }
 ```
 
-### Cache miss events
+### Cache channels events
 
 Notify your application when a client subscribes to a channel with no cached message
 
