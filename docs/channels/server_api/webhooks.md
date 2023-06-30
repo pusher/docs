@@ -103,6 +103,10 @@ The event data for this event is as follows:
 { "name": "channel_vacated", "channel": "my-channel" }
 ```
 
+### Cache channels events
+
+Notify your application when a client subscribes to a channel with no cached message
+
 #### cache_miss
 
 Channels will send a `cache_miss` webhook event whenever one or more than one client subscribe to an empty cache channel (i.e. the cached message has expired or no message has been triggered yet).
@@ -110,7 +114,10 @@ Channels will send a `cache_miss` webhook event whenever one or more than one cl
 The event data for this event is as follows:
 
 ```json
-{ "name": "cache_miss", "channel": "channel-name" }
+{ 
+  "name": "cache_miss",
+  "channel": "channel-name" 
+}
 ```
 
 ### Presence events
@@ -151,6 +158,8 @@ The event data for this event is as follows:
 
 Notify your application whenever a client event is sent.
 
+#### client_event
+
 Channels will send a `client_event` event whenever a [client event](/docs/channels/using_channels/events#triggering-client-events) is sent on any private or presence channel.
 
 The event data for this event is as follows:
@@ -164,6 +173,28 @@ The event data for this event is as follows:
   "socket_id": "socket_id of the sending socket",
   "user_id": "user_id associated with the sending socket" # Only for presence channels
 }
+```
+
+### Subscription count events
+
+Notify your application whenever the subscription count of a channel changes. Provides the number of connections that are currently subscribed to the channel.
+
+To enable the Subscription Count feature, navigate to the Channels dashboard for your app > App Settings and switch the toggle on. Once activated, the event will be broadcast on all channel types except Presence channels.
+
+
+#### subscription_count 
+
+Channels will send a `subscription_count` webhook whenever a new client subscribes or unsubscribes to a channel. On channels with more than 100 connected clients, the event is sent every 5 seconds as long as there is activity (subscribe or unsubscribe) on the channel. 
+
+The event data is as follows: 
+
+```json
+{
+  "channel": "name of the channel the subscription count change occured",
+  "name": "subscription_count",
+  "subscription_count": "the subscription count"
+}
+
 ```
 
 # Channel existence example
