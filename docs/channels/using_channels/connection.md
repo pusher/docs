@@ -69,7 +69,7 @@ The options are:
 
 {% parameter 'forceTLS', 'Boolean' %}
 
-It’s possible to define if the connection should be made over TLS. For more information see Encrypting connections
+It’s possible to define if the connection should be made over TLS. 
 
 {% endparameter %}
 
