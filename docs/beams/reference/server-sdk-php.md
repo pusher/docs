@@ -180,7 +180,7 @@ An array containing the `token` key.
 
 ```php
 $userId = "user-001";
-$token = $beamsClient.generateToken($userId);
+$token = $beamsClient->generateToken($userId);
 // Return $token['token']; to device
 ```
 
@@ -203,5 +203,5 @@ Nothing
 #### Example
 
 ```php
-$beamsClient.deleteUser("user-001");
+$beamsClient->deleteUser("user-001");
 ```
