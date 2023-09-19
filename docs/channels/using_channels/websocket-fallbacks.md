@@ -1,5 +1,5 @@
 ---
-date: 2021-08-01
+date: 2023-08-03
 title: Pusher Channels Docs | WebSocket Fallbacks
 description: Some networks still cause problems when using WebSockets, so pusher-js provides fallback mechanisms to allow realtime connectivity in almost any circumstances.
 layout: channels.njk
@@ -15,11 +15,11 @@ Some browsers and networks still cause problems when using WebSockets, hence pus
 
 ## HTTP
 
-Additional JavaScript is required for the HTTP support. This is loaded dynamically (and asynchronously). HTTP streaming and polling are the two forms of HTTP fallbacks supported by the latest version of [pusher-js](https://github.com/pusher/pusher-js).
+Additional JavaScript is required for the HTTP support. This is loaded dynamically (and asynchronously). HTTP streaming and polling are the two forms of HTTP fallbacks supported by the latest version of [pusher-js](https://github.com/pusher/pusher-js).Dig deeper into the topic and find out [how to implement HTTP request retry policies](https://pusher.com/blog/how-to-implement-http-request-retry-policies/).
 
 ## Connection strategy
 
-We wrote an extensive [series of blog posts](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) about the strategy pusher-js uses to establish a connection, which covers [problems with WebSockets](https://blog.pusher.com/how-we-built-pusher20-part-1/), [pusher-js strategy implementation](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-2-implementation/) and [metric collection](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/).
+We wrote an extensive [series of blog posts](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/) about the strategy pusher-js uses to establish a connection, which covers [problems with WebSockets](https://blog.pusher.com/how-we-built-pusher20-part-1/), [pusher-js strategy implementation](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-2-implementation/), [metric collection](https://blog.pusher.com/how-we-built-pusher-js-2-0-part-3-metrics/), and [prioritizing WebSocket transport during reconnect](https://pusher.com/blog/pusher-js-updates-improved-reconnection-and-transport-caching-strategy/).
 
 ## SockJS compatibility
 
