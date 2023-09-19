@@ -174,14 +174,14 @@ Id of the user you would like to generate a Beams auth token for.
 
 #### Returns
 
-Beams token string.
+An array containing the `token` key.
 
 #### Example
 
 ```php
 $userId = "user-001";
 $token = $beamsClient.generateToken($userId);
-// Return $token to device
+// Return $token['token']; to device
 ```
 
 ### `.deleteUser`
