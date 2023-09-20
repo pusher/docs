@@ -127,7 +127,7 @@ if ( is_user_logged_in() ) {
 The destination of the authentication requests can be configured.
 
 {% methodwrap %}
-{% snippets ['js', 'java', `dotnet`], true %}
+{% snippets ['js', 'java', 'dotnet'], true %}
 
 ```js
 new Pusher("app_key", { userAuthentication: { endpoint: "/pusher_user_auth.php"}});
