@@ -61,7 +61,7 @@ pusher = new Pusher(APP_KEY, new PusherOptions()
 When the `signin` method is called, the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
 
 {% methodwrap %}
-{% snippets ['js', 'java'], true %}
+{% snippets ['js', 'java', 'dotnet'], true %}
 
 ```js
 pusher.signin();
@@ -69,6 +69,10 @@ pusher.signin();
 
 ```java
 pusher.signin();
+```
+
+```dotnet
+pusher.User.Signin();
 ```
 
 {% endsnippets %}
