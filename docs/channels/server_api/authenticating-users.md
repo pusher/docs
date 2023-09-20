@@ -147,7 +147,7 @@ pusher = new Pusher(APP_KEY, new PusherOptions()
     Cluster = APP_CLUSTER,
     UserAuthenticator = new HttpUserAuthenticator("http://example.com/pusher/user-auth")
   });
-``
+```
 
 {% endsnippets %}
 
