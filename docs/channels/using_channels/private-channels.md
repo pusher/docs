@@ -21,7 +21,7 @@ Private channels should be used when access to the channel needs to be restricte
 When a subscription takes place the [user authorization process](/docs/channels/server_api/authorizing-users) will be triggered.
 
 {% methodwrap %}
-{% snippets ['js', 'swift'], true %}
+{% snippets ['js', 'swift', 'java'], true %}
 
 ```js
 var privateChannel = pusher.subscribe("privateChannelName");
@@ -29,6 +29,10 @@ var privateChannel = pusher.subscribe("privateChannelName");
 
 ```swift
 let privateChannel = pusher.subscribe("private-my-channel")
+```
+
+```java
+PrivateChannel channel = pusher.subscribePrivate("private-my-channel");
 ```
 
 {% endsnippets %}
