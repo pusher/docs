@@ -21,14 +21,18 @@ Private channels should be used when access to the channel needs to be restricte
 When a subscription takes place the [user authorization process](/docs/channels/server_api/authorizing-users) will be triggered.
 
 {% methodwrap %}
-{% snippets ['js', 'swift'], true %}
+{% snippets ['js', 'swift', 'java'], true %}
 
 ```js
-var privateChannel = pusher.subscribe("privateChannelName");
+var privateChannel = pusher.subscribe("private-my-channel");
 ```
 
 ```swift
 let privateChannel = pusher.subscribe("private-my-channel")
+```
+
+```java
+PrivateChannel channel = pusher.subscribePrivate("private-my-channel");
 ```
 
 {% endsnippets %}
@@ -49,6 +53,16 @@ The name of the channel to subscribe to. Since it is a private channel the name 
 ##### Returns
 
 A `PusherChannel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events).
+
+{% endparameter %}
+
+{% parameter 'channelName', "String", true, 'java', false %}
+
+The name of the channel to subscribe to. Since it is a private channel the name must be prefixed with `private-`
+
+##### Returns
+
+A `PrivateChannel` object which events can be bound to. See [binding to events](/docs/channels/using_channels/events#binding-to-events).
 
 {% endparameter %}
 {% endmethodwrap %}

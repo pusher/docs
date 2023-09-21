@@ -127,10 +127,26 @@ if ( is_user_logged_in() ) {
 The destination of the authentication requests can be configured.
 
 {% methodwrap %}
-{% snippets ['js'], true %}
+{% snippets ['js', 'java', 'c'], true %}
 
 ```js
 new Pusher("app_key", { userAuthentication: { endpoint: "/pusher_user_auth.php"}});
+```
+
+```java
+PusherOptions options =
+  new PusherOptions()
+    .setUserAuthenticator(new HttpUserAuthenticator("https://example.com/pusher/user-auth"));
+
+Pusher pusher = new Pusher(APP_KEY, options);
+```
+
+```c
+pusher = new Pusher(APP_KEY, new PusherOptions()
+  {
+    Cluster = APP_CLUSTER,
+    UserAuthenticator = new HttpUserAuthenticator("http://example.com/pusher/user-auth")
+  });
 ```
 
 {% endsnippets %}

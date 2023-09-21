@@ -37,7 +37,7 @@ The client-side can subscribe to Watchlist events by using [Client SDKs](/docs/c
 
 
 {% methodwrap %}
-{% snippets ['js'], true %}
+{% snippets ['js', 'c'], true %}
 
 ```js
 pusher.signin();
@@ -48,6 +48,19 @@ const watchlistEventHandler = (event) => {
 };
 pusher.user.watchlist.bind('online', watchlistEventHandler);
 pusher.user.watchlist.bind('offline', watchlistEventHandler);
+```
+
+```c
+pusher.User.Signin();
+
+void watchlistEventHandler(WatchlistEvent watchlistEvent)
+    {
+        //watchlistEvent.UserIDs
+        //watchlistEvent.Name
+    }
+
+pusher.User.Watchlist.Bind("online", watchlistEventHandler);
+pusher.User.Watchlist.Bind("offline", watchlistEventHandler);
 ```
 
 {% endsnippets %}

@@ -22,7 +22,7 @@ We authenticate a user once per connection session. Authenticating a user gives 
 Authentication happens when your application calls the `signin` method. It's behaviour depends on the configuration provided to the Pusher object constructor through the `userAuthentication` parameter object. Below are the available configuration options with their default values. Check the [Connection page](/docs/channels/using_channels/connection) for an overview of the parameters.
 
 
-{% snippets ['js','java'], true %}
+{% snippets ['js','java', 'c'], true %}
 
 ```js
 const pusher = new Pusher(APP_KEY, {
@@ -46,6 +46,14 @@ PusherOptions options =
 Pusher pusher = new Pusher(APP_KEY, options);
 ```
 
+```c
+pusher = new Pusher(APP_KEY, new PusherOptions()
+  {
+    Cluster = APP_CLUSTER,
+    UserAuthenticator = new HttpUserAuthenticator("http://example.com/pusher/user-auth")
+  });
+```
+
 {% endsnippets %}
 
 ## Sign in
@@ -53,7 +61,7 @@ Pusher pusher = new Pusher(APP_KEY, options);
 When the `signin` method is called, the [user authentication process](/docs/channels/server_api/authenticating-users) will be triggered.
 
 {% methodwrap %}
-{% snippets ['js', 'java'], true %}
+{% snippets ['js', 'java', 'c'], true %}
 
 ```js
 pusher.signin();
@@ -61,6 +69,10 @@ pusher.signin();
 
 ```java
 pusher.signin();
+```
+
+```c
+pusher.User.Signin();
 ```
 
 {% endsnippets %}
