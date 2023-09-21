@@ -11,7 +11,7 @@ eleventyNavigation:
 
 # Functions
 
-Functions allow developers to respond programmatically to Channels events. Use them to modify, filter, alter events, and carry out additional tasks upon delivering those events without having to manage your own infrastructure.
+Pusher Serverless Functions allow developers to respond programmatically to Channels events. Use them to modify, filter, alter events, and carry out additional tasks upon delivering those events without having to manage your own infrastructure.
 
 ## Types of functions
 
@@ -23,13 +23,13 @@ There are two ways you can use functions:
 
 ## Manage functions
 
-To deploy functions on Channel events, you’ll need to use the Pusher CLI. Check out the [How to install the Pusher CLI](/docs/channels/pusher_cli/installation/) and [How to set up the Pusher CLI](/docs/channels/pusher_cli/documentation/) articles for more information.
+To deploy Functions on Channel events, you’ll need to use the Pusher CLI. Check out the [How to install the Pusher CLI](/docs/channels/pusher_cli/installation/) and [How to set up the Pusher CLI](/docs/channels/pusher_cli/documentation/) articles for more information.
 
 Through the [Pusher CLI](/docs/channels/pusher_cli/overview/), you can edit, update, delete, and list all functions per app using the `--app-id` flag or use it to manage secret or plaintext configuration variables.
 
 ## Write functions
 
-A Channels serverless function comprises an exported JavaScript event handler function named `handler` and potentially other supporting JavaScript functions which may reside in different files. Ensure the event handler is in a local file named `index.js`, and that all the supporting files are in a directory tree rooted at the same directory as the handler. For example:
+A Channels Serverless Function comprises an exported JavaScript event handler function named `handler` and potentially other supporting JavaScript functions which may reside in different files. Ensure the event handler is in a local file named `index.js`, and that all the supporting files are in a directory tree rooted at the same directory as the handler. For example:
 ```
 myfunction
 ├── index.js
@@ -215,7 +215,7 @@ An event may trigger multiple functions. In that case, the asynchronous function
 The synchronous functions will be chained in alphabetical order by their name, where the output of the first function will serve as the input to the second function, and so on.
 
 ## Limitations
-- There are limitations on using functions with system events (i.e., events that originate from within the Pusher ecosystem rather than directly from customers or their users). Firstly, functions can only be used with a defined subset of channel events. Secondly, channel events can only trigger asynchronous functions.
+- There are limitations on using Functions with system events (i.e., events that originate from within the Pusher ecosystem rather than directly from customers or their users). Firstly, Functions can only be used with a defined subset of channel events. Secondly, channel events can only trigger asynchronous functions.
 Channel events that can be used with asynchronous functions are:
     -   **pusher:cache_miss**
     -   **pusher:signin_success**
@@ -230,7 +230,7 @@ Channel events that can be used with asynchronous functions are:
 
 ## Pricing
 
-Functions call usage is rolled up into your existing Pusher Channels subscription, with 1 function call equal to 50 Pusher Channels messages. Each function call is limited to memory usage of 512 MB. Average function execution times are expected to be 500ms or less. A maximum theoretical execution time of 1 second is possible but additional charges may apply.
+Pusher Serverless Functions call usage is rolled up into your existing Pusher Channels subscription, with 1 function call equal to 50 Pusher Channels messages. Each function call is limited to memory usage of 512 MB. Average function execution times are expected to be 500ms or less. A maximum theoretical execution time of 1 second is possible but additional charges may apply.
 
 For initial configuration, each account is allocated a maximum of 10 functions.
 
