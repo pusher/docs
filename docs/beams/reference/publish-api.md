@@ -84,7 +84,7 @@ Unique string used to identify this publish request.
 | Bad request          | 400         | Request body size is too large (max 10KiB).                     |
 | Bad request          | 400         | Failed to read body as a JSON object.                           |
 | Unauthorized         | 401         | Incorrect API Key.                                              |
-| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. Refer to [Beams plan limits article](https://support.pusher.com/hc/en-us/articles/360020196398-What-happens-when-I-hit-my-Beams-plan-limits-)in our Support knowledge base. |
+| Payment Required     | 402         | Publishing has been blocked due to being over plan limits. Refer to [Beams plan limits article](https://support.pusher.com/hc/en-us/articles/4411997288593-What-Happens-When-I-Hit-My-Beams-Plan-Limits-) in our Support knowledge base. |
 | Instance not found   | 404         | Could not find the instance.                                    |
 | Unprocessable Entity | 422         | JSON does not our match schema.                                 |
 | Rate Limited         | 429         | Too many requests being made in quick succession (max 100 RPS). |
