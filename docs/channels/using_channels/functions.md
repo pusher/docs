@@ -97,11 +97,11 @@ exports.handler = async (pusher) => {
 2. Choose the Channels app you wish to add functions to. If you don't already have an app and you are new to Channels, check out the quick start guide for instructions on how to set up Channels and create your first app.
 3. On the left-side navigation, go to **Functions** and click **Create a new function**.
 
-![Pusher Serverless Functions in the dashboard](../../../img/pusher-serverless-functions-in-dashboard.png)
+![Pusher Serverless Functions in the dashboard](./img/pusher-serverless-functions-in-dashboard.png)
 
 4. Provide a name for your new function and determine which events should trigger the function. The function needs to know which events to respond to. You provide this as a comma-separated list, where each item is a regular expression. This pattern can match one or multiple event names. Then choose what kind of function it is (synchronous or asynchronous).
 
-![Create a new function](../../../img/create-new-function-from-dashboard.png)
+![Create a new function](./img/create-new-function-from-dashboard.png)
 
 5. Finally upload a .zip file of your function code. Click **Create function**. Make sure the event handler is in a file named `index.js` at the top level of the zip archive. For example:
 
@@ -121,7 +121,7 @@ To update a Function, edit the function's code on your computer, then upload it 
 
 After you delete a function, it won't be invoked to its linked events in Channels anymore.
 
-![Edit functions](../../../img/create-new-function-from-dashboard.png)
+![Edit functions](./img/create-new-function-from-dashboard.png)
 
 ### Configuration variables
 
@@ -139,7 +139,7 @@ Define a stimulus for the function, formatted based on the function's requiremen
 
 To test out whether your function works as intended, go to the Debug Console and use a test event. If it works well, use it with actual Channels events.
 
-![Invoke functions](../../../img/invoke-functions-pusher-channels.png)
+![Invoke functions](./img/invoke-functions-pusher-channels.png)
 
 You can check the function's activity and performance under the **Stats** tab in the Pusher dashboard.
 
