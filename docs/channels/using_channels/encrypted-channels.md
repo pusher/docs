@@ -124,15 +124,16 @@ You can bind to the following `pusher:` events on an encrypted channel:
 
 This feature hides the sensitive `data` field of your messages. However, by design, there are many things which this feature does not do, and it is important that you are aware of these. They include:
 
-**Only Private channels are supported**
-
-Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publicly accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
+- **Only Private channels are supported**
+  Public and presence channels cannot currently be encrypted. Public channels will never support encryption, because by definition they carry only publicly accessible data. If you have a use case for encryption of your data in presence channels, please let us know by contacting support.
 
 - **Channel names are not encrypted.**
   Pusher needs to inspect the message's channel name to determine which clients to send it to.
 
 - **Event names are not encrypted.**
   Pusher needs to inspect the message's event name to restrict namespaces (for example, only Pusher can publish events with the prefix `pusher:`).
+
+- It is not possible to publish to multiple encrypted channels in a single API request (using the `channels` parameter). Publishes to encrypted channels should be made individually, using the `channel` parameter. 
 
 - Client libraries do not support triggering events to `private-encrypted-` channels.
   We may lift this restriction in future, please get in touch if this would be valuable to you.
