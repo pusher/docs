@@ -113,7 +113,7 @@ Securely send notifications to individual users of your application using [Authe
 
 #### Arguments
 
-{% parameter 'user_ids', 'list&lt;String&gt; Min length=1, Max length=100', true %}
+{% parameter 'user_ids', 'list&lt;String&gt; Min length=1, Max length=1000', true %}
 
 List of ids of users to send the push notification to, ranging from 1 to 1000 per publish request. See [Authenticated Users](/docs/beams/concepts/authenticated-users)
 
