@@ -38,7 +38,7 @@ var pusher = new Pusher("APP_KEY", {
 
 ## Subscribe to a channel
 
-Before your web app can receive the event you publish, your web app needs to subscribe to the `my-channel` channel channel. Do this with `pusher.subscribe`.
+Before your web app can receive the event you publish, your web app needs to subscribe to the `my-channel` channel. Do this with `pusher.subscribe`.
 
 ```js
 var channel = pusher.subscribe("my-channel");
