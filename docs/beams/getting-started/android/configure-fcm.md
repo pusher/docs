@@ -50,7 +50,7 @@ Go to your Firebase project‘s settings page, and then go to the *Service Accou
 
 Then, you will need to generate a new private key by clicking *Generate new private key*. 
 
-![Generating new private key](./img/fcm_service_account_private_key.png)
+![Screenshot of generating new private key](./img/fcm_service_account_private_key.png)
 
 This will download a service account JSON file.
 
