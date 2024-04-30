@@ -12,7 +12,7 @@ eleventyNavigation:
 
 # Configure FCM
 
-Pusher relies on Firebase Cloud Messaging (FCM) to deliver push notifications to Android application users on your behalf. When we deliver push notifications, we use your FCM credentials. This page guides you through the process of getting an FCM Server Key and how to provide it to Pusher.
+Pusher relies on Firebase Cloud Messaging (FCM) to deliver push notifications to Android application users on your behalf. When we deliver push notifications, we use your FCM credentials. This page guides you through the process of getting a FCM service account file and how to provide it to Pusher.
 
 Head over to the [Pusher dashboard](https://dashboard.pusher.com/beams) and create a new instance of Beams. After that, you can either follow the interactive quick start over there, or return here to follow the documentation steps.
 
@@ -22,7 +22,7 @@ The first step is to go your [Firebase console](https://console.firebase.google.
 
 ## Create a new app
 
-> If you are using a pre-existing Firebase app, you can jump ahead to [Get Your FCM Server Key](#get-your-fcm-server-key). Otherwise you will create one now.
+> If you are using a pre-existing Firebase app, you can jump ahead to [Get Your Service Account JSON file](#get-your-fcm-service-account-json-file). Otherwise you will create one now.
 
 Add a project if you haven’t already. Then create a new app, by clicking the <em>Add app</em> button.
 
@@ -44,19 +44,19 @@ Keep a note of the file‘s location, as eventually you will add it to your Andr
 
 ![Screenshot of downloading config](./img/fcm_download_config.jpg)
 
-## Get your FCM Server Key
+## Get your FCM service account JSON file
 
-Go to your Firebase project‘s settings page, and then go to the Cloud Messaging tab.
+Go to your Firebase project‘s settings page, and then go to the *Service Accounts* tab. 
 
-You will need to enable the <em>Legacy Cloud Messaging API</em>, not the <em>Firebase Cloud Messaging API</em>.
+Then, you will need to generate a new private key by clicking *Generate new private key*. 
 
-![Screenshot of copying key](./img/fcm_key.jpg)
+![Generating new private key](./img/fcm_service_account_private_key.png)
 
-Now you can copy the FCM Server Key.
+This will download a service account JSON file.
 
-> If you are following the quick start guide in the Pusher Beams dashboard, return to it now with your FCM Server Key.
+> If you are following the quick start guide in the Pusher Beams dashboard, return to it now with your FCM service account file.
 
-This FCM Server Key can be saved to your Pusher Beams instance in the [dashboard](https://dashboard.pusher.com/beams).
+This FCM service account ifle can be saved to your Pusher Beams instance in the [dashboard](https://dashboard.pusher.com/beams).
 
 ## Where Next?
 
