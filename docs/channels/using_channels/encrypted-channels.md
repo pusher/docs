@@ -154,6 +154,7 @@ Library support is limited to those listed below. If you want to use encrypted c
 [pusher-js](https://github.com/pusher/pusher-js)
 
 - Supported from version 4.3.0
+- From [version 6.0.0](https://github.com/pusher/pusher-js/blob/master/CHANGELOG.md#600-2020-04-27) ensure you are importing the `pusher-with-encryption` build. 
 
 [pusher-angular](https://github.com/pusher/pusher-angular)
 
