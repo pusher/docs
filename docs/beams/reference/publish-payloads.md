@@ -42,9 +42,11 @@ The full set of options for the APNs section of the `notify` call is described i
 ```js
 publishToUsers(["SOME_USER"], {
   apns: {
-    alert: {
-      title: "You have a new message",
-      body: "Hi!",
+    aps: {
+      alert: {
+        title: "You have a new message",
+        body: "Hi!",
+      }
     },
     data: {
       some: "metadata",
