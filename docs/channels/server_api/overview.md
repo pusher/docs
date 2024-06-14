@@ -120,24 +120,24 @@ pusher.trigger("my-channel", "my-event", {
 });
 ```
 
-```c
+```csharp
 // First, run 'Install-Package PusherServer'
-  using PusherServer;
-  using System.Web.Mvc;
-  using System.Net;
-  using Your.Config;
+using PusherServer;
+using System.Web.Mvc;
+using System.Net;
+//using Your.Config;
 
-  public class HelloWorldController : Controller {
-    [httpPost]
-    public async Task<ActionResult> HelloWorld() {
-      var options = new PusherOptions();
-      options.Cluster = 'APP_CLUSTER';
+public class HelloWorldController : Controller {
+  [HttpPost]
+  public async Task<ActionResult> HelloWorld() {
+    var options = new PusherOptions();
+    options.Cluster = "APP_CLUSTER";
 
-      var pusher = new Pusher('APP_ID', 'APP_KEY', 'APP_SECRET', options);
-      var result = await pusher.TriggerAsync("my-channel", "my-event", new { message = "hello world" });
-      return new HttpStatusCodeResult((int)HttpStatusCode.OK);
-    }
+    var pusher = new Pusher("APP_ID", "APP_KEY", "APP_SECRET", options);
+    var result = await pusher.TriggerAsync("my-channel", "my-event", new { message = "hello world" });
+    return new HttpStatusCodeResult((int)HttpStatusCode.OK);
   }
+}
 ```
 
 ```py
