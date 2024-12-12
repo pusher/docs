@@ -69,7 +69,7 @@ The options are:
 
 {% parameter 'forceTLS', 'Boolean' %}
 
-It’s possible to define if the connection should be made over TLS. 
+It’s possible to define if the connection should be made over TLS.
 
 {% endparameter %}
 
@@ -188,7 +188,7 @@ For more information check [authenticating users](/docs/channels/server_api/auth
 {
 {% parameter 'channelAuthorization', 'Object' %}
 
-Object containing the configuration for user authorization. Valid keys are `endpoint`, `transport`, `params`, `headers`, and `customHandler`.
+Object containing the configuration for channel authorization. Valid keys are `endpoint`, `transport`, `params`, `headers`, and `customHandler`.
 
 Default values are:
 
