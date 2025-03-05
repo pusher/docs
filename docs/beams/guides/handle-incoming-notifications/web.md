@@ -58,3 +58,33 @@ PusherPushNotifications.onNotificationReceived = ({
   pushEvent.waitUntil(handleNotification(payload));
 };
 ```
+
+## Accessing Beams state
+
+If you would like to access the Beams state, you can subscribe to the `statePromise` promise in your `onNotificationReceived` handler. For example, you can customize the notification based on the current user's role.
+
+```js
+PusherPushNotifications.onNotificationReceived = async ({
+  pushEvent,
+  payload,
+  handleNotification,
+  statePromise,
+}) => {
+  const { userId } = await statePromise;
+  pushEvent.waitUntil(
+    // custom notification handling logic
+  );
+};
+```
+
+Beam state properties:
+
+| Property              | Type    | Description                                                                        |
+| --------------------- | ------- | ---------------------------------------------------------------------------------- |
+| instanceId            | string  | Beams instance ID.                                                                 |
+| publishId             | string  | The ID used to identify the publish request.                                       |
+| deviceId              | string  | The ID used to identify the device.                                                |
+| userId                | string  | The ID of the current User.                                                        |
+| appInBackground       | boolean | Describes if the application was in background when the notification was received. |
+| hasDisplayableContent | boolean | Describes if the notification should display a UI element to the user.             |
+| hasData               | boolean | Describes if the payload contains additional data.                                 |
