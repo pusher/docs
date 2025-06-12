@@ -19,7 +19,7 @@ SSO support for enterprise users. Pusher dashboard currently supports SSO with O
 
 ### Step 1: Create an application on Okta
 
-As an Okta adminstrator, create a new Application for Pusher with the following parameters:
+As an Okta administrator, create a new Application for Pusher with the following parameters:
 
 1. Sign-in method: **OIDC - OpenID Connect**
 1. Application type: **Web Application**
