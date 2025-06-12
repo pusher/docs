@@ -1,7 +1,7 @@
 ---
 date: 2025-06-12
 title: Pusher Channels Docs | SSO
-description: Our third party integrations mean you can make the most out of building your apps with Channels. Including Librato, Datadog and Metrics.
+description: SSO support for enterprise users.
 layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous
