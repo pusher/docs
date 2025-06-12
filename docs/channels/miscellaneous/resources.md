@@ -6,7 +6,7 @@ layout: channels.njk
 eleventyNavigation:
   parent: Miscellaneous
   key: Resources
-  order: 3
+  order: 4
 ---
 
 # Channels resources on the web
