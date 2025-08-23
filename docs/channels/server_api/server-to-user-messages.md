@@ -19,10 +19,10 @@ Check:
 - The [Server user authentication docs](/docs/channels/server_api/authenticating-users) for information on how to create a user authentication endpoint.
 
 {% methodwrap %}
-{% snippets ['js', 'php'], true %}
+{% snippets ['node', 'php'], true %}
 
 ```js
-pusher.sendToUser("user-id", "event-name", { message: "hello world" });
+await pusher.sendToUser("user-id", "event-name", { message: "hello world" });
 ```
 
 ```php
