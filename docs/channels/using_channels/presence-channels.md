@@ -13,7 +13,7 @@ eleventyNavigation:
 
 Presence channels build on the security of Private channels and expose the additional feature of an **awareness of who is subscribed to that channel**. This makes it extremely easy to build chat room and "who's online" type functionality to your application. Think chat rooms, collaborators on a document, people viewing the same web page, competitors in a game, that kind of thing.
 
-Presence channels are subscribed to from the client API in the same way as [private channels](/docs/channels/using_channels/private-channels#subscribe) but the channel name must be prefixed with `presence-`. As with private channels a HTTP Request is made to a configurable authorization URL to determine if the current user has permissions to access the channel (see [Authorizing Users](/docs/channels/server_api/authorizing-users) ).
+Presence channels are subscribed to from the client API in the same way as [private channels](/docs/channels/using_channels/private-channels#subscribe) but the channel name must be prefixed with `presence-`. As with private channels an HTTP Request is made to a configurable authorization URL to determine if the current user has permissions to access the channel (see [Authorizing Users](/docs/channels/server_api/authorizing-users) ).
 
 Each member of the presence channel has a user object containing the `id` of the user and a `user_info` field with more information about that user (e.g. name). That user object is shared with other members of the presence channel to identify this user. This user object can come from two places:
 
