@@ -1,0 +1,81 @@
+name: release
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Only one push-to-ECR at a time per branch; queueing avoids racy tag pushes
+# if two commits land back to back.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout/Install pusher/actions
+        uses: actions/checkout@v4
+        with:
+          repository: pusher/actions
+          token: ${{ secrets.PUSHER_CI_GITHUB_PRIVATE_TOKEN }}
+          path: .github/actions
+
+      - name: Define Common Env
+        id: common
+        uses: ./.github/actions/setup-common
+
+      - name: Set Env Vars
+        run: |
+          echo "VERSION=${{ steps.common.outputs.version }}" >> $GITHUB_ENV
+          echo "SHORT_SHA=${{ steps.common.outputs.short_sha }}" >> $GITHUB_ENV
+          echo "DATE=${{ steps.common.outputs.date }}" >> $GITHUB_ENV
+          echo "LONG_DATE=${{ steps.common.outputs.long_date }}" >> $GITHUB_ENV
+          echo "NAME=docs" >> $GITHUB_ENV
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build static site
+        env:
+          BUILD_ENV: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+        run: yarn build
+
+      - name: Update Algolia index
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          ALGOLIA_UPDATE_KEY: ${{ secrets.ALGOLIA_UPDATE_KEY }}
+          BUILD_ENV: production
+        run: yarn update:algolia
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${NAME}:${VERSION} .
+          echo "[BUILT] ${NAME}:${VERSION}"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.PUSHERINOS_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PUSHERINOS_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Push image to Amazon ECR
+        run: |
+          echo "${{ steps.login-ecr.outputs.registry }}"
+          docker tag ${NAME}:${VERSION} ${{ steps.login-ecr.outputs.registry }}/pusher/${NAME}:${VERSION}
+          docker push ${{ steps.login-ecr.outputs.registry }}/pusher/${NAME}:${VERSION}

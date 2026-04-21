@@ -1,0 +1,11 @@
+# Keep the Docker build context minimal. _site/ is the only thing the image
+# actually needs (it's built on the CI runner before `docker build`).
+.git
+.github
+node_modules
+_tmp
+.cache
+.DS_Store
+*.md
+!README.md
+.vscode

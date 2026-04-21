@@ -1,6 +1,10 @@
 const purgecss = require("@fullhuman/postcss-purgecss");
-const { VERCEL_ENV } = process.env;
-const is_prod_like = VERCEL_ENV === "production" || VERCEL_ENV === "preview";
+
+// BUILD_ENV is set by the release workflow (see .github/workflows/release.yml).
+// `VERCEL_ENV` is accepted as a fallback so the pipeline keeps working during
+// the transition off Vercel and for anyone still exporting it locally.
+const env = process.env.BUILD_ENV || process.env.VERCEL_ENV;
+const is_prod_like = env === "production" || env === "preview";
 
 module.exports = {
   plugins: [

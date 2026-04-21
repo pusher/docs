@@ -9,7 +9,9 @@ permalink: docs/README/
 
 An [Eleventy] powered static site using our custom [Tachyons] build with [Postcss] for styling.
 
-It’s deployed and hosted by [Vercel] when the `main` branch changes using their [Github integration] - https://pusher-docs.vercel.app
+It's built and served from our own EKS cluster (`eks-general`). On every push to `main`, GitHub Actions (`.github/workflows/release.yml`) builds the static site, pushes a Docker image to ECR (`008815156580.dkr.ecr.us-east-1.amazonaws.com/pusher/docs`), and Flux deploys it to the `docs` Service in the `internal` namespace. Public traffic reaches it via CloudFront → the `pusher-sites` nginx proxy → this pod.
+
+See the migration plan in `pusher/engineering-manual` for the full setup.
 
 ## Running locally
 
@@ -43,11 +45,19 @@ yarn run css
 
 ### Search
 
-Search is powered by Algolia, on every production build a refreshed index of all content is sent to them.
+Search is powered by Algolia; on every `main` production build, `yarn update:algolia` pushes a refreshed index. The primary search experience is client-side JS (see `js/modules/search.mjs`). Users with JavaScript disabled see a short fallback message — no server-side rendering is offered.
 
-For users without JS there is a fallback page which is powered by Vercel’s serverless functions.
+Required secret for the Algolia push: `ALGOLIA_UPDATE_KEY`, set as a GitHub Actions secret on this repo.
 
-If you need to debug this you can run the project with `vercel dev` and it will hot reload any changes.
+### Building a production-like image locally
+
+```bash
+yarn install
+yarn build
+docker build -t docs:dev .
+docker run --rm -p 8080:8080 docs:dev
+open http://localhost:8080/docs/
+```
 
 ## How to add / update new pages
 
@@ -226,8 +236,6 @@ Contributions welcome!
 [eleventy]: https://www.11ty.io
 [tachyons]: http://tachyons.io/
 [postcss]: https://postcss.org
-[vercel]: https://vercel.co/
-[github integration]: https://vercel.com/docs/git-integrations
 [markdown]: https://www.markdownguide.org/
 [yarn]: https://yarnpkg.com/
 [browsersync]: https://www.browsersync.io/
