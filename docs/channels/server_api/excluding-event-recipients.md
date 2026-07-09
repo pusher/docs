@@ -118,9 +118,9 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-app.post("/trigger", (req, res) => {
+app.post("/trigger", async (req, res) => {
   const socketId = req.body.socket_id;
-  pusher.trigger(
+  await pusher.trigger(
     "my-channel",
     "my-event",
     {

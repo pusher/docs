@@ -111,7 +111,7 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-pusher.trigger(channels, event, data, socketId).catch((error) => {
+await pusher.trigger(channels, event, data, socketId).catch((error) => {
   console.log(error);
 });
 ```
@@ -358,7 +358,7 @@ const pusher = new Pusher({
   cluster: "APP_CLUSTER",
 });
 
-pusher.trigger("my-channel", "my-event", {
+await pusher.trigger("my-channel", "my-event", {
   message: "hello world",
 });
 ```
@@ -453,7 +453,7 @@ const pusher = new Pusher({
 });
 
 const channels = ["my-channel-1", "my-channel-2", "my-channel-3"];
-pusher.trigger(channels, "my-event", {
+await pusher.trigger(channels, "my-event", {
   message: "hello world",
 });
 ```
@@ -600,7 +600,7 @@ const events = [
   },
 ];
 
-pusher.triggerBatch(events);
+await pusher.triggerBatch(events);
 ```
 
 ```py
@@ -626,7 +626,7 @@ For the channels that were published to, you can request for the number of subsc
 
 This is currently only supported in the PHP, Node.js and Go SDKs.
 
-{% snippets ['php', 'js', 'go'] %}
+{% snippets ['php', 'node', 'go'] %}
 
 ```php
 $batch = array();

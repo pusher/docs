@@ -86,7 +86,7 @@ var pusher = new Pusher({
   cluster: "APP_CLUSTER",
 });
 
-pusher.trigger("my-channel", "my-event", { message: "hello world" });
+await pusher.trigger("my-channel", "my-event", { message: "hello world" });
 ```
 
 ```php
