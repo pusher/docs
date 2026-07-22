@@ -16,8 +16,6 @@ Each platform supports different options when publishing notifications via the `
 
 ## FCM format
 
-The full set of options is described by Google in their documentation of [FCM downstream HTTP messages](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream)
-
 ```js
 publishToUsers(["SOME_USER"], {
   fcm: {
