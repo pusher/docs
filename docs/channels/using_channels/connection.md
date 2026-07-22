@@ -435,38 +435,53 @@ In the case that Channels is not supported:
 
 #### Binding to connection events
 
-Each Channels instance now has a `connection` object which manages the current state of the Channels connection and allows binding to state changes:
+Each Channels instance now has a `connection` object which manages the current state of the Channels connection and allows binding to state changes to a specific state:
+{% snippets ['js'] %}
 
 ```js
 var pusher = new Pusher("_APP_KEY");
+//bind to the 'connected' state
 
-pusher.connection.bind("connected", function () {
-  $("div#status").text("Realtime is go!");
-});
+pusher.connection.bind('connected', function(socketIDObject) {
+          socketId = socketIDObject.socket_id
+          console.log(`Connected to Channels, socketiD: ${socketId}`);
+          });
 ```
+
+{% endsnippets %}
 
 You can also bind to the `error` event, which is emitted whenever a connection error occurs:
 
+{% snippets ['js'] %}
 ```js
 pusher.connection.bind("error", function (error) {
   console.error("connection error", error);
-  $("div#status").text("Error!");
 });
 ```
+
+{% endsnippets %}
 
 #### Binding to all state changes
 
 There’s an extra `state_change` utility event that fires for all state changes:
 
+{% snippets ['js'] %}
+
 ```js
-pusher.connection.bind("state_change", function (states) {
-  // states = {previous: 'oldState', current: 'newState'}
-  $("div#status").text("Channels current state is " + states.current);
-});
+ pusher.connection.bind("state_change", function (states) {
+          console.log(`Connection state change:  ${states.previous} -> ${states.current}`);
+        });
 ```
 
+{% endsnippets %}
+
 ### Querying the connection state
+
+{% snippets ['js'] %}
 
 ```js
 const state = pusher.connection.state;
 ```
+
+{% endsnippets %}
+
